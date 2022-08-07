@@ -1,0 +1,93 @@
+//sans serif
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap')
+//sans
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap')
+//variables
+$light-color1: rgb(232, 222, 208)
+$light-color2: invert(rgb(4, 8, 27))
+$dark-color1: rgb(4, 8, 27)
+$dark-color2: invert(rgb(232, 222, 208))
+
+*
+    box-sizing: border-box
+    cursor: default
+html
+    background-color: $dark-color2
+    font-family: Quicksand
+
+body, html
+    margin: 0
+    padding: 0
+
+body
+    background-image: linear-gradient(to top right, rgba(119, 47, 54, 0.25),rgba(254, 122, 92, 0.25) )
+    color: $light-color2
+
+    &::before
+        content: ''
+        height: 0%
+        background-color: $dark-color1
+        width: 100%
+        animation-name: opening 6s ease
+
+nav
+    position: absolute
+    width: 100vw
+    margin: 0
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    padding: 20px
+
+    span
+        padding: 20px
+
+div.header
+    position: relative
+    height: 100%
+    font-family: Bodoni Moda
+    font-size: 100px
+    color: $light-color2
+    div.hero
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+    div.background
+        position: absolute
+        color: #00000033
+        font-size: 30vw
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50% )
+        text-align: center
+        z-index: -1
+    div.border
+        content: ''
+        border: 2px solid $light-color2
+        position: absolute
+        color: rgba(255,255,255,0.3)
+        cursor: pointer
+        padding: 200px
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        text-align: center
+
+div.content
+    height: 100%
+
+@media only screen and (max-width: 600px)
+    body
+        nav
+            visibility: hidden
+        div.header
+            div.hero
+                font-size: 50px
+            div.background
+                font-size: 150px
+                left: -50%
+                transform: rotate(90deg)
+
+// @keyframes opening
