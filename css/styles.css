@@ -7,7 +7,7 @@
 }
 
 html {
-  background-color: #17212f;
+  background-color: #333333;
   font-family: Quicksand;
 }
 
@@ -17,13 +17,13 @@ body, html {
 }
 
 body {
-  background-image: linear-gradient(to top right, rgba(119, 47, 54, 0.25), rgba(254, 122, 92, 0.25));
-  color: #fbf7e4;
+  background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.5), rgba(37, 37, 37, 0.5));
+  color: #F0F0F0;
 }
 body::before {
   content: "";
   height: 0%;
-  background-color: rgb(4, 8, 27);
+  background-color: #333333;
   width: 100%;
   -webkit-animation-name: opening 6s ease;
           animation-name: opening 6s ease;
@@ -47,37 +47,62 @@ div.header {
   height: 100%;
   font-family: Bodoni Moda;
   font-size: 100px;
-  color: #fbf7e4;
+  color: #F0F0F0;
 }
 div.header div.hero {
   position: absolute;
   top: 50%;
+  z-index: 1;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
 div.header div.background {
   position: absolute;
-  color: rgba(0, 0, 0, 0.2);
   font-size: 30vw;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0%;
+  left: -50%;
+}
+div.header div.background div.background1 {
+  margin: -40vh;
+  color: rgba(0, 0, 0, 0.2);
   text-align: center;
   z-index: -1;
+  transition: 0.3s ease;
 }
-div.header div.border {
-  content: "";
-  border: 2px solid #fbf7e4;
-  position: absolute;
-  color: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  padding: 200px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+div.header div.background div.background2 {
+  margin: -40vh;
+  color: rgba(0, 0, 0, 0.2);
   text-align: center;
+  z-index: -1;
+  transition: 0.3s ease;
 }
-
+div.header div.background div.background3 {
+  margin: -40vh;
+  color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: -1;
+  transition: 0.3s ease;
+}
+div.header div.background div.background4 {
+  margin: -40vh;
+  color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: -1;
+  transition: 0.3s ease;
+}
+div.header div.background div.background5 {
+  margin: -40vh;
+  color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: -1;
+  transition: 0.3s ease;
+}
+div.header div.background div.background6 {
+  margin: -40vh;
+  color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: -1;
+  transition: 0.3s ease;
+}
 div.content {
   height: 100%;
 }
