@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 * {
   box-sizing: border-box;
@@ -105,9 +105,10 @@ div.header {
   font-family: Bodoni Moda;
 }
 div.header div.hero {
+  font-style: italic;
   position: absolute;
+  z-index: 4;
   top: 50%;
-  z-index: 1;
   left: 50%;
 }
 div.header div.background {
@@ -165,7 +166,6 @@ div.header div.border {
   top: 30%;
   left: 30%;
   transform: translate(-50%, -50%);
-  text-align: center;
   transition: 0.5s ease;
   z-index: 2;
 }
@@ -177,6 +177,19 @@ div.header div.border div.header-border-top {
   top: -10%;
   left: 0;
   font-size: 12px;
+}
+div.header div.border div.header-border-content {
+  left: 0%;
+  top: 0%;
+  position: absolute;
+  width: 100%;
+  height: 0%;
+  transition: 1s ease;
+  background-color: #92573D;
+  overflow: hidden;
+}
+div.header div.border:hover div.header-border-content {
+  height: 80%;
 }
 div.header span.scroll-down {
   font-family: Quicksand;
@@ -199,16 +212,72 @@ div.content {
 }
 
 @media only screen and (max-width: 600px) {
+  .quilt-lat::before {
+    width: 20%;
+    opacity: 0.5;
+  }
+  .quilt-lat::after {
+    width: 20%;
+    opacity: 0.5;
+  }
+  .quilt-long::before {
+    top: -25%;
+    height: 50%;
+    opacity: 0.5;
+  }
+  .quilt-long::after {
+    bottom: -25%;
+    height: 50%;
+    opacity: 0.5;
+  }
   body nav {
     visibility: hidden;
   }
   body div.header div.hero {
-    font-size: 50px;
+    top: 40%;
+    left: 25vw;
+    font-size: 15vw;
   }
   body div.header div.background {
-    font-size: 150px;
-    left: -50%;
-    transform: rotate(90deg);
+    position: absolute;
+    font-size: 30vh;
+    top: 0%;
+    left: -150%;
+  }
+  body div.header div.background div.background1 {
+    line-height: 25vh;
+  }
+  body div.header div.background div.background2 {
+    line-height: 25vh;
+  }
+  body div.header div.background div.background3 {
+    line-height: 25vh;
+  }
+  body div.header div.background div.background4 {
+    line-height: 25vh;
+  }
+  body div.header div.border {
+    padding: 0px;
+    height: 100px;
+    width: 100px;
+    top: 10%;
+    left: 25vw;
+  }
+  body div.header div.border div.header-border-top {
+    letter-spacing: 5px;
+    top: 20vh;
+  }
+  body div.header span.scroll-down {
+    letter-spacing: 5px;
+    font-size: 8px;
+    top: 90vh;
+    left: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: 0.9s ease;
+  }
+  body div.header span.scroll-down:hover {
+    transform: translate(-50%, -20%);
   }
 }
 @media (prefers-color-scheme: light) {

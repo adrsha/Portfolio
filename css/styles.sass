@@ -1,7 +1,7 @@
 //sans serif
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap')
 //sans
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap')
 //variables
 
@@ -100,9 +100,10 @@ div.header
     color: $color3
     font-family: Bodoni Moda
     div.hero
+        font-style: italic
         position: absolute
+        z-index: 4
         top: 50%
-        z-index: 1
         left: 50%
     div.background
         position: absolute
@@ -129,7 +130,7 @@ div.header
         top: 30%
         left: 30%
         transform: translate(-50%, -50%)
-        text-align: center
+        // text-align: center
         transition: 0.5s ease
         z-index: 2
         div.header-border-top
@@ -140,6 +141,17 @@ div.header
             top: -10%
             left: 0
             font-size: 12px
+        div.header-border-content
+            left: 0%
+            top: 0%
+            position: absolute
+            width: 100%
+            height: 0%
+            transition: 1s ease
+            background-color: $color2
+            overflow: hidden
+        &:hover div.header-border-content
+            height: 80%
 
     span.scroll-down
         font-family: Quicksand
@@ -159,16 +171,60 @@ div.content
     height: 100%
 
 @media only screen and (max-width: 600px)
+    .quilt-lat
+        &::before
+            width: 20%
+            opacity: 0.5
+        &::after
+            width: 20%
+            opacity: 0.5
+
+    .quilt-long
+        &::before
+            top: -25%
+            height: 50%
+            opacity: 0.5
+        &::after
+            bottom: -25%
+            height: 50%
+            opacity: 0.5
+
     body
         nav
             visibility: hidden
         div.header
             div.hero
-                font-size: 50px
+                top: 40%
+                left: 25vw
+                font-size: 15vw
             div.background
-                font-size: 150px
-                left: -50%
-                transform: rotate(90deg)
+                position: absolute
+                font-size: 30vh
+                top: 0%
+                left: -150%
+                @for $i from 1 through 4
+                    div.background#{$i}
+                        line-height: 25vh
+
+            div.border
+                padding: 0px
+                height: 100px
+                width: 100px
+                top: 10%
+                left: 25vw
+                div.header-border-top
+                    letter-spacing: 5px
+                    top: 20vh
+            span.scroll-down
+                letter-spacing: 5px
+                font-size: 8px
+                top: 90vh
+                left: 50%
+                cursor: pointer
+                transform: translate(-50%,-50%)
+                transition: 0.9s ease
+                &:hover
+                    transform: translate(-50%, -20%)
 
 @media (prefers-color-scheme: light)
     html
