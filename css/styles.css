@@ -7,23 +7,23 @@
 }
 
 html {
-  background-color: #333333;
+  background-color: rgb(0, 5, 8);
   font-family: Quicksand;
 }
 
 body, html {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
-  background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.5), rgba(37, 37, 37, 0.5));
   color: #F0F0F0;
 }
 body::before {
   content: "";
   height: 0%;
-  background-color: #333333;
+  background-color: rgb(0, 5, 8);
   width: 100%;
   -webkit-animation-name: opening 6s ease;
           animation-name: opening 6s ease;
@@ -62,47 +62,48 @@ div.header div.background {
   left: -50%;
 }
 div.header div.background div.background1 {
-  margin: -40vh;
-  color: rgba(0, 0, 0, 0.2);
+  margin: -23vw;
+  color: rgba(240, 240, 240, 0.05);
   text-align: center;
   z-index: -1;
   transition: 0.3s ease;
 }
 div.header div.background div.background2 {
-  margin: -40vh;
-  color: rgba(0, 0, 0, 0.2);
+  margin: -23vw;
+  color: rgba(240, 240, 240, 0.05);
   text-align: center;
   z-index: -1;
   transition: 0.3s ease;
 }
 div.header div.background div.background3 {
-  margin: -40vh;
-  color: rgba(0, 0, 0, 0.2);
+  margin: -23vw;
+  color: rgba(240, 240, 240, 0.05);
   text-align: center;
   z-index: -1;
   transition: 0.3s ease;
 }
 div.header div.background div.background4 {
-  margin: -40vh;
-  color: rgba(0, 0, 0, 0.2);
+  margin: -23vw;
+  color: rgba(240, 240, 240, 0.05);
   text-align: center;
   z-index: -1;
   transition: 0.3s ease;
 }
 div.header div.background div.background5 {
-  margin: -40vh;
-  color: rgba(0, 0, 0, 0.2);
+  margin: -23vw;
+  color: rgba(240, 240, 240, 0.05);
   text-align: center;
   z-index: -1;
   transition: 0.3s ease;
 }
 div.header div.background div.background6 {
-  margin: -40vh;
-  color: rgba(0, 0, 0, 0.2);
+  margin: -23vw;
+  color: rgba(240, 240, 240, 0.05);
   text-align: center;
   z-index: -1;
   transition: 0.3s ease;
 }
+
 div.content {
   height: 100%;
 }
