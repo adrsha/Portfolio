@@ -42,12 +42,69 @@ nav span {
   padding: 20px;
 }
 
+.quilt-lat {
+  position: relative;
+}
+.quilt-lat::before {
+  position: absolute;
+  content: "";
+  border-top: 1px solid rgba(240, 240, 240, 0.7);
+  width: 20%;
+  top: 50%;
+  left: -50%;
+  transition: 0.7s ease;
+}
+.quilt-lat::after {
+  position: absolute;
+  content: "";
+  border-top: 1px solid rgba(240, 240, 240, 0.7);
+  width: 20%;
+  top: 50%;
+  right: -50%;
+  transition: 0.7s ease;
+}
+.quilt-lat:hover::after {
+  width: 0%;
+}
+.quilt-lat:hover::before {
+  width: 0%;
+}
+
+.quilt-long {
+  position: relative;
+  padding: 30px;
+}
+.quilt-long::before {
+  position: absolute;
+  content: "";
+  border-left: 1px solid rgba(240, 240, 240, 0.7);
+  height: 100%;
+  top: -100%;
+  left: 50%;
+  transition: 0.7s ease;
+}
+.quilt-long::after {
+  position: absolute;
+  content: "";
+  border-left: 1px solid rgba(240, 240, 240, 0.7);
+  height: 100%;
+  bottom: -100%;
+  left: 50%;
+  transition: 0.7s ease;
+}
+.quilt-long:hover::after {
+  height: 0%;
+}
+.quilt-long:hover::before {
+  height: 0%;
+}
+
 div.header {
   position: relative;
   height: 100%;
-  font-family: Bodoni Moda;
   font-size: 100px;
   color: #F0F0F0;
+  font-family: Bodoni Moda;
 }
 div.header div.hero {
   position: absolute;
@@ -62,46 +119,100 @@ div.header div.background {
   left: -50%;
 }
 div.header div.background div.background1 {
-  margin: -23vw;
+  line-height: 22vw;
+  overflow-y: hidden;
   color: rgba(240, 240, 240, 0.05);
   text-align: center;
-  z-index: -1;
   transition: 0.3s ease;
+}
+div.header div.background div.background1:hover {
+  color: rgba(240, 240, 240, 0.3);
 }
 div.header div.background div.background2 {
-  margin: -23vw;
+  line-height: 22vw;
+  overflow-y: hidden;
   color: rgba(240, 240, 240, 0.05);
   text-align: center;
-  z-index: -1;
   transition: 0.3s ease;
+}
+div.header div.background div.background2:hover {
+  color: rgba(240, 240, 240, 0.3);
 }
 div.header div.background div.background3 {
-  margin: -23vw;
+  line-height: 22vw;
+  overflow-y: hidden;
   color: rgba(240, 240, 240, 0.05);
   text-align: center;
-  z-index: -1;
   transition: 0.3s ease;
+}
+div.header div.background div.background3:hover {
+  color: rgba(240, 240, 240, 0.3);
 }
 div.header div.background div.background4 {
-  margin: -23vw;
+  line-height: 22vw;
+  overflow-y: hidden;
   color: rgba(240, 240, 240, 0.05);
   text-align: center;
-  z-index: -1;
   transition: 0.3s ease;
+}
+div.header div.background div.background4:hover {
+  color: rgba(240, 240, 240, 0.3);
 }
 div.header div.background div.background5 {
-  margin: -23vw;
+  line-height: 22vw;
+  overflow-y: hidden;
   color: rgba(240, 240, 240, 0.05);
   text-align: center;
-  z-index: -1;
   transition: 0.3s ease;
 }
+div.header div.background div.background5:hover {
+  color: rgba(240, 240, 240, 0.3);
+}
 div.header div.background div.background6 {
-  margin: -23vw;
+  line-height: 22vw;
+  overflow-y: hidden;
   color: rgba(240, 240, 240, 0.05);
   text-align: center;
-  z-index: -1;
   transition: 0.3s ease;
+}
+div.header div.background div.background6:hover {
+  color: rgba(240, 240, 240, 0.3);
+}
+div.header div.border {
+  content: "";
+  border: 2px solid #707070;
+  position: absolute;
+  cursor: pointer;
+  padding: 200px;
+  top: 30%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  transition: 0.5s ease;
+  z-index: 2;
+}
+div.header div.border div.header-border-top {
+  font-family: Quicksand;
+  letter-spacing: 5px;
+  font-weight: bold;
+  position: absolute;
+  top: -10%;
+  left: 0;
+  font-size: 12px;
+}
+div.header span.scroll-down {
+  font-family: Quicksand;
+  font-weight: bold;
+  letter-spacing: 5px;
+  position: absolute;
+  font-size: 12px;
+  top: 90vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.9s ease;
+}
+div.header span.scroll-down:hover {
+  transform: translate(-50%, -20%);
 }
 
 div.content {

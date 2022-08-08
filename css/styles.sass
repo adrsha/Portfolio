@@ -44,12 +44,58 @@ nav
     span
         padding: 20px
 
+.quilt-lat
+    position: relative
+    &::before
+        position: absolute
+        content: ""
+        border-top: 1px solid transparentize($color3,0.3)
+        width: 20%
+        top: 50%
+        left: -50%
+        transition: 0.7s ease
+    &::after
+        position: absolute
+        content: ""
+        border-top: 1px solid transparentize($color3,0.3)
+        width: 20%
+        top: 50%
+        right: -50%
+        transition: 0.7s ease
+    &:hover::after
+        width: 0%
+    &:hover::before
+        width: 0%
+.quilt-long
+    position: relative
+    padding: 30px
+    &::before
+        position: absolute
+        content: ""
+        border-left: 1px solid transparentize($color3,0.3)
+        height: 100%
+        top: -100%
+        left: 50%
+        transition: 0.7s ease
+    &::after
+        position: absolute
+        content: ""
+        border-left: 1px solid transparentize($color3,0.3)
+        height: 100%
+        bottom: -100%
+        left: 50%
+        transition: 0.7s ease
+    &:hover::after
+        height: 0%
+    &:hover::before
+        height: 0%
+
 div.header
     position: relative
     height: 100%
-    font-family: Bodoni Moda
     font-size: 100px
     color: $color3
+    font-family: Bodoni Moda
     div.hero
         position: absolute
         top: 50%
@@ -62,39 +108,48 @@ div.header
         left: -50%
         @for $i from 1 through 6
             div.background#{$i}
-                margin: -23vw
+                // margin: -23vw
+                line-height: 22vw
+                overflow-y: hidden
                 color: transparentize($color3,0.95)
                 text-align: center
-                z-index: -1
                 transition: 0.3s ease
+                &:hover
+                    color: transparentize($color3,0.7)
 
-    // div.border
-    //     content: ''
-    //     border: 2px solid $color4
-    //     position: absolute
-    //     color: rgba(255,255,255,0.3)
-    //     cursor: pointer
-    //     padding: 200px
-    //     top: 30%
-    //     left: 30%
-    //     transform: translate(-50%, -50%)
-    //     text-align: center
-    //     transition: 0.5s ease
-    //     &::before
-    //         top: 0%
-    //         left: 0%
-    //         transition: 0.5s height ease
-    //         position: absolute
-    //         content: ""
-    //         width: 100%
-    //         height: 0
-    //         background: $color4
-    //     &:hover::before
-    //         height: 100%
-    //         top: 0%
-    //         left: 0%
-    //     &:hover
-    //         border: 2px solid transparent
+    div.border
+        content: ''
+        border: 2px solid $color2
+        position: absolute
+        cursor: pointer
+        padding: 200px
+        top: 30%
+        left: 30%
+        transform: translate(-50%, -50%)
+        text-align: center
+        transition: 0.5s ease
+        z-index: 2
+        div.header-border-top
+            font-family: Quicksand
+            letter-spacing: 5px
+            font-weight: bold
+            position: absolute
+            top: -10%
+            left: 0
+            font-size: 12px
+
+    span.scroll-down
+        font-family: Quicksand
+        font-weight: bold
+        letter-spacing: 5px
+        position: absolute
+        font-size: 12px
+        top: 90vh
+        left: 50%
+        transform: translate(-50%,-50%)
+        transition: 0.9s ease
+        &:hover
+            transform: translate(-50%, -20%)
 
 div.content
     height: 100%
@@ -111,4 +166,4 @@ div.content
                 left: -50%
                 transform: rotate(90deg)
 
-// @keyframes opening
+    // @keyframes opening
