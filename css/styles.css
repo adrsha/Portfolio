@@ -7,7 +7,8 @@
 }
 
 html {
-  background-color: rgb(0, 5, 8);
+  background-color: #121212;
+  color: #CFA593;
   font-family: Quicksand;
 }
 
@@ -17,13 +18,10 @@ body, html {
   overflow-x: hidden;
 }
 
-body {
-  color: #F0F0F0;
-}
 body::before {
   content: "";
   height: 0%;
-  background-color: rgb(0, 5, 8);
+  background-color: #121212;
   width: 100%;
   -webkit-animation-name: opening 6s ease;
           animation-name: opening 6s ease;
@@ -48,7 +46,7 @@ nav span {
 .quilt-lat::before {
   position: absolute;
   content: "";
-  border-top: 1px solid rgba(240, 240, 240, 0.7);
+  border-top: 1px solid rgba(214, 209, 206, 0.7);
   width: 20%;
   top: 50%;
   left: -50%;
@@ -57,7 +55,7 @@ nav span {
 .quilt-lat::after {
   position: absolute;
   content: "";
-  border-top: 1px solid rgba(240, 240, 240, 0.7);
+  border-top: 1px solid rgba(214, 209, 206, 0.7);
   width: 20%;
   top: 50%;
   right: -50%;
@@ -77,18 +75,18 @@ nav span {
 .quilt-long::before {
   position: absolute;
   content: "";
-  border-left: 1px solid rgba(240, 240, 240, 0.7);
-  height: 100%;
-  top: -100%;
+  border-left: 1px solid rgba(214, 209, 206, 0.7);
+  height: 50%;
+  top: -50%;
   left: 50%;
   transition: 0.7s ease;
 }
 .quilt-long::after {
   position: absolute;
   content: "";
-  border-left: 1px solid rgba(240, 240, 240, 0.7);
-  height: 100%;
-  bottom: -100%;
+  border-left: 1px solid rgba(214, 209, 206, 0.7);
+  height: 50%;
+  bottom: -50%;
   left: 50%;
   transition: 0.7s ease;
 }
@@ -103,7 +101,7 @@ div.header {
   position: relative;
   height: 100%;
   font-size: 100px;
-  color: #F0F0F0;
+  color: #D6D1CE;
   font-family: Bodoni Moda;
 }
 div.header div.hero {
@@ -121,66 +119,46 @@ div.header div.background {
 div.header div.background div.background1 {
   line-height: 22vw;
   overflow-y: hidden;
-  color: rgba(240, 240, 240, 0.05);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #D6D1CE;
+  color: transparent;
+  opacity: 0.1;
   text-align: center;
-  transition: 0.3s ease;
-}
-div.header div.background div.background1:hover {
-  color: rgba(240, 240, 240, 0.3);
+  transition: 0.9s ease;
 }
 div.header div.background div.background2 {
   line-height: 22vw;
   overflow-y: hidden;
-  color: rgba(240, 240, 240, 0.05);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #D6D1CE;
+  color: transparent;
+  opacity: 0.1;
   text-align: center;
-  transition: 0.3s ease;
-}
-div.header div.background div.background2:hover {
-  color: rgba(240, 240, 240, 0.3);
+  transition: 0.9s ease;
 }
 div.header div.background div.background3 {
   line-height: 22vw;
   overflow-y: hidden;
-  color: rgba(240, 240, 240, 0.05);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #D6D1CE;
+  color: transparent;
+  opacity: 0.1;
   text-align: center;
-  transition: 0.3s ease;
-}
-div.header div.background div.background3:hover {
-  color: rgba(240, 240, 240, 0.3);
+  transition: 0.9s ease;
 }
 div.header div.background div.background4 {
   line-height: 22vw;
   overflow-y: hidden;
-  color: rgba(240, 240, 240, 0.05);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #D6D1CE;
+  color: transparent;
+  opacity: 0.1;
   text-align: center;
-  transition: 0.3s ease;
-}
-div.header div.background div.background4:hover {
-  color: rgba(240, 240, 240, 0.3);
-}
-div.header div.background div.background5 {
-  line-height: 22vw;
-  overflow-y: hidden;
-  color: rgba(240, 240, 240, 0.05);
-  text-align: center;
-  transition: 0.3s ease;
-}
-div.header div.background div.background5:hover {
-  color: rgba(240, 240, 240, 0.3);
-}
-div.header div.background div.background6 {
-  line-height: 22vw;
-  overflow-y: hidden;
-  color: rgba(240, 240, 240, 0.05);
-  text-align: center;
-  transition: 0.3s ease;
-}
-div.header div.background div.background6:hover {
-  color: rgba(240, 240, 240, 0.3);
+  transition: 0.9s ease;
 }
 div.header div.border {
   content: "";
-  border: 2px solid #707070;
+  border: 2px solid #92573D;
   position: absolute;
   cursor: pointer;
   padding: 200px;
@@ -205,9 +183,10 @@ div.header span.scroll-down {
   font-weight: bold;
   letter-spacing: 5px;
   position: absolute;
-  font-size: 12px;
+  font-size: 10px;
   top: 90vh;
   left: 50%;
+  cursor: pointer;
   transform: translate(-50%, -50%);
   transition: 0.9s ease;
 }
@@ -230,5 +209,10 @@ div.content {
     font-size: 150px;
     left: -50%;
     transform: rotate(90deg);
+  }
+}
+@media (prefers-color-scheme: light) {
+  html {
+    filter: invert(1);
   }
 }/*# sourceMappingURL=styles.css.map */

@@ -4,16 +4,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap')
 //variables
-$color1: rgba(0, 5, 8, 1)
-$color4: #FCFCFC
-$color3: #F0F0F0
-$color2: #707070
 
+$color0: #45291D
+// $color1: #170f0f
+$color2: #92573D
+// $color3: #C57552
+$color4: #CFA593
+$color5: #f9dacd
+$color6: #453832
+$color1: #121212
+$color3: #D6D1CE
 *
     box-sizing: border-box
     cursor: default
 html
     background-color: $color1
+    color: $color4
     font-family: Quicksand
 
 body, html
@@ -22,9 +28,6 @@ body, html
     overflow-x: hidden
 
 body
-    // background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.5),rgba(37, 37, 37, 0.5) )
-    color: $color3
-
     &::before
         content: ''
         height: 0%
@@ -73,16 +76,16 @@ nav
         position: absolute
         content: ""
         border-left: 1px solid transparentize($color3,0.3)
-        height: 100%
-        top: -100%
+        height: 50%
+        top: -50%
         left: 50%
         transition: 0.7s ease
     &::after
         position: absolute
         content: ""
         border-left: 1px solid transparentize($color3,0.3)
-        height: 100%
-        bottom: -100%
+        height: 50%
+        bottom: -50%
         left: 50%
         transition: 0.7s ease
     &:hover::after
@@ -106,16 +109,16 @@ div.header
         font-size: 30vw
         top: 0%
         left: -50%
-        @for $i from 1 through 6
+        @for $i from 1 through 4
             div.background#{$i}
-                // margin: -23vw
                 line-height: 22vw
                 overflow-y: hidden
-                color: transparentize($color3,0.95)
+                -webkit-text-stroke-width: 2px
+                -webkit-text-stroke-color: $color3
+                color: transparent
+                opacity: 0.1
                 text-align: center
-                transition: 0.3s ease
-                &:hover
-                    color: transparentize($color3,0.7)
+                transition: 0.9s ease
 
     div.border
         content: ''
@@ -143,9 +146,10 @@ div.header
         font-weight: bold
         letter-spacing: 5px
         position: absolute
-        font-size: 12px
+        font-size: 10px
         top: 90vh
         left: 50%
+        cursor: pointer
         transform: translate(-50%,-50%)
         transition: 0.9s ease
         &:hover
@@ -166,4 +170,6 @@ div.content
                 left: -50%
                 transform: rotate(90deg)
 
-    // @keyframes opening
+@media (prefers-color-scheme: light)
+    html
+        filter: invert(1)
