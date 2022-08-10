@@ -272,7 +272,7 @@ div.content {
   body div.header div.border div.header-border-content {
     height: 0;
   }
-  body div.header div.border::after {
+  body div.header div.border::after, body div.header div.border a.contact {
     display: none;
   }
   body div.header span.scroll-down {
@@ -331,7 +331,8 @@ div.content {
     height: 100px;
     width: 100px;
     top: 10%;
-    left: 75vw;
+    left: auto;
+    right: 15vw;
   }
   body div.header div.border div.header-border-top {
     letter-spacing: 5px;
@@ -339,8 +340,9 @@ div.content {
   }
   body div.header div.border div.header-border-content {
     height: 0;
+    color: transparent;
   }
-  body div.header div.border::after {
+  body div.header div.border::after, body div.header div.border a.contact {
     display: none;
   }
   body div.header span.scroll-down {

@@ -6,14 +6,12 @@
 //variables
 
 $color0: #45291D
-// $color1: #170f0f
+$color1: #121212
 $color2: #92573D
-// $color3: #C57552
+$color3: #D6D1CE
 $color4: #CFA593
 $color5: #f9dacd
 $color6: #453832
-$color1: #121212
-$color3: #D6D1CE
 
 a
     text-decoration-line: none
@@ -168,6 +166,11 @@ div.header
             height: 0%
             transition: 1s ease
             background-color: $color2
+            // background-blend-mode: overlay
+            // background-attachment: fixed
+            // background-repeat: no-repeat
+            // background-position: center
+            // background-image: url('../img/bg1.webp')
             overflow: hidden
             z-index: 1
             p#aboutme
@@ -248,7 +251,7 @@ div.content
                     top: 20vh
                 div.header-border-content
                     height: 0
-                &::after
+                &::after, a.contact
                     display: none
 
             span.scroll-down
@@ -298,13 +301,15 @@ div.content
                 height: 100px
                 width: 100px
                 top: 10%
-                left: 75vw
+                left: auto
+                right: 15vw
                 div.header-border-top
                     letter-spacing: 5px
                     top: 20vh
                 div.header-border-content
                     height: 0
-                &::after
+                    color: transparent
+                &::after, a.contact
                     display: none
             span.scroll-down
                 letter-spacing: 5px
