@@ -4,15 +4,17 @@
 //sans
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap')
 //variables
-
-$color0: #45291D
-$color1: #121212
-$color2: #92573D
-$color3: #D6D1CE
-$color4: #CFA593
-$color5: #f9dacd
-$color6: #453832
-
+$serif: 'Bodoni Moda', Georgia, 'Times New Roman', serif
+$sans: Quicksand, 'Segoe UI', Verdana, sans-serif
+$color0: #121212
+$color1: #261D17
+$color2: #40342A
+$color3: #736151
+$color4: #A68776
+$color5: #F2DCC2
+$color6: #D6D1CE
+ul
+    list-style: none
 a
     text-decoration-line: none
     color: $color3
@@ -28,26 +30,18 @@ a
 
 .minimal-text
     letter-spacing: 5px
-    font-family: Quicksand
+    font-family: $sans
     text-transform: uppercase
 
 html
-    background-color: $color1
-    color: $color4
-    font-family: Quicksand
+    background-color: $color0
+    color: $color6
+    font-family: $sans
 
 body, html
     margin: 0
     padding: 0
     overflow-x: hidden
-
-body
-    &::before
-        content: ''
-        height: 0%
-        background-color: $color1
-        width: 100%
-        animation-name: opening 6s ease
 
 nav
     position: absolute
@@ -63,6 +57,7 @@ nav
 
 .quilt-lat
     position: relative
+    text-align: center
     &::before
         position: absolute
         content: ""
@@ -86,6 +81,7 @@ nav
 .quilt-long
     position: relative
     padding: 30px
+    text-align: center
     &::before
         position: absolute
         content: ""
@@ -110,21 +106,22 @@ nav
 div.header
     position: relative
     height: 100vh
-    color: $color3
-    font-family: Bodoni Moda
     div.hero
+        font-family: $serif
         font-style: italic
+        color: $color5
         font-size: 8vh
         position: absolute
         z-index: 4
         top: 50vh
+        margin-right: 5vw
         left: 50%
     div.background
         position: absolute
-        font-size: 32vh
+        font-size: 30vh
         top: 0%
         left: -50%
-        // @for $i from 1 through 4
+            // @for $i from 1 through 4
         div.background-i
             line-height: 25vh
             overflow-y: hidden
@@ -136,8 +133,7 @@ div.header
             -moz-user-select: none
             -ms-user-select: none
             user-select: none
-
-            text-align: center
+            font-family: $sans
             transition: 0.9s ease
 
     div.border
@@ -148,36 +144,31 @@ div.header
         padding: 200px
         top: 30%
         left: 25%
+        color: $color5
         transform: translate(-50%, -50%)
         // text-align: center
         transition: 0.5s ease
         z-index: 2
         div.header-border-top
-            font-weight: bold
             position: absolute
             top: -10%
             left: 0
             font-size: 12px
         div.header-border-content
             left: 0%
-            top: 0%
+            top: 3%
             position: absolute
-            width: 100%
+            width: 95%
             height: 0%
             transition: 1s ease
             background-color: $color2
-            // background-blend-mode: overlay
-            // background-attachment: fixed
-            // background-repeat: no-repeat
-            // background-position: center
-            // background-image: url('../img/bg1.webp')
+            margin: -5%
             overflow: hidden
             z-index: 1
             p#aboutme
                 padding: 50px
                 font-family: arvo
                 font-size: 18px
-                // opacity: 0
                 position: absolute
                 bottom: 5%
                 transition: 0.5s ease
@@ -193,9 +184,11 @@ div.header
             opacity: 0
             transform: translate(-50%,50%)
             transition: 1s ease
+            &:hover
+                color: $color6
 
         &:hover div.header-border-content
-            height: 80%
+            height: 85%
         &:hover a.contact
             opacity: 1
 
@@ -204,12 +197,11 @@ div.header
             transform: translate(-50%,-50%)
             font-size: 15px
             z-index: 0
-            font-family: quicksand
+            font-family: $sans
             content: "- BRIEF INTRO -"
             letter-spacing: 5px
 
     span.scroll-down
-        font-weight: bold
         position: absolute
         font-size: 10px
         top: 90vh
@@ -223,6 +215,7 @@ div.header
 div.content
     height: 100vh
 
+//tablets
 @media only screen and (max-width: 1300px) and (min-width: 900px)
     body
         nav
@@ -231,7 +224,8 @@ div.content
             div.hero
                 top: 45vh
                 margin: auto
-                left: 20vw
+                left: 60vw
+                width: 40vw
                 font-size: 8vh
 
             div.background
@@ -242,22 +236,31 @@ div.content
 
             div.border
                 padding: 0px
-                height: 100px
-                width: 100px
-                top: 10%
-                left: 25vw
+                height: 80vh
+                width: 40vw
+                top: 10vh
+                left: 10vw
                 div.header-border-top
                     letter-spacing: 5px
-                    top: 20vh
+                    top: 2vh
+                    width: 18vw
+                    left: 11vw
                 div.header-border-content
-                    height: 0
-                &::after, a.contact
-                    display: none
+                    // display: none
+                a.contact
+                    left: 50%
+                &::after
+                    left: 50%
+                    top: 50%
+                    width: 100%
+                    text-align: center
 
             span.scroll-down
                 letter-spacing: 5px
                 font-size: 8px
-                top: 95vh
+                top: 90vh
+                left: 70vw
+                z-index: 3
 
 // mobile view
 @media only screen and (max-width: 900px)
@@ -285,8 +288,12 @@ div.content
         div.header
             div.hero
                 top: 50vh
-                left: 25vw
-                font-size: 5vh
+                left: 18vw
+                width: 50vw
+                font-size: 4vh
+                border-left: 4px dotted $color3
+                padding-left: 4vh
+
             div.background
                 position: absolute
                 font-size: 30vh
@@ -298,19 +305,33 @@ div.content
 
             div.border
                 padding: 0px
-                height: 100px
-                width: 100px
-                top: 10%
-                left: auto
-                right: 15vw
+                height: 80vh
+                width: 80vw
+                top: 10vw
+                left: 10vw
+                // border: none
                 div.header-border-top
                     letter-spacing: 5px
-                    top: 20vh
+                    top: -4vh
+                    text-align: center
+                    left: 50%
+                    width: 100vw
+                    transform: translate(-50%,50%)
+
                 div.header-border-content
-                    height: 0
-                    color: transparent
-                &::after, a.contact
                     display: none
+                &::after
+                    display: none
+                a.contact
+                    font-size: 10px
+                    // font-weight: bold
+                    // top: 3vh
+                    color: $color5
+                    left: 50%
+                    opacity: 1
+                    transform: translate(-50%,50%)
+                    transition: 1s ease
+
             span.scroll-down
                 letter-spacing: 5px
                 font-size: 8px
