@@ -56,6 +56,7 @@ nav span {
 .quilt-lat {
   position: relative;
   text-align: center;
+  font-weight: bold;
 }
 .quilt-lat::before {
   position: absolute;
@@ -86,6 +87,7 @@ nav span {
   position: relative;
   padding: 30px;
   text-align: center;
+  font-weight: bold;
 }
 .quilt-long::before {
   position: absolute;
@@ -117,7 +119,7 @@ div.header {
   height: 100vh;
 }
 div.header div.hero {
-  font-family: "Bodoni Moda", Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-style: italic;
   color: #F2DCC2;
   font-size: 8vh;
@@ -144,7 +146,7 @@ div.header div.background div.background-i {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  font-family: Quicksand, "Segoe UI", Verdana, sans-serif;
+  font-family: Verdana;
   transition: 0.9s ease;
 }
 div.header div.border {
