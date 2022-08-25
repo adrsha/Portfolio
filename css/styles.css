@@ -83,6 +83,36 @@ nav span {
   width: 0%;
 }
 
+.quilt-lat-dwarf {
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+}
+.quilt-lat-dwarf::before {
+  position: absolute;
+  content: "";
+  border-top: 1px solid rgba(115, 97, 81, 0.7);
+  width: 10%;
+  top: 50%;
+  left: -5%;
+  transition: 0.7s ease;
+}
+.quilt-lat-dwarf::after {
+  position: absolute;
+  content: "";
+  border-top: 1px solid rgba(115, 97, 81, 0.7);
+  width: 10%;
+  top: 50%;
+  right: -5%;
+  transition: 0.7s ease;
+}
+.quilt-lat-dwarf:hover::after {
+  width: 0%;
+}
+.quilt-lat-dwarf:hover::before {
+  width: 0%;
+}
+
 .quilt-long {
   position: relative;
   padding: 30px;
@@ -111,6 +141,37 @@ nav span {
   height: 0%;
 }
 .quilt-long:hover::before {
+  height: 0%;
+}
+
+.quilt-long-dwarf {
+  position: relative;
+  padding: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+.quilt-long-dwarf::before {
+  position: absolute;
+  content: "";
+  border-left: 1px solid rgba(115, 97, 81, 0.7);
+  height: 50%;
+  top: -20%;
+  left: 50%;
+  transition: 0.7s ease;
+}
+.quilt-long-dwarf::after {
+  position: absolute;
+  content: "";
+  border-left: 1px solid rgba(115, 97, 81, 0.7);
+  height: 50%;
+  bottom: -20%;
+  left: 50%;
+  transition: 0.7s ease;
+}
+.quilt-long-dwarf:hover::after {
+  height: 0%;
+}
+.quilt-long-dwarf:hover::before {
   height: 0%;
 }
 
@@ -153,14 +214,16 @@ div.header div.border {
   content: "";
   border: 2px solid #40342A;
   position: absolute;
-  cursor: pointer;
-  padding: 200px;
+  width: 40vh;
+  aspect-ratio: 1/1;
   top: 30%;
   left: 25%;
   color: #F2DCC2;
   transform: translate(-50%, -50%);
   transition: 0.5s ease;
   z-index: 2;
+  border-radius: 10px;
+  overflow: hidden;
 }
 div.header div.border div.header-border-top {
   position: absolute;
@@ -169,49 +232,62 @@ div.header div.border div.header-border-top {
   font-size: 12px;
 }
 div.header div.border div.header-border-content {
-  left: 0%;
-  top: 3%;
   position: absolute;
-  width: 95%;
+  left: 50%;
+  top: 50%;
+  width: 0%;
   height: 0%;
-  transition: 1s ease;
+  border-radius: 50%;
   background-color: #40342A;
-  margin: -5%;
+  transform: translate(-50%, -50%);
   overflow: hidden;
   z-index: 1;
+  transition: 1s ease;
 }
 div.header div.border div.header-border-content p#aboutme {
   padding: 50px;
+  position: absolute;
   font-family: arvo;
   font-size: 18px;
-  position: absolute;
-  bottom: 5%;
-  transition: 0.5s ease;
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40vh;
+  transition: 1s ease;
 }
 div.header div.border div.header-border-content p#aboutme span {
   font-family: Bodoni Moda;
   font-size: 48px;
   display: block;
 }
+div.header div.border div.header-border-content:hover p#aboutme {
+  opacity: 1;
+}
 div.header div.border a.contact {
   font-size: 15px;
   position: absolute;
-  bottom: 10%;
+  right: 0%;
+  bottom: 50%;
   opacity: 0;
-  transform: translate(-50%, 50%);
+  z-index: 20;
+  transform: rotate(90deg) translate(0, -50%);
   transition: 1s ease;
 }
 div.header div.border a.contact:hover {
-  color: #D6D1CE;
+  color: #F2DCC2;
 }
 div.header div.border:hover div.header-border-content {
-  height: 85%;
+  height: 150%;
+  width: 150%;
 }
 div.header div.border:hover a.contact {
   opacity: 1;
 }
 div.header div.border::after {
   position: absolute;
+  left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
   font-size: 15px;
   z-index: 0;
@@ -234,6 +310,34 @@ div.header span.scroll-down:hover {
 
 div.content {
   height: 100vh;
+}
+div.content h1#content-header {
+  margin-top: 20vh;
+  text-align: center;
+}
+div.content div.card a.card-button {
+  margin-top: 3vh;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s ease;
+  line-height: 3vh;
+}
+div.content div.card:hover a.card-button {
+  height: 3vh;
+}
+
+div.projects {
+  position: relative;
+}
+div.projects div.card {
+  position: absolute;
+  height: auto;
+  width: 20vw;
+  top: 20vh;
+  padding: 30px;
+  left: 35vw;
+  border: 2px solid #40342A;
 }
 
 @media only screen and (max-width: 1300px) and (min-width: 900px) {

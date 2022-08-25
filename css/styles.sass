@@ -79,6 +79,32 @@ nav
         width: 0%
     &:hover::before
         width: 0%
+
+.quilt-lat-dwarf
+    position: relative
+    text-align: center
+    font-weight: bold
+    &::before
+        position: absolute
+        content: ""
+        border-top: 1px solid transparentize($color3,0.3)
+        width: 10%
+        top: 50%
+        left: -5%
+        transition: 0.7s ease
+    &::after
+        position: absolute
+        content: ""
+        border-top: 1px solid transparentize($color3,0.3)
+        width: 10%
+        top: 50%
+        right: -5%
+        transition: 0.7s ease
+    &:hover::after
+        width: 0%
+    &:hover::before
+        width: 0%
+
 .quilt-long
     position: relative
     padding: 30px
@@ -98,6 +124,31 @@ nav
         border-left: 1px solid transparentize($color3,0.3)
         height: 50%
         bottom: -50%
+        left: 50%
+        transition: 0.7s ease
+    &:hover::after
+        height: 0%
+    &:hover::before
+        height: 0%
+.quilt-long-dwarf
+    position: relative
+    padding: 30px
+    text-align: center
+    font-weight: bold
+    &::before
+        position: absolute
+        content: ""
+        border-left: 1px solid transparentize($color3,0.3)
+        height: 50%
+        top: -20%
+        left: 50%
+        transition: 0.7s ease
+    &::after
+        position: absolute
+        content: ""
+        border-left: 1px solid transparentize($color3,0.3)
+        height: 50%
+        bottom: -20%
         left: 50%
         transition: 0.7s ease
     &:hover::after
@@ -142,60 +193,74 @@ div.header
         content: ''
         border: 2px solid $color2
         position: absolute
-        cursor: pointer
-        padding: 200px
+        width: 40vh
+        aspect-ratio: 1/1
         top: 30%
         left: 25%
         color: $color5
         transform: translate(-50%, -50%)
-        // text-align: center
         transition: 0.5s ease
         z-index: 2
+
+        border-radius: 10px
+        overflow: hidden
+
         div.header-border-top
             position: absolute
             top: -10%
             left: 0
             font-size: 12px
         div.header-border-content
-            left: 0%
-            top: 3%
             position: absolute
-            width: 95%
+            left: 50%
+            top: 50%
+            width: 0%
             height: 0%
-            transition: 1s ease
+            border-radius: 50%
             background-color: $color2
-            margin: -5%
+            transform: translate(-50%, -50%)
             overflow: hidden
             z-index: 1
+            transition: 1s ease
             p#aboutme
                 padding: 50px
+                position: absolute
                 font-family: arvo
                 font-size: 18px
-                position: absolute
-                bottom: 5%
-                transition: 0.5s ease
+                opacity: 0.3
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                width: 40vh
+                transition: 1s ease
                 span
                     font-family: Bodoni Moda
                     font-size: 48px
                     display: block
-
+            &:hover p#aboutme
+                opacity: 1
         a.contact
             font-size: 15px
             position: absolute
-            bottom: 10%
+            right: 0%
+            bottom: 50%
             opacity: 0
-            transform: translate(-50%,50%)
+            z-index: 20
+            transform: rotate(90deg) translate(0,-50%)
             transition: 1s ease
             &:hover
-                color: $color6
+                color: $color5
 
         &:hover div.header-border-content
-            height: 85%
+            height: 150%
+            width: 150%
         &:hover a.contact
             opacity: 1
 
         &::after
             position: absolute
+            left: 50%
+            top: 50%
             transform: translate(-50%,-50%)
             font-size: 15px
             z-index: 0
@@ -216,6 +281,31 @@ div.header
 
 div.content
     height: 100vh
+    h1#content-header
+        margin-top: 20vh
+        text-align: center
+    div.card
+        a.card-button
+            margin-top: 3vh
+            display: block
+            height: 0
+            overflow: hidden
+            transition: 0.5s ease
+            line-height: 3vh
+        &:hover a.card-button
+            // padding: 30px
+            height: 3vh
+
+div.projects
+    position: relative
+    div.card
+        position: absolute
+        height: auto
+        width: 20vw
+        top: 20vh
+        padding: 30px
+        left: 35vw
+        border: 2px solid $color2
 
 //tablets
 @media only screen and (max-width: 1300px) and (min-width: 900px)
