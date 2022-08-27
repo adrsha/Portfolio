@@ -21,7 +21,7 @@ document.addEventListener('mousedown', (e)=>{
 
     setTimeout(() => {
     cursor.classList.remove('mouse-click')
-    }, 500);
+    }, 1500);
 })
 
 document.addEventListener('dblclick', (e)=>{

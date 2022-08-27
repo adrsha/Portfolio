@@ -27,7 +27,9 @@ a
     box-sizing: border-box
     -ms-overflow-style: none /* IE and Edge */
     scrollbar-width: none /* Firefox */
-
+    &::selection
+        background-color: $color5
+        color: $color0
 /* Hide scrollbar for Chrome, Safari and Opera */
 *::-webkit-scrollbar
     display: none
@@ -303,6 +305,7 @@ div.overlay
     width: 100vw
     position: fixed
     z-index: 100
+    transition: 0.5s ease
     pointer-events: none
     // filter: invert(100%)
     mix-blend-mode: difference
@@ -322,6 +325,8 @@ div.content
                 overflow: hidden
                 transition: 0.5s ease
                 line-height: 4vh
+                &:hover
+                    color: $color5
             &:hover a.card-button
                 // padding: 30px
                 height: 4vh
@@ -461,39 +466,46 @@ div.projects
 
 .mouse
     border-radius: 50%
-    width: 22px
+    width: 12px
     aspect-ratio: 1/1
     background-color: $color5
     mix-blend-mode: difference
     position: fixed
     z-index: 100
-    transition: 0.1s ease-out
+    transition: top 0.2s ease-out, left 0.2s ease-out, width 0.3s ease
     transform: translate(-50%, -50%)
     pointer-events: none
 
 .mouse-click
     animation-name: cursor-jiggle
-    animation-duration: 0.95s
+    animation-duration: 1.5s
     animation-direction: normal
 
 .mouse-hover
-    width: 52px
-    animation-name: cursor-jiggle
-    animation-duration: 0.95s
-    animation-direction: normal
+    width: 60px
+
+    // animation-name: cursor-jiggle
+    // animation-duration: 0.95s
+    // animation-direction: normal
 
 @keyframes cursor-jiggle
     0%
         transform: translate(-50%, -50%) scale(1)
-    20%
+    10%
         transform: translate(-50%, -50%) scale(0)
+    20%
+        transform: translate(-50%, -50%) scale(1.8)
+    30%
+        transform: translate(-50%, -50%) scale(0.5)
     40%
         transform: translate(-50%, -50%) scale(1.5)
+    50%
+        transform: translate(-50%, -50%) scale(0.7)
     60%
-        transform: translate(-50%, -50%) scale(0.8)
-    80%
         transform: translate(-50%, -50%) scale(1.2)
-    100%
+    50%
+        transform: translate(-50%, -50%) scale(0.9)
+    50%
         transform: translate(-50%, -50%) scale(1)
 
 @keyframes mouse-icon-jiggle
