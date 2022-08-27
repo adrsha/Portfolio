@@ -5,25 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="img/icon.png" />
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="css/locoscroll.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adarsha Acharya</title>
 </head>
 <body>
-    <header>
-    <!-- <nav>  
-        <span>CONTACT ME</span> 
-    </nav> -->
+    <div class="overlay"></div>
+         <header>
+            <nav>  
+                <span class="logo hoverable">AA</span> 
+            </nav>
         </header>
-        <div class="container" data-scroll-container onscroll='scroll()'>    
+        <div class="container" data-scroll-container>    
+            <div class="scroll-counter">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
             <div class="header section" data-scroll-section>
-                <div class="hero" data-scroll data-scroll-speed="2">I let my work do the talking</div>
+                <div class="hero hoverable" data-scroll data-scroll-speed="2">I let my work do the talking</div>
                 <div class="border" data-scroll data-scroll-speed="1">
-                    <div class="quilt-lat header-border-top minimal-text">Adarsha Acharya</div>
                     <div class="header-border-content">
                         <p id="aboutme"><span>hi,</span>I'm a curious computer enthusiast, age 19, from Kathmandu. I'm a student of Computer Engineering.</p></div>
-                    <a href="" class="quilt-lat minimal-text contact">My Projects</a>
+                    <a href="" class="quilt-lat minimal-text project-a hoverable">My Projects</a>
                 </div>
                 <div class="background">
                     <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="8" >DESIGNDESIGNDESIGN</div>
@@ -33,21 +42,24 @@
                     <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="8">AMBITIONAMBITIONAMBITION</div>
                     <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-8">STYLESTYLESTYLESTYLE</div>
                 </div>
-                <span class="scroll-down quilt-long minimal-text">Scroll Down</span>
+                <span class="scroll-down hoverable"> <img id='scroll-down-img' class='hoverable' src='img/mouse.png'> </span>
             </div>
             <div class="projects content section" data-scroll data-scroll-section>
                 <h1 id="content-header">Projects</h1>
-                <div class="card">
-                    <h1>Mathematical Toolset</h1>
-                    A project that started out as a simple calculator, that slowly morphed into something more than a simple calculator.
-                    <a href="#" class="quilt-lat-dwarf minimal-text card-button">View project</a>
+                <div class="card-container">
+                    <div class="card">
+                        <h1>Mathematical Toolset</h1>
+                        A project that started out as a simple calculator, that slowly morphed into something more than a simple calculator.
+                        <a href="#" class="quilt-lat-dwarf minimal-text card-button hoverable">View project</a>
+                    </div>
                 </div>
             </div>
          </div>
     <footer id="end"></footer>
-    
+    <div class="mouse"></div>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
     <!-- <script src="./node_modules/locomotive-scroll/dist/locomotive-scroll.js"></script> -->
     <script src="js/index.js"></script>
+    <script src="js/script.js"></script>
 </body>
     </html>

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Flamenco:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 ul {
   list-style: none;
@@ -12,6 +13,7 @@ a {
 }
 
 * {
+  cursor: none;
   box-sizing: border-box;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -49,8 +51,33 @@ nav {
   justify-content: flex-start;
   padding: 20px;
 }
-nav span {
+nav span.logo {
   padding: 20px;
+  font-size: 30px;
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-weight: bold;
+  z-index: 1;
+}
+
+div.scroll-counter {
+  position: fixed;
+  top: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+div.scroll-counter ul {
+  border: 1px dashed #40342A;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: 8vh;
+}
+div.scroll-counter ul li {
+  top: 50%;
+  border-radius: 50%;
+  border: 2px solid #F2DCC2;
+  width: 2vh;
+  aspect-ratio: 1/1;
+  position: absolute;
 }
 
 .quilt-lat {
@@ -92,18 +119,18 @@ nav span {
   position: absolute;
   content: "";
   border-top: 1px solid rgba(115, 97, 81, 0.7);
-  width: 10%;
+  width: 20%;
   top: 50%;
-  left: -5%;
+  left: -10%;
   transition: 0.7s ease;
 }
 .quilt-lat-dwarf::after {
   position: absolute;
   content: "";
   border-top: 1px solid rgba(115, 97, 81, 0.7);
-  width: 10%;
+  width: 20%;
   top: 50%;
-  right: -5%;
+  right: -10%;
   transition: 0.7s ease;
 }
 .quilt-lat-dwarf:hover::after {
@@ -111,37 +138,6 @@ nav span {
 }
 .quilt-lat-dwarf:hover::before {
   width: 0%;
-}
-
-.quilt-long {
-  position: relative;
-  padding: 30px;
-  text-align: center;
-  font-weight: bold;
-}
-.quilt-long::before {
-  position: absolute;
-  content: "";
-  border-left: 1px solid rgba(115, 97, 81, 0.7);
-  height: 50%;
-  top: -50%;
-  left: 50%;
-  transition: 0.7s ease;
-}
-.quilt-long::after {
-  position: absolute;
-  content: "";
-  border-left: 1px solid rgba(115, 97, 81, 0.7);
-  height: 50%;
-  bottom: -50%;
-  left: 50%;
-  transition: 0.7s ease;
-}
-.quilt-long:hover::after {
-  height: 0%;
-}
-.quilt-long:hover::before {
-  height: 0%;
 }
 
 .quilt-long-dwarf {
@@ -153,18 +149,18 @@ nav span {
 .quilt-long-dwarf::before {
   position: absolute;
   content: "";
-  border-left: 1px solid rgba(115, 97, 81, 0.7);
-  height: 50%;
-  top: -20%;
+  border-left: 2px solid rgba(115, 97, 81, 0.7);
+  height: 10%;
+  top: -10%;
   left: 50%;
   transition: 0.7s ease;
 }
 .quilt-long-dwarf::after {
   position: absolute;
   content: "";
-  border-left: 1px solid rgba(115, 97, 81, 0.7);
-  height: 50%;
-  bottom: -20%;
+  border-left: 2px solid rgba(115, 97, 81, 0.7);
+  height: 10%;
+  bottom: -10%;
   left: 50%;
   transition: 0.7s ease;
 }
@@ -180,8 +176,7 @@ div.header {
   height: 100vh;
 }
 div.header div.hero {
-  font-family: Georgia, "Times New Roman", serif;
-  font-style: italic;
+  font-family: Aboreto, "Segoe UI", Verdana, sans-serif;
   color: #F2DCC2;
   font-size: 8vh;
   position: absolute;
@@ -212,7 +207,7 @@ div.header div.background div.background-i {
 }
 div.header div.border {
   content: "";
-  border: 2px solid #40342A;
+  border: 4px dashed #40342A;
   position: absolute;
   width: 40vh;
   aspect-ratio: 1/1;
@@ -222,23 +217,18 @@ div.header div.border {
   transform: translate(-50%, -50%);
   transition: 0.5s ease;
   z-index: 2;
-  border-radius: 10px;
+  border-radius: 5vh;
   overflow: hidden;
-}
-div.header div.border div.header-border-top {
-  position: absolute;
-  top: -10%;
-  left: 0;
-  font-size: 12px;
 }
 div.header div.border div.header-border-content {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 0%;
-  height: 0%;
-  border-radius: 50%;
-  background-color: #40342A;
+  height: 110%;
+  -webkit-clip-path: circle(0% at 50% 50%);
+          clip-path: circle(0% at 50% 50%);
+  aspect-ratio: 1/1;
+  background-color: #121212;
   transform: translate(-50%, -50%);
   overflow: hidden;
   z-index: 1;
@@ -247,41 +237,45 @@ div.header div.border div.header-border-content {
 div.header div.border div.header-border-content p#aboutme {
   padding: 50px;
   position: absolute;
-  font-family: arvo;
+  font-family: Quicksand, "Segoe UI", Verdana, sans-serif;
   font-size: 18px;
   opacity: 0.3;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40vh;
+  width: 30vh;
   transition: 1s ease;
 }
 div.header div.border div.header-border-content p#aboutme span {
-  font-family: Bodoni Moda;
+  font-family: "Bodoni Moda", "Times New Roman", serif;
   font-size: 48px;
+  color: #736151;
+  font-weight: bold;
   display: block;
 }
 div.header div.border div.header-border-content:hover p#aboutme {
   opacity: 1;
 }
-div.header div.border a.contact {
+div.header div.border a.project-a {
   font-size: 15px;
   position: absolute;
   right: 0%;
   bottom: 50%;
   opacity: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
   z-index: 20;
-  transform: rotate(90deg) translate(0, -50%);
-  transition: 1s ease;
+  transform: translate(0%, 50%) rotate(90deg);
+  transition: 1s ease-in;
 }
-div.header div.border a.contact:hover {
+div.header div.border a.project-a:hover {
   color: #F2DCC2;
 }
 div.header div.border:hover div.header-border-content {
-  height: 150%;
-  width: 150%;
+  -webkit-clip-path: circle(100% at 50% 50%);
+          clip-path: circle(100% at 50% 50%);
 }
-div.header div.border:hover a.contact {
+div.header div.border:hover a.project-a {
   opacity: 1;
 }
 div.header div.border::after {
@@ -292,20 +286,50 @@ div.header div.border::after {
   font-size: 15px;
   z-index: 0;
   font-family: Quicksand, "Segoe UI", Verdana, sans-serif;
-  content: "- BRIEF INTRO -";
+  content: " BRIEF INTRO ";
   letter-spacing: 5px;
 }
 div.header span.scroll-down {
   position: absolute;
-  font-size: 10px;
   top: 90vh;
   left: 50%;
-  cursor: pointer;
   transform: translate(-50%, -50%);
   transition: 0.9s ease;
 }
+div.header span.scroll-down img#scroll-down-img {
+  -webkit-animation: mouse-icon-jiggle 1s alternate infinite;
+          animation: mouse-icon-jiggle 1s alternate infinite;
+  width: 3vw;
+  filter: invert(0.7);
+}
+div.header span.scroll-down::after {
+  content: ">";
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  transform: translate(-50%, 50%) rotate(90deg);
+}
 div.header span.scroll-down:hover {
   transform: translate(-50%, -20%);
+}
+
+.rect-hover {
+  width: 0;
+  overflow: visible;
+  background: #A68776;
+  transition: width 0.5s ease;
+}
+.rect-hover:hover {
+  width: 100%;
+}
+
+div.overlay {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
+  pointer-events: none;
+  mix-blend-mode: difference;
 }
 
 div.content {
@@ -315,28 +339,29 @@ div.content h1#content-header {
   margin-top: 20vh;
   text-align: center;
 }
-div.content div.card a.card-button {
+div.content div.card-container div.card a.card-button {
   margin-top: 3vh;
   display: block;
   height: 0;
   overflow: hidden;
   transition: 0.5s ease;
-  line-height: 3vh;
+  line-height: 4vh;
 }
-div.content div.card:hover a.card-button {
-  height: 3vh;
+div.content div.card-container div.card:hover a.card-button {
+  height: 4vh;
 }
 
 div.projects {
   position: relative;
 }
-div.projects div.card {
-  position: absolute;
-  height: auto;
-  width: 20vw;
-  top: 20vh;
+div.projects div.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.projects div.card-container div.card {
+  flex-basis: 20vw;
   padding: 30px;
-  left: 35vw;
   border: 2px solid #40342A;
 }
 
@@ -373,13 +398,7 @@ div.projects div.card {
     top: 10vh;
     left: 10vw;
   }
-  body div.header div.border div.header-border-top {
-    letter-spacing: 5px;
-    top: 2vh;
-    width: 18vw;
-    left: 11vw;
-  }
-  body div.header div.border a.contact {
+  body div.header div.border a.project-a {
     left: 50%;
   }
   body div.header div.border::after {
@@ -451,21 +470,13 @@ div.projects div.card {
     top: 10vw;
     left: 10vw;
   }
-  body div.header div.border div.header-border-top {
-    letter-spacing: 5px;
-    top: -4vh;
-    text-align: center;
-    left: 50%;
-    width: 100vw;
-    transform: translate(-50%, 50%);
-  }
   body div.header div.border div.header-border-content {
     display: none;
   }
   body div.header div.border::after {
     display: none;
   }
-  body div.header div.border a.contact {
+  body div.header div.border a.project-a {
     font-size: 10px;
     color: #F2DCC2;
     left: 50%;
@@ -478,11 +489,99 @@ div.projects div.card {
     font-size: 8px;
     top: 95vh;
     left: 50%;
-    cursor: pointer;
     transform: translate(-50%, -50%);
     transition: 0.9s ease;
   }
   body div.header span.scroll-down:hover {
     transform: translate(-50%, -20%);
+  }
+}
+.mouse {
+  border-radius: 50%;
+  width: 22px;
+  aspect-ratio: 1/1;
+  background-color: #F2DCC2;
+  mix-blend-mode: difference;
+  position: fixed;
+  z-index: 100;
+  transition: 0.1s ease-out;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.mouse-click {
+  -webkit-animation-name: cursor-jiggle;
+          animation-name: cursor-jiggle;
+  -webkit-animation-duration: 0.95s;
+          animation-duration: 0.95s;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+.mouse-hover {
+  width: 52px;
+  -webkit-animation-name: cursor-jiggle;
+          animation-name: cursor-jiggle;
+  -webkit-animation-duration: 0.95s;
+          animation-duration: 0.95s;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@-webkit-keyframes cursor-jiggle {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  20% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes cursor-jiggle {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  20% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@-webkit-keyframes mouse-icon-jiggle {
+  0% {
+    transform: translate(0, -10%);
+  }
+  100% {
+    transform: translate(0, 20%);
+  }
+}
+@keyframes mouse-icon-jiggle {
+  0% {
+    transform: translate(0, -10%);
+  }
+  100% {
+    transform: translate(0, 20%);
   }
 }/*# sourceMappingURL=styles.css.map */

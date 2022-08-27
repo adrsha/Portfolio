@@ -1,11 +1,14 @@
 //sans serif
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap')
-@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Flamenco:wght@400&display=swap')
 //sans
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap')
 //variables
-$serif: Georgia, 'Times New Roman', serif
+$serif: 'Flamenco', 'Times New Roman', serif
 $sans: Quicksand, 'Segoe UI', Verdana, sans-serif
+$serif1: 'Bodoni Moda', 'Times New Roman', serif
+$sans1: Aboreto, 'Segoe UI', Verdana, sans-serif
 $color0: #121212
 $color1: #261D17
 $color2: #40342A
@@ -20,6 +23,7 @@ a
     color: $color3
 
 *
+    cursor: none
     box-sizing: border-box
     -ms-overflow-style: none /* IE and Edge */
     scrollbar-width: none /* Firefox */
@@ -34,6 +38,7 @@ a
     text-transform: uppercase
 
 html
+    // mix-blend-mode: difference
     background-color: $color0
     color: $color6
     font-family: $sans
@@ -52,8 +57,30 @@ nav
     justify-content: flex-start
     padding: 20px
 
-    span
+    span.logo
         padding: 20px
+        font-size: 30px
+        font-family: $serif1
+        font-weight: bold
+        z-index: 1
+
+div.scroll-counter
+    position: fixed
+    top: 50%
+    opacity: 0
+    transform: translate(-50%,-50%)
+    ul
+        border: 1px dashed $color2
+        border-radius: 50%
+        aspect-ratio: 1/1
+        width: 8vh
+        li
+            top: 50%
+            border-radius: 50%
+            border: 2px solid $color5
+            width: 2vh
+            aspect-ratio: 1/1
+            position: absolute
 
 .quilt-lat
     position: relative
@@ -88,48 +115,23 @@ nav
         position: absolute
         content: ""
         border-top: 1px solid transparentize($color3,0.3)
-        width: 10%
+        width: 20%
         top: 50%
-        left: -5%
+        left: -10%
         transition: 0.7s ease
     &::after
         position: absolute
         content: ""
         border-top: 1px solid transparentize($color3,0.3)
-        width: 10%
+        width: 20%
         top: 50%
-        right: -5%
+        right: -10%
         transition: 0.7s ease
     &:hover::after
         width: 0%
     &:hover::before
         width: 0%
 
-.quilt-long
-    position: relative
-    padding: 30px
-    text-align: center
-    font-weight: bold
-    &::before
-        position: absolute
-        content: ""
-        border-left: 1px solid transparentize($color3,0.3)
-        height: 50%
-        top: -50%
-        left: 50%
-        transition: 0.7s ease
-    &::after
-        position: absolute
-        content: ""
-        border-left: 1px solid transparentize($color3,0.3)
-        height: 50%
-        bottom: -50%
-        left: 50%
-        transition: 0.7s ease
-    &:hover::after
-        height: 0%
-    &:hover::before
-        height: 0%
 .quilt-long-dwarf
     position: relative
     padding: 30px
@@ -138,17 +140,17 @@ nav
     &::before
         position: absolute
         content: ""
-        border-left: 1px solid transparentize($color3,0.3)
-        height: 50%
-        top: -20%
+        border-left: 2px solid transparentize($color3,0.3)
+        height: 10%
+        top: -10%
         left: 50%
         transition: 0.7s ease
     &::after
         position: absolute
         content: ""
-        border-left: 1px solid transparentize($color3,0.3)
-        height: 50%
-        bottom: -20%
+        border-left: 2px solid transparentize($color3,0.3)
+        height: 10%
+        bottom: -10%
         left: 50%
         transition: 0.7s ease
     &:hover::after
@@ -160,8 +162,8 @@ div.header
     position: relative
     height: 100vh
     div.hero
-        font-family: $serif
-        font-style: italic
+        font-family: $sans1
+
         color: $color5
         font-size: 8vh
         position: absolute
@@ -191,7 +193,7 @@ div.header
 
     div.border
         content: ''
-        border: 2px solid $color2
+        border: 4px dashed $color2
         position: absolute
         width: 40vh
         aspect-ratio: 1/1
@@ -201,23 +203,19 @@ div.header
         transform: translate(-50%, -50%)
         transition: 0.5s ease
         z-index: 2
-
-        border-radius: 10px
+        border-radius: 5vh
         overflow: hidden
 
-        div.header-border-top
-            position: absolute
-            top: -10%
-            left: 0
-            font-size: 12px
         div.header-border-content
             position: absolute
             left: 50%
             top: 50%
-            width: 0%
-            height: 0%
-            border-radius: 50%
-            background-color: $color2
+            height: 110%
+            clip-path: circle(0% at 50% 50%)
+            aspect-ratio: 1/1
+
+            // border-radius: 50%
+            background-color: $color0
             transform: translate(-50%, -50%)
             overflow: hidden
             z-index: 1
@@ -225,38 +223,42 @@ div.header
             p#aboutme
                 padding: 50px
                 position: absolute
-                font-family: arvo
+                font-family: $sans
                 font-size: 18px
                 opacity: 0.3
                 top: 50%
                 left: 50%
                 transform: translate(-50%, -50%)
-                width: 40vh
+                width: 30vh
                 transition: 1s ease
                 span
-                    font-family: Bodoni Moda
+                    font-family: $serif1
                     font-size: 48px
+                    color: $color3
+                    font-weight: bold
                     display: block
             &:hover p#aboutme
                 opacity: 1
-        a.contact
+        a.project-a
             font-size: 15px
             position: absolute
             right: 0%
             bottom: 50%
             opacity: 0
+            padding-top: 20px
+            padding-bottom: 20px
             z-index: 20
-            transform: rotate(90deg) translate(0,-50%)
-            transition: 1s ease
+            transform: translate(-0%,50%) rotate(90deg)
+            transition: 1s ease-in
             &:hover
                 color: $color5
 
         &:hover div.header-border-content
-            height: 150%
-            width: 150%
-        &:hover a.contact
+            clip-path: circle(100% at 50% 50%)
+        &:hover a.project-a
             opacity: 1
-
+        &:hover
+            // border-color: transparentize($color5, 1)
         &::after
             position: absolute
             left: 50%
@@ -265,47 +267,77 @@ div.header
             font-size: 15px
             z-index: 0
             font-family: $sans
-            content: "- BRIEF INTRO -"
+            content: " BRIEF INTRO "
             letter-spacing: 5px
 
     span.scroll-down
         position: absolute
-        font-size: 10px
         top: 90vh
         left: 50%
-        cursor: pointer
         transform: translate(-50%,-50%)
         transition: 0.9s ease
+
+        img#scroll-down-img
+            animation: mouse-icon-jiggle 1s alternate infinite
+            width: 3vw
+            filter: invert(0.7)
+        &::after
+            content: ">"
+            position: absolute
+            bottom: -50%
+            left: 50%
+            transform: translate(-50%, 50%) rotate(90deg)
         &:hover
             transform: translate(-50%, -20%)
+
+.rect-hover
+    width: 0
+    overflow: visible
+    background: $color4
+    transition: width 0.5s ease
+    &:hover
+        width: 100%
+
+div.overlay
+    height: 100vh
+    width: 100vw
+    position: fixed
+    z-index: 100
+    pointer-events: none
+    // filter: invert(100%)
+    mix-blend-mode: difference
+    // background-color: $color5
 
 div.content
     height: 100vh
     h1#content-header
         margin-top: 20vh
         text-align: center
-    div.card
-        a.card-button
-            margin-top: 3vh
-            display: block
-            height: 0
-            overflow: hidden
-            transition: 0.5s ease
-            line-height: 3vh
-        &:hover a.card-button
-            // padding: 30px
-            height: 3vh
+    div.card-container
+        div.card
+            a.card-button
+                margin-top: 3vh
+                display: block
+                height: 0
+                overflow: hidden
+                transition: 0.5s ease
+                line-height: 4vh
+            &:hover a.card-button
+                // padding: 30px
+                height: 4vh
 
 div.projects
     position: relative
-    div.card
-        position: absolute
-        height: auto
-        width: 20vw
-        top: 20vh
-        padding: 30px
-        left: 35vw
-        border: 2px solid $color2
+    div.card-container
+        display: flex
+        align-items: center
+        justify-content: center
+
+        div.card
+
+            flex-basis: 20vw
+            padding: 30px
+            border: 2px solid $color2
 
 //tablets
 @media only screen and (max-width: 1300px) and (min-width: 900px)
@@ -332,14 +364,9 @@ div.projects
                 width: 40vw
                 top: 10vh
                 left: 10vw
-                div.header-border-top
-                    letter-spacing: 5px
-                    top: 2vh
-                    width: 18vw
-                    left: 11vw
                 div.header-border-content
                     // display: none
-                a.contact
+                a.project-a
                     left: 50%
                 &::after
                     left: 50%
@@ -402,19 +429,12 @@ div.projects
                 top: 10vw
                 left: 10vw
                 // border: none
-                div.header-border-top
-                    letter-spacing: 5px
-                    top: -4vh
-                    text-align: center
-                    left: 50%
-                    width: 100vw
-                    transform: translate(-50%,50%)
 
                 div.header-border-content
                     display: none
                 &::after
                     display: none
-                a.contact
+                a.project-a
                     font-size: 10px
                     // font-weight: bold
                     // top: 3vh
@@ -429,7 +449,7 @@ div.projects
                 font-size: 8px
                 top: 95vh
                 left: 50%
-                cursor: pointer
+                // cursor: pointer
                 transform: translate(-50%,-50%)
                 transition: 0.9s ease
                 &:hover
@@ -438,3 +458,46 @@ div.projects
 // @media (prefers-color-scheme: light)
 //     html
 //         filter: invert(1)
+
+.mouse
+    border-radius: 50%
+    width: 22px
+    aspect-ratio: 1/1
+    background-color: $color5
+    mix-blend-mode: difference
+    position: fixed
+    z-index: 100
+    transition: 0.1s ease-out
+    transform: translate(-50%, -50%)
+    pointer-events: none
+
+.mouse-click
+    animation-name: cursor-jiggle
+    animation-duration: 0.95s
+    animation-direction: normal
+
+.mouse-hover
+    width: 52px
+    animation-name: cursor-jiggle
+    animation-duration: 0.95s
+    animation-direction: normal
+
+@keyframes cursor-jiggle
+    0%
+        transform: translate(-50%, -50%) scale(1)
+    20%
+        transform: translate(-50%, -50%) scale(0)
+    40%
+        transform: translate(-50%, -50%) scale(1.5)
+    60%
+        transform: translate(-50%, -50%) scale(0.8)
+    80%
+        transform: translate(-50%, -50%) scale(1.2)
+    100%
+        transform: translate(-50%, -50%) scale(1)
+
+@keyframes mouse-icon-jiggle
+    0%
+        transform: translate(0, -10%)
+    100%
+        transform: translate(0, 20%)
