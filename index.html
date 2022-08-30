@@ -1,65 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="img/icon.png" />
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="css/locoscroll.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adarsha Acharya</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="icon" href="img/icon.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/locoscroll.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adarsha Acharya</title>
 </head>
+
 <body>
-    <div class="overlay"></div>
-         <header>
-            <nav>  
-                <span class="logo hoverable">AA</span> 
-            </nav>
-        </header>
-        <div class="container" data-scroll-container>    
-            <div class="scroll-counter">
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-            <div class="header section" data-scroll-section>
-                <div class="hero hoverable" data-scroll data-scroll-speed="2">I let my work do the talking</div>
-                <div class="border" data-scroll data-scroll-speed="1">
-                    <div class="header-border-content">
-                        <p id="aboutme"><span>hi,</span>I'm a curious computer enthusiast, age 19, from Kathmandu. I'm a student of Computer Engineering.</p></div>
-                    <a href="" class="quilt-lat minimal-text project-a hoverable">My Projects</a>
-                </div>
-                <div class="background">
-                    <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="8" >DESIGNDESIGNDESIGN</div>
-                    <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-8">INTERESTINTERESTINTEREST</div>
-                    <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="8">CREATIONCREATIONCREATION</div>
-                    <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-8">PASSIONPASSIONPASSION</div>
-                    <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="8">AMBITIONAMBITIONAMBITION</div>
-                    <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-8">STYLESTYLESTYLESTYLE</div>
-                </div>
-                <span class="scroll-down hoverable"> <img id='scroll-down-img' class='hoverable' src='img/mouse.png'> </span>
-            </div>
-            <div class="projects content section" data-scroll data-scroll-section>
-                <h1 id="content-header">Projects</h1>
-                <div class="card-container">
-                    <div class="card">
-                        <h1>Mathematical Toolset</h1>
-                        A project that started out as a simple calculator, that slowly morphed into something more than a simple calculator.
-                        <a href="#" class="quilt-lat-dwarf minimal-text card-button hoverable">View project</a>
-                    </div>
-                </div>
-            </div>
-         </div>
-    <footer id="end"></footer>
-    <div class="mouse"></div>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-    <!-- <script src="./node_modules/locomotive-scroll/dist/locomotive-scroll.js"></script> -->
-    <script src="js/index.js"></script>
-    <script src="js/script.js"></script>
+  <div class="overlay"></div>
+  <header>
+    <div class="nav">
+      <span class="logo hoverable">AV</span>
+    </div>
+  </header>
+  <div class="container" data-scroll-container>
+    <div class="scroll-counter">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="header section" data-scroll-section>
+      <div class="hero hoverable" data-scroll data-scroll-speed="2">
+        Let my work do the talking.
+      </div>
+      <div class="border" data-scroll data-scroll-speed="1">
+        <div class="header-border-content">
+          <p id="aboutme">
+            <span>hi,</span>I'm a curious computer enthusiast, age 19, from
+            Kathmandu. I'm a student of Computer Engineering.
+          </p>
+        </div>
+        <a href="" class="quilt-lat minimal-text project-a hoverable">My Projects</a>
+      </div>
+      <div class="background">
+        <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="8">
+          DESIGNDESIGNDESIGNDESIGN
+        </div>
+        <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="8">
+          CREATIONCREATIONCREATION
+        </div>
+        <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-8">
+          PASSIONPASSIONPASSION
+        </div>
+        <div class="background-i" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-8">
+          INTERESTINTERESTINTEREST
+        </div>
+
+      </div>
+      <span class="scroll-down hoverable">
+        <img id="scroll-down-img" class="hoverable" src="img/mouse.png" />
+      </span>
+    </div>
+    <div class="projects content section" data-scroll data-scroll-section>
+      <h1 id="content-header">Projects</h1>
+      <div class="card-container">
+        <div class="card" data-scroll-offset="-100%,0%" data-scroll data-scroll-speed="-2">
+          <h1>Mathematical Toolset</h1>
+          A project that started out as a simple calculator, that slowly
+          morphed into something more than a simple calculator.
+          <a href="https://github.com/friendlybigyan/SBS-Calculator.git" class="minimal-text card-button hoverable"
+            target='_blank'>View project</a>
+        </div>
+        <div class="showcase">
+          <img src="img/ss1.png" class="hoverable">
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="card rev" data-scroll-offset="-100%,0%" data-scroll data-scroll-speed="-2">
+          <h1>Some other project</h1>
+          I swear i have more projects. I just need some time to put them up here. SO for now, enjoy some lorem ipsum:
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam officia, numquam cupiditate .
+          <a href="#" class="minimal-text card-button hoverable" target='_blank'>View project</a>
+        </div>
+        <div class="showcase">
+          <img src="img/ss1.png" class="hoverable">
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="card" data-scroll-offset="-100%,0%" data-scroll data-scroll-speed="-2">
+          <h1>Some other project</h1>
+          I swear i have more projects. I just need some time to put them up here. SO for now, enjoy some lorem ipsum:
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsam officia, numquam cupiditate .
+          <a href="#" class="minimal-text card-button hoverable" target='_blank'>View project</a>
+        </div>
+        <div class="showcase">
+          <img src="img/ss1.png" class="hoverable">
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="card rev" data-scroll-offset="-100%,0%" data-scroll data-scroll-speed="-2">
+          <h1>Some other project</h1>
+          I swear i have more projects. I just need some time to put them up here. So for now, this is all i got.
+          <a href="#" class="minimal-text card-button hoverable" target='_blank'>View project</a>
+        </div>
+        <div class="showcase">
+          <img src="img/ss1.png" alt="" srcset="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="end"></footer>
+  <div class="mouse"></div>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script> -->
+  <script src="./node_modules/locomotive-scroll/dist/locomotive-scroll.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/script.js"></script>
 </body>
-    </html>
+
+</html>

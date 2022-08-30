@@ -25,19 +25,18 @@ document.addEventListener('mousedown', (e)=>{
 })
 
 document.addEventListener('dblclick', (e)=>{
-    if (overlay.style.backgroundColor == 'rgb(242, 220, 194)')
+    console.log(overlay.style.width)
+    if (overlay.style.width === '100vw')
     {
-        overlay.style.backgroundColor = 'transparent'
-    }
-    else{
-        overlay.style.backgroundColor = '#F2DCC2'
+        overlay.style.width = '0vw'
+    }else{
+        overlay.style.width = '100vw'
     }
 })
 
 // scroll-controls
 
 const counter = Array.from(document.querySelectorAll('.scroll-counter>ul>li'))
-console.log(counter[1])
 let amp = 300
 let ang = 3* Math.PI/2
 counter[0].style.transform = `translate(${Math.cos(ang)*amp}%, ${Math.sin(ang)*amp-50}%)`;
@@ -47,3 +46,4 @@ ang =  Math.PI/2
 counter[2].style.transform = `translate(${Math.cos(ang)*amp}%, ${Math.sin(ang)*amp-50}%)`;
 ang =  Math.PI
 counter[3].style.transform = `translate(${Math.cos(ang)*amp}%, ${Math.sin(ang)*amp-50}%)`;
+

@@ -1,26 +1,29 @@
+@import url('./responsive.css')
+
 //sans serif
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap')
-@import url('https://fonts.googleapis.com/css2?family=Flamenco:wght@400&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap')
 //sans
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap')
 //variables
-$serif: 'Flamenco', 'Times New Roman', serif
-$sans: Quicksand, 'Segoe UI', Verdana, sans-serif
+$serif: 'Roboto Slab', 'Times New Roman', serif
+$sans: 'Quicksand', 'Segoe UI', Verdana, sans-serif
 $serif1: 'Bodoni Moda', 'Times New Roman', serif
 $sans1: Aboreto, 'Segoe UI', Verdana, sans-serif
+$color-1: #0f0f0f
 $color0: #121212
 $color1: #261D17
 $color2: #40342A
 $color3: #736151
 $color4: #A68776
 $color5: #F2DCC2
-$color6: #D6D1CE
+$color6: #fff3ec
 ul
     list-style: none
 a
     text-decoration-line: none
-    color: $color3
+    color: $color4
 
 *
     cursor: none
@@ -50,21 +53,25 @@ body, html
     padding: 0
     overflow-x: hidden
 
-nav
-    position: absolute
-    width: 100vw
+div.nav
+    position: fixed
+    width: 2vw
+    z-index: 1
     margin: 0
     display: flex
     align-items: center
     justify-content: flex-start
     padding: 20px
+    // pointer-events: none
 
     span.logo
         padding: 20px
         font-size: 30px
         font-family: $serif1
         font-weight: bold
-        z-index: 1
+        transition: 0.8s ease
+        &:hover
+            letter-spacing: -13px
 
 div.scroll-counter
     position: fixed
@@ -109,63 +116,11 @@ div.scroll-counter
     &:hover::before
         width: 0%
 
-.quilt-lat-dwarf
-    position: relative
-    text-align: center
-    font-weight: bold
-    &::before
-        position: absolute
-        content: ""
-        border-top: 1px solid transparentize($color3,0.3)
-        width: 20%
-        top: 50%
-        left: -10%
-        transition: 0.7s ease
-    &::after
-        position: absolute
-        content: ""
-        border-top: 1px solid transparentize($color3,0.3)
-        width: 20%
-        top: 50%
-        right: -10%
-        transition: 0.7s ease
-    &:hover::after
-        width: 0%
-    &:hover::before
-        width: 0%
-
-.quilt-long-dwarf
-    position: relative
-    padding: 30px
-    text-align: center
-    font-weight: bold
-    &::before
-        position: absolute
-        content: ""
-        border-left: 2px solid transparentize($color3,0.3)
-        height: 10%
-        top: -10%
-        left: 50%
-        transition: 0.7s ease
-    &::after
-        position: absolute
-        content: ""
-        border-left: 2px solid transparentize($color3,0.3)
-        height: 10%
-        bottom: -10%
-        left: 50%
-        transition: 0.7s ease
-    &:hover::after
-        height: 0%
-    &:hover::before
-        height: 0%
-
 div.header
     position: relative
     height: 100vh
     div.hero
         font-family: $sans1
-
         color: $color5
         font-size: 8vh
         position: absolute
@@ -223,10 +178,10 @@ div.header
             z-index: 1
             transition: 1s ease
             p#aboutme
-                padding: 50px
+                padding-right: 50px
                 position: absolute
                 font-family: $sans
-                font-size: 18px
+                font-size: 2vh
                 opacity: 0.3
                 top: 50%
                 left: 50%
@@ -234,7 +189,7 @@ div.header
                 width: 30vh
                 transition: 1s ease
                 span
-                    font-family: $serif1
+                    font-family: $serif
                     font-size: 48px
                     color: $color3
                     font-weight: bold
@@ -250,7 +205,7 @@ div.header
             padding-top: 20px
             padding-bottom: 20px
             z-index: 20
-            transform: translate(-0%,50%) rotate(90deg)
+            transform: translate(25%,50%) rotate(90deg)
             transition: 1s ease-in
             &:hover
                 color: $color5
@@ -266,10 +221,10 @@ div.header
             left: 50%
             top: 50%
             transform: translate(-50%,-50%)
-            font-size: 15px
+            font-size: 20px
             z-index: 0
             font-family: $sans
-            content: " BRIEF INTRO "
+            content: "BRIEF INTRODUCTION"
             letter-spacing: 5px
 
     span.scroll-down
@@ -278,191 +233,93 @@ div.header
         left: 50%
         transform: translate(-50%,-50%)
         transition: 0.9s ease
-
         img#scroll-down-img
             animation: mouse-icon-jiggle 1s alternate infinite
             width: 3vw
-            filter: invert(0.7)
+            filter: invert(0.7) sepia(60%)
+
         &::after
-            content: ">"
+            content: "↓"
+            font-size: 20px
             position: absolute
             bottom: -50%
             left: 50%
-            transform: translate(-50%, 50%) rotate(90deg)
+            transform: translate(-50%, 70%)
         &:hover
             transform: translate(-50%, -20%)
 
-.rect-hover
-    width: 0
-    overflow: visible
-    background: $color4
-    transition: width 0.5s ease
-    &:hover
-        width: 100%
-
 div.overlay
     height: 100vh
-    width: 100vw
+    width: 0vw
     position: fixed
     z-index: 100
-    transition: 0.5s ease
+    background-color: $color5
+    transition: 0.5s ease-in
     pointer-events: none
-    // filter: invert(100%)
     mix-blend-mode: difference
-    // background-color: $color5
 
 div.content
-    height: 100vh
+    min-height: 100vh
     h1#content-header
         margin-top: 20vh
         text-align: center
+        font-family: $sans1
+
+div.projects
     div.card-container
+        position: relative
+        z-index: -2
+        height: 100vh
         div.card
+            position: absolute
+            left: 10vw
+            border-radius: 20px
+            padding: 30px
+            border: 2px solid $color2
+            color: $color5
+            width: 20vw
+            h1
+                font-family: $serif
+                margin: 30px
+                text-align: center
             a.card-button
                 margin-top: 3vh
                 display: block
-                height: 0
+                height: auto
+                font-weight: bold
                 overflow: hidden
                 transition: 0.5s ease
                 line-height: 4vh
+                width: 100%
+                text-align: center
                 &:hover
                     color: $color5
             &:hover a.card-button
-                // padding: 30px
                 height: 4vh
+                // padding: 30px
 
-div.projects
-    position: relative
-    div.card-container
-        display: flex
-        align-items: center
-        justify-content: center
+        div.showcase
+            position: absolute
+            width: auto
+            height: auto
+            border-radius: 50%
+            top: 0%
+            left: 10vw
+            clip-path: circle(30% at 50% 50%)
+            z-index: 1
+            transition: 1s ease
 
-        div.card
-
-            flex-basis: 20vw
-            padding: 30px
-            border: 2px solid $color2
-
-//tablets
-@media only screen and (max-width: 1300px) and (min-width: 900px)
-    body
-        nav
-            visibility: hidden
-        div.header
-            div.hero
-                top: 45vh
-                margin: auto
-                left: 60vw
-                width: 40vw
-                font-size: 8vh
-
-            div.background
-                font-size: 30vh
-                @for $i from 1 through 4
-                    div.background#{$i}
-                        line-height: 25vh
-
-            div.border
-                padding: 0px
-                height: 80vh
-                width: 40vw
-                top: 10vh
-                left: 10vw
-                div.header-border-content
-                    // display: none
-                a.project-a
-                    left: 50%
-                &::after
-                    left: 50%
-                    top: 50%
-                    width: 100%
-                    text-align: center
-
-            span.scroll-down
-                letter-spacing: 5px
-                font-size: 8px
-                top: 90vh
-                left: 70vw
-                z-index: 3
-
-// mobile view
-@media only screen and (max-width: 900px)
-    .quilt-lat
-        &::before
-            width: 20%
-            opacity: 0.5
-        &::after
-            width: 20%
-            opacity: 0.5
-
-    .quilt-long
-        &::before
-            top: -25%
-            height: 50%
-            opacity: 0.5
-        &::after
-            bottom: -25%
-            height: 50%
-            opacity: 0.5
-
-    body
-        nav
-            visibility: hidden
-        div.header
-            div.hero
-                top: 50vh
-                left: 18vw
-                width: 50vw
-                font-size: 4vh
-                border-left: 4px dotted $color3
-                padding-left: 4vh
-
-            div.background
-                position: absolute
-                font-size: 30vh
-                top: 0%
-                left: -150%
-                @for $i from 1 through 4
-                    div.background#{$i}
-                        line-height: 25vh
-
-            div.border
-                padding: 0px
-                height: 80vh
-                width: 80vw
-                top: 10vw
-                left: 10vw
-                // border: none
-
-                div.header-border-content
-                    display: none
-                &::after
-                    display: none
-                a.project-a
-                    font-size: 10px
-                    // font-weight: bold
-                    // top: 3vh
-                    color: $color5
-                    left: 50%
-                    opacity: 1
-                    transform: translate(-50%,50%)
-                    transition: 1s ease
-
-            span.scroll-down
-                letter-spacing: 5px
-                font-size: 8px
-                top: 95vh
-                left: 50%
-                // cursor: pointer
-                transform: translate(-50%,-50%)
-                transition: 0.9s ease
-                &:hover
-                    transform: translate(-50%, -20%)
-
-// @media (prefers-color-scheme: light)
-//     html
-//         filter: invert(1)
+            img
+                transition: 1s ease
+                filter: sepia(50%)
+            &:hover
+                clip-path: circle(100% at 50% 50%)
+                img
+                    filter: sepia(0%)
+        div.rev
+            left: auto
+            right: 10vw
+            z-index: -1
 
 .mouse
     border-radius: 50%
@@ -484,29 +341,25 @@ div.projects
 .mouse-hover
     width: 60px
 
-    // animation-name: cursor-jiggle
-    // animation-duration: 0.95s
-    // animation-direction: normal
-
-@keyframes cursor-jiggle
-    0%
-        transform: translate(-50%, -50%) scale(1)
-    10%
-        transform: translate(-50%, -50%) scale(0)
-    20%
-        transform: translate(-50%, -50%) scale(1.8)
-    30%
-        transform: translate(-50%, -50%) scale(0.5)
-    40%
-        transform: translate(-50%, -50%) scale(1.5)
-    50%
-        transform: translate(-50%, -50%) scale(0.7)
-    60%
-        transform: translate(-50%, -50%) scale(1.2)
-    50%
-        transform: translate(-50%, -50%) scale(0.9)
-    50%
-        transform: translate(-50%, -50%) scale(1)
+    @keyframes cursor-jiggle
+        0%
+            transform: translate(-50%, -50%) scale(1)
+        10%
+            transform: translate(-50%, -50%) scale(0)
+        20%
+            transform: translate(-50%, -50%) scale(1.8)
+        30%
+            transform: translate(-50%, -50%) scale(0.5)
+        40%
+            transform: translate(-50%, -50%) scale(1.5)
+        50%
+            transform: translate(-50%, -50%) scale(0.7)
+        60%
+            transform: translate(-50%, -50%) scale(1.2)
+        50%
+            transform: translate(-50%, -50%) scale(0.9)
+        50%
+            transform: translate(-50%, -50%) scale(1)
 
 @keyframes mouse-icon-jiggle
     0%

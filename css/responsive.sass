@@ -1,0 +1,138 @@
+$serif: 'Roboto Slab', 'Times New Roman', serif
+$sans: 'Quicksand', 'Segoe UI', Verdana, sans-serif
+$serif1: 'Bodoni Moda', 'Times New Roman', serif
+$sans1: Aboreto, 'Segoe UI', Verdana, sans-serif
+$color0: #121212
+$color1: #261D17
+$color2: #40342A
+$color3: #736151
+$color4: #A68776
+$color5: #F2DCC2
+$color6: #fff3ec
+
+@media only screen and (max-width: 1300px)
+    // .mouse
+    //     display: none
+
+    .quilt-lat
+        &::before
+            display: none
+        &::after
+            display: none
+//tablets
+@media only screen and (max-width: 1300px) and (min-width: 900px)
+    body
+        div.header
+            div.hero
+                top: 45vh
+                margin: auto
+                left: 60vw
+                width: 40vw
+                font-size: 8vh
+
+            div.background
+                font-size: 30vh
+                @for $i from 1 through 4
+                    div.background#{$i}
+                        line-height: 25vh
+
+            div.border
+                padding: 0px
+                height: 80vh
+                width: 40vw
+                top: 10vh
+                left: 10vw
+                div.header-border-content
+                    // display: none
+                a.project-a
+                    left: 50%
+                &::after
+                    left: 50%
+                    top: 50%
+                    width: 100%
+                    text-align: center
+
+            span.scroll-down
+                letter-spacing: 5px
+                font-size: 8px
+                top: 90vh
+                left: 70vw
+                z-index: 3
+    div.content
+        div.card-container
+            div.card
+                a.card-button
+                    height: 4vh
+
+// mobile view
+@media only screen and (max-width: 900px)
+
+    body
+        div.nav
+            margin-top: 5vh
+            justify-content: center
+        div.header
+            div.hero
+                top: 50vh
+                left: 18vw
+                width: 50vw
+                font-size: 4vh
+                border-left: 4px dotted $color3
+                padding-left: 4vh
+
+            div.background
+                position: absolute
+                font-size: 30vh
+                top: 0%
+                left: -150%
+                @for $i from 1 through 4
+                    div.background#{$i}
+                        line-height: 25vh
+
+            div.border
+                padding: 0px
+                height: 80vh
+                width: 80vw
+                top: 10vw
+                left: 10vw
+                // border: none
+
+                div.header-border-content
+                    display: none
+                &::after
+                    display: none
+                a.project-a
+                    font-size: 12px
+                    font-weight: bold
+                    height: 1vh
+                    bottom: 55%
+                    color: $color5
+                    left: 50%
+                    opacity: 1
+                    transform: translate(-50%,0%)
+                    transition: 1s ease
+                    &:hover
+                        color: $color2
+
+            span.scroll-down
+                letter-spacing: 5px
+                font-size: 8px
+                top: 95vh
+                left: 50%
+                visibility: hidden
+                transform: translate(-50%,-50%)
+                transition: 0.9s ease
+                animation: none
+                &::after
+                    visibility: visible
+                    // font-size: 60px
+                    animation: mouse-icon-jiggle 1s alternate infinite
+
+    div.content
+        div.card-container
+            flex-wrap: wrap
+            // flex-direction: column
+            padding: 10vw
+            div.card
+                a.card-button
+                    height: 4vh

@@ -1,5 +1,7 @@
+@charset "UTF-8";
+@import url("./responsive.css");
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Flamenco:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 ul {
@@ -9,7 +11,7 @@ ul {
 a {
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
-  color: #736151;
+  color: #A68776;
 }
 
 * {
@@ -34,14 +36,14 @@ a {
 
 .minimal-text {
   letter-spacing: 5px;
-  font-family: Quicksand, "Segoe UI", Verdana, sans-serif;
+  font-family: "Quicksand", "Segoe UI", Verdana, sans-serif;
   text-transform: uppercase;
 }
 
 html {
   background-color: #121212;
-  color: #D6D1CE;
-  font-family: Quicksand, "Segoe UI", Verdana, sans-serif;
+  color: #fff3ec;
+  font-family: "Quicksand", "Segoe UI", Verdana, sans-serif;
 }
 
 body, html {
@@ -50,21 +52,25 @@ body, html {
   overflow-x: hidden;
 }
 
-nav {
-  position: absolute;
-  width: 100vw;
+div.nav {
+  position: fixed;
+  width: 2vw;
+  z-index: 1;
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 20px;
 }
-nav span.logo {
+div.nav span.logo {
   padding: 20px;
   font-size: 30px;
   font-family: "Bodoni Moda", "Times New Roman", serif;
   font-weight: bold;
-  z-index: 1;
+  transition: 0.8s ease;
+}
+div.nav span.logo:hover {
+  letter-spacing: -13px;
 }
 
 div.scroll-counter {
@@ -116,67 +122,6 @@ div.scroll-counter ul li {
 }
 .quilt-lat:hover::before {
   width: 0%;
-}
-
-.quilt-lat-dwarf {
-  position: relative;
-  text-align: center;
-  font-weight: bold;
-}
-.quilt-lat-dwarf::before {
-  position: absolute;
-  content: "";
-  border-top: 1px solid rgba(115, 97, 81, 0.7);
-  width: 20%;
-  top: 50%;
-  left: -10%;
-  transition: 0.7s ease;
-}
-.quilt-lat-dwarf::after {
-  position: absolute;
-  content: "";
-  border-top: 1px solid rgba(115, 97, 81, 0.7);
-  width: 20%;
-  top: 50%;
-  right: -10%;
-  transition: 0.7s ease;
-}
-.quilt-lat-dwarf:hover::after {
-  width: 0%;
-}
-.quilt-lat-dwarf:hover::before {
-  width: 0%;
-}
-
-.quilt-long-dwarf {
-  position: relative;
-  padding: 30px;
-  text-align: center;
-  font-weight: bold;
-}
-.quilt-long-dwarf::before {
-  position: absolute;
-  content: "";
-  border-left: 2px solid rgba(115, 97, 81, 0.7);
-  height: 10%;
-  top: -10%;
-  left: 50%;
-  transition: 0.7s ease;
-}
-.quilt-long-dwarf::after {
-  position: absolute;
-  content: "";
-  border-left: 2px solid rgba(115, 97, 81, 0.7);
-  height: 10%;
-  bottom: -10%;
-  left: 50%;
-  transition: 0.7s ease;
-}
-.quilt-long-dwarf:hover::after {
-  height: 0%;
-}
-.quilt-long-dwarf:hover::before {
-  height: 0%;
 }
 
 div.header {
@@ -243,10 +188,10 @@ div.header div.border div.header-border-content {
   transition: 1s ease;
 }
 div.header div.border div.header-border-content p#aboutme {
-  padding: 50px;
+  padding-right: 50px;
   position: absolute;
-  font-family: Quicksand, "Segoe UI", Verdana, sans-serif;
-  font-size: 18px;
+  font-family: "Quicksand", "Segoe UI", Verdana, sans-serif;
+  font-size: 2vh;
   opacity: 0.3;
   top: 50%;
   left: 50%;
@@ -255,7 +200,7 @@ div.header div.border div.header-border-content p#aboutme {
   transition: 1s ease;
 }
 div.header div.border div.header-border-content p#aboutme span {
-  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-family: "Roboto Slab", "Times New Roman", serif;
   font-size: 48px;
   color: #736151;
   font-weight: bold;
@@ -273,7 +218,7 @@ div.header div.border a.project-a {
   padding-top: 20px;
   padding-bottom: 20px;
   z-index: 20;
-  transform: translate(0%, 50%) rotate(90deg);
+  transform: translate(25%, 50%) rotate(90deg);
   transition: 1s ease-in;
 }
 div.header div.border a.project-a:hover {
@@ -291,10 +236,10 @@ div.header div.border::after {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-size: 15px;
+  font-size: 20px;
   z-index: 0;
-  font-family: Quicksand, "Segoe UI", Verdana, sans-serif;
-  content: " BRIEF INTRO ";
+  font-family: "Quicksand", "Segoe UI", Verdana, sans-serif;
+  content: "BRIEF INTRODUCTION";
   letter-spacing: 5px;
 }
 div.header span.scroll-down {
@@ -308,206 +253,105 @@ div.header span.scroll-down img#scroll-down-img {
   -webkit-animation: mouse-icon-jiggle 1s alternate infinite;
           animation: mouse-icon-jiggle 1s alternate infinite;
   width: 3vw;
-  filter: invert(0.7);
+  filter: invert(0.7) sepia(60%);
 }
 div.header span.scroll-down::after {
-  content: ">";
+  content: "↓";
+  font-size: 20px;
   position: absolute;
   bottom: -50%;
   left: 50%;
-  transform: translate(-50%, 50%) rotate(90deg);
+  transform: translate(-50%, 70%);
 }
 div.header span.scroll-down:hover {
   transform: translate(-50%, -20%);
 }
 
-.rect-hover {
-  width: 0;
-  overflow: visible;
-  background: #A68776;
-  transition: width 0.5s ease;
-}
-.rect-hover:hover {
-  width: 100%;
-}
-
 div.overlay {
   height: 100vh;
-  width: 100vw;
+  width: 0vw;
   position: fixed;
   z-index: 100;
-  transition: 0.5s ease;
+  background-color: #F2DCC2;
+  transition: 0.5s ease-in;
   pointer-events: none;
   mix-blend-mode: difference;
 }
 
 div.content {
-  height: 100vh;
+  min-height: 100vh;
 }
 div.content h1#content-header {
   margin-top: 20vh;
   text-align: center;
+  font-family: Aboreto, "Segoe UI", Verdana, sans-serif;
 }
-div.content div.card-container div.card a.card-button {
+
+div.projects div.card-container {
+  position: relative;
+  z-index: -2;
+  height: 100vh;
+}
+div.projects div.card-container div.card {
+  position: absolute;
+  left: 10vw;
+  border-radius: 20px;
+  padding: 30px;
+  border: 2px solid #40342A;
+  color: #F2DCC2;
+  width: 20vw;
+}
+div.projects div.card-container div.card h1 {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  margin: 30px;
+  text-align: center;
+}
+div.projects div.card-container div.card a.card-button {
   margin-top: 3vh;
   display: block;
-  height: 0;
+  height: auto;
+  font-weight: bold;
   overflow: hidden;
   transition: 0.5s ease;
   line-height: 4vh;
+  width: 100%;
+  text-align: center;
 }
-div.content div.card-container div.card a.card-button:hover {
+div.projects div.card-container div.card a.card-button:hover {
   color: #F2DCC2;
 }
-div.content div.card-container div.card:hover a.card-button {
+div.projects div.card-container div.card:hover a.card-button {
   height: 4vh;
 }
+div.projects div.card-container div.showcase {
+  position: absolute;
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  top: 0%;
+  left: 10vw;
+  -webkit-clip-path: circle(30% at 50% 50%);
+          clip-path: circle(30% at 50% 50%);
+  z-index: 1;
+  transition: 1s ease;
+}
+div.projects div.card-container div.showcase img {
+  transition: 1s ease;
+  filter: sepia(50%);
+}
+div.projects div.card-container div.showcase:hover {
+  -webkit-clip-path: circle(100% at 50% 50%);
+          clip-path: circle(100% at 50% 50%);
+}
+div.projects div.card-container div.showcase:hover img {
+  filter: sepia(0%);
+}
+div.projects div.card-container div.rev {
+  left: auto;
+  right: 10vw;
+  z-index: -1;
+}
 
-div.projects {
-  position: relative;
-}
-div.projects div.card-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-div.projects div.card-container div.card {
-  flex-basis: 20vw;
-  padding: 30px;
-  border: 2px solid #40342A;
-}
-
-@media only screen and (max-width: 1300px) and (min-width: 900px) {
-  body nav {
-    visibility: hidden;
-  }
-  body div.header div.hero {
-    top: 45vh;
-    margin: auto;
-    left: 60vw;
-    width: 40vw;
-    font-size: 8vh;
-  }
-  body div.header div.background {
-    font-size: 30vh;
-  }
-  body div.header div.background div.background1 {
-    line-height: 25vh;
-  }
-  body div.header div.background div.background2 {
-    line-height: 25vh;
-  }
-  body div.header div.background div.background3 {
-    line-height: 25vh;
-  }
-  body div.header div.background div.background4 {
-    line-height: 25vh;
-  }
-  body div.header div.border {
-    padding: 0px;
-    height: 80vh;
-    width: 40vw;
-    top: 10vh;
-    left: 10vw;
-  }
-  body div.header div.border a.project-a {
-    left: 50%;
-  }
-  body div.header div.border::after {
-    left: 50%;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-  }
-  body div.header span.scroll-down {
-    letter-spacing: 5px;
-    font-size: 8px;
-    top: 90vh;
-    left: 70vw;
-    z-index: 3;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .quilt-lat::before {
-    width: 20%;
-    opacity: 0.5;
-  }
-  .quilt-lat::after {
-    width: 20%;
-    opacity: 0.5;
-  }
-  .quilt-long::before {
-    top: -25%;
-    height: 50%;
-    opacity: 0.5;
-  }
-  .quilt-long::after {
-    bottom: -25%;
-    height: 50%;
-    opacity: 0.5;
-  }
-  body nav {
-    visibility: hidden;
-  }
-  body div.header div.hero {
-    top: 50vh;
-    left: 18vw;
-    width: 50vw;
-    font-size: 4vh;
-    border-left: 4px dotted #736151;
-    padding-left: 4vh;
-  }
-  body div.header div.background {
-    position: absolute;
-    font-size: 30vh;
-    top: 0%;
-    left: -150%;
-  }
-  body div.header div.background div.background1 {
-    line-height: 25vh;
-  }
-  body div.header div.background div.background2 {
-    line-height: 25vh;
-  }
-  body div.header div.background div.background3 {
-    line-height: 25vh;
-  }
-  body div.header div.background div.background4 {
-    line-height: 25vh;
-  }
-  body div.header div.border {
-    padding: 0px;
-    height: 80vh;
-    width: 80vw;
-    top: 10vw;
-    left: 10vw;
-  }
-  body div.header div.border div.header-border-content {
-    display: none;
-  }
-  body div.header div.border::after {
-    display: none;
-  }
-  body div.header div.border a.project-a {
-    font-size: 10px;
-    color: #F2DCC2;
-    left: 50%;
-    opacity: 1;
-    transform: translate(-50%, 50%);
-    transition: 1s ease;
-  }
-  body div.header span.scroll-down {
-    letter-spacing: 5px;
-    font-size: 8px;
-    top: 95vh;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: 0.9s ease;
-  }
-  body div.header span.scroll-down:hover {
-    transform: translate(-50%, -20%);
-  }
-}
 .mouse {
   border-radius: 50%;
   width: 12px;
@@ -533,7 +377,6 @@ div.projects div.card-container div.card {
 .mouse-hover {
   width: 60px;
 }
-
 @-webkit-keyframes cursor-jiggle {
   0% {
     transform: translate(-50%, -50%) scale(1);
@@ -563,7 +406,6 @@ div.projects div.card-container div.card {
     transform: translate(-50%, -50%) scale(1);
   }
 }
-
 @keyframes cursor-jiggle {
   0% {
     transform: translate(-50%, -50%) scale(1);
@@ -593,6 +435,7 @@ div.projects div.card-container div.card {
     transform: translate(-50%, -50%) scale(1);
   }
 }
+
 @-webkit-keyframes mouse-icon-jiggle {
   0% {
     transform: translate(0, -10%);
@@ -601,6 +444,7 @@ div.projects div.card-container div.card {
     transform: translate(0, 20%);
   }
 }
+
 @keyframes mouse-icon-jiggle {
   0% {
     transform: translate(0, -10%);

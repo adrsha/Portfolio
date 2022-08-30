@@ -1,0 +1,140 @@
+@media only screen and (max-width: 1300px) {
+  .quilt-lat::before {
+    display: none;
+  }
+  .quilt-lat::after {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1300px) and (min-width: 900px) {
+  body div.header div.hero {
+    top: 45vh;
+    margin: auto;
+    left: 60vw;
+    width: 40vw;
+    font-size: 8vh;
+  }
+  body div.header div.background {
+    font-size: 30vh;
+  }
+  body div.header div.background div.background1 {
+    line-height: 25vh;
+  }
+  body div.header div.background div.background2 {
+    line-height: 25vh;
+  }
+  body div.header div.background div.background3 {
+    line-height: 25vh;
+  }
+  body div.header div.background div.background4 {
+    line-height: 25vh;
+  }
+  body div.header div.border {
+    padding: 0px;
+    height: 80vh;
+    width: 40vw;
+    top: 10vh;
+    left: 10vw;
+  }
+  body div.header div.border a.project-a {
+    left: 50%;
+  }
+  body div.header div.border::after {
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+  }
+  body div.header span.scroll-down {
+    letter-spacing: 5px;
+    font-size: 8px;
+    top: 90vh;
+    left: 70vw;
+    z-index: 3;
+  }
+  div.content div.card-container div.card a.card-button {
+    height: 4vh;
+  }
+}
+@media only screen and (max-width: 900px) {
+  body div.nav {
+    margin-top: 5vh;
+    justify-content: center;
+  }
+  body div.header div.hero {
+    top: 50vh;
+    left: 18vw;
+    width: 50vw;
+    font-size: 4vh;
+    border-left: 4px dotted #736151;
+    padding-left: 4vh;
+  }
+  body div.header div.background {
+    position: absolute;
+    font-size: 30vh;
+    top: 0%;
+    left: -150%;
+  }
+  body div.header div.background div.background1 {
+    line-height: 25vh;
+  }
+  body div.header div.background div.background2 {
+    line-height: 25vh;
+  }
+  body div.header div.background div.background3 {
+    line-height: 25vh;
+  }
+  body div.header div.background div.background4 {
+    line-height: 25vh;
+  }
+  body div.header div.border {
+    padding: 0px;
+    height: 80vh;
+    width: 80vw;
+    top: 10vw;
+    left: 10vw;
+  }
+  body div.header div.border div.header-border-content {
+    display: none;
+  }
+  body div.header div.border::after {
+    display: none;
+  }
+  body div.header div.border a.project-a {
+    font-size: 12px;
+    font-weight: bold;
+    height: 1vh;
+    bottom: 55%;
+    color: #F2DCC2;
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, 0%);
+    transition: 1s ease;
+  }
+  body div.header div.border a.project-a:hover {
+    color: #40342A;
+  }
+  body div.header span.scroll-down {
+    letter-spacing: 5px;
+    font-size: 8px;
+    top: 95vh;
+    left: 50%;
+    visibility: hidden;
+    transform: translate(-50%, -50%);
+    transition: 0.9s ease;
+    -webkit-animation: none;
+            animation: none;
+  }
+  body div.header span.scroll-down::after {
+    visibility: visible;
+    -webkit-animation: mouse-icon-jiggle 1s alternate infinite;
+            animation: mouse-icon-jiggle 1s alternate infinite;
+  }
+  div.content div.card-container {
+    flex-wrap: wrap;
+    padding: 10vw;
+  }
+  div.content div.card-container div.card a.card-button {
+    height: 4vh;
+  }
+}/*# sourceMappingURL=responsive.css.map */
