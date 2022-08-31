@@ -1,6 +1,7 @@
 
 const cursor = document.querySelector('.mouse');
 const overlay = document.querySelector('.overlay');
+const imgp = document.querySelector('div.showcase>img');
 
 document.addEventListener('mousemove',(e)=>{
     let leftPosition = e.pageX; 
@@ -22,6 +23,11 @@ document.addEventListener('mousedown', (e)=>{
     setTimeout(() => {
     cursor.classList.remove('mouse-click')
     }, 1500);
+
+    if(e.target == imgp){
+        console.log(imgp.parentElement)
+        imgp.parentElement.focus()
+    }
 })
 
 document.addEventListener('dblclick', (e)=>{
