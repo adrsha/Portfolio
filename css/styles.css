@@ -2,6 +2,7 @@
 @import url("./responsive.css");
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 ul {
@@ -70,7 +71,7 @@ div.nav span.logo {
   transition: 0.8s ease;
 }
 div.nav span.logo:hover {
-  letter-spacing: -13px;
+  letter-spacing: -14px;
 }
 
 div.scroll-counter {
@@ -129,7 +130,7 @@ div.header {
   height: 100vh;
 }
 div.header div.hero {
-  font-family: Aboreto, "Segoe UI", Verdana, sans-serif;
+  font-family: "Playfair Display", "Times New Roman", serif;
   color: #F2DCC2;
   font-size: 8vh;
   position: absolute;
@@ -147,15 +148,13 @@ div.header div.background {
 div.header div.background div.background-i {
   line-height: 25vh;
   overflow-y: hidden;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #736151;
-  color: transparent;
-  opacity: 0.1;
+  color: #F2DCC2;
+  opacity: 0.02;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  font-family: Verdana;
+  font-family: "Playfair Display", "Times New Roman", serif;
 }
 div.header div.border {
   content: "";
@@ -167,7 +166,6 @@ div.header div.border {
   left: 25%;
   color: #F2DCC2;
   transform: translate(-50%, -50%);
-  transition: 0.5s ease;
   z-index: 2;
   border-radius: 5vh;
   overflow: hidden;
@@ -199,7 +197,7 @@ div.header div.border div.header-border-content p#aboutme {
   transition: 1s ease;
 }
 div.header div.border div.header-border-content p#aboutme span {
-  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-family: "Playfair Display", "Times New Roman", serif;
   font-size: 48px;
   color: #736151;
   font-weight: bold;
@@ -253,6 +251,7 @@ div.header span.scroll-down img#scroll-down-img {
           animation: mouse-icon-jiggle 1s alternate infinite;
   width: 3vw;
   filter: invert(0.7) sepia(60%);
+  pointer-events: none;
 }
 div.header span.scroll-down::after {
   content: "↓";
@@ -300,13 +299,10 @@ div.projects div.card-container div.card {
   color: #A68776;
   z-index: 2;
   width: 20vw;
-  transition: transform 0.2s ease, background-color 0.8s ease;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  background-color: rgba(15, 15, 15, 0.7);
+  background-color: #0f0f0f;
 }
 div.projects div.card-container div.card h1 {
-  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-family: "Playfair Display", "Times New Roman", serif;
   margin: 30px;
   text-align: center;
 }
@@ -323,9 +319,6 @@ div.projects div.card-container div.card a.card-button {
 }
 div.projects div.card-container div.card a.card-button:hover {
   color: #F2DCC2;
-}
-div.projects div.card-container div.card:hover {
-  background-color: #0f0f0f;
 }
 div.projects div.card-container div.card:hover a.card-button {
   height: 4vh;
@@ -405,7 +398,7 @@ div.projects div.card-container input:checked + label.showcase::after {
   mix-blend-mode: difference;
   position: fixed;
   z-index: 100;
-  transition: top 0.2s ease-out, left 0.2s ease-out, width 0.3s ease;
+  transition: top 0.1s ease-out, left 0.1s ease-out, width 0.3s ease;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }

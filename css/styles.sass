@@ -3,14 +3,15 @@
 //sans serif
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap')
 //sans
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap')
 //variables
-$serif: 'Roboto Slab', 'Times New Roman', serif
-$sans: 'Quicksand', 'Segoe UI', Verdana, sans-serif
-$serif1: 'Bodoni Moda', 'Times New Roman', serif
 $sans1: Aboreto, 'Segoe UI', Verdana, sans-serif
+$sans2: 'Quicksand', 'Segoe UI', Verdana, sans-serif
+$serif1: 'Bodoni Moda', 'Times New Roman', serif
+$serif2: 'Playfair Display', 'Times New Roman', serif
 $color-2: #0a0a0a
 $color-1: #0f0f0f
 $color0: #121212
@@ -72,7 +73,7 @@ div.nav
         font-weight: bold
         transition: 0.8s ease
         &:hover
-            letter-spacing: -13px
+            letter-spacing: -14px
 
 div.scroll-counter
     position: fixed
@@ -121,7 +122,7 @@ div.header
     position: relative
     height: 100vh
     div.hero
-        font-family: $sans1
+        font-family: $serif2
         color: $color5
         font-size: 8vh
         position: absolute
@@ -138,15 +139,15 @@ div.header
         div.background-i
             line-height: 25vh
             overflow-y: hidden
-            -webkit-text-stroke-width: 2px
-            -webkit-text-stroke-color: $color3
-            color: transparent
-            opacity: 0.1
+            // -webkit-text-stroke-width: 2px
+            // -webkit-text-stroke-color: $color3
+            color: $color5
+            opacity: 0.02
             -webkit-user-select: none
             -moz-user-select: none
             -ms-user-select: none
             user-select: none
-            font-family: Verdana
+            font-family: $serif2
 
     div.border
         content: ''
@@ -158,7 +159,7 @@ div.header
         left: 25%
         color: $color5
         transform: translate(-50%, -50%)
-        transition: 0.5s ease
+        // transition: 0.5s ease
         z-index: 2
         border-radius: 5vh
         overflow: hidden
@@ -180,7 +181,7 @@ div.header
             p#aboutme
                 padding-right: 50px
                 position: absolute
-                font-family: $sans
+                font-family: $sans2
                 font-size: 2vh
                 opacity: 0.3
                 top: 50%
@@ -189,7 +190,7 @@ div.header
                 width: 30vh
                 transition: 1s ease
                 span
-                    font-family: $serif
+                    font-family: $serif2
                     font-size: 48px
                     color: $color3
                     font-weight: bold
@@ -223,7 +224,7 @@ div.header
             transform: translate(-50%,-50%)
             font-size: 20px
             z-index: 0
-            font-family: $sans
+            font-family: $sans2
             content: "BRIEF INTRODUCTION"
             letter-spacing: 5px
 
@@ -237,6 +238,7 @@ div.header
             animation: mouse-icon-jiggle 1s alternate infinite
             width: 3vw
             filter: invert(0.7) sepia(60%)
+            pointer-events: none
 
         &::after
             content: "↓"
@@ -279,11 +281,9 @@ div.projects
             color: $color4
             z-index: 2
             width: 20vw
-            transition: transform 0.2s ease, background-color 0.8s ease
-            backdrop-filter: blur(10px)
-            background-color: transparentize($color-1, 0.3)
+            background-color: $color-1
             h1
-                font-family: $serif
+                font-family: $serif2
                 margin: 30px
                 text-align: center
             a.card-button
@@ -299,7 +299,6 @@ div.projects
                 &:hover
                     color: $color5
             &:hover
-                background-color: $color-1
                 a.card-button
                     height: 4vh
                     // padding: 30px
@@ -367,7 +366,7 @@ div.projects
     mix-blend-mode: difference
     position: fixed
     z-index: 100
-    transition: top 0.2s ease-out, left 0.2s ease-out, width 0.3s ease
+    transition: top 0.1s ease-out, left 0.1s ease-out, width 0.3s ease
     transform: translate(-50%, -50%)
     pointer-events: none
 
