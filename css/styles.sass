@@ -8,8 +8,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap')
 //variables
-$sans1: Aboreto, 'Segoe UI', Verdana, sans-serif
-$sans2: 'Quicksand', 'Segoe UI', Verdana, sans-serif
+$sans1: Aboreto, Verdana, 'Segoe UI', sans-serif
+$sans2: 'Quicksand', Verdana, 'Segoe UI', sans-serif
 $serif1: 'Bodoni Moda', 'Times New Roman', serif
 $serif2: 'Playfair Display', 'Times New Roman', serif
 $color-2: #0a0a0a
@@ -21,6 +21,20 @@ $color3: #736151
 $color4: #A68776
 $color5: #F2DCC2
 $color6: #fff3ec
+
+//locomotive fix
+html.has-scroll-smooth
+    bottom: 0
+    left: 0
+    overflow: hidden
+    position: fixed
+    right: 0
+    top: 0
+
+.container
+    perspective: 1px
+
+//----
 ul
     list-style: none
 a
@@ -41,14 +55,14 @@ a
 
 .minimal-text
     letter-spacing: 5px
-    font-family: $sans
+    font-family: $sans2
     text-transform: uppercase
 
 html
     // mix-blend-mode: difference
     background-color: $color0
     color: $color6
-    font-family: $sans
+    font-family: $sans2
 
 body, html
     margin: 0
@@ -77,26 +91,47 @@ div.nav
 
 div.scroll-counter
     position: fixed
-    top: 50%
-    opacity: 0
-    transform: translate(-50%,-50%)
+    opacity: 1
+    left: 0vw
+    top: 50vh
+    z-index: 1
+    transform: translate(-100%,-50%)
     ul
-        border: 1px dashed $color2
+        margin: 0
+        // border: 1px solid $color2
         border-radius: 50%
         aspect-ratio: 1/1
         width: 8vh
+        // transition: 0.5s ease
         li
-            top: 50%
+            top: 3vh
+            left: 3vh
             border-radius: 50%
-            border: 2px solid $color5
-            width: 2vh
+            width: 5vh
+            font-size: 20px
             aspect-ratio: 1/1
+            color: $color3
+            text-align: center
+            // border: 2px dashed $color5
             position: absolute
+            &#active
+                width: 3vh
+                background-color: $color5
+
+div.contacts
+    position: fixed
+    left: 95vw
+    top: 50vh
+    z-index: 1
+    li
+        font-size: 12px
+        margin-bottom: 250%
+        list-style: none
+        transform: rotate(90deg)
 
 .quilt-lat
     position: relative
     text-align: center
-    font-weight: bold
     &::before
         position: absolute
         content: ""
@@ -128,7 +163,7 @@ div.header
         position: absolute
         z-index: 4
         top: 50vh
-        margin-right: 5vw
+        padding-right: 5vw
         left: 50%
     div.background
         position: absolute
@@ -139,15 +174,20 @@ div.header
         div.background-i
             line-height: 25vh
             overflow-y: hidden
-            // -webkit-text-stroke-width: 2px
-            // -webkit-text-stroke-color: $color3
-            color: $color5
-            opacity: 0.02
+
+            // -webkit-text-stroke-width: 4px
+            // -webkit-text-stroke-color: $color-1
+            // color: transparent
+            // opacity: 0.1
+
+            color: transparentize($color5,0.98)
+
             -webkit-user-select: none
             -moz-user-select: none
             -ms-user-select: none
             user-select: none
             font-family: $serif2
+            transition: 0.1s ease
 
     div.border
         content: ''
@@ -222,7 +262,7 @@ div.header
             left: 50%
             top: 50%
             transform: translate(-50%,-50%)
-            font-size: 20px
+            font-size: 2vh
             z-index: 0
             font-family: $sans2
             content: "BRIEF INTRODUCTION"
@@ -254,7 +294,7 @@ div.overlay
     height: 100vh
     width: 0vw
     position: fixed
-    z-index: 100
+    z-index: 10
     background-color: $color5
     transition: 0.5s ease-in
     pointer-events: none
@@ -276,12 +316,14 @@ div.projects
         div.card
             position: absolute
             left: 10vw
+            // font-size: 1.6vh
             border-radius: 50px
             padding: 30px
             color: $color4
             z-index: 2
             width: 20vw
             background-color: $color-1
+            transition: color 1s ease, background-color 0.5s ease
             h1
                 font-family: $serif2
                 margin: 30px
@@ -292,71 +334,64 @@ div.projects
                 height: 0
                 font-weight: bold
                 overflow: hidden
-                transition: 0.5s ease
+                transition: 1s ease
                 line-height: 4vh
                 width: 100%
                 text-align: center
                 &:hover
                     color: $color5
             &:hover
+                color: $color5
+                background-color: $color-2
                 a.card-button
                     height: 4vh
                     // padding: 30px
 
-        label.showcase
+        div.showcase
             position: absolute
-            width: auto
-            height: auto
-            border-radius: 50%
-            top: 0%
-            left: 7vw
-            clip-path: circle(50% at 50% 50%)
+            top: 0vh
+            left: 40vw
             z-index: 1
             transition: clip-path 1s ease
-                // background-color: $color0
-            // mix-blend-mode: exclusion
 
             img
                 border-radius: 20px
-                transition: 1s ease
-                filter: brightness(40%)
+                width: 50vw
+                filter: brightness(70%) sepia(50%)
+                transition: filter 1s ease
+
             &::after
                 content: ' '
-                z-index: 1
                 position: absolute
-                left: 50%
                 top: 50%
+                left: 25vw
+                width: 30vw
+                height: 60vh
+                z-index: -1
+                border-radius: 50px
                 transform: translate(-50%, -50%)
-                border: 2px solid $color3
-                width: 70%
-                border-radius: 50%
-                aspect-ratio: 1/1
-                transition: 1.5s ease
+                border: 3px solid transparentize($color5, 0.8 )
                 pointer-events: none
-
+                transition: 1s ease
+            &:hover::after
+                width: 40vw
+                border-color: transparentize($color5,0.9 )
             &:hover
-                clip-path: circle(55% at 50% 50%)
+                &+ .card
+                    color: $color5
+                    background-color: $color-2
+                    a.card-button
+                        height: 4vh
                 img
-                    filter: brightness(52%)
-                &::after
-                    width: 72%
-        div.rev
+                    filter: brightness(100%)
+
+        div.rev-card
             left: auto
             right: 10vw
             z-index: 2
-            &+label.showcase
-                left: 15vw
-
-        input
-            visibility: hidden
-        input:checked + label.showcase
-            clip-path: circle(80% at 50% 50%)
-            img
-                filter: brightness(100%)
-            &::after
-                opacity: 0
-                border-radius: 20px
-                width: 100%
+        div.rev-s
+            left: auto
+            right: 40vw
 
 .mouse
     border-radius: 50%
@@ -366,7 +401,7 @@ div.projects
     mix-blend-mode: difference
     position: fixed
     z-index: 100
-    transition: top 0.1s ease-out, left 0.1s ease-out, width 0.3s ease
+    transition: top 0.1s ease, left 0.1s ease, width 0.3s ease
     transform: translate(-50%, -50%)
     pointer-events: none
 

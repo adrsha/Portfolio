@@ -1,7 +1,30 @@
-
+var winwidth = window.innerWidth 
+var winheight = window.innerHeight 
 const cursor = document.querySelector('.mouse');
 const overlay = document.querySelector('.overlay');
 const imgp = document.querySelector('div.showcase>img');
+
+// scroll-controls
+
+const rotator = document.querySelector('.scroll-counter>ul')
+const counter = Array.from(document.querySelectorAll('.scroll-counter>ul>li'))
+let amp = 200
+var ang = 0
+var noOfEls = 4
+
+for(var i=0;i<4; i++){
+    counter[i].style.transform = `translate(${Math.cos(ang)*amp}%, ${Math.sin(ang)*amp}%) rotate(${ang*(180/Math.PI)}deg)`;
+    ang = ang +  Math.PI/(noOfEls/2)
+}
+var ang = 0
+
+scroll.on('scroll', (obj)=>{
+    console.log(winheight);
+    ang=obj.scroll.y/(winheight/90)
+    rotator.style.transform = 'rotate('+-ang+'deg)'
+})
+
+//miscelleneous
 
 document.addEventListener('mousemove',(e)=>{
     let leftPosition = e.pageX; 
@@ -25,7 +48,6 @@ document.addEventListener('mousedown', (e)=>{
     }, 1500);
 
     if(e.target == imgp){
-        console.log(imgp.parentElement)
         imgp.parentElement.focus()
     }
 })
@@ -38,18 +60,5 @@ document.addEventListener('dblclick', (e)=>{
     }else{
         overlay.style.width = '100vw'
     }
+    
 })
-
-// scroll-controls
-
-const counter = Array.from(document.querySelectorAll('.scroll-counter>ul>li'))
-let amp = 300
-let ang = 3* Math.PI/2
-counter[0].style.transform = `translate(${Math.cos(ang)*amp}%, ${Math.sin(ang)*amp-50}%)`;
-ang = 0
-counter[1].style.transform = `translate(${Math.cos(ang)*amp}%, ${Math.sin(ang)*amp-50}%)`;
-ang =  Math.PI/2
-counter[2].style.transform = `translate(${Math.cos(ang)*amp}%, ${Math.sin(ang)*amp-50}%)`;
-ang =  Math.PI
-counter[3].style.transform = `translate(${Math.cos(ang)*amp}%, ${Math.sin(ang)*amp-50}%)`;
-

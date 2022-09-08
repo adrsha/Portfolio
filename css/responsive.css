@@ -1,4 +1,7 @@
 @media only screen and (max-width: 1300px) {
+  .mouse {
+    display: none;
+  }
   .quilt-lat::before {
     display: none;
   }
@@ -52,14 +55,39 @@
     left: 70vw;
     z-index: 3;
   }
-  div.content div.card-container div.card a.card-button {
+  body div.content div.card-container div.card a.card-button {
     height: 4vh;
+  }
+  body div.projects {
+    height: 600vh;
+  }
+  body div.projects div.card-container {
+    height: 150vh;
+  }
+  body div.projects div.card-container div.card {
+    width: 40vw;
+    left: 30vw;
+    font-size: 2vh;
+  }
+  body div.projects div.card-container div.showcase {
+    top: 50vh;
+    left: 10vw;
+  }
+  body div.projects div.card-container div.showcase img {
+    width: 80vw;
+  }
+  body div.projects div.card-container div.showcase::after {
+    left: 40vw;
+    width: 50vw;
+    height: 90vh;
+  }
+  body div.projects div.card-container div.showcase:hover::after {
+    width: 90vw;
   }
 }
 @media only screen and (max-width: 900px) {
   body div.nav {
-    margin-top: 5vh;
-    justify-content: center;
+    display: none;
   }
   body div.header div.hero {
     top: 50vh;
@@ -130,11 +158,28 @@
     -webkit-animation: mouse-icon-jiggle 1s alternate infinite;
             animation: mouse-icon-jiggle 1s alternate infinite;
   }
-  div.content div.card-container {
-    flex-wrap: wrap;
-    padding: 10vw;
-  }
-  div.content div.card-container div.card a.card-button {
+  body div.content div.card-container div.card a.card-button {
     height: 4vh;
+  }
+  body div.projects div.card-container div.card {
+    width: 80vw;
+    left: 10vw;
+    margin-top: -10vh;
+    font-size: 1.6vh;
+  }
+  body div.projects div.card-container div.showcase {
+    top: 40vh;
+    left: 0vw;
+  }
+  body div.projects div.card-container div.showcase img {
+    width: 100vw;
+  }
+  body div.projects div.card-container div.showcase::after {
+    left: 50vw;
+    width: 80vw;
+    height: 45vh;
+  }
+  body div.projects div.card-container div.showcase:hover::after {
+    width: 100vw;
   }
 }/*# sourceMappingURL=responsive.css.map */

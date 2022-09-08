@@ -5,6 +5,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+html.has-scroll-smooth {
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.container {
+  perspective: 1px;
+}
+
 ul {
   list-style: none;
 }
@@ -37,14 +50,14 @@ a {
 
 .minimal-text {
   letter-spacing: 5px;
-  font-family: "Quicksand", "Segoe UI", Verdana, sans-serif;
+  font-family: "Quicksand", Verdana, "Segoe UI", sans-serif;
   text-transform: uppercase;
 }
 
 html {
   background-color: #121212;
   color: #fff3ec;
-  font-family: "Quicksand", "Segoe UI", Verdana, sans-serif;
+  font-family: "Quicksand", Verdana, "Segoe UI", sans-serif;
 }
 
 body, html {
@@ -76,29 +89,50 @@ div.nav span.logo:hover {
 
 div.scroll-counter {
   position: fixed;
-  top: 50%;
-  opacity: 0;
-  transform: translate(-50%, -50%);
+  opacity: 1;
+  left: 0vw;
+  top: 50vh;
+  z-index: 1;
+  transform: translate(-100%, -50%);
 }
 div.scroll-counter ul {
-  border: 1px dashed #40342A;
+  margin: 0;
   border-radius: 50%;
   aspect-ratio: 1/1;
   width: 8vh;
 }
 div.scroll-counter ul li {
-  top: 50%;
+  top: 3vh;
+  left: 3vh;
   border-radius: 50%;
-  border: 2px solid #F2DCC2;
-  width: 2vh;
+  width: 5vh;
+  font-size: 20px;
   aspect-ratio: 1/1;
+  color: #736151;
+  text-align: center;
   position: absolute;
+}
+div.scroll-counter ul li#active {
+  width: 3vh;
+  background-color: #F2DCC2;
+}
+
+div.contacts {
+  position: fixed;
+  left: 95vw;
+  top: 50vh;
+  z-index: 1;
+}
+div.contacts li {
+  font-size: 12px;
+  margin-bottom: 250%;
+  list-style: none;
+  transform: rotate(90deg);
 }
 
 .quilt-lat {
   position: relative;
   text-align: center;
-  font-weight: bold;
 }
 .quilt-lat::before {
   position: absolute;
@@ -136,7 +170,7 @@ div.header div.hero {
   position: absolute;
   z-index: 4;
   top: 50vh;
-  margin-right: 5vw;
+  padding-right: 5vw;
   left: 50%;
 }
 div.header div.background {
@@ -148,13 +182,13 @@ div.header div.background {
 div.header div.background div.background-i {
   line-height: 25vh;
   overflow-y: hidden;
-  color: #F2DCC2;
-  opacity: 0.02;
+  color: rgba(242, 220, 194, 0.02);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   font-family: "Playfair Display", "Times New Roman", serif;
+  transition: 0.1s ease;
 }
 div.header div.border {
   content: "";
@@ -187,7 +221,7 @@ div.header div.border div.header-border-content {
 div.header div.border div.header-border-content p#aboutme {
   padding-right: 50px;
   position: absolute;
-  font-family: "Quicksand", "Segoe UI", Verdana, sans-serif;
+  font-family: "Quicksand", Verdana, "Segoe UI", sans-serif;
   font-size: 2vh;
   opacity: 0.3;
   top: 50%;
@@ -233,9 +267,9 @@ div.header div.border::after {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
+  font-size: 2vh;
   z-index: 0;
-  font-family: "Quicksand", "Segoe UI", Verdana, sans-serif;
+  font-family: "Quicksand", Verdana, "Segoe UI", sans-serif;
   content: "BRIEF INTRODUCTION";
   letter-spacing: 5px;
 }
@@ -269,7 +303,7 @@ div.overlay {
   height: 100vh;
   width: 0vw;
   position: fixed;
-  z-index: 100;
+  z-index: 10;
   background-color: #F2DCC2;
   transition: 0.5s ease-in;
   pointer-events: none;
@@ -282,7 +316,7 @@ div.content {
 div.content h1#content-header {
   margin-top: 20vh;
   text-align: center;
-  font-family: Aboreto, "Segoe UI", Verdana, sans-serif;
+  font-family: Aboreto, Verdana, "Segoe UI", sans-serif;
   margin-bottom: 10vh;
 }
 
@@ -300,6 +334,7 @@ div.projects div.card-container div.card {
   z-index: 2;
   width: 20vw;
   background-color: #0f0f0f;
+  transition: color 1s ease, background-color 0.5s ease;
 }
 div.projects div.card-container div.card h1 {
   font-family: "Playfair Display", "Times New Roman", serif;
@@ -312,7 +347,7 @@ div.projects div.card-container div.card a.card-button {
   height: 0;
   font-weight: bold;
   overflow: hidden;
-  transition: 0.5s ease;
+  transition: 1s ease;
   line-height: 4vh;
   width: 100%;
   text-align: center;
@@ -320,74 +355,64 @@ div.projects div.card-container div.card a.card-button {
 div.projects div.card-container div.card a.card-button:hover {
   color: #F2DCC2;
 }
+div.projects div.card-container div.card:hover {
+  color: #F2DCC2;
+  background-color: #0a0a0a;
+}
 div.projects div.card-container div.card:hover a.card-button {
   height: 4vh;
 }
-div.projects div.card-container label.showcase {
+div.projects div.card-container div.showcase {
   position: absolute;
-  width: auto;
-  height: auto;
-  border-radius: 50%;
-  top: 0%;
-  left: 7vw;
-  -webkit-clip-path: circle(50% at 50% 50%);
-          clip-path: circle(50% at 50% 50%);
+  top: 0vh;
+  left: 40vw;
   z-index: 1;
   transition: -webkit-clip-path 1s ease;
   transition: clip-path 1s ease;
   transition: clip-path 1s ease, -webkit-clip-path 1s ease;
 }
-div.projects div.card-container label.showcase img {
+div.projects div.card-container div.showcase img {
   border-radius: 20px;
-  transition: 1s ease;
-  filter: brightness(40%);
+  width: 50vw;
+  filter: brightness(70%) sepia(50%);
+  transition: filter 1s ease;
 }
-div.projects div.card-container label.showcase::after {
+div.projects div.card-container div.showcase::after {
   content: " ";
-  z-index: 1;
   position: absolute;
-  left: 50%;
   top: 50%;
+  left: 25vw;
+  width: 30vw;
+  height: 60vh;
+  z-index: -1;
+  border-radius: 50px;
   transform: translate(-50%, -50%);
-  border: 2px solid #736151;
-  width: 70%;
-  border-radius: 50%;
-  aspect-ratio: 1/1;
-  transition: 1.5s ease;
+  border: 3px solid rgba(242, 220, 194, 0.2);
   pointer-events: none;
+  transition: 1s ease;
 }
-div.projects div.card-container label.showcase:hover {
-  -webkit-clip-path: circle(55% at 50% 50%);
-          clip-path: circle(55% at 50% 50%);
+div.projects div.card-container div.showcase:hover::after {
+  width: 40vw;
+  border-color: rgba(242, 220, 194, 0.1);
 }
-div.projects div.card-container label.showcase:hover img {
-  filter: brightness(52%);
+div.projects div.card-container div.showcase:hover + .card {
+  color: #F2DCC2;
+  background-color: #0a0a0a;
 }
-div.projects div.card-container label.showcase:hover::after {
-  width: 72%;
+div.projects div.card-container div.showcase:hover + .card a.card-button {
+  height: 4vh;
 }
-div.projects div.card-container div.rev {
+div.projects div.card-container div.showcase:hover img {
+  filter: brightness(100%);
+}
+div.projects div.card-container div.rev-card {
   left: auto;
   right: 10vw;
   z-index: 2;
 }
-div.projects div.card-container div.rev + label.showcase {
-  left: 15vw;
-}
-div.projects div.card-container input {
-  visibility: hidden;
-}
-div.projects div.card-container input:checked + label.showcase {
-  -webkit-clip-path: circle(80% at 50% 50%);
-          clip-path: circle(80% at 50% 50%);
-}
-div.projects div.card-container input:checked + label.showcase img {
-  filter: brightness(100%);
-}
-div.projects div.card-container input:checked + label.showcase::after {
-  opacity: 0;
-  border-radius: 20px;
-  width: 100%;
+div.projects div.card-container div.rev-s {
+  left: auto;
+  right: 40vw;
 }
 
 .mouse {
@@ -398,7 +423,7 @@ div.projects div.card-container input:checked + label.showcase::after {
   mix-blend-mode: difference;
   position: fixed;
   z-index: 100;
-  transition: top 0.1s ease-out, left 0.1s ease-out, width 0.3s ease;
+  transition: top 0.1s ease, left 0.1s ease, width 0.3s ease;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }

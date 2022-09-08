@@ -11,8 +11,8 @@ $color5: #F2DCC2
 $color6: #fff3ec
 
 @media only screen and (max-width: 1300px)
-    // .mouse
-    //     display: none
+    .mouse
+        display: none
 
     .quilt-lat
         &::before
@@ -58,19 +58,39 @@ $color6: #fff3ec
                 top: 90vh
                 left: 70vw
                 z-index: 3
-    div.content
-        div.card-container
-            div.card
-                a.card-button
-                    height: 4vh
+        div.content
+            div.card-container
+                div.card
+                    a.card-button
+                        height: 4vh
+
+        div.projects
+            height: 600vh
+            div.card-container
+                height: 150vh
+                div.card
+                    width: 40vw
+                    left: 30vw
+                    font-size: 2vh
+
+                div.showcase
+                    top: 50vh
+                    left: 10vw
+
+                    img
+                        width: 80vw
+                    &::after
+                        left: 40vw
+                        width: 50vw
+                        height: 90vh
+                    &:hover::after
+                        width: 90vw
 
 // mobile view
 @media only screen and (max-width: 900px)
-
     body
         div.nav
-            margin-top: 5vh
-            justify-content: center
+            display: none
         div.header
             div.hero
                 top: 50vh
@@ -81,6 +101,7 @@ $color6: #fff3ec
                 padding-left: 4vh
 
             div.background
+                // display: none
                 position: absolute
                 font-size: 30vh
                 top: 0%
@@ -128,11 +149,26 @@ $color6: #fff3ec
                     // font-size: 60px
                     animation: mouse-icon-jiggle 1s alternate infinite
 
-    div.content
-        div.card-container
-            flex-wrap: wrap
-            // flex-direction: column
-            padding: 10vw
-            div.card
-                a.card-button
-                    height: 4vh
+        div.content
+            div.card-container
+                div.card
+                    a.card-button
+                        height: 4vh
+        div.projects
+            div.card-container
+                div.card
+                    width: 80vw
+                    left: 10vw
+                    margin-top: -10vh
+                    font-size: 1.6vh
+                div.showcase
+                    top: 40vh
+                    left: 0vw
+                    img
+                        width: 100vw
+                    &::after
+                        left: 50vw
+                        width: 80vw
+                        height: 45vh
+                    &:hover::after
+                        width: 100vw

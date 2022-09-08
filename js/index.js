@@ -3,13 +3,14 @@ const scroll = new LocomotiveScroll({
     smooth: true,
     multiplier:0.5,
     firefoxMultiplier: 25,
+    touchMultiplier: 5,
     mobile: {
       breakpoint:0,
-      smooth: true
+      smooth: true,
     },
     tablet: {
       breakpoint:0,
-      smooth: true
+      smooth: true,
     },
     lerp: 0.07,
   });
@@ -20,7 +21,6 @@ const projectDestination =  document.querySelector('.projects');
 
 document.addEventListener('click', (e)=>{
   if (e.target == projectLink || e.target == scrollDown){
-    console.log("This worked");
     scroll.scrollTo(projectDestination);
   }
 })
