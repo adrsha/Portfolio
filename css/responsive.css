@@ -95,6 +95,9 @@
   body div.nav {
     display: none;
   }
+  body div.scroll-counter {
+    display: none;
+  }
   body div.header div.hero {
     top: 50vh;
     left: 18vw;
