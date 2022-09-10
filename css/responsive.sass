@@ -9,7 +9,7 @@ $color3: #736151
 $color4: #A68776
 $color5: #F2DCC2
 $color6: #fff3ec
-
+//both
 @media only screen and (max-width: 1300px)
     .mouse
         display: none
@@ -19,9 +19,17 @@ $color6: #fff3ec
             display: none
         &::after
             display: none
-//tablets
-@media only screen and (max-width: 1300px) and (min-width: 900px)
     body
+        div.scroll-counter
+            top: 97vh
+            left: 42vw
+            transform: rotate(90deg) scale(0.5)
+            z-index: -2
+
+//tablets
+@media only screen and (max-width: 1300px) and (min-width: 500px)
+    body
+
         div.header
             div.hero
                 top: 45vh
@@ -139,7 +147,7 @@ $color6: #fff3ec
                 letter-spacing: 5px
                 font-size: 8px
                 top: 95vh
-                left: 50%
+                left: 47vw
                 visibility: hidden
                 transform: translate(-50%,-50%)
                 transition: 0.9s ease

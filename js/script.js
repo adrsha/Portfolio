@@ -8,20 +8,28 @@ const imgp = document.querySelector('div.showcase>img');
 
 const rotator = document.querySelector('.scroll-counter>ul')
 const counter = Array.from(document.querySelectorAll('.scroll-counter>ul>li'))
-let amp = 200
-var ang = 0
-var noOfEls = 4
+let amp = 100
+var ang = new Array()
+var noOfEls = counter.length
 
-for(var i=0;i<4; i++){
-    counter[i].style.transform = `translate(${Math.cos(ang)*amp}%, ${Math.sin(ang)*amp}%) rotate(${ang*(180/Math.PI)}deg)`;
-    ang = ang +  Math.PI/(noOfEls/2)
+for(var i=0;i<noOfEls; i++){
+    ang.push(0);
 }
-var ang = 0
 
+for(var i=0;i<noOfEls; i++){
+    amp = 100
+    counter[i].style.left = `${Math.cos(ang[i])*amp}%`
+    counter[i].style.top = `${Math.sin(ang[i])*amp}%`
+    counter[i].style.transform = `translate(70%, 90%) rotate(${ang[i]*180/Math.PI}deg)`
+
+
+    ang[i+1] = ang[i] +  Math.PI/(noOfEls/2)
+}
+var pr = 0
+var speed = 0
 scroll.on('scroll', (obj)=>{
-    console.log(winheight);
-    ang=obj.scroll.y/(winheight/90)
     rotator.style.transform = 'rotate('+-ang+'deg)'
+    ang=obj.scroll.y/(winheight/(360/noOfEls))
 })
 
 //miscelleneous
