@@ -25,6 +25,16 @@ $color6: #fff3ec
             left: 50vw
             transform: translate(-50%,-50%) rotate(90deg)
 
+        div.background
+            position: absolute
+            font-size: 30vh
+            top: 50%
+            left: -150%
+            div.background-i
+                display: none
+                &:nth-child(4)
+                    display: block
+
 //tablets
 @media only screen and (max-width: 1300px) and (min-width: 600px)
     body
@@ -33,31 +43,28 @@ $color6: #fff3ec
             div.hero
                 top: 45vh
                 margin: auto
-                left: 60vw
+                left: 50vw
                 width: 40vw
+                z-index: -1
                 font-size: 8vh
 
-            div.background
-                font-size: 30vh
-                @for $i from 1 through 4
-                    div.background#{$i}
-                        line-height: 25vh
-
             div.border
-                padding: 0px
-                height: 80vh
-                width: 40vw
-                top: 10vh
+                height: 50vh
+                width: 50vw
+                top: 25vh
                 left: 10vw
                 div.header-border-content
+                    pointer-events: none
                     // display: none
+                    p#aboutme
+                        opacity: 1
                 a.project-a
                     left: 50%
                 &::after
                     left: 50%
                     top: 50%
-                    width: 100%
-                    text-align: center
+                    width: 60%
+                    text-align: left
 
             span.scroll-down
                 letter-spacing: 5px
@@ -110,16 +117,6 @@ $color6: #fff3ec
                 border-left: 4px dotted $color3
                 padding-left: 4vh
 
-            div.background
-                position: absolute
-                font-size: 30vh
-                top: 50%
-                left: -150%
-                div.background-i
-                    display: none
-                    &:nth-child(4)
-                        display: block
-
             div.border
                 padding: 0px
                 height: 80vh
@@ -169,7 +166,7 @@ $color6: #fff3ec
                 div.card
                     width: 80vw
                     left: 10vw
-                    margin-top: -10vh
+                    margin-top: -5%
                     font-size: 1.6vh
                 div.showcase
                     top: 40vh

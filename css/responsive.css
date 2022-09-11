@@ -13,36 +13,39 @@
     left: 50vw;
     transform: translate(-50%, -50%) rotate(90deg);
   }
+  body div.background {
+    position: absolute;
+    font-size: 30vh;
+    top: 50%;
+    left: -150%;
+  }
+  body div.background div.background-i {
+    display: none;
+  }
+  body div.background div.background-i:nth-child(4) {
+    display: block;
+  }
 }
 @media only screen and (max-width: 1300px) and (min-width: 600px) {
   body div.header div.hero {
     top: 45vh;
     margin: auto;
-    left: 60vw;
+    left: 50vw;
     width: 40vw;
+    z-index: -1;
     font-size: 8vh;
   }
-  body div.header div.background {
-    font-size: 30vh;
-  }
-  body div.header div.background div.background1 {
-    line-height: 25vh;
-  }
-  body div.header div.background div.background2 {
-    line-height: 25vh;
-  }
-  body div.header div.background div.background3 {
-    line-height: 25vh;
-  }
-  body div.header div.background div.background4 {
-    line-height: 25vh;
-  }
   body div.header div.border {
-    padding: 0px;
-    height: 80vh;
-    width: 40vw;
-    top: 10vh;
+    height: 50vh;
+    width: 50vw;
+    top: 25vh;
     left: 10vw;
+  }
+  body div.header div.border div.header-border-content {
+    pointer-events: none;
+  }
+  body div.header div.border div.header-border-content p#aboutme {
+    opacity: 1;
   }
   body div.header div.border a.project-a {
     left: 50%;
@@ -50,8 +53,8 @@
   body div.header div.border::after {
     left: 50%;
     top: 50%;
-    width: 100%;
-    text-align: center;
+    width: 60%;
+    text-align: left;
   }
   body div.header span.scroll-down {
     letter-spacing: 5px;
@@ -102,18 +105,6 @@
     border-left: 4px dotted #736151;
     padding-left: 4vh;
   }
-  body div.header div.background {
-    position: absolute;
-    font-size: 30vh;
-    top: 50%;
-    left: -150%;
-  }
-  body div.header div.background div.background-i {
-    display: none;
-  }
-  body div.header div.background div.background-i:nth-child(4) {
-    display: block;
-  }
   body div.header div.border {
     padding: 0px;
     height: 80vh;
@@ -163,7 +154,7 @@
   body div.projects div.card-container div.card {
     width: 80vw;
     left: 10vw;
-    margin-top: -10vh;
+    margin-top: -5%;
     font-size: 1.6vh;
   }
   body div.projects div.card-container div.showcase {

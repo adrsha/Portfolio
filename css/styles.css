@@ -80,12 +80,15 @@ div.nav {
 div.nav span.logo {
   padding: 20px;
   font-size: 30px;
-  font-family: Aboreto, Verdana, "Segoe UI", sans-serif;
+  font-family: "EB Garamond", "Times New Roman", serif;
   font-weight: bold;
   transition: 0.8s ease;
 }
+div.nav span.logo b#oneeighty {
+  transform: rotateZ(180deg);
+}
 div.nav span.logo:hover {
-  letter-spacing: -14px;
+  letter-spacing: -12px;
 }
 
 div.scroll-counter {
@@ -96,7 +99,7 @@ div.scroll-counter {
   z-index: 1;
   transform: translate(-100%, -50%);
   color: #fff3ec;
-  transition: transform 0.7s ease;
+  transition: transform 1.25s ease;
 }
 div.scroll-counter .secondhand {
   position: absolute;
@@ -129,18 +132,17 @@ div.scroll-counter::after {
   border-radius: 50%;
   aspect-ratio: 1/1;
   z-index: -1;
-  width: 25vh;
+  width: 24vh;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   transition: 0.4s ease;
 }
 div.scroll-counter:hover {
   z-index: 1;
-  transform: translate(100%, -50%);
+  transform: translate(100%, -50%) rotate(360deg);
 }
 div.scroll-counter:hover::after {
-  border: 2px solid #F2DCC2;
-  background-color: rgba(10, 10, 10, 0.4);
+  border: 2px solid #261D17;
 }
 div.scroll-counter:hover .secondhand {
   background-color: #F2DCC2;
@@ -173,18 +175,7 @@ div.scroll-counter ul::after {
   border: 1px solid #40342A;
   border-radius: 50%;
   aspect-ratio: 1/1;
-  width: 11vh;
-}
-div.scroll-counter ul::before {
-  position: absolute;
-  content: "";
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border: 3px dotted #40342A;
-  border-radius: 50%;
-  aspect-ratio: 1/1;
-  width: 20vh;
+  width: 26vh;
 }
 div.scroll-counter ul li {
   width: 3vh;
@@ -294,11 +285,13 @@ div.header div.border div.header-border-content {
   -webkit-clip-path: circle(0% at 50% 50%);
           clip-path: circle(0% at 50% 50%);
   aspect-ratio: 1/1;
-  background-color: #0f0f0f;
+  background-color: rgba(15, 15, 15, 0.47);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   transform: translate(-50%, -50%);
   overflow: hidden;
   z-index: 1;
-  transition: 1s ease;
+  transition: 1s ease-out;
 }
 div.header div.border div.header-border-content p#aboutme {
   padding-right: 50px;
@@ -310,7 +303,7 @@ div.header div.border div.header-border-content p#aboutme {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 30vh;
-  transition: 1s ease;
+  transition: 0.5s ease;
 }
 div.header div.border div.header-border-content p#aboutme span {
   font-family: "Prata", "Times New Roman", serif;
@@ -430,6 +423,7 @@ div.projects div.card-container div.card {
 div.projects div.card-container div.card h1 {
   font-family: "Prata", "Times New Roman", serif;
   margin: 30px;
+  color: #736151;
   text-align: center;
 }
 div.projects div.card-container div.card a.card-button {

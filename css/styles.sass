@@ -85,11 +85,13 @@ div.nav
     span.logo
         padding: 20px
         font-size: 30px
-        font-family: $sans1
+        font-family: $serif3
         font-weight: bold
         transition: 0.8s ease
+        b#oneeighty
+            transform: rotateZ(180deg)
         &:hover
-            letter-spacing: -14px
+            letter-spacing: -12px
 
 div.scroll-counter
     position: fixed
@@ -99,7 +101,7 @@ div.scroll-counter
     z-index: 1
     transform: translate(-100%,-50%)
     color: $color6
-    transition: transform 0.7s ease
+    transition: transform 1.25s ease
 
     .secondhand
         position: absolute
@@ -131,16 +133,16 @@ div.scroll-counter
         border-radius: 50%
         aspect-ratio: 1/1
         z-index: -1
-        width: 25vh
+        width: 24vh
         backdrop-filter: blur(5px)
         transition: 0.4s ease
     &:hover
         // color: $color3
         z-index: 1
-        transform: translate(100%,-50%)
+        transform: translate(100%,-50%) rotate(360deg)
         &::after
-            border: 2px solid $color5
-            background-color: transparentize($color-2,0.6)
+            border: 2px solid $color1
+            // background-color: transparentize($color-2,0.6)
         .secondhand
             background-color: $color5
 
@@ -171,17 +173,7 @@ div.scroll-counter
             border: 1px solid $color2
             border-radius: 50%
             aspect-ratio: 1/1
-            width: 11vh
-        &::before
-            position: absolute
-            content: ""
-            left: 50%
-            top: 50%
-            transform: translate(-50%,-50%)
-            border: 3px dotted $color2
-            border-radius: 50%
-            aspect-ratio: 1/1
-            width: 20vh
+            width: 26vh
 
         // transition: 0.5s ease
         li
@@ -287,11 +279,12 @@ div.header
             aspect-ratio: 1/1
 
             // border-radius: 50%
-            background-color: $color-1
+            background-color: transparentize($color-1,0.53)
+            backdrop-filter: blur(5px)
             transform: translate(-50%, -50%)
             overflow: hidden
             z-index: 1
-            transition: 1s ease
+            transition: 1s ease-out
             p#aboutme
                 padding-right: 50px
                 position: absolute
@@ -302,7 +295,7 @@ div.header
                 left: 50%
                 transform: translate(-50%, -50%)
                 width: 30vh
-                transition: 1s ease
+                transition: 0.5s ease
                 span
                     font-family: $serif2
                     font-size: 4vh
@@ -412,6 +405,7 @@ div.projects
             h1
                 font-family: $serif2
                 margin: 30px
+                color: $color3
                 text-align: center
             a.card-button
                 margin-top: 3vh

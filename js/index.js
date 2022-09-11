@@ -21,6 +21,6 @@ const projectDestination =  document.querySelector('.projects');
 
 document.addEventListener('click', (e)=>{
   if (e.target == projectLink || e.target == scrollDown){
-    scroll.scrollTo(projectDestination);
+    scroll.scrollTo(projectDestination, 1500);
   }
 })
