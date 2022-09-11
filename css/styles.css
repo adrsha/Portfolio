@@ -95,6 +95,63 @@ div.scroll-counter {
   top: 50vh;
   z-index: 1;
   transform: translate(-100%, -50%);
+  color: #fff3ec;
+  transition: transform 0.7s ease;
+}
+div.scroll-counter .secondhand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 15vh;
+  transition: 0.05s ease;
+  transform-origin: left;
+  width: 9vh;
+  height: 1px;
+  background-color: #A68776;
+  position: absolute;
+}
+div.scroll-counter .secondhand::after {
+  content: " ";
+  background-color: #736151;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+div.scroll-counter::after {
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #40342A;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  z-index: -1;
+  width: 25vh;
+  transition: 0.4s ease;
+}
+div.scroll-counter:hover {
+  transform: translate(100%, -50%);
+}
+div.scroll-counter:hover::after {
+  border: 2px solid #F2DCC2;
+  background-color: rgba(10, 10, 10, 0.4);
+}
+div.scroll-counter:hover .secondhand {
+  background-color: #F2DCC2;
+}
+div.scroll-counter::before {
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px dotted #736151;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: 5vh;
 }
 div.scroll-counter ul {
   margin: 0;
@@ -113,7 +170,7 @@ div.scroll-counter ul::after {
   border: 1px solid #40342A;
   border-radius: 50%;
   aspect-ratio: 1/1;
-  width: 35vh;
+  width: 11vh;
 }
 div.scroll-counter ul::before {
   position: absolute;
@@ -124,7 +181,7 @@ div.scroll-counter ul::before {
   border: 3px dotted #40342A;
   border-radius: 50%;
   aspect-ratio: 1/1;
-  width: 25vh;
+  width: 20vh;
 }
 div.scroll-counter ul li {
   width: 3vh;
@@ -132,15 +189,10 @@ div.scroll-counter ul li {
   font-family: "Prata", "Times New Roman", serif;
   border-radius: 50%;
   font-size: 2vh;
-  line-height: 1vh;
   aspect-ratio: 1/1;
-  color: #A68776;
   text-align: center;
   position: absolute;
   transition: color 0.5s ease, background-color 0.5s ease, padding 0.5s ease;
-}
-div.scroll-counter ul li:hover {
-  background-color: #40342A;
 }
 
 div.contacts {

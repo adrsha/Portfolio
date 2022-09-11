@@ -2,12 +2,12 @@ var winwidth = window.innerWidth
 var winheight = window.innerHeight 
 const cursor = document.querySelector('.mouse');
 const overlay = document.querySelector('.overlay');
-const imgp = document.querySelector('div.showcase>img');
 
 // scroll-controls
 
 const rotator = document.querySelector('.scroll-counter>ul')
 const counter = Array.from(document.querySelectorAll('.scroll-counter>ul>li'))
+const secondhand= document.querySelector('.secondhand')
 let amp = 100
 var ang = new Array()
 var noOfEls = counter.length
@@ -21,15 +21,15 @@ for(var i=0;i<noOfEls; i++){
     counter[i].style.left = `${Math.cos(ang[i])*amp}%`
     counter[i].style.top = `${Math.sin(ang[i])*amp}%`
     counter[i].style.transform = `translate(70%, 90%) rotate(${ang[i]*180/Math.PI}deg)`
-
-
+    
     ang[i+1] = ang[i] +  Math.PI/(noOfEls/2)
 }
-var pr = 0
-var speed = 0
+var least = 1
 scroll.on('scroll', (obj)=>{
     rotator.style.transform = 'rotate('+-ang+'deg)'
     ang=obj.scroll.y/(winheight/(360/noOfEls))
+    console.log(secondhand)
+    secondhand.style.transform = 'translate(0%, -50%) rotate('+-ang%(360/(noOfEls*5))+'deg)'
 })
 
 //miscelleneous
@@ -55,13 +55,9 @@ document.addEventListener('mousedown', (e)=>{
     cursor.classList.remove('mouse-click')
     }, 1500);
 
-    if(e.target == imgp){
-        imgp.parentElement.focus()
-    }
 })
 
 document.addEventListener('dblclick', (e)=>{
-    console.log(overlay.style.width)
     if (overlay.style.width === '100vw')
     {
         overlay.style.width = '0vw'
