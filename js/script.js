@@ -28,7 +28,6 @@ var least = 1
 scroll.on('scroll', (obj)=>{
     rotator.style.transform = 'rotate('+-ang+'deg)'
     ang=obj.scroll.y/(winheight/(360/noOfEls))
-    console.log(secondhand)
     secondhand.style.transform = 'translate(0%, -50%) rotate('+-ang%(360/(noOfEls*5))+'deg)'
 })
 

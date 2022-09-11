@@ -9,13 +9,12 @@
     display: none;
   }
   body div.scroll-counter {
-    top: 97vh;
-    left: 42vw;
-    transform: rotate(90deg) scale(0.5);
-    z-index: -2;
+    top: 0vh;
+    left: 50vw;
+    transform: translate(-50%, -50%) rotate(90deg);
   }
 }
-@media only screen and (max-width: 1300px) and (min-width: 500px) {
+@media only screen and (max-width: 1300px) and (min-width: 600px) {
   body div.header div.hero {
     top: 45vh;
     margin: auto;
@@ -91,11 +90,8 @@
     width: 90vw;
   }
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 600px) {
   body div.nav {
-    display: none;
-  }
-  body div.scroll-counter {
     display: none;
   }
   body div.header div.hero {
@@ -109,20 +105,14 @@
   body div.header div.background {
     position: absolute;
     font-size: 30vh;
-    top: 0%;
+    top: 50%;
     left: -150%;
   }
-  body div.header div.background div.background1 {
-    line-height: 25vh;
+  body div.header div.background div.background-i {
+    display: none;
   }
-  body div.header div.background div.background2 {
-    line-height: 25vh;
-  }
-  body div.header div.background div.background3 {
-    line-height: 25vh;
-  }
-  body div.header div.background div.background4 {
-    line-height: 25vh;
+  body div.header div.background div.background-i:nth-child(4) {
+    display: block;
   }
   body div.header div.border {
     padding: 0px;

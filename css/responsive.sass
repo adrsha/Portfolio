@@ -21,13 +21,12 @@ $color6: #fff3ec
             display: none
     body
         div.scroll-counter
-            top: 97vh
-            left: 42vw
-            transform: rotate(90deg) scale(0.5)
-            z-index: -2
+            top: 0vh
+            left: 50vw
+            transform: translate(-50%,-50%) rotate(90deg)
 
 //tablets
-@media only screen and (max-width: 1300px) and (min-width: 500px)
+@media only screen and (max-width: 1300px) and (min-width: 600px)
     body
 
         div.header
@@ -95,12 +94,12 @@ $color6: #fff3ec
                         width: 90vw
 
 // mobile view
-@media only screen and (max-width: 900px)
+@media only screen and (max-width: 600px)
     body
         div.nav
             display: none
-        div.scroll-counter
-            display: none
+        // div.scroll-counter
+        //     display: none
 
         div.header
             div.hero
@@ -112,14 +111,14 @@ $color6: #fff3ec
                 padding-left: 4vh
 
             div.background
-                // display: none
                 position: absolute
                 font-size: 30vh
-                top: 0%
+                top: 50%
                 left: -150%
-                @for $i from 1 through 4
-                    div.background#{$i}
-                        line-height: 25vh
+                div.background-i
+                    display: none
+                    &:nth-child(4)
+                        display: block
 
             div.border
                 padding: 0px

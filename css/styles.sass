@@ -132,9 +132,11 @@ div.scroll-counter
         aspect-ratio: 1/1
         z-index: -1
         width: 25vh
+        backdrop-filter: blur(5px)
         transition: 0.4s ease
     &:hover
         // color: $color3
+        z-index: 1
         transform: translate(100%,-50%)
         &::after
             border: 2px solid $color5
