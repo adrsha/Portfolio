@@ -69,12 +69,12 @@ body, html {
 
 div.nav {
   position: fixed;
-  width: 2vw;
+  width: 100vw;
   z-index: 1;
   margin: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   padding: 20px;
 }
 div.nav span.logo {
@@ -93,7 +93,6 @@ div.nav span.logo:hover {
 
 div.scroll-counter {
   position: fixed;
-  opacity: 1;
   left: 2vw;
   top: 50vh;
   z-index: 1;
@@ -231,6 +230,31 @@ div.contacts li {
   width: 0%;
 }
 
+.quilt-stat {
+  position: relative;
+}
+.quilt-stat::before {
+  position: absolute;
+  content: "";
+  border-top: 1px solid rgba(115, 97, 81, 0.7);
+  width: 5vw;
+  top: 50%;
+  left: -6vw;
+  transition: 0.7s ease;
+}
+.quilt-stat::after {
+  position: absolute;
+  content: "";
+  border: 2px solid #A68776;
+  border-radius: 50%;
+  width: 7px;
+  height: 7px;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: -7vw;
+  transition: 0.7s ease;
+}
+
 div.background {
   position: absolute;
   font-size: 30vh;
@@ -261,93 +285,59 @@ div.header div.hero {
   z-index: 4;
   top: 50vh;
   padding-right: 5vw;
-  left: 50%;
+  left: 20%;
+  width: 30vw;
 }
 div.header div.border {
   content: "";
-  border: 4px dashed #40342A;
+  border: 4px solid #40342A;
   position: absolute;
-  width: 40vh;
+  width: 45vh;
   aspect-ratio: 1/1;
   top: 30%;
-  left: 25%;
+  left: 40%;
   color: #F2DCC2;
   transform: translate(-50%, -50%);
   z-index: 2;
-  border-radius: 5vh;
-  overflow: hidden;
+  border-radius: 50%;
 }
-div.header div.border div.header-border-content {
+div.header div.border li {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  height: 110%;
-  -webkit-clip-path: circle(0% at 50% 50%);
-          clip-path: circle(0% at 50% 50%);
-  aspect-ratio: 1/1;
-  background-color: rgba(15, 15, 15, 0.47);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  transform: translate(-50%, -50%);
-  overflow: hidden;
-  z-index: 1;
-  transition: 1s ease-out;
+  flex-direction: column;
+  display: inline-block;
 }
-div.header div.border div.header-border-content p#aboutme {
-  padding-right: 50px;
-  position: absolute;
-  font-family: "Quicksand", Verdana, "Segoe UI", sans-serif;
-  font-size: 2vh;
-  opacity: 0.3;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30vh;
-  transition: 0.5s ease;
+div.header div.border li:nth-child(1) {
+  top: 42vh;
+  right: -7vw;
 }
-div.header div.border div.header-border-content p#aboutme span {
-  font-family: "Prata", "Times New Roman", serif;
-  font-size: 4vh;
-  color: #736151;
-  font-weight: bold;
-  display: block;
-}
-div.header div.border div.header-border-content:hover p#aboutme {
-  opacity: 1;
-}
-div.header div.border a.project-a {
-  font-size: 15px;
-  position: absolute;
-  right: 0%;
-  bottom: 50%;
-  opacity: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  z-index: 20;
-  transform: translate(25%, 50%) rotate(90deg);
-  transition: 1s ease-in;
-}
-div.header div.border a.project-a:hover {
-  color: #F2DCC2;
-}
-div.header div.border:hover div.header-border-content {
-  -webkit-clip-path: circle(100% at 50% 50%);
-          clip-path: circle(100% at 50% 50%);
-}
-div.header div.border:hover a.project-a {
-  opacity: 1;
+div.header div.border li:nth-child(2) {
+  top: 45vh;
+  right: -8vw;
 }
 div.header div.border::after {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2vh;
+  width: 110%;
+  aspect-ratio: 1/1;
   z-index: 0;
-  font-family: Aboreto, Verdana, "Segoe UI", sans-serif;
-  font-weight: bold;
-  content: "BRIEF INTRODUCTION";
-  letter-spacing: 5px;
+  border-radius: 50%;
+  border: 1px solid #736151;
+  content: "";
+}
+div.header div.border::before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  aspect-ratio: 1/1;
+  z-index: 0;
+  background-image: url(../img/sc1.png);
+  background-size: cover;
+  border-radius: 50%;
+  content: "";
 }
 div.header span.scroll-down {
   position: absolute;

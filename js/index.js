@@ -15,12 +15,11 @@ const scroll = new LocomotiveScroll({
     lerp: 0.07,
   });
 
-const projectLink =  document.querySelector('.project-a');
 const scrollDown =  document.querySelector('span.scroll-down');
 const projectDestination =  document.querySelector('.projects');
 
 document.addEventListener('click', (e)=>{
-  if (e.target == projectLink || e.target == scrollDown){
+  if (e.target == scrollDown){
     scroll.scrollTo(projectDestination, 1500);
   }
 })
