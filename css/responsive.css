@@ -2,11 +2,8 @@
   .mouse {
     display: none;
   }
-  .quilt-lat::before {
-    display: none;
-  }
-  .quilt-lat::after {
-    display: none;
+  * {
+    cursor: default;
   }
   body div.scroll-counter {
     top: 0vh;
@@ -28,24 +25,24 @@
 }
 @media only screen and (max-width: 1300px) and (min-width: 600px) {
   body div.header div.hero {
-    top: 45vh;
-    margin: auto;
-    left: 50vw;
-    width: 40vw;
-    z-index: -1;
-    font-size: 8vh;
+    width: 60vw;
+    left: 15vw;
+    top: 70vh;
+    font-size: 5vh;
+    border-left: 4px dotted #736151;
+    padding-left: 4vh;
   }
   body div.header div.border {
-    height: 50vh;
-    width: 50vw;
     top: 25vh;
-    left: 10vw;
+    left: 30vw;
   }
-  body div.header div.border div.header-border-content {
-    pointer-events: none;
+  body div.header div.border li:nth-child(1) {
+    top: 32vh;
+    right: -18vw;
   }
-  body div.header div.border div.header-border-content p#aboutme {
-    opacity: 1;
+  body div.header div.border li:nth-child(2) {
+    top: 35vh;
+    right: -13vw;
   }
   body div.header div.border a.project-a {
     left: 50%;
@@ -53,12 +50,9 @@
   body div.header div.border::after {
     left: 50%;
     top: 50%;
-    width: 60%;
     text-align: left;
   }
   body div.header span.scroll-down {
-    letter-spacing: 5px;
-    font-size: 8px;
     top: 90vh;
     left: 70vw;
     z-index: 3;
@@ -87,69 +81,74 @@
   body div.projects div.card-container div.showcase::after {
     left: 40vw;
     width: 50vw;
-    height: 90vh;
+  }
+  body div.projects div.card-container div.showcase::before {
+    left: 40vw;
+    width: calc(50vw + 3vh);
   }
   body div.projects div.card-container div.showcase:hover::after {
     width: 90vw;
   }
+  body div.contacts {
+    left: 1vw;
+    top: 50vh;
+  }
 }
 @media only screen and (max-width: 600px) {
   body div.nav {
-    display: none;
+    position: absolute;
+    margin-top: 6vh;
+    justify-content: center;
+  }
+  body div.scroll-counter {
+    pointer-events: none;
   }
   body div.header div.hero {
-    top: 50vh;
-    left: 18vw;
+    top: 60vh;
+    left: 38vw;
     width: 50vw;
     font-size: 4vh;
-    border-left: 4px dotted #736151;
-    padding-left: 4vh;
+    text-align: right;
   }
   body div.header div.border {
     padding: 0px;
-    height: 80vh;
-    width: 80vw;
-    top: 10vw;
-    left: 10vw;
+    height: 60vh;
+    width: 60vw;
+    top: 15vh;
+    left: 20vw;
+    border-radius: 10vw;
+    border-style: dashed;
   }
-  body div.header div.border div.header-border-content {
+  body div.header div.border li {
     display: none;
   }
   body div.header div.border::after {
-    display: none;
-  }
-  body div.header div.border a.project-a {
-    font-size: 12px;
-    font-weight: bold;
-    height: 1vh;
-    bottom: 55%;
-    color: #F2DCC2;
-    left: 50%;
-    opacity: 1;
-    transform: translate(-50%, 0%);
-    transition: 1s ease;
-  }
-  body div.header div.border a.project-a:hover {
-    color: #40342A;
+    padding: 0px;
+    width: calc(60vw + 3vh);
+    height: 63vh;
+    border-radius: 10vw;
   }
   body div.header span.scroll-down {
-    letter-spacing: 5px;
-    font-size: 8px;
     top: 95vh;
     left: 47vw;
-    visibility: hidden;
     transform: translate(-50%, -50%);
     transition: 0.9s ease;
     -webkit-animation: none;
             animation: none;
+    visibility: hidden;
   }
   body div.header span.scroll-down::after {
     visibility: visible;
+    font-size: 60px;
     -webkit-animation: mouse-icon-jiggle 1s alternate infinite;
             animation: mouse-icon-jiggle 1s alternate infinite;
   }
   body div.content div.card-container div.card a.card-button {
     height: 4vh;
+  }
+  body div.projects h1#content-header {
+    margin-top: 15%;
+    margin-bottom: 15%;
   }
   body div.projects div.card-container div.card {
     width: 80vw;
@@ -168,6 +167,11 @@
     left: 50vw;
     width: 80vw;
     height: 45vh;
+  }
+  body div.projects div.card-container div.showcase::before {
+    left: 50vw;
+    width: calc(80vw + 3vh);
+    height: 48vh;
   }
   body div.projects div.card-container div.showcase:hover::after {
     width: 100vw;

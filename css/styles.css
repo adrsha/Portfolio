@@ -307,11 +307,11 @@ div.header div.border li {
   display: inline-block;
 }
 div.header div.border li:nth-child(1) {
-  top: 42vh;
+  top: 22vh;
   right: -7vw;
 }
 div.header div.border li:nth-child(2) {
-  top: 45vh;
+  top: 25vh;
   right: -8vw;
 }
 div.header div.border::after {
@@ -382,10 +382,17 @@ div.content {
 div.content h1#content-header {
   margin-top: 20vh;
   text-align: center;
-  font-family: Aboreto, Verdana, "Segoe UI", sans-serif;
+  font-family: "Prata", "Times New Roman", serif;
   margin-bottom: 10vh;
+  font-size: 6vh;
+  color: #F2DCC2;
+  font-weight: normal;
 }
 
+div.projects h1#content-header {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
 div.projects div.card-container {
   position: relative;
   z-index: -2;
@@ -405,16 +412,17 @@ div.projects div.card-container div.card {
   border-radius: 50px;
   padding: 30px;
   color: #A68776;
+  background-color: #0a0a0a;
   z-index: 2;
   width: 20vw;
-  background-color: #0f0f0f;
   transition: color 1s ease, background-color 0.5s ease;
 }
 div.projects div.card-container div.card h1 {
-  font-family: "Prata", "Times New Roman", serif;
+  font-family: "EB Garamond", "Times New Roman", serif;
   margin: 30px;
-  color: #736151;
+  color: #F2DCC2;
   text-align: center;
+  font-weight: normal;
 }
 div.projects div.card-container div.card a.card-button {
   margin-top: 3vh;
@@ -429,10 +437,6 @@ div.projects div.card-container div.card a.card-button {
 }
 div.projects div.card-container div.card a.card-button:hover {
   color: #F2DCC2;
-}
-div.projects div.card-container div.card:hover {
-  color: #F2DCC2;
-  background-color: #0a0a0a;
 }
 div.projects div.card-container div.card:hover a.card-button {
   height: 4vh;
@@ -462,12 +466,30 @@ div.projects div.card-container div.showcase::after {
   z-index: -1;
   border-radius: 50px;
   transform: translate(-50%, -50%);
-  border: 3px solid rgba(242, 220, 194, 0.2);
+  border: 3px solid rgba(115, 97, 81, 0.7);
+  pointer-events: none;
+  transition: 1s ease;
+}
+div.projects div.card-container div.showcase::before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 25vw;
+  width: calc(30vw + 3vh);
+  height: 63vh;
+  z-index: -1;
+  border-radius: 50px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(115, 97, 81, 0.7);
   pointer-events: none;
   transition: 1s ease;
 }
 div.projects div.card-container div.showcase:hover::after {
   width: 40vw;
+  border-color: rgba(242, 220, 194, 0.1);
+}
+div.projects div.card-container div.showcase:hover::before {
+  width: calc(40vw + 3vh);
   border-color: rgba(242, 220, 194, 0.1);
 }
 div.projects div.card-container div.showcase:hover + .card {
