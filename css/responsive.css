@@ -57,7 +57,7 @@
     left: 70vw;
     z-index: 3;
   }
-  body div.content div.card-container div.card a.card-button {
+  body div.header div.card-container div.card a.card-button {
     height: 4vh;
   }
   body div.projects {
@@ -96,37 +96,36 @@
 }
 @media only screen and (max-width: 600px) {
   body div.nav {
-    position: absolute;
-    margin-top: 6vh;
-    justify-content: center;
+    padding: 0;
   }
   body div.scroll-counter {
     pointer-events: none;
   }
   body div.header div.hero {
     top: 60vh;
-    left: 38vw;
+    left: 18vw;
     width: 50vw;
     font-size: 4vh;
-    text-align: right;
   }
   body div.header div.border {
     padding: 0px;
-    height: 60vh;
     width: 60vw;
-    top: 15vh;
+    top: 35vh;
     left: 20vw;
-    border-radius: 10vw;
-    border-style: dashed;
+    border-radius: 50%;
   }
-  body div.header div.border li {
-    display: none;
+  body div.header div.border li:nth-child(1) {
+    top: 12vh;
+    right: -8vw;
+  }
+  body div.header div.border li:nth-child(2) {
+    top: 15vh;
+    right: -13vw;
   }
   body div.header div.border::after {
     padding: 0px;
     width: calc(60vw + 3vh);
-    height: 63vh;
-    border-radius: 10vw;
+    border-radius: 50%;
   }
   body div.header span.scroll-down {
     top: 95vh;
@@ -143,10 +142,10 @@
     -webkit-animation: mouse-icon-jiggle 1s alternate infinite;
             animation: mouse-icon-jiggle 1s alternate infinite;
   }
-  body div.content div.card-container div.card a.card-button {
+  body div.header div.card-container div.card a.card-button {
     height: 4vh;
   }
-  body div.projects h1#content-header {
+  body div.projects {
     margin-top: 15%;
     margin-bottom: 15%;
   }
@@ -175,5 +174,9 @@
   }
   body div.projects div.card-container div.showcase:hover::after {
     width: 100vw;
+  }
+  body div.contacts {
+    left: -2vw;
+    top: 50vh;
   }
 }/*# sourceMappingURL=responsive.css.map */

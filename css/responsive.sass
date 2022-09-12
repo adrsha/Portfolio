@@ -66,7 +66,6 @@ $color6: #fff3ec
                 top: 90vh
                 left: 70vw
                 z-index: 3
-        div.content
             div.card-container
                 div.card
                     a.card-button
@@ -103,35 +102,36 @@ $color6: #fff3ec
 @media only screen and (max-width: 600px)
     body
         div.nav
-            position: absolute
-            margin-top: 6vh
-            justify-content: center
+            padding: 0
         div.scroll-counter
             pointer-events: none
 
         div.header
             div.hero
                 top: 60vh
-                left: 38vw
+                left: 18vw
                 width: 50vw
                 font-size: 4vh
-                text-align: right
+                // text-align: right
 
             div.border
                 padding: 0px
-                height: 60vh
                 width: 60vw
-                top: 15vh
+                top: 35vh
                 left: 20vw
-                border-radius: 10vw
-                border-style: dashed
+                border-radius: 50%
+
                 li
-                    display: none
+                    &:nth-child(1)
+                        top: 12vh
+                        right: -8vw
+                    &:nth-child(2)
+                        top: 15vh
+                        right: -13vw
                 &::after
                     padding: 0px
                     width: calc(60vw + 3vh)
-                    height: 63vh
-                    border-radius: 10vw
+                    border-radius: 50%
             span.scroll-down
                 top: 95vh
                 left: 47vw
@@ -144,15 +144,13 @@ $color6: #fff3ec
                     font-size: 60px
                     animation: mouse-icon-jiggle 1s alternate infinite
 
-        div.content
             div.card-container
                 div.card
                     a.card-button
                         height: 4vh
         div.projects
-            h1#content-header
-                margin-top: 15%
-                margin-bottom: 15%
+            margin-top: 15%
+            margin-bottom: 15%
             div.card-container
                 div.card
                     width: 80vw
@@ -174,3 +172,6 @@ $color6: #fff3ec
                         height: calc(45vh + 3vh)
                     &:hover::after
                         width: 100vw
+        div.contacts
+            left: -2vw
+            top: 50vh

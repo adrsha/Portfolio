@@ -305,6 +305,8 @@ div.header div.border li {
   position: absolute;
   flex-direction: column;
   display: inline-block;
+  font-family: "EB Garamond", "Times New Roman", serif;
+  font-size: 20px;
 }
 div.header div.border li:nth-child(1) {
   top: 22vh;
