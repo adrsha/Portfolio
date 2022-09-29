@@ -1,22 +1,21 @@
 @import url("./responsive.css");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Averia+Libre:wght@300&display=swap");
 a {
-  color: #F2D5D5;
+  color: #E8D4B4;
 }
 
 *::-moz-selection {
-  background-color: #F2E9E9;
-  color: #121212;
+  background-color: #E2F0CB;
+  color: #2C3242;
 }
 
 *::selection {
-  background-color: #F2E9E9;
-  color: #121212;
+  background-color: #E2F0CB;
+  color: #2C3242;
 }
 
 .minimal-text {
@@ -24,43 +23,41 @@ a {
 }
 
 html {
-  background-color: #fff3ec;
-  background-image: url(../img/bg.png);
-  background-size: cover;
-  color: #594A4A;
+  color: #FF9AA2;
   font-family: "Quicksand", Verdana, "Segoe UI", sans-serif;
+  background-image: url("../img/bg1.png");
 }
 
 div.nav span.logo {
-  font-family: "EB Garamond", "Times New Roman", serif;
+  font-family: "Prata", "Times New Roman", serif;
 }
 
 div.scroll-counter {
-  color: #594A4A;
+  color: #FF9AA2;
 }
 div.scroll-counter .secondhand {
-  background-color: #F2D5D5;
+  background-color: #E8D4B4;
 }
 div.scroll-counter .secondhand::after {
-  background-color: #F2BDBD;
+  background-color: #FFB7B2;
 }
 div.scroll-counter::after {
-  border: 2px solid #8C7075;
+  border: 2px solid #F2A0A0;
 }
 div.scroll-counter:hover::after {
-  border: 2px solid #594A4A;
+  border: 2px solid #FF9AA2;
 }
 div.scroll-counter:hover .secondhand {
-  background-color: #F2E9E9;
+  background-color: #E2F0CB;
 }
 div.scroll-counter::before {
-  border: 3px dotted #F2BDBD;
+  border: 3px dotted #FFB7B2;
 }
 div.scroll-counter ol {
-  border: 2px solid #8C7075;
+  border: 2px solid #F2A0A0;
 }
 div.scroll-counter ol::after {
-  border: 1px solid #8C7075;
+  border: 1px solid #F2A0A0;
 }
 div.scroll-counter ol li {
   list-style-type: upper-roman;
@@ -69,10 +66,10 @@ div.scroll-counter ol li {
 }
 
 .quilt-lat::before {
-  border-top: 1px solid rgba(242, 189, 189, 0.7);
+  border-top: 1px solid rgba(255, 183, 178, 0.7);
 }
 .quilt-lat::after {
-  border-top: 1px solid rgba(242, 189, 189, 0.7);
+  border-top: 1px solid rgba(255, 183, 178, 0.7);
 }
 .quilt-lat:hover::after {
   width: 0%;
@@ -82,84 +79,83 @@ div.scroll-counter ol li {
 }
 
 .quilt-stat::before {
-  border-top: 1px solid rgba(242, 189, 189, 0.7);
+  border-top: 1px solid rgba(255, 183, 178, 0.7);
 }
 .quilt-stat::after {
-  border: 2px solid #F2D5D5;
+  border: 2px solid #E8D4B4;
 }
 
 div.background {
-  display: none;
+  overflow: hidden;
 }
 div.background div.background-i {
-  color: rgba(242, 213, 213, 0.05);
-  font-family: "EB Garamond", "Times New Roman", serif;
+  color: #2C3242;
+  font-family: "Yeseva One", "Times New Roman", serif;
 }
 
-div.header {
-  -webkit-backdrop-filter: blur(25px);
-          backdrop-filter: blur(25px);
-}
 div.header div.hero {
-  font-family: "Prata", "Times New Roman", serif;
-  color: #F2E9E9;
+  font-family: "Yeseva One", "Times New Roman", serif;
+  color: #E8D4B4;
 }
 div.header div.border {
-  color: #F2BDBD;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  color: #B5EAD7;
   width: 50vh;
-  border: 1px solid #fff3ec;
+  border: 6px solid #B5EAD7;
 }
 div.header div.border li {
-  font-family: Aboreto, Verdana, "Segoe UI", sans-serif;
+  font-family: "Quicksand", Verdana, "Segoe UI", sans-serif;
+  font-weight: bold;
 }
 div.header div.border::after {
   border: none;
 }
 
 div.overlay {
-  background-color: #F2E9E9;
+  background-color: #E2F0CB;
   color: #0f0f0f;
-  font-family: "EB Garamond", "Times New Roman", serif;
+  font-family: "Yeseva One", "Times New Roman", serif;
 }
 div.overlay ul:has(li:hover) li:not(:hover) {
-  color: #fff3ec;
+  color: #B5EAD7;
 }
 
 div.content h1#content-header {
-  font-family: "Prata", "Times New Roman", serif;
-  color: #F2E9E9;
+  font-family: "Yeseva One", "Times New Roman", serif;
+  color: #E2F0CB;
 }
 
 div.projects div.card-container div.card {
-  background-color: #0f0f0f;
+  background-image: url("../img/bg2.png");
   transition: background-color 0.5s ease;
 }
 div.projects div.card-container div.card h1 {
-  font-family: "EB Garamond", "Times New Roman", serif;
-  color: #F2D5D5;
+  font-family: "Prata", "Times New Roman", serif;
+  color: #B5EAD7;
 }
 div.projects div.card-container div.card a.card-button:hover {
-  color: #F2E9E9;
+  color: #E2F0CB;
 }
 div.projects div.card-container div.showcase::after {
-  border: 3px solid rgba(242, 189, 189, 0.7);
+  border: 3px solid rgba(255, 183, 178, 0.7);
 }
 div.projects div.card-container div.showcase::before {
-  border: 1px solid rgba(242, 189, 189, 0.7);
+  border: 1px solid rgba(255, 183, 178, 0.7);
 }
 div.projects div.card-container div.showcase:hover::after {
-  border-color: rgba(242, 233, 233, 0.1);
+  border-color: rgba(226, 240, 203, 0.1);
 }
 div.projects div.card-container div.showcase:hover::before {
-  border-color: rgba(242, 233, 233, 0.1);
+  border-color: rgba(226, 240, 203, 0.1);
 }
 div.projects div.card-container div.showcase:hover + .card {
-  color: #F2E9E9;
-  background-color: #0a0a0a;
+  color: #E2F0CB;
+  background-color: #100c0c;
 }
 
 .mouse {
-  background-color: #F2E9E9;
+  background-color: #E2F0CB;
 }
 
 @-webkit-keyframes cursor-jiggle {

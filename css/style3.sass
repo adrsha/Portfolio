@@ -1,28 +1,26 @@
 @import url('./responsive.css')
 
 //sans serif
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap')
 //sans
-@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Averia+Libre:wght@300&display=swap')
 //variables
-$sans1: Aboreto, Verdana, 'Segoe UI', sans-serif
-// $sans2: 'Averia Libre', Verdana, 'Segoe UI', sans-serif
 $sans2: 'Quicksand', Verdana, 'Segoe UI', sans-serif
+$serif1: 'Yeseva One', 'Times New Roman', serif
 $serif2: 'Prata', 'Times New Roman', serif
-$serif3: 'EB Garamond', 'Times New Roman', serif
-$color-2: #0a0a0a
+$color-2: #100c0c
 $color-1: #0f0f0f
-$color0: #121212
-$color1: #594A4A
-$color2: #8C7075
-$color3: #F2BDBD
-$color4: #F2D5D5
-$color5: #F2E9E9
-$color6: #fff3ec
+$color0: #2C3242
+$color1: #FF9AA2
+$color2: #F2A0A0
+$color3: #FFB7B2
+// $color4: #FFDAC1
+$color4: #E8D4B4
+$color5: #E2F0CB
+$color6: #B5EAD7
 
 a
     color: $color4
@@ -36,16 +34,14 @@ a
     font-family: $sans2
 
 html
-    // mix-blend-mode: difference
-    background-color: $color6
-    background-image: url(../img/bg.png)
-    background-size: cover
+    // background-color: $color5
     color: $color1
     font-family: $sans2
+    background-image: url('../img/bg1.png')
 
 div.nav
     span.logo
-        font-family: $serif3
+        font-family: $serif2
 
 div.scroll-counter
     color: $color1
@@ -91,23 +87,26 @@ div.scroll-counter
         border: 2px solid $color4
 
 div.background
-    display: none
+    // display: none
+    overflow: hidden
+
     div.background-i
-        color: transparentize($color4,0.95)
-        font-family: $serif3
+        color: $color0
+        font-family: $serif1
 
 div.header
-    backdrop-filter: blur(25px)
     div.hero
-        font-family: $serif2
-        color: $color5
+        font-family: $serif1
+        color: $color4
 
     div.border
-        color: $color3
+        backdrop-filter: blur(15px)
+        color: $color6
         width: 50vh
-        border: 1px solid $color6
+        border: 6px solid $color6
         li
-            font-family: $sans1
+            font-family: $sans2
+            font-weight: bold
 
         &::after
             border: none
@@ -115,25 +114,24 @@ div.header
 div.overlay
     background-color: $color5
     color: $color-1
-    font-family: $serif3
+    font-family: $serif1
 
     ul:has(li:hover) li:not(:hover)
         color: $color6
 div.content
     h1#content-header
-        font-family: $serif2
+        font-family: $serif1
         color: $color5
 
 div.projects
     div.card-container
 
         div.card
-
-            background-color: $color-1
+            background-image: url('../img/bg2.png')
             transition: background-color 0.5s ease
             h1
-                font-family: $serif3
-                color: $color4
+                font-family: $serif2
+                color: $color6
             a.card-button
                 &:hover
                     color: $color5

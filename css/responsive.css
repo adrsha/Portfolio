@@ -29,7 +29,6 @@
     left: 15vw;
     top: 70vh;
     font-size: 5vh;
-    border-left: 4px dotted #736151;
     padding-left: 4vh;
   }
   body div.header div.border {
@@ -62,10 +61,10 @@
     height: 4vh;
   }
   body div.projects {
-    height: 440vw;
+    height: 550vw;
   }
   body div.projects div.card-container {
-    height: 110vw;
+    height: 130vw;
   }
   body div.projects div.card-container div.card {
     width: 60vw;
@@ -73,7 +72,7 @@
     font-size: 2vh;
   }
   body div.projects div.card-container div.showcase {
-    top: 50vw;
+    top: 60vw;
     left: 10vw;
   }
   body div.projects div.card-container div.showcase img {
@@ -147,34 +146,38 @@
     height: 4vh;
   }
   body div.projects {
-    margin-top: 15%;
-    margin-bottom: 15%;
+    height: 700vw;
+  }
+  body div.projects div.card-container {
+    height: 175vw;
   }
   body div.projects div.card-container div.card {
     width: 80vw;
     left: 10vw;
-    margin-top: -5%;
-    font-size: 1.6vh;
+    font-size: 2vh;
   }
   body div.projects div.card-container div.showcase {
-    top: 40vh;
-    left: 0vw;
+    top: 100vw;
+    left: 10vw;
   }
   body div.projects div.card-container div.showcase img {
-    width: 100vw;
+    width: 80vw;
   }
   body div.projects div.card-container div.showcase::after {
-    left: 50vw;
-    width: 80vw;
-    height: 45vh;
+    left: 40vw;
+    width: 50vw;
   }
   body div.projects div.card-container div.showcase::before {
-    left: 50vw;
-    width: calc(80vw + 3vh);
-    height: 48vh;
+    left: 40vw;
+    width: calc(50vw + 3vh);
   }
   body div.projects div.card-container div.showcase:hover::after {
+    width: 90vw;
+    height: 50vw;
+  }
+  body div.projects div.card-container div.showcase:hover::before {
     width: 100vw;
+    height: 60vw;
   }
   body div.contacts {
     left: -2vw;

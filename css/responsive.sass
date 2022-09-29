@@ -1,14 +1,4 @@
-$serif: 'Roboto Slab', 'Times New Roman', serif
-$sans: 'Quicksand', 'Segoe UI', Verdana, sans-serif
-$serif1: 'Bodoni Moda', 'Times New Roman', serif
-$sans1: Aboreto, 'Segoe UI', Verdana, sans-serif
-$color0: #121212
-$color1: #261D17
-$color2: #40342A
-$color3: #736151
-$color4: #A68776
-$color5: #F2DCC2
-$color6: #fff3ec
+
 //both
 @media only screen and (max-width: 1300px)
     .mouse
@@ -41,7 +31,6 @@ $color6: #fff3ec
                 left: 15vw
                 top: 70vh
                 font-size: 5vh
-                border-left: 4px dotted $color3
                 padding-left: 4vh
 
             div.border
@@ -72,16 +61,16 @@ $color6: #fff3ec
                         height: 4vh
 
         div.projects
-            height: 440vw
+            height: 550vw
             div.card-container
-                height: 110vw
+                height: 130vw
                 div.card
                     width: 60vw
                     left: 20vw
                     font-size: 2vh
 
                 div.showcase
-                    top: 50vw
+                    top: 60vw
                     left: 10vw
 
                     img
@@ -149,29 +138,33 @@ $color6: #fff3ec
                     a.card-button
                         height: 4vh
         div.projects
-            margin-top: 15%
-            margin-bottom: 15%
+            height: 700vw
             div.card-container
+                height: 175vw
                 div.card
                     width: 80vw
                     left: 10vw
-                    margin-top: -5%
-                    font-size: 1.6vh
+                    font-size: 2vh
+
                 div.showcase
-                    top: 40vh
-                    left: 0vw
+                    top: 100vw
+                    left: 10vw
+
                     img
-                        width: 100vw
-                    &::after
-                        left: 50vw
                         width: 80vw
-                        height: 45vh
+                    &::after
+                        left: 40vw
+                        width: 50vw
                     &::before
-                        left: 50vw
-                        width: calc(80vw + 3vh)
-                        height: calc(45vh + 3vh)
+                        left: 40vw
+                        width: calc(50vw + 3vh)
+                        // height: 90vh
                     &:hover::after
+                        width: 90vw
+                        height: 50vw
+                    &:hover::before
                         width: 100vw
+                        height: 60vw
         div.contacts
             left: -2vw
             top: 50vh
