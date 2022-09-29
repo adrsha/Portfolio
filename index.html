@@ -5,7 +5,10 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="icon" href="img/icon.png" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link id='styles' rel="stylesheet" href="css/style1.css" />
+  <link rel="stylesheet" href="css/keyframes.css" />
+  <!-- <link rel="stylesheet" href="css/style2.css" /> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <!-- <link rel="stylesheet" href="css/locoscroll.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" />
@@ -14,7 +17,13 @@
 </head>
 
 <body>
-  <div class="overlay"></div>
+  <div class="overlay">
+    <ul>
+      <li onclick="changecss(1)">Dark</li>
+      <li onclick="changecss(2)">Vaporwave</li>
+      <li onclick="changecss(3)">Light</li>
+    </ul>
+  </div>
   <header>
     <div class="nav">
       <span class="logo hoverable">ɅV</span>
@@ -23,18 +32,18 @@
   <div class="container" data-scroll-container data-scroll-call="scroll1">
     <div class="scroll-counter hoverable">
       <span class="secondhand"></span>
-      <ul class="hoverable">
-        <li class="hoverable">I</li>
-        <li class="hoverable">II</li>
-        <li class="hoverable">III</li>
-        <li class="hoverable">IV</li>
-        <li class="hoverable">V</li>
-        <li class="hoverable">VI</li>
-        <li class="hoverable">VII</li>
-        <li class="hoverable">VIII</li>
-        <li class="hoverable">IX</li>
-        <li class="hoverable">X</li>
-      </ul>
+      <ol class="hoverable">
+        <li class="hoverable"></li>
+        <li class="hoverable"></li>
+        <li class="hoverable"></li>
+        <li class="hoverable"></li>
+        <li class="hoverable"></li>
+        <li class="hoverable"></li>
+        <li class="hoverable"></li>
+        <li class="hoverable"></li>
+        <li class="hoverable"></li>
+        <li class="hoverable"></li>
+      </ol>
     </div>
     <div class="contacts">
       <li class="quilt-lat minimal-text hoverable">Discord</li>
@@ -42,7 +51,7 @@
     </div>
     <div class="header section" data-scroll-section>
       <div class="hero hoverable" id="'target1" data-scroll data-scroll-speed="2">
-        I turn websites into magic.
+        I turn websites into <span class="glitch hoverable" data-text="magic">magic</span>.
       </div>
       <div class="border hoverable" data-scroll data-scroll-speed="1">
         <li class="quilt-stat" data-scroll data-scroll-speed="5" data-scroll-offset="0%,-200%">Curious 19 y/o</li>
@@ -64,13 +73,13 @@
 
       </div>
       <span class="scroll-down hoverable">
-        <img id="scroll-down-img" class="hoverable" src="img/mouse.png" />
+        <img id="scroll-down-img" class="hoverable" src="img/m1.png" />
       </span>
     </div>
-    <div class="projects content section" data-scroll data-scroll-section>
+    <div class="projects content" data-scroll data-scroll-section>
 
-      <h1 id="content-header">Projects.</h1>
-      <div class="card-container">
+      <h1 id="content-header"><span class="glitch" data-text="Projects">Projects</span></h1>
+      <div class="card-container section">
         <div class="background">
           <div class="background-i" data-scroll data-scroll-offset="-100%,-200%" data-scroll-direction="horizontal"
             data-scroll-speed="3">
@@ -89,7 +98,7 @@
             target='_blank'>View project</a>
         </div>
       </div>
-      <div class="card-container">
+      <div class="card-container section">
         <div class="background">
           <div class="background-i" data-scroll data-scroll-offset="-100%,-200%" data-scroll-direction="horizontal"
             data-scroll-speed="-3">
@@ -106,7 +115,7 @@
           <a href="#" class="minimal-text card-button hoverable" target='_blank'>View project</a>
         </div>
       </div>
-      <div class="card-container">
+      <div class="card-container section">
         <div class="background">
           <div class="background-i" data-scroll data-scroll-offset="-100%,-200%" data-scroll-direction="horizontal"
             data-scroll-speed="3">
@@ -123,7 +132,7 @@
           <a href="#" class="minimal-text card-button hoverable" target='_blank'>View project</a>
         </div>
       </div>
-      <div class="card-container">
+      <div class="card-container section">
         <div class="background">
           <div class="background-i" data-scroll data-scroll-offset="-100%,-200%" data-scroll-direction="horizontal"
             data-scroll-speed="-3">
@@ -141,7 +150,7 @@
       </div>
     </div>
   </div>
-  <footer id="end"></footer>
+  <footer id="end section"></footer>
   <div class="mouse"></div>
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
   <!-- <script src="./node_modules/locomotive-scroll/dist/locomotive-scroll.js"></script> -->

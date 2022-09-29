@@ -2,11 +2,13 @@ var winwidth = window.innerWidth
 var winheight = window.innerHeight 
 const cursor = document.querySelector('.mouse');
 const overlay = document.querySelector('.overlay');
-
+let leftPosition = winwidth/2; 
+let topPosition = winheight/2;
+let overlaySize = Math.round(Math.max(winheight, winwidth) * 0.9)
 // scroll-controls
 
-const rotator = document.querySelector('.scroll-counter>ul')
-const counter = Array.from(document.querySelectorAll('.scroll-counter>ul>li'))
+const rotator = document.querySelector('.scroll-counter>ol')
+const counter = Array.from(document.querySelectorAll('.scroll-counter>ol>li'))
 const secondhand= document.querySelector('.secondhand')
 let amp = 100
 var ang = new Array()
@@ -26,25 +28,34 @@ for(var i=0;i<noOfEls; i++){
 }
 var least = 1
 scroll.on('scroll', (obj)=>{
-    rotator.style.transform = 'rotate('+-ang+'deg)'
+    
+    // for(i=0;i<3;i++){
+        // console.log(i+ "number: " + document.querySelectorAll('.section')[i].getBoundingClientRect().y)
+    // }
+
     ang=obj.scroll.y/(winheight/(360/noOfEls))
+    rotator.style.transform = 'rotate('+-ang+'deg)'
     secondhand.style.transform = 'translate(0%, -50%) rotate('+-ang%(360/(noOfEls*5))+'deg)'
 })
 
-//miscelleneous
+//miscelleneous mouse actions
 
 document.addEventListener('mousemove',(e)=>{
-    let leftPosition = e.pageX; 
-    let topPosition = e.pageY;
-
+    leftPosition = e.pageX; 
+    topPosition = e.pageY;
+    
     cursor.style.left = leftPosition + 'px'
     cursor.style.top = topPosition + 'px'
-
-   if(e.target.classList.value.includes('hoverable') ){
-    cursor.classList.add('mouse-hover')
+    if(overlay.style.width != overlaySize + 'px'){
+        console.log(overlay.style.width,overlaySize )
+        overlay.style.left = leftPosition + 'px'
+        overlay.style.top = topPosition + 'px'
+    }
+    if(e.target.classList.value.includes('hoverable') ){
+        cursor.classList.add('mouse-hover')
     }else{
         cursor.classList.remove('mouse-hover')
-   }
+    }
 })
 
 document.addEventListener('mousedown', (e)=>{
@@ -57,11 +68,24 @@ document.addEventListener('mousedown', (e)=>{
 })
 
 document.addEventListener('dblclick', (e)=>{
-    if (overlay.style.width === '100vw')
+    if (overlay.style.width === overlaySize+ 'px')
     {
-        overlay.style.width = '0vw'
+        overlay.style.width = '0px'
+        overlay.style.height = '0px'
+        overlay.style.left = '50vw'
+        overlay.style.top = '50vh'
     }else{
-        overlay.style.width = '100vw'
+        overlay.style.width = overlaySize + 'px'
+        overlay.style.height = overlaySize + 'px'
+        overlay.style.left = '50vw'
+        overlay.style.top = '50vh'
     }
     
 })
+
+
+function changecss(val){
+    const link = document.getElementById('styles')
+    console.log(link)
+    link.setAttribute("href", 'css/style'+val+'.css')
+}

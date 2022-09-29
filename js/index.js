@@ -23,3 +23,4 @@ document.addEventListener('click', (e)=>{
     scroll.scrollTo(projectDestination, 1500);
   }
 })
+

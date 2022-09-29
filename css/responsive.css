@@ -10,16 +10,16 @@
     left: 50vw;
     transform: translate(-50%, -50%) rotate(90deg);
   }
-  body div.background {
+  body div.header div.background {
     position: absolute;
     font-size: 30vh;
     top: 50%;
     left: -150%;
   }
-  body div.background div.background-i {
+  body div.header div.background div.background-i {
     display: none;
   }
-  body div.background div.background-i:nth-child(4) {
+  body div.header div.background div.background-i:nth-child(4) {
     display: block;
   }
 }
@@ -34,15 +34,16 @@
   }
   body div.header div.border {
     top: 25vh;
-    left: 30vw;
+    left: 20vw;
+    width: 70vw;
   }
   body div.header div.border li:nth-child(1) {
     top: 32vh;
-    right: -18vw;
+    right: -8vw;
   }
   body div.header div.border li:nth-child(2) {
     top: 35vh;
-    right: -13vw;
+    right: -3vw;
   }
   body div.header div.border a.project-a {
     left: 50%;
@@ -61,18 +62,18 @@
     height: 4vh;
   }
   body div.projects {
-    height: 600vh;
+    height: 440vw;
   }
   body div.projects div.card-container {
-    height: 150vh;
+    height: 110vw;
   }
   body div.projects div.card-container div.card {
-    width: 40vw;
-    left: 30vw;
+    width: 60vw;
+    left: 20vw;
     font-size: 2vh;
   }
   body div.projects div.card-container div.showcase {
-    top: 50vh;
+    top: 50vw;
     left: 10vw;
   }
   body div.projects div.card-container div.showcase img {
@@ -115,11 +116,11 @@
     border-radius: 50%;
   }
   body div.header div.border li:nth-child(1) {
-    top: 12vh;
-    right: -8vw;
+    top: 7vh;
+    right: -13vw;
   }
   body div.header div.border li:nth-child(2) {
-    top: 15vh;
+    top: 10vh;
     right: -13vw;
   }
   body div.header div.border::after {

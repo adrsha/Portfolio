@@ -20,16 +20,16 @@ $color6: #fff3ec
             top: 0vh
             left: 50vw
             transform: translate(-50%,-50%) rotate(90deg)
-
-        div.background
-            position: absolute
-            font-size: 30vh
-            top: 50%
-            left: -150%
-            div.background-i
-                display: none
-                &:nth-child(4)
-                    display: block
+        div.header
+            div.background
+                position: absolute
+                font-size: 30vh
+                top: 50%
+                left: -150%
+                div.background-i
+                    display: none
+                    &:nth-child(4)
+                        display: block
 
 //tablets
 @media only screen and (max-width: 1300px) and (min-width: 600px)
@@ -46,15 +46,15 @@ $color6: #fff3ec
 
             div.border
                 top: 25vh
-                left: 30vw
+                left: 20vw
+                width: 70vw
                 li
                     &:nth-child(1)
                         top: 32vh
-                        right: -18vw
+                        right: -8vw
                     &:nth-child(2)
                         top: 35vh
-                        right: -13vw
-                    // display: none
+                        right: -3vw
                 a.project-a
                     left: 50%
                 &::after
@@ -72,16 +72,16 @@ $color6: #fff3ec
                         height: 4vh
 
         div.projects
-            height: 600vh
+            height: 440vw
             div.card-container
-                height: 150vh
+                height: 110vw
                 div.card
-                    width: 40vw
-                    left: 30vw
+                    width: 60vw
+                    left: 20vw
                     font-size: 2vh
 
                 div.showcase
-                    top: 50vh
+                    top: 50vw
                     left: 10vw
 
                     img
@@ -123,10 +123,10 @@ $color6: #fff3ec
 
                 li
                     &:nth-child(1)
-                        top: 12vh
-                        right: -8vw
+                        top: 7vh
+                        right: -13vw
                     &:nth-child(2)
-                        top: 15vh
+                        top: 10vh
                         right: -13vw
                 &::after
                     padding: 0px
