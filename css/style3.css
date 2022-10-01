@@ -23,7 +23,7 @@ a {
 }
 
 html {
-  color: #FF9AA2;
+  color: #B5EAD7;
   font-family: "Quicksand", Verdana, "Segoe UI", sans-serif;
   background-image: url("../img/bg1.png");
 }
@@ -33,31 +33,31 @@ div.nav span.logo {
 }
 
 div.scroll-counter {
-  color: #FF9AA2;
+  color: #B5EAD7;
 }
 div.scroll-counter .secondhand {
   background-color: #E8D4B4;
 }
 div.scroll-counter .secondhand::after {
-  background-color: #FFB7B2;
+  background-color: #E2F0CB;
 }
 div.scroll-counter::after {
-  border: 2px solid #F2A0A0;
+  border: 6px solid #B5EAD7;
 }
 div.scroll-counter:hover::after {
-  border: 2px solid #FF9AA2;
+  border: 2px solid #2C3242;
 }
 div.scroll-counter:hover .secondhand {
   background-color: #E2F0CB;
 }
 div.scroll-counter::before {
-  border: 3px dotted #FFB7B2;
+  border: none;
 }
 div.scroll-counter ol {
-  border: 2px solid #F2A0A0;
+  border: 6px solid #E8D4B4;
 }
 div.scroll-counter ol::after {
-  border: 1px solid #F2A0A0;
+  border: none;
 }
 div.scroll-counter ol li {
   list-style-type: upper-roman;
@@ -65,11 +65,15 @@ div.scroll-counter ol li {
   transition: color 0.5s ease, background-color 0.5s ease, padding 0.5s ease;
 }
 
+div.contacts li {
+  font-weight: bold;
+}
+
 .quilt-lat::before {
-  border-top: 1px solid rgba(255, 183, 178, 0.7);
+  border-top: 1px solid rgba(226, 240, 203, 0.7);
 }
 .quilt-lat::after {
-  border-top: 1px solid rgba(255, 183, 178, 0.7);
+  border-top: 1px solid rgba(226, 240, 203, 0.7);
 }
 .quilt-lat:hover::after {
   width: 0%;
@@ -79,7 +83,7 @@ div.scroll-counter ol li {
 }
 
 .quilt-stat::before {
-  border-top: 1px solid rgba(255, 183, 178, 0.7);
+  border-top: 1px solid rgba(226, 240, 203, 0.7);
 }
 .quilt-stat::after {
   border: 2px solid #E8D4B4;
@@ -118,7 +122,7 @@ div.overlay {
   font-family: "Yeseva One", "Times New Roman", serif;
 }
 div.overlay ul:has(li:hover) li:not(:hover) {
-  color: #B5EAD7;
+  color: #E8D4B4;
 }
 
 div.content h1#content-header {
@@ -129,24 +133,21 @@ div.content h1#content-header {
 div.projects div.card-container div.card {
   background-image: url("../img/bg2.png");
   transition: background-color 0.5s ease;
+  color: #B5EAD7;
 }
 div.projects div.card-container div.card h1 {
-  font-family: "Prata", "Times New Roman", serif;
+  font-family: "Yeseva One", "Times New Roman", serif;
   color: #B5EAD7;
 }
 div.projects div.card-container div.card a.card-button:hover {
   color: #E2F0CB;
 }
 div.projects div.card-container div.showcase::after {
-  border: 3px solid rgba(255, 183, 178, 0.7);
-}
-div.projects div.card-container div.showcase::before {
-  border: 1px solid rgba(255, 183, 178, 0.7);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  border: 6px solid rgba(181, 234, 215, 0.7);
 }
 div.projects div.card-container div.showcase:hover::after {
-  border-color: rgba(226, 240, 203, 0.1);
-}
-div.projects div.card-container div.showcase:hover::before {
   border-color: rgba(226, 240, 203, 0.1);
 }
 div.projects div.card-container div.showcase:hover + .card {

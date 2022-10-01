@@ -104,7 +104,7 @@ div.scroll-counter .secondhand::after {
   content: " ";
   border-radius: 50%;
   width: 10px;
-  height: 10px;
+  aspect-ratio: 1/1;
   position: absolute;
   transform: translate(-50%, -50%);
 }
@@ -357,9 +357,11 @@ div.overlay ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 div.overlay ul li {
-  margin: 0;
+  line-height: 10vw;
+  overflow: hidden;
   transition: letter-spacing 0.5s ease, color 0.5s ease;
   letter-spacing: -1vw;
 }
@@ -507,80 +509,4 @@ div.projects div.card-container div.rev-s {
 
 .mouse-hover {
   width: 60px;
-}
-
-@-webkit-keyframes cursor-jiggle {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  10% {
-    transform: translate(-50%, -50%) scale(0);
-  }
-  20% {
-    transform: translate(-50%, -50%) scale(1.8);
-  }
-  30% {
-    transform: translate(-50%, -50%) scale(0.5);
-  }
-  40% {
-    transform: translate(-50%, -50%) scale(1.5);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(0.7);
-  }
-  60% {
-    transform: translate(-50%, -50%) scale(1.2);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(0.9);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-@keyframes cursor-jiggle {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  10% {
-    transform: translate(-50%, -50%) scale(0);
-  }
-  20% {
-    transform: translate(-50%, -50%) scale(1.8);
-  }
-  30% {
-    transform: translate(-50%, -50%) scale(0.5);
-  }
-  40% {
-    transform: translate(-50%, -50%) scale(1.5);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(0.7);
-  }
-  60% {
-    transform: translate(-50%, -50%) scale(1.2);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(0.9);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-@-webkit-keyframes mouse-icon-jiggle {
-  0% {
-    transform: translate(0, -10%);
-  }
-  100% {
-    transform: translate(0, 20%);
-  }
-}
-@keyframes mouse-icon-jiggle {
-  0% {
-    transform: translate(0, -10%);
-  }
-  100% {
-    transform: translate(0, 20%);
-  }
 }/*# sourceMappingURL=base.css.map */

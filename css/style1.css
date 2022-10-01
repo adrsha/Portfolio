@@ -112,7 +112,7 @@ div.overlay {
   font-family: "EB Garamond", "Times New Roman", serif;
 }
 div.overlay ul:has(li:hover) li:not(:hover) {
-  color: #fff3ec;
+  color: #A68776;
 }
 
 div.content h1#content-header {

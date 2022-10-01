@@ -14,10 +14,6 @@ $serif2: 'Prata', 'Times New Roman', serif
 $color-2: #100c0c
 $color-1: #0f0f0f
 $color0: #2C3242
-$color1: #FF9AA2
-$color2: #F2A0A0
-$color3: #FFB7B2
-// $color4: #FFDAC1
 $color4: #E8D4B4
 $color5: #E2F0CB
 $color6: #B5EAD7
@@ -35,7 +31,7 @@ a
 
 html
     // background-color: $color5
-    color: $color1
+    color: $color6
     font-family: $sans2
     background-image: url('../img/bg1.png')
 
@@ -44,45 +40,50 @@ div.nav
         font-family: $serif2
 
 div.scroll-counter
-    color: $color1
+    color: $color6
 
     .secondhand
         background-color: $color4
         &::after
-            background-color: $color3
+            background-color: $color5
     &::after
-        border: 2px solid $color2
+        border: 6px solid $color6
     &:hover
         &::after
-            border: 2px solid $color1
+            border: 2px solid $color0
         .secondhand
             background-color: $color5
 
     &::before
-        border: 3px dotted $color3
+        border: none
 
     ol
-        border: 2px solid $color2
+        // background-color: $color4
+        border: 6px solid $color4
         &::after
-            border: 1px solid $color2
+            border: none
 
         li
             list-style-type: upper-roman
             font-family: $serif2
             transition: color 0.5s ease, background-color 0.5s ease, padding 0.5s ease
 
+div.contacts
+    li
+        font-weight: bold
+
 .quilt-lat
     &::before
-        border-top: 1px solid transparentize($color3,0.3)
+        border-top: 1px solid transparentize($color5,0.3)
     &::after
-        border-top: 1px solid transparentize($color3,0.3)
+        border-top: 1px solid transparentize($color5,0.3)
     &:hover::after
         width: 0%
     &:hover::before
         width: 0%
 .quilt-stat
     &::before
-        border-top: 1px solid transparentize($color3,0.3)
+        border-top: 1px solid transparentize($color5,0.3)
     &::after
         border: 2px solid $color4
 
@@ -117,7 +118,7 @@ div.overlay
     font-family: $serif1
 
     ul:has(li:hover) li:not(:hover)
-        color: $color6
+        color: $color4
 div.content
     h1#content-header
         font-family: $serif1
@@ -129,21 +130,19 @@ div.projects
         div.card
             background-image: url('../img/bg2.png')
             transition: background-color 0.5s ease
+            color: $color6
             h1
-                font-family: $serif2
+                font-family: $serif1
                 color: $color6
             a.card-button
                 &:hover
                     color: $color5
         div.showcase
             &::after
-                border: 3px solid transparentize($color3, 0.3 )
-            &::before
-                border: 1px solid transparentize($color3, 0.3 )
+                backdrop-filter: blur(15px)
+                border: 6px solid transparentize($color6, 0.3 )
             &:hover
                 &::after
-                    border-color: transparentize($color5,0.9 )
-                &::before
                     border-color: transparentize($color5,0.9 )
             &:hover
                 &+ .card
