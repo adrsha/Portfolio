@@ -57,6 +57,7 @@ html {
   background-blend-mode: soft-light;
   background-position: center;
   background-color: #11002a;
+  box-shadow: 0 0 50vh rgb(0, 0, 0) inset;
   color: #c3a6c6;
   font-family: "PT Serif", sans-serif;
 }
@@ -69,7 +70,7 @@ html::before {
   bottom: 0;
   right: 0;
   background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  z-index: 2;
+  z-index: 8;
   background-size: 100% 2px, 3px 100%;
   animation: flicker 1s infinite linear alternate-reverse;
   pointer-events: none;
@@ -116,12 +117,11 @@ div.scroll-counter .secondhand::after {
   background-color: #0f0f0f;
 }
 div.scroll-counter::after {
-  background-image: url("../img/vw3.png");
+  background-image: url("../img/vw31.png");
   background-position: center;
   background-size: cover;
   background-color: #a86094;
   background-repeat: no-repeat;
-  background-blend-mode: color-burn;
   -webkit-backdrop-filter: none;
           backdrop-filter: none;
 }
@@ -181,7 +181,7 @@ div.header div.border::before {
 div.overlay {
   background-color: #c3a6c6;
   color: #0f0f0f;
-  font-weight: bold;
+  font-style: "PT Serif", sans-serif;
 }
 
 div.content h1#content-header {
@@ -221,22 +221,21 @@ div.projects div.card-container div.rev-card::after {
 }
 div.projects div.card-container div.showcase::after {
   position: absolute;
-  background-image: url(../img/vw9.png);
+  background-image: url(../img/w4.png);
   background-repeat: no-repeat;
   background-size: contain;
+  border-radius: 50%;
   top: 50%;
   left: 0;
   width: 10vw;
   height: auto;
   aspect-ratio: 1/1;
-  -webkit-animation: revolve 5s infinite linear;
-          animation: revolve 5s infinite linear;
+  -webkit-animation: revolve 10s infinite ease;
+          animation: revolve 10s infinite ease;
 }
 div.projects div.card-container div.showcase:hover::after {
-  border-color: rgba(220, 124, 180, 0.1);
-}
-div.projects div.card-container div.showcase:hover::before {
-  border-color: rgba(220, 124, 180, 0.1);
+  width: 10vw;
+  filter: hue-rotate(-180deg);
 }
 div.projects div.card-container div.showcase:hover + .card {
   color: #c3a6c6;

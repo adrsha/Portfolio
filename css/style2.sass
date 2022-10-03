@@ -63,6 +63,8 @@ html
     background-position: center
     // background-size: cover
     background-color: $color0
+    box-shadow: 0 0 50vh rgb(0,0,0) inset
+
     color: $color6
     font-family: $sans1
     &::before
@@ -74,7 +76,7 @@ html
         bottom: 0
         right: 0
         background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))
-        z-index: 2
+        z-index: 8
         background-size: 100% 2px, 3px 100%
         animation: flicker 1s infinite linear alternate-reverse
         pointer-events: none
@@ -116,12 +118,12 @@ div.scroll-counter
         &::after
             background-color: $color-1
     &::after
-        background-image: url('../img/vw3.png')
+        background-image: url('../img/vw31.png')
         background-position: center
         background-size: cover
         background-color: $color3
         background-repeat: no-repeat
-        background-blend-mode: color-burn
+        // background-blend-mode: color-burn
         backdrop-filter: none
 
     ol
@@ -177,7 +179,8 @@ div.header
 div.overlay
     background-color: $color6
     color: $color-1
-    font-weight: bold
+    // font-weight: bold
+    font-style: $sans1
     // mix-blend-mode: normal
 
 div.content
@@ -218,21 +221,22 @@ div.projects
             &::after
                 position: absolute
                 // border: 3px dashed $color1
-                background-image: url(../img/vw9.png)
+                background-image: url(../img/w4.png)
                 background-repeat: no-repeat
                 background-size: contain
+                border-radius: 50%
                 top: 50%
                 left: 0
                 width: 10vw
                 height: auto
                 aspect-ratio: 1/1
-                animation: revolve 5s infinite linear
+                animation: revolve 10s infinite ease
 
             &:hover
                 &::after
-                    border-color: transparentize($color5,0.9 )
+                    width: 10vw
+                    filter: hue-rotate(-180deg)
                 &::before
-                    border-color: transparentize($color5,0.9 )
 
             &:hover
                 &+ .card
