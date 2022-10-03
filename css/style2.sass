@@ -1,12 +1,11 @@
 @import url('./responsive.css')
 @import url('./keyframes.css')
-
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap')
+// @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap')
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap')
+
 //variables
-$sans1: Raleway, sans-serif
-$serif1: 'EB Garamond', serif
+$sans1: "PT Serif", sans-serif
 $mono1: VT323, monospace
 
 $color-2: #000000
@@ -40,7 +39,7 @@ a
         background: $color0
         overflow: hidden
         clip: rect(0,900px,0,0)
-        animation: noise-anim 2s infinite linear alternate-reverse
+        animation: noise-anim 5s infinite linear alternate-reverse
 
     &:before
         content: attr(data-text)
@@ -50,7 +49,7 @@ a
         background: $color0
         overflow: hidden
         clip: rect(0,900px,0,0)
-        animation: noise-anim-2 3s infinite linear alternate-reverse
+        animation: noise-anim-2 5s infinite linear alternate-reverse
 
 .glitch:hover
     text-shadow: 0.15em 0 0 rgba(255, 0, 0, 0.75),-0.15em -0.025em 0 rgba(0, 255, 247, 0.75), -0.025em 0.15em 0 rgba(0, 0, 255, 0.75)
@@ -58,10 +57,27 @@ a
     font-family: $sans1
 
 html
-    // mix-blend-mode: difference
+    background-image: url('../img/vwbg1.jpg')
+    background-blend-mode: soft-light
+    // background-repeat: no-repeat
+    background-position: center
+    // background-size: cover
     background-color: $color0
     color: $color6
     font-family: $sans1
+    &::before
+        content: " "
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))
+        z-index: 2
+        background-size: 100% 2px, 3px 100%
+        animation: flicker 1s infinite linear alternate-reverse
+        pointer-events: none
 
 .quilt-lat
     &::before
@@ -72,11 +88,21 @@ html
         width: 0%
     &:hover::before
         width: 0%
+
 .quilt-stat
     &::before
-        border-top: 1px solid transparentize($color3,0.3)
+        // content: 'X'
+        width: 2vw
+        top: 50%
+        left: -3vw
+        border-top: 1px solid transparentize($color5,0.3)
     &::after
-        border: 2px solid $color4
+        content: 'x'
+        transform: translate(-50%, -50%)
+        // border: 2px solid $color4
+        height: auto
+        width: auto
+        left: -3vw
 
 div.nav
     span.logo
@@ -84,6 +110,7 @@ div.nav
 
 div.scroll-counter
     color: $color6
+
     .secondhand
         background-color: $color6
         &::after
@@ -92,9 +119,9 @@ div.scroll-counter
         background-image: url('../img/vw3.png')
         background-position: center
         background-size: cover
-        background-color: transparentize($color1,0.5)
+        background-color: $color3
         background-repeat: no-repeat
-        background-blend-mode: multiply //darkens
+        background-blend-mode: color-burn
         backdrop-filter: none
 
     ol
@@ -104,40 +131,51 @@ div.scroll-counter
 
         li
             list-style-type: upper-roman
-            font-family: $serif1
+            font-family: $sans1
             font-weight: bold
             transition: color 0.5s ease, background-color 0.5s ease, padding 0.5s ease
 
 div.background
     div.background-i
+        display: none
         color: $color4
         opacity: 0.1
         font-family: $mono1
 
 div.header
     div.hero
-        font-family: $serif1
+        font-family: $sans1
         color: $color6
         // font-size: vh
 
     div.border
         color: $color5
+        background-image: url(../img/vw6.png)
+        // background-position: bottom
+        border-radius: 0
+        left: 50%
+        background-size: contain
+        background-repeat: no-repeat
 
         li
             font-family: $mono1
-            letter-spacing: 2px
-            color: $color6
-
+            &:nth-child(1)
+                top: 12vh
+                right: -5vw
+            &:nth-child(2)
+                top: 15vh
+                right: -5vw
         &::after
-            background-image: url(../img/vw2.png)
-            background-position: center
-            background-size: cover
             z-index: -1
         &::before
-            filter: hue-rotate(180deg)
+            background-image: url(../img/vw1.png)
+            background-position: bottom
+            background-size: contain
+            background-repeat: no-repeat
+            // filter: hue-rotate(180deg)
 
 div.overlay
-    background-color: $color4
+    background-color: $color6
     color: $color-1
     font-weight: bold
     // mix-blend-mode: normal
@@ -156,7 +194,7 @@ div.projects
         height: 200px
         width: 200px
         content: ''
-        background-image: url('../img/vw8.png')
+        background-image: url('../img/vw13.png')
         background-position: center
         background-size: contain
         background-repeat: no-repeat
@@ -178,9 +216,18 @@ div.projects
 
         div.showcase
             &::after
-                border: 3px dashed $color1
-            &::before
-                border: 1px solid transparentize($color1, 0.3 )
+                position: absolute
+                // border: 3px dashed $color1
+                background-image: url(../img/vw9.png)
+                background-repeat: no-repeat
+                background-size: contain
+                top: 50%
+                left: 0
+                width: 10vw
+                height: auto
+                aspect-ratio: 1/1
+                animation: revolve 5s infinite linear
+
             &:hover
                 &::after
                     border-color: transparentize($color5,0.9 )

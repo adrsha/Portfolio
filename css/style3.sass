@@ -41,12 +41,12 @@ div.nav
 
 div.scroll-counter
     color: $color6
-
     .secondhand
         background-color: $color4
         &::after
             background-color: $color5
     &::after
+        backdrop-filter: none
         border: 6px solid $color6
     &:hover
         &::after
@@ -101,7 +101,6 @@ div.header
         color: $color4
 
     div.border
-        backdrop-filter: blur(15px)
         color: $color6
         width: 50vh
         border: 6px solid $color6
@@ -113,12 +112,13 @@ div.header
             border: none
 
 div.overlay
-    background-color: $color5
-    color: $color-1
+    background-color: $color0
+    color: $color4
     font-family: $serif1
+    mix-blend-mode: normal
 
     ul:has(li:hover) li:not(:hover)
-        color: $color4
+        color: $color-1
 div.content
     h1#content-header
         font-family: $serif1
@@ -138,19 +138,21 @@ div.projects
                 &:hover
                     color: $color5
         div.showcase
-            &::after
-                backdrop-filter: blur(15px)
-                border: 6px solid transparentize($color6, 0.3 )
-            &:hover
-                &::after
-                    border-color: transparentize($color5,0.9 )
+            border: 10px solid $color0
+            border-radius: 10px 50px 10px 50px
+            box-shadow: 0 0 15px $color0,0 0 15px $color0 inset
+            transition: 0.5s ease
+            backdrop-filter: blur(5px)
             &:hover
                 &+ .card
                     color: $color5
                     background-color: $color-2
+        div.rev-s
+            border-radius: 50px 10px 50px 10px
 
 .mouse
     background-color: $color5
+    mix-blend-mode: normal
 
 @keyframes cursor-jiggle
     0%

@@ -94,10 +94,12 @@ div.loader {
 }
 div.loader span#bouncer {
   position: absolute;
-  top: 70%;
+  bottom: -100%;
   transform: translate(-50%, -50%);
   left: 50%;
   width: 50px;
+  transition: opacity 0.2s ease;
+  opacity: 1;
   aspect-ratio: 1;
   border-radius: 50%;
   -webkit-animation-name: cursor-jiggle;
@@ -135,10 +137,10 @@ div.loader span.name {
   white-space: nowrap;
   position: absolute;
   transition: opacity 0.5s ease;
+  opacity: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 1;
 }
 div.loader span.name::before {
   position: absolute;
@@ -163,6 +165,7 @@ div.loader-end#sec {
 div.loader-end#thir {
   -webkit-animation: loader-end 1.5s 1 ease-in;
           animation: loader-end 1.5s 1 ease-in;
+  mix-blend-mode: difference;
 }
 div.loader-end::after {
   -webkit-animation: loader-end 1s 1 linear 0.5s;

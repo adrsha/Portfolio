@@ -42,6 +42,8 @@ div.scroll-counter .secondhand::after {
   background-color: #E2F0CB;
 }
 div.scroll-counter::after {
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
   border: 6px solid #B5EAD7;
 }
 div.scroll-counter:hover::after {
@@ -102,8 +104,6 @@ div.header div.hero {
   color: #E8D4B4;
 }
 div.header div.border {
-  -webkit-backdrop-filter: blur(15px);
-          backdrop-filter: blur(15px);
   color: #B5EAD7;
   width: 50vh;
   border: 6px solid #B5EAD7;
@@ -117,12 +117,13 @@ div.header div.border::after {
 }
 
 div.overlay {
-  background-color: #E2F0CB;
-  color: #0f0f0f;
+  background-color: #2C3242;
+  color: #E8D4B4;
   font-family: "Yeseva One", "Times New Roman", serif;
+  mix-blend-mode: normal;
 }
 div.overlay ul:has(li:hover) li:not(:hover) {
-  color: #E8D4B4;
+  color: #0f0f0f;
 }
 
 div.content h1#content-header {
@@ -142,21 +143,25 @@ div.projects div.card-container div.card h1 {
 div.projects div.card-container div.card a.card-button:hover {
   color: #E2F0CB;
 }
-div.projects div.card-container div.showcase::after {
-  -webkit-backdrop-filter: blur(15px);
-          backdrop-filter: blur(15px);
-  border: 6px solid rgba(181, 234, 215, 0.7);
-}
-div.projects div.card-container div.showcase:hover::after {
-  border-color: rgba(226, 240, 203, 0.1);
+div.projects div.card-container div.showcase {
+  border: 10px solid #2C3242;
+  border-radius: 10px 50px 10px 50px;
+  box-shadow: 0 0 15px #2C3242, 0 0 15px #2C3242 inset;
+  transition: 0.5s ease;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 div.projects div.card-container div.showcase:hover + .card {
   color: #E2F0CB;
   background-color: #100c0c;
 }
+div.projects div.card-container div.rev-s {
+  border-radius: 50px 10px 50px 10px;
+}
 
 .mouse {
   background-color: #E2F0CB;
+  mix-blend-mode: normal;
 }
 
 @-webkit-keyframes cursor-jiggle {

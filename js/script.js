@@ -2,6 +2,7 @@ var winwidth = window.innerWidth
 var winheight = window.innerHeight
 const cursor = document.querySelector('.mouse');
 const overlay = document.querySelector('.overlay');
+let nav = document.querySelector('.logo');
 let loader = document.querySelectorAll('.loader');
 let leftPosition = winwidth / 2;
 let topPosition = winheight / 2;
@@ -67,13 +68,17 @@ document.addEventListener('mousedown', (e) => {
 
 })
 
-document.addEventListener('dblclick', (e) => {
-    if (overlay.style.width === overlaySize + 'px') {
+
+
+document.addEventListener('click', (e) => {
+    console.log(e.target, nav)
+    if (overlay.style.width === overlaySize + 'px' && e.target != document.querySelector('.overlay>ul')){
         overlay.style.width = '0px'
         overlay.style.height = '0px'
         overlay.style.left = '50vw'
         overlay.style.top = '50vh'
-    } else {
+    }
+    else if (overlay.style.width != overlaySize + 'px' && e.target == nav) {
         overlay.style.width = overlaySize + 'px'
         overlay.style.height = overlaySize + 'px'
         overlay.style.left = '50vw'
@@ -84,17 +89,18 @@ document.addEventListener('dblclick', (e) => {
 
 //on click action
 function changecss(val) {
-    const link = document.getElementById('styles')
+    const link = document.getElementById('styles');
     link.setAttribute("href", 'css/style' + val + '.css')
 }
+
 
 //on load action
 window.addEventListener('load', ()=>{
     setTimeout(() => {
         loader.forEach(e => {
-            
             e.classList.add('loader-end')
         });
         
+        console.log("Loading")
     }, 2000);
 })
