@@ -96,5 +96,5 @@ window.addEventListener('load', ()=>{
             e.classList.add('loader-end')
         });
         
-    }, 3000);
+    }, 2000);
 })

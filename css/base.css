@@ -95,7 +95,6 @@ div.loader {
 div.loader span#bouncer {
   position: absolute;
   top: 70%;
-  transition: 0.2s ease;
   transform: translate(-50%, -50%);
   left: 50%;
   width: 50px;
@@ -132,7 +131,7 @@ div.loader span.name {
   -webkit-animation: loader 1s 1 ease;
           animation: loader 1s 1 ease;
   font-family: "Prata", "Times New Roman", serif;
-  font-size: 6vh;
+  font-size: 4vw;
   white-space: nowrap;
   position: absolute;
   transition: opacity 0.5s ease;
@@ -148,7 +147,7 @@ div.loader span.name::before {
   transform: translate(-50%);
   -webkit-animation: loader 1s 1 linear;
           animation: loader 1s 1 linear;
-  font-size: 3vh;
+  font-size: 2vw;
   content: "HI, I'M";
 }
 
