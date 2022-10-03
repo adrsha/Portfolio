@@ -29,6 +29,22 @@ html {
   font-family: "Quicksand", Verdana, "Segoe UI", sans-serif;
 }
 
+div.loader {
+  background-color: #0f0f0f;
+}
+div.loader#sec {
+  background-color: #141414;
+}
+div.loader#thir {
+  background-color: #7c6957;
+}
+div.loader span#bouncer {
+  border: 2px solid #736151;
+}
+div.loader span#bouncer::before {
+  background-color: #F2DCC2;
+}
+
 div.nav span.logo {
   font-family: "EB Garamond", "Times New Roman", serif;
 }

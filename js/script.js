@@ -2,6 +2,7 @@ var winwidth = window.innerWidth
 var winheight = window.innerHeight
 const cursor = document.querySelector('.mouse');
 const overlay = document.querySelector('.overlay');
+let loader = document.querySelectorAll('.loader');
 let leftPosition = winwidth / 2;
 let topPosition = winheight / 2;
 let overlaySize = Math.round(Math.max(winheight, winwidth) * 0.9)
@@ -59,7 +60,7 @@ document.addEventListener('mousemove', (e) => {
 
 document.addEventListener('mousedown', (e) => {
     cursor.classList.add('mouse-click')
-
+    
     setTimeout(() => {
         cursor.classList.remove('mouse-click')
     }, 1500);
@@ -81,8 +82,19 @@ document.addEventListener('dblclick', (e) => {
 
 })
 
-
+//on click action
 function changecss(val) {
     const link = document.getElementById('styles')
     link.setAttribute("href", 'css/style' + val + '.css')
 }
+
+//on load action
+window.addEventListener('load', ()=>{
+    setTimeout(() => {
+        loader.forEach(e => {
+            
+            e.classList.add('loader-end')
+        });
+        
+    }, 3000);
+})

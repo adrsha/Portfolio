@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
 html.has-scroll-smooth {
   bottom: 0;
   left: 0;
@@ -79,6 +80,98 @@ div.nav span.logo:hover {
 }
 div.nav span.logo:hover::after {
   transform: translate(calc(100% + 10px));
+}
+
+div.loader {
+  height: 100vh;
+  width: 100vw;
+  z-index: 5;
+  position: fixed;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+div.loader span#bouncer {
+  position: absolute;
+  top: 70%;
+  transition: 0.2s ease;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  -webkit-animation-name: cursor-jiggle;
+          animation-name: cursor-jiggle;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+div.loader span#bouncer::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  -webkit-animation-name: cursor-jiggle;
+          animation-name: cursor-jiggle;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+div.loader span.name {
+  -webkit-animation: loader 1s 1 ease;
+          animation: loader 1s 1 ease;
+  font-family: "Prata", "Times New Roman", serif;
+  font-size: 6vh;
+  white-space: nowrap;
+  position: absolute;
+  transition: opacity 0.5s ease;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+div.loader span.name::before {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%);
+  -webkit-animation: loader 1s 1 linear;
+          animation: loader 1s 1 linear;
+  font-size: 3vh;
+  content: "HI, I'M";
+}
+
+div.loader-end {
+  -webkit-animation: loader-end 1s 1 linear;
+          animation: loader-end 1s 1 linear;
+  height: 0vh;
+}
+div.loader-end#sec {
+  -webkit-animation: loader-end 1.25s 1 ease-in;
+          animation: loader-end 1.25s 1 ease-in;
+}
+div.loader-end#thir {
+  -webkit-animation: loader-end 1.5s 1 ease-in;
+          animation: loader-end 1.5s 1 ease-in;
+}
+div.loader-end::after {
+  -webkit-animation: loader-end 1s 1 linear 0.5s;
+          animation: loader-end 1s 1 linear 0.5s;
+  height: 0vh;
+}
+div.loader-end span.name {
+  opacity: 0;
 }
 
 div.scroll-counter {
@@ -336,7 +429,7 @@ div.overlay {
   height: 0vh;
   width: 0vw;
   position: fixed;
-  z-index: 10;
+  z-index: 2;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: 1s ease;
