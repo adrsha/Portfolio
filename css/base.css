@@ -18,8 +18,7 @@ ul {
 }
 
 a {
-  -webkit-text-decoration-line: none;
-          text-decoration-line: none;
+  text-decoration-line: none;
 }
 
 * {
@@ -102,14 +101,10 @@ div.loader span#bouncer {
   opacity: 1;
   aspect-ratio: 1;
   border-radius: 50%;
-  -webkit-animation-name: cursor-jiggle;
-          animation-name: cursor-jiggle;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
-  -webkit-animation-direction: normal;
-          animation-direction: normal;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: cursor-jiggle;
+  animation-duration: 3s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
 }
 div.loader span#bouncer::before {
   content: "";
@@ -120,18 +115,13 @@ div.loader span#bouncer::before {
   transform: translate(-50%, -50%);
   aspect-ratio: 1;
   border-radius: 50%;
-  -webkit-animation-name: cursor-jiggle;
-          animation-name: cursor-jiggle;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
-  -webkit-animation-direction: normal;
-          animation-direction: normal;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: cursor-jiggle;
+  animation-duration: 3s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
 }
 div.loader span.name {
-  -webkit-animation: loader 1s 1 ease;
-          animation: loader 1s 1 ease;
+  animation: loader 1s 1 ease;
   font-family: "Prata", "Times New Roman", serif;
   font-size: 4vw;
   white-space: nowrap;
@@ -147,29 +137,24 @@ div.loader span.name::before {
   top: -50%;
   left: 50%;
   transform: translate(-50%);
-  -webkit-animation: loader 1s 1 linear;
-          animation: loader 1s 1 linear;
+  animation: loader 1s 1 linear;
   font-size: 2vw;
   content: "HI, I'M";
 }
 
 div.loader-end {
-  -webkit-animation: loader-end 1s 1 linear;
-          animation: loader-end 1s 1 linear;
+  animation: loader-end 1s 1 linear;
   height: 0vh;
 }
 div.loader-end#sec {
-  -webkit-animation: loader-end 1.25s 1 ease-in;
-          animation: loader-end 1.25s 1 ease-in;
+  animation: loader-end 1.25s 1 ease-in;
 }
 div.loader-end#thir {
-  -webkit-animation: loader-end 1.5s 1 ease-in;
-          animation: loader-end 1.5s 1 ease-in;
+  animation: loader-end 1.5s 1 ease-in;
   mix-blend-mode: difference;
 }
 div.loader-end::after {
-  -webkit-animation: loader-end 1s 1 linear 0.5s;
-          animation: loader-end 1s 1 linear 0.5s;
+  animation: loader-end 1s 1 linear 0.5s;
   height: 0vh;
 }
 div.loader-end span.name {
@@ -213,8 +198,7 @@ div.scroll-counter::after {
   aspect-ratio: 1/1;
   z-index: -1;
   width: 24vh;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   transition: 0.4s ease;
 }
 div.scroll-counter:hover {
@@ -407,8 +391,7 @@ div.header span.scroll-down {
   transition: 0.9s ease;
 }
 div.header span.scroll-down img#scroll-down-img {
-  -webkit-animation: mouse-icon-jiggle 1s alternate infinite;
-          animation: mouse-icon-jiggle 1s alternate infinite;
+  animation: mouse-icon-jiggle 1s alternate infinite;
   width: 3vw;
   filter: invert(0.7) sepia(60%);
   pointer-events: none;
@@ -523,9 +506,7 @@ div.projects div.card-container div.showcase {
   top: 0vh;
   left: 40vw;
   z-index: 1;
-  transition: -webkit-clip-path 1s ease;
   transition: clip-path 1s ease;
-  transition: clip-path 1s ease, -webkit-clip-path 1s ease;
 }
 div.projects div.card-container div.showcase img {
   border-radius: 20px;
@@ -588,20 +569,19 @@ div.projects div.card-container div.rev-s {
   mix-blend-mode: difference;
   position: fixed;
   z-index: 100;
-  transition: top 0.1s ease, left 0.1s ease, width 0.3s ease;
+  transition: width 0.3s ease;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
 .mouse-click {
-  -webkit-animation-name: cursor-jiggle;
-          animation-name: cursor-jiggle;
-  -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
-  -webkit-animation-direction: normal;
-          animation-direction: normal;
+  animation-name: cursor-jiggle;
+  animation-duration: 1.5s;
+  animation-direction: normal;
 }
 
 .mouse-hover {
   width: 60px;
-}/*# sourceMappingURL=base.css.map */
+}
+
+/*# sourceMappingURL=base.css.map */

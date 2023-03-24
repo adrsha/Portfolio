@@ -2,7 +2,6 @@ const scroll = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
     smooth: true,
     multiplier:1,
-    firefoxMultiplier: 15,
     touchMultiplier: 2,
     mobile: {
       breakpoint:0,

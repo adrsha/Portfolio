@@ -5,12 +5,6 @@
   div.loader span.name::before {
     font-size: 5vw;
   }
-  .mouse {
-    display: none;
-  }
-  * {
-    cursor: default;
-  }
   body div.scroll-counter {
     top: 0vh;
     left: 50vw;
@@ -40,7 +34,7 @@
   body div.header div.border {
     top: 25vh;
     left: 20vw;
-    width: 70vw;
+    width: 60vw;
   }
   body div.header div.border li:nth-child(1) {
     top: 32vh;
@@ -138,15 +132,13 @@
     left: 47vw;
     transform: translate(-50%, -50%);
     transition: 0.9s ease;
-    -webkit-animation: none;
-            animation: none;
+    animation: none;
     visibility: hidden;
   }
   body div.header span.scroll-down::after {
     visibility: visible;
     font-size: 60px;
-    -webkit-animation: mouse-icon-jiggle 1s alternate infinite;
-            animation: mouse-icon-jiggle 1s alternate infinite;
+    animation: mouse-icon-jiggle 1s alternate infinite;
   }
   body div.header div.card-container div.card a.card-button {
     height: 4vh;
@@ -189,4 +181,6 @@
     left: -2vw;
     top: 50vh;
   }
-}/*# sourceMappingURL=responsive.css.map */
+}
+
+/*# sourceMappingURL=responsive.css.map */
