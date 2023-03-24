@@ -24,6 +24,9 @@
   }
 }
 @media only screen and (max-width: 1300px) and (min-width: 600px) {
+  .mouse {
+    display: none;
+  }
   body div.header div.hero {
     width: 60vw;
     left: 15vw;

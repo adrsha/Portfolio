@@ -368,6 +368,19 @@ div.header
         &:hover
             transform: translate(-50%, -20%)
 
+div.overlay-after
+    margin: 0
+    position: fixed
+    transition: 2.5s ease
+    background: black
+    pointer-events: none
+    border-radius: 50%
+    height: 0%
+    width: 0%
+    z-index: 3
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
 div.overlay
     top: 50%
     left: 50%
@@ -377,11 +390,10 @@ div.overlay
     z-index: 2
     border-radius: 50%
     transform: translate(-50%, -50%)
-    transition: 1s ease
+    transition: 1.5s ease
     overflow: hidden
     mix-blend-mode: difference
     font-size: 10vw
-
     ul
         border-radius: 50%
         -webkit-user-select: none
@@ -393,6 +405,7 @@ div.overlay
         height: 100%
         width: 100%
         display: flex
+        transition: 0.5s ease
         align-items: center
         justify-content: center
         flex-direction: column
