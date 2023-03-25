@@ -11,6 +11,7 @@ html.has-scroll-smooth {
 
 .container {
   perspective: 1px;
+  opacity: 0;
 }
 
 ul {
@@ -527,7 +528,6 @@ div.projects div.card-container div.showcase {
 div.projects div.card-container div.showcase img {
   border-radius: 20px;
   width: 50vw;
-  filter: brightness(70%) sepia(50%);
   transition: filter 1s ease;
 }
 div.projects div.card-container div.showcase::after {
@@ -564,9 +564,6 @@ div.projects div.card-container div.showcase:hover::before {
 }
 div.projects div.card-container div.showcase:hover + .card a.card-button {
   height: 4vh;
-}
-div.projects div.card-container div.showcase:hover img {
-  filter: brightness(100%);
 }
 div.projects div.card-container div.rev-card {
   left: auto;

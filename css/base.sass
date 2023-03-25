@@ -13,6 +13,7 @@ html.has-scroll-smooth
 
 .container
     perspective: 1px
+    opacity:0
 
 //----
 ul
@@ -478,7 +479,6 @@ div.projects
             img
                 border-radius: 20px
                 width: 50vw
-                filter: brightness(70%) sepia(50%)
                 transition: filter 1s ease
 
             &::after
@@ -514,9 +514,6 @@ div.projects
                 &+ .card
                     a.card-button
                         height: 4vh
-                img
-                    filter: brightness(100%)
-
         div.rev-card
             left: auto
             right: 10vw

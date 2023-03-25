@@ -112,6 +112,7 @@ function changecss(val) {
 //on load action
 window.addEventListener('load', ()=>{
     setTimeout(() => {
+      document.getElementById('css-load-buffer').style.opacity='1'
         loader.forEach(e => {
             e.classList.add('loader-end')
         });

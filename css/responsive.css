@@ -27,6 +27,9 @@
   .mouse {
     display: none;
   }
+  * {
+    cursor: default;
+  }
   body div.header div.hero {
     width: 60vw;
     left: 15vw;
