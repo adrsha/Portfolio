@@ -1,0 +1,218 @@
+@media only screen and (max-width: 1300px) {
+  div.loader {
+    span.name {
+      font-size: 10vw;
+      &::before {
+        font-size: 5vw;
+      }
+    }
+  }
+  body {
+    div.scroll-counter {
+      top: 0vh;
+      left: 50vw;
+      transform: translate(-50%,-50%) rotate(90deg);
+    }
+    div.header {
+      div.background {
+        position: absolute;
+        font-size: 30vh;
+        top: 50%;
+        left: -150%;
+        div.background-i {
+          display: none;
+          &:nth-child(4) {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1300px) and (min-width: 600px) {
+  .mouse {
+    display: none;
+  }
+  * {
+    cursor: default;
+  }
+  body {
+    div.header {
+      div.hero {
+        width: 60vw;
+        left: 15vw;
+        top: 70vh;
+        font-size: 5vh;
+        padding-left: 4vh;
+      }
+      div.border {
+        top: 25vh;
+        left: 20vw;
+        width: 60vw;
+        li {
+          &:nth-child(1) {
+            top: 32vh;
+            right: -8vw;
+          }
+          &:nth-child(2) {
+            top: 35vh;
+            right: -3vw;
+          }
+        }
+        a.project-a {
+          left: 50%;
+        }
+        &::after {
+          left: 50%;
+          top: 50%;
+          text-align: left;
+        }
+      }
+      span.scroll-down {
+        top: 90vh;
+        left: 70vw;
+        z-index: 3;
+      }
+      div.card-container {
+        div.card {
+          a.card-button {
+            height: 4vh;
+          }
+        }
+      }
+    }
+    div.projects {
+      height: 550vw;
+      div.card-container {
+        height: 130vw;
+        div.card {
+          width: 60vw;
+          left: 20vw;
+          font-size: 2vh;
+        }
+        div.showcase {
+          top: 60vw;
+          left: 10vw;
+
+          img {
+            width: 80vw;
+          }
+          &::after {
+            left: 40vw;
+            width: 50vw;
+          }
+          &::before {
+            left: 40vw;
+            width: calc(50vw + 3vh);
+          }
+          &:hover::after {
+            width: 90vw;
+          }
+        }
+      }
+    }
+    div.contacts {
+      left: 1vw;
+      top: 50vh;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  body {
+    div.nav {
+      padding: 0;
+    }
+    div.scroll-counter {
+      pointer-events: none;
+    }
+    div.header {
+      div.hero {
+        top: 60vh;
+        left: 18vw;
+        width: 50vw;
+        font-size: 4vh;
+      }
+      div.border {
+        padding: 0px;
+        width: 60vw;
+        top: 35vh;
+        left: 20vw;
+        border-radius: 50%;
+
+        li {
+          &:nth-child(1) {
+            top: 7vh;
+            right: -13vw;
+          }
+          &:nth-child(2) {
+            top: 10vh;
+            right: -13vw;
+          }
+        }
+        &::after {
+          padding: 0px;
+          width: calc(60vw + 3vh);
+          border-radius: 50%;
+        }
+      }
+      span.scroll-down {
+        top: 95vh;
+        left: 47vw;
+        transform: translate(-50%,-50%);
+        transition: 0.9s ease;
+        animation: none;
+        visibility: hidden;
+        &::after {
+          visibility: visible;
+          font-size: 60px;
+          animation: mouse-icon-jiggle 1s alternate infinite;
+        }
+      }
+      div.card-container {
+        div.card {
+          a.card-button {
+            height: 4vh;
+          }
+        }
+      }
+    }
+    div.projects {
+      height: 700vw;
+      div.card-container {
+        height: 175vw;
+        div.card {
+          width: 80vw;
+          left: 10vw;
+          font-size: 2vh;
+        }
+        div.showcase {
+          top: 100vw;
+          left: 10vw;
+          img {
+            width: 80vw;
+          }
+          &::after {
+            left: 40vw;
+            width: 50vw;
+          }
+          &::before {
+            left: 40vw;
+            width: calc(50vw + 3vh);
+          }
+          &:hover::after {
+            width: 90vw;
+            height: 50vw;
+          }
+          &:hover::before {
+            width: 100vw;
+            height: 60vw;
+          }
+        }
+      }
+    }
+    div.contacts {
+      left: -2vw;
+      top: 50vh;
+    }
+  }
+};

@@ -1,0 +1,298 @@
+@import url('./responsive.css');
+@import url('./keyframes.css');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+//variables
+$sans1: "PT Serif", sans-serif;
+$mono1: VT323, monospace;
+
+$color-2: #000000;
+$color-1: #0f0f0f;
+$color0: #11002a;
+$color1: #2d2c50;
+$color2: #242d60;
+$color3: #a86094;
+$color4: #c4549c;
+$color5: #dc7cb4;
+$color6: #c3a6c6;
+
+a {
+  color: $color4;
+}
+* {
+  &::selection {
+    background-color: $color5;
+    color: $color0;
+  }
+}
+.glitch {
+  display: inline-block;
+  font-family: $mono1;
+  transition: 0.2s ease;
+  position: relative;
+  text-shadow: 0.1em 0 0 #D302BC,-0.1em -0.025em 0 rgba(0, 255, 187, 0.75), -0.025em 0.1em 0 rgba(0, 0, 255, 0.75);
+  &:after {
+    content: attr(data-text);
+    position: absolute;
+    left: 4px;
+    bottom: 0;
+    background: $color0;
+    overflow: hidden;
+    clip: rect(0,900px,0,0);
+    animation: noise-anim 5s infinite linear alternate-reverse;
+  }
+  &:before {
+    content: attr(data-text);
+    position: absolute;
+    left: -4px;
+    bottom: 0;
+    background: $color0;
+    overflow: hidden;
+    clip: rect(0,900px,0,0);
+    animation: noise-anim-2 5s infinite linear alternate-reverse;
+  }
+}
+.glitch:hover {
+  text-shadow: 0.15em 0 0 #CC00FF,-0.15em -0.025em 0 rgba(0, 255, 247, 0.75), -0.025em 0.15em 0 rgba(0, 0, 255, 0.75);
+}
+.minimal-text {
+  font-family: $sans1;
+}
+html {
+  background-image: url('../img/001.jpg');
+  background-blend-mode: soft-light;
+  background-position: center;
+  background-color: $color0;
+  box-shadow: 0 0 50vh rgb(0,0,0) inset;
+
+  color: $color6;
+  font-family: $sans1;
+  &::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 8;
+    background-size: 100% 2px, 3px 100%;
+    animation: flicker 1s infinite linear alternate-reverse;
+    pointer-events: none;
+  }
+}
+.quilt-lat {
+  &::before {
+    border-top: 1px solid transparentize($color3,0.3);
+  }
+  &::after {
+    border-top: 1px solid transparentize($color3,0.3);
+  }
+  &:hover::after {
+    width: 0%;
+  }
+  &:hover::before {
+    width: 0%;
+  }
+}
+.quilt-stat {
+  &::before {        // content: 'X'
+    width: 2vw;
+    top: 50%;
+    left: -3vw;
+    border-top: 1px solid transparentize($color5,0.3);
+  }
+  &::after {
+    content: 'x';
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: auto;
+    left: -3vw;
+  }
+}
+div.nav {
+  span.logo {
+    font-family: $sans1;
+  }
+}
+div.scroll-counter {
+  color: $color6;
+
+  .secondhand {
+    background-color: $color6;
+    &::after {
+      background-color: $color-1;
+    }
+  }
+  &::after {
+    background-image: url('../img/vw3.png');
+    background-position: center;
+    background-size: cover;
+    background-color: $color3;
+    background-repeat: no-repeat;
+    background-blend-mode: color-burn;
+    backdrop-filter: none;
+  }
+  ol {
+    border: 4px solid $color6;
+    &::after {
+      border: 1px solid $color2;
+    }
+    li {
+      list-style-type: upper-roman;
+      font-family: $sans1;
+      font-weight: bold;
+      transition: color 0.5s ease, background-color 0.5s ease, padding 0.5s ease;
+    }
+  }
+}
+div.background {
+  div.background-i {
+    display: none;
+    color: $color4;
+    opacity: 0.1;
+    font-family: $mono1;
+  }
+}
+div.header {
+  div.hero {
+    font-family: $sans1;
+    color: $color6;
+  }
+  div.border {
+    color: $color5;
+    width: 60vh;
+    border-radius: 0;
+    left: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    li {
+      font-family: $mono1;
+      &:nth-child(1) {
+        top: 12vh;
+        right: -5vw;
+      }
+      &:nth-child(2) {
+        top: 15vh;
+        right: -5vw;
+      }
+    }
+    &::after {
+      z-index: -1;
+    }
+    &::before {
+      background-image: url(../img/astro2.png);
+      background-position: bottom;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
+div.overlay {
+  background-color: $color6;
+  color: $color-1;
+  font-style: $sans1;
+}
+div.content {
+  h1#content-header {
+    font-family: $mono1;
+    color: $color6;
+  }
+}
+div.projects {
+  &::before {
+    position: absolute;
+    left: 25vw;
+    transform: translate(-50%);
+    top: -5vh;
+    height: 200px;
+    width: 200px;
+    content: '';
+    background-image: url('../img/vw13.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  div.card-container {
+    div.card {
+      transition: color 0.5s ease;
+      background-color: $color-2;
+      color: transparentize($color6,0.6 );
+      h1 {
+        font-family: $mono1;
+        color: $color6;
+      }
+      a.card-button {
+        &:hover {
+          color: $color5;
+        }
+      }
+    }
+    div.rev-card::after {
+      transform: rotateY(180deg);
+      left: calc(5vw - 50px);
+      filter: hue-rotate(270deg);
+    }
+    div.showcase {
+      img {
+        filter: hue-rotate(95deg);
+      }
+      &:hover {
+        &::after {
+          width: 10vw;
+          filter: hue-rotate(-180deg);
+        }
+      }
+      &:hover {
+        & + .card {
+          color: $color6;
+        }
+      }
+    }
+  }
+}
+.mouse {
+  background-color: $color5;
+}
+@keyframes cursor-jiggle {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  10% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  20% {
+    transform: translate(-50%, -50%) scale(1.8);
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes mouse-icon-jiggle {
+  0% {
+    transform: translate(0, -10%);
+  }
+  100% {
+    transform: translate(0, 20%);
+  }
+};

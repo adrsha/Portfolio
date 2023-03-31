@@ -1,22 +1,23 @@
 @import url('./responsive.css')
 
-//sans serif
-@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap')
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap')
-@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap')
-//sans
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap')
-@import url('https://fonts.googleapis.com/css2?family=Averia+Libre:wght@300&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap')
 //variables
 $sans2: 'Quicksand', Verdana, 'Segoe UI', sans-serif
-$serif1: 'Yeseva One', 'Times New Roman', serif
+$serif1: 'JetBrains Mono', 'Times New Roman', serif
 $serif2: 'Prata', 'Times New Roman', serif
 $color-2: #100c0c
-$color-1: #0f0f0f
-$color0: #2C3242
-$color4: #E8D4B4
-$color5: #E2F0CB
-$color6: #B5EAD7
+$color-1: #12121C
+$color0: #1e1e2e
+$color4: #CDD6F4
+$color5: #A6ADC8
+$color6: #45475A
+$red: #F38BA8
+$green: #A6E3A1
+$yellow: #F9E2AF
+$blue: #89B4FA
+$magenta: #F5C2E7
+$cyan: #94E2D5
+$white: #BAC2DE
 
 a
     color: $color4
@@ -33,7 +34,8 @@ html
     // background-color: $color5
     color: $color6
     font-family: $sans2
-    background-image: url('../img/bg1.png')
+    background: $color-1
+
 
 div.nav
     span.logo
@@ -99,17 +101,26 @@ div.header
     div.hero
         font-family: $serif1
         color: $color4
+        font-size: 6vh
+        span.glitch
+          color:$red
 
     div.border
         color: $color6
         width: 50vh
-        border: 6px solid $color6
+        // border: 6px solid $color6
         li
             font-family: $sans2
             font-weight: bold
+            display: none
 
         &::after
             border: none
+        &::before
+          border-radius: 0
+          background-image: url(../img/3d.png)
+          background-size: contain
+          background-repeat: no-repeat
 
 div.overlay
     background-color: $color0

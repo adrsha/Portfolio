@@ -1,1 +1,245 @@
-{"version":3,"sources":["style3.sass","style3.css"],"names":[],"mappings":"AAAQ,+BAAA;AAGA,+EAAA;AACA,gFAAA;AACA,0EAAA;AAEA,uFAAA;AACA,0FAAA;AAYR;EACI,cALK;ACRT;;ADgBI;EACI,yBARC;EASD,cAXC;ACFT;;ADWI;EACI,yBARC;EASD,cAXC;ACFT;;ADeA;EACI,yDAnBI;ACOR;;ADcA;EAEI,cAfK;EAgBL,yDAxBI;EAyBJ,uCAAA;ACZJ;;ADeI;EACI,8CA3BC;ACeT;;ADcA;EACI,cAxBK;ACaT;ADYI;EACI,yBA5BC;ACkBT;ADWQ;EACI,yBA7BH;ACoBT;ADUI;EACI,6BAAA;UAAA,qBAAA;EACA,yBAAA;ACRR;ADUQ;EACI,yBAAA;ACRZ;ADSQ;EACI,yBArCH;AC8BT;ADSI;EACI,YAAA;ACPR;ADSI;EAEI,yBAAA;ACRR;ADSQ;EACI,YAAA;ACPZ;ADSQ;EACI,4BAAA;EACA,8CAvDH;EAwDG,0EAAA;ACPZ;;ADUI;EACI,iBAAA;ACPR;;ADUI;EACI,8CAAA;ACPR;ADQI;EACI,8CAAA;ACNR;ADOI;EACI,SAAA;ACLR;ADMI;EACI,SAAA;ACJR;;ADMI;EACI,8CAAA;ACHR;ADII;EACI,yBAAA;ACFR;;ADIA;EAEI,gBAAA;ACFJ;ADII;EACI,cA/EC;EAgFD,mDApFC;ACkFT;;ADKI;EACI,mDAxFC;EAyFD,cApFC;ACkFT;ADII;EACI,cArFC;EAsFD,WAAA;EACA,yBAAA;ACFR;ADGQ;EACI,yDAjGJ;EAkGI,iBAAA;ACDZ;ADGQ;EACI,YAAA;ACDZ;;ADGA;EACI,yBAnGK;EAoGL,cAnGK;EAoGL,mDAzGK;EA0GL,sBAAA;ACAJ;ADEI;EACI,cA1GE;AC0GV;;ADEI;EACI,mDAhHC;EAiHD,cA3GC;AC4GT;;ADIQ;EACI,uCAAA;EACA,sCAAA;EACA,cAlHH;ACiHT;ADEY;EACI,mDA3HP;EA4HO,cArHP;ACqHT;ADEgB;EACI,cAzHX;ACyHT;ADCQ;EACI,0BAAA;EACA,kCAAA;EACA,oDAAA;EACA,qBAAA;EACA,kCAAA;UAAA,0BAAA;ACCZ;ADCgB;EACI,cAlIX;EAmIW,yBAvIV;ACwIV;ADAQ;EACI,kCAAA;ACEZ;;ADAA;EACI,yBAxIK;EAyIL,sBAAA;ACGJ;;ADDA;EACI;IACI,yCAAA;ECIN;EDHE;IACI,yCAAA;ECKN;EDJE;IACI,2CAAA;ECMN;EDLE;IACI,2CAAA;ECON;EDNE;IACI,2CAAA;ECQN;EDPE;IACI,2CAAA;ECSN;EDRE;IACI,2CAAA;ECUN;EDTE;IACI,2CAAA;ECWN;EDVE;IACI,yCAAA;ECYN;AACF;;AD/BA;EACI;IACI,yCAAA;ECIN;EDHE;IACI,yCAAA;ECKN;EDJE;IACI,2CAAA;ECMN;EDLE;IACI,2CAAA;ECON;EDNE;IACI,2CAAA;ECQN;EDPE;IACI,2CAAA;ECSN;EDRE;IACI,2CAAA;ECUN;EDTE;IACI,2CAAA;ECWN;EDVE;IACI,yCAAA;ECYN;AACF;ADXA;EACI;IACI,6BAAA;ECaN;EDZE;IACI,4BAAA;ECcN;AACF;ADnBA;EACI;IACI,6BAAA;ECaN;EDZE;IACI,4BAAA;ECcN;AACF","file":"style3.css"}
+@import url('./responsive.css');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital@0;1&display=swap');
+
+$sans1: 'Quicksand', Verdana, 'Segoe UI', sans-serif;
+$sans2: 'Raleway', Verdana, 'Segoe UI', sans-serif;
+$mono1: 'Space Mono', monospace, 'Segoe UI', sans-serif;
+$color-2: #000000;
+$color-1: #040404;
+$color0: #111111;
+$color1: #1b1726;
+$color2: #342a40;
+$color3: #70616d;
+$color4: #9f8ca1;
+$color5: #d4c2f2;
+$color6: #f0ecff;
+
+a {
+  color: $color4;
+}
+* {
+  &::selection {
+    background-color: $color5;
+    color: $color0;
+  }
+}
+.minimal-text {
+  font-family: $sans2;
+}
+html {
+  background-color: black;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-image: url(../img/stars1.jpg);
+  color: $color5;
+  font-family: $sans2;
+}
+div.nav {
+  span.logo {
+    font-family: $sans2;
+  }
+}
+div.scroll-counter {
+  color: $color6;
+  .secondhand {
+    transition: 0.3s ease;
+    z-index: 2;
+    border: 1vh solid black;
+    width: 10vh;
+    background-color: $color-2;
+    border-radius: 0 50% 50% 0;
+    &::after {
+      width: 10vh;
+      background-image: url(../img/sat.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    &::before {
+      content: ' ';
+      width: 2vh;
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+      position: absolute;
+      transform: translate(10vw,-50%);
+      background-image: url('../img/asteroid1.png');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+  &::after {
+    border: 2px solid transparent;
+  }
+  &:hover {
+    &::after {
+      border: 2px solid $color0;
+    }
+  }
+  &::before {
+    border: none;
+  }
+  ol {
+    &::after {
+      border: none;
+    }
+    li {
+      list-style-type: upper-roman;
+      font-family: $sans2;
+      transition: color 0.5s ease, background-color 0.5s ease, padding 0.5s ease;
+    }
+  }
+}
+div.contacts {
+  li {
+    font-weight: bold;
+  }
+}
+.quilt-lat {
+  &::before {
+    border-top: 1px solid transparentize($color5,0.3);
+  }
+  &::after {
+    border-top: 1px solid transparentize($color5,0.3);
+  }
+  &:hover::after {
+    width: 0%;
+  }
+  &:hover::before {
+    width: 0%;
+  }
+}
+.quilt-stat {
+  &::before {
+    border-top: 1px solid transparentize($color5,0.3);
+    width: 2vw;
+    top: 50%;
+    left: -6vw;
+  }
+  &::after {
+    border: 2px solid $color4;
+    left: -3vw;
+  }
+}
+div.background {
+  display: none;
+}
+div.header {
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 60vh;
+    background-image: url(../img/earth1.png);
+    content: '';
+    height: 70vh;
+    width: 30vw;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  div.hero {
+    font-family: $mono1;
+    font-size: 6vh;
+    color: $color5;
+    span {
+      font-style: italic;
+    }
+  }
+  div.border {
+    color: $color6;
+    width: 50vh;
+    li {
+      font-family: $mono1;
+      &:nth-child(1) {
+        top: 2vh;
+        right: auto;
+      }
+      &:nth-child(2) {
+        top: 5vh;
+        right: auto;
+      }
+    }
+    &::after {
+      border: none;
+    }
+    &::before {
+      animation: wobble 60s infinite ease;
+      background-image: url(../img/astro1.png);
+      border-radius: 0;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
+div.overlay {
+  background-color: $color5;
+  color: $color-1;
+  font-family: $sans1;
+  ul:has(li:hover) li:not(:hover) {
+    color: $color4;
+  }
+}
+div.content {
+  h1#content-header {
+    font-family: $sans1;
+    color: $color5;
+  }
+}
+div.projects {
+  &::before {
+    position: absolute;
+    left: 25vw;
+    top: -5vh;
+    height: 100px;
+    width: 100px;
+    z-index: -1;
+    content: '';
+    background-image: url('../img/p3.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: mouse-icon-jiggle 2s infinite ease alternate-reverse;
+  }
+  div.card-container {
+    div.background {
+      display: block;
+      color: $color6;
+      font-family: $mono1;
+      opacity: 0.2;
+      font-weight: bold;
+      div.background-i {
+        font-size: 10vh;
+      }
+    }
+    div.card {
+      transition: color 0.5s ease;
+      color: $color6;
+      background-color: $color-1;
+      h1 {
+        transition: color 0.5s ease;
+        font-family: $mono1;
+        color: $color5;
+      }
+      a.card-button {
+        &:hover {
+          color: $color6;
+        }
+      }
+    }
+    div.showcase {
+      border-radius: 20px;
+      transition: border 0.5s ease;
+      border: 1px solid $color2;
+      backdrop-filter: blur(5px);
+      &:hover {
+        border: 5px solid $color3;
+      }
+    }
+  }
+}
+.mouse {
+  background-color: $color5;
+}

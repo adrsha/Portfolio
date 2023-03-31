@@ -1,11 +1,9 @@
 @import url('./responsive.css')
 
-//sans serif
-//sans
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital@0;1&display=swap')
-//variables
+
 $sans1: 'Quicksand', Verdana, 'Segoe UI', sans-serif
 $sans2: 'Raleway', Verdana, 'Segoe UI', sans-serif
 $mono1: 'Space Mono', monospace, 'Segoe UI', sans-serif
@@ -45,8 +43,7 @@ div.nav
 
 div.scroll-counter
     color: $color6
-
-    .secondhand
+    span.secondhand
         transition: 0.3s ease
         z-index: 2
         border: 1vh solid black
@@ -71,23 +68,16 @@ div.scroll-counter
             background-position: center
             background-size: cover
             background-repeat: no-repeat
-
     &::after
         border: 2px solid transparent
     &:hover
         &::after
             border: 2px solid $color0
-        .secondhand
     &::before
         border: none
-
     ol
-        // width: 15vh
-
-        // border: 6px solid $color4
         &::after
             border: none
-
         li
             list-style-type: upper-roman
             font-family: $sans2
@@ -119,6 +109,7 @@ div.contacts
 
 div.background
     display: none
+    
 div.header
     &::before
         position: absolute
@@ -148,18 +139,11 @@ div.header
             &:nth-child(2)
                 top: 5vh
                 right: auto
-            // &::after
-            //     display: none
-            // &::before
-            //     display: none
 
         &::after
             border: none
         &::before
-            // height: 80vh
-
             animation: wobble 60s infinite ease
-            // animation: mouse-icon-jiggle 60s infinite ease
             background-image: url(../img/astro1.png)
             border-radius: 0
             background-position: center
@@ -170,9 +154,9 @@ div.overlay
     background-color: $color5
     color: $color-1
     font-family: $sans1
-
     ul:has(li:hover) li:not(:hover)
         color: $color4
+        
 div.content
     h1#content-header
         font-family: $sans1
@@ -201,7 +185,6 @@ div.projects
             font-weight: bold
             div.background-i
                 font-size: 10vh
-
         div.card
             transition: color 0.5s ease
             color: $color6

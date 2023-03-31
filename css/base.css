@@ -29,7 +29,6 @@ a {
   scrollbar-width: none;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 *::-webkit-scrollbar {
   display: none;
 }
@@ -39,7 +38,8 @@ a {
   text-transform: uppercase;
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
