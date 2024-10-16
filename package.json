@@ -6,11 +6,13 @@
   "scripts": {
     "run": "live-server --port=8080",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-sass": "sass --watch ."
+    "watch-sass": "sass --watch .",
+    "dev": "concurrently --kill-others \"npm run watch-sass\" \"npm run run\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^9.0.1",
     "live-server": "^1.2.2",
     "sass": "^1.79.4"
   }

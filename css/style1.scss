@@ -208,12 +208,14 @@ div.projects {
     }
 
     div.showcase {
+
       img {
-        filter: brightness(70%) contrast(110%) saturate(20%) sepia(25%);
+        filter: brightness(100%) contrast(110%) saturate(20%) sepia(25%);
         opacity: 80%;
         transition: 0.2s linear;
 
         &:hover {
+          /* filter: brightness(100%) sepia(25%); */
           opacity: 100%;
         }
       }

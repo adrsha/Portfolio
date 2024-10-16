@@ -143,11 +143,12 @@ div.projects div.card-container div.card a.card-button:hover {
   color: #F2DCC2;
 }
 div.projects div.card-container div.showcase img {
-  filter: brightness(70%) contrast(110%) saturate(20%) sepia(25%);
+  filter: brightness(100%) contrast(110%) saturate(20%) sepia(25%);
   opacity: 80%;
   transition: 0.2s linear;
 }
 div.projects div.card-container div.showcase img:hover {
+  /* filter: brightness(100%) sepia(25%); */
   opacity: 100%;
 }
 div.projects div.card-container div.showcase::after {
