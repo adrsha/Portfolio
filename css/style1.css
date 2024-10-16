@@ -28,7 +28,7 @@ div.loader {
   background-color: #0f0f0f;
 }
 div.loader#sec {
-  background-color: #141414;
+  background-color: rgb(20.1, 20.1, 20.1);
 }
 div.loader#thir {
   background-color: #F2DCC2;
@@ -143,7 +143,12 @@ div.projects div.card-container div.card a.card-button:hover {
   color: #F2DCC2;
 }
 div.projects div.card-container div.showcase img {
-  filter: brightness(70%) sepia(50%);
+  filter: brightness(70%) contrast(110%) saturate(20%) sepia(25%);
+  opacity: 80%;
+  transition: 0.2s linear;
+}
+div.projects div.card-container div.showcase img:hover {
+  opacity: 100%;
 }
 div.projects div.card-container div.showcase::after {
   border: 3px solid rgba(115, 97, 81, 0.7);

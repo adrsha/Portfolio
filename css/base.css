@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
+
 html.has-scroll-smooth {
   bottom: 0;
   left: 0;
@@ -55,6 +56,7 @@ div.nav {
   justify-content: flex-end;
   padding: 20px;
 }
+
 div.nav span.logo {
   padding: 20px;
   font-size: 30px;
@@ -62,9 +64,11 @@ div.nav span.logo {
   transition: 0.8s ease;
   position: relative;
 }
+
 div.nav span.logo b#oneeighty {
   transform: rotateZ(180deg);
 }
+
 div.nav span.logo::after {
   left: 0%;
   opacity: 1;
@@ -74,10 +78,12 @@ div.nav span.logo::after {
   content: " ɅV";
   transition: 0.8s ease;
 }
+
 div.nav span.logo:hover {
   transform: translate(-100%, 0);
   letter-spacing: -12px;
 }
+
 div.nav span.logo:hover::after {
   transform: translate(calc(100% + 10px));
 }
@@ -92,6 +98,7 @@ div.loader {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 div.loader span#bouncer {
   position: absolute;
   bottom: -100%;
@@ -107,6 +114,7 @@ div.loader span#bouncer {
   animation-direction: normal;
   animation-iteration-count: infinite;
 }
+
 div.loader span#bouncer::before {
   content: "";
   position: absolute;
@@ -121,6 +129,7 @@ div.loader span#bouncer::before {
   animation-direction: normal;
   animation-iteration-count: infinite;
 }
+
 div.loader span.name {
   animation: loader 1s 1 ease;
   font-family: "Prata", "Times New Roman", serif;
@@ -133,6 +142,7 @@ div.loader span.name {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 div.loader span.name::before {
   position: absolute;
   top: -50%;
@@ -147,17 +157,21 @@ div.loader-end {
   animation: loader-end 1s 1 linear;
   height: 0vh;
 }
+
 div.loader-end#sec {
   animation: loader-end 1.25s 1 ease-in;
 }
+
 div.loader-end#thir {
   animation: loader-end 1.5s 1 ease-in;
   mix-blend-mode: difference;
 }
+
 div.loader-end::after {
   animation: loader-end 1s 1 linear 0.5s;
   height: 0vh;
 }
+
 div.loader-end span.name {
   opacity: 0;
 }
@@ -170,6 +184,7 @@ div.scroll-counter {
   transform: translate(-100%, -50%);
   transition: transform 1.25s ease;
 }
+
 div.scroll-counter .secondhand {
   position: absolute;
   left: 50%;
@@ -181,6 +196,7 @@ div.scroll-counter .secondhand {
   height: 1px;
   position: absolute;
 }
+
 div.scroll-counter .secondhand::after {
   content: " ";
   border-radius: 50%;
@@ -189,6 +205,7 @@ div.scroll-counter .secondhand::after {
   position: absolute;
   transform: translate(-50%, -50%);
 }
+
 div.scroll-counter::after {
   position: absolute;
   content: "";
@@ -202,10 +219,12 @@ div.scroll-counter::after {
   backdrop-filter: blur(5px);
   transition: 0.4s ease;
 }
+
 div.scroll-counter:hover {
   z-index: 1;
   transform: translate(100%, -50%) rotate(360deg);
 }
+
 div.scroll-counter::before {
   position: absolute;
   content: "";
@@ -216,6 +235,7 @@ div.scroll-counter::before {
   aspect-ratio: 1/1;
   width: 5vh;
 }
+
 div.scroll-counter ol {
   list-style-position: inside;
   margin: 0;
@@ -224,6 +244,7 @@ div.scroll-counter ol {
   width: 8vh;
   position: relative;
 }
+
 div.scroll-counter ol::after {
   position: absolute;
   content: "";
@@ -234,6 +255,7 @@ div.scroll-counter ol::after {
   aspect-ratio: 1/1;
   width: 26vh;
 }
+
 div.scroll-counter ol li {
   width: 3vh;
   height: 3vh;
@@ -250,6 +272,7 @@ div.contacts {
   top: 50vh;
   z-index: 1;
 }
+
 div.contacts li {
   font-size: 12px;
   margin-bottom: 250%;
@@ -261,6 +284,7 @@ div.contacts li {
   position: relative;
   text-align: center;
 }
+
 .quilt-lat::before {
   position: absolute;
   content: "";
@@ -269,6 +293,7 @@ div.contacts li {
   left: -50%;
   transition: 0.7s ease;
 }
+
 .quilt-lat::after {
   position: absolute;
   content: "";
@@ -277,9 +302,11 @@ div.contacts li {
   right: -50%;
   transition: 0.7s ease;
 }
+
 .quilt-lat:hover::after {
   width: 0%;
 }
+
 .quilt-lat:hover::before {
   width: 0%;
 }
@@ -287,6 +314,7 @@ div.contacts li {
 .quilt-stat {
   position: relative;
 }
+
 .quilt-stat::before {
   position: absolute;
   content: "";
@@ -295,6 +323,7 @@ div.contacts li {
   left: -6vw;
   transition: 0.7s ease;
 }
+
 .quilt-stat::after {
   position: absolute;
   content: "";
@@ -314,6 +343,7 @@ div.background {
   left: -50%;
   z-index: -5;
 }
+
 div.background div.background-i {
   line-height: 25vh;
   -webkit-user-select: none;
@@ -326,6 +356,7 @@ div.header {
   position: relative;
   height: 100vh;
 }
+
 div.header div.hero {
   font-size: 8vh;
   position: absolute;
@@ -335,6 +366,7 @@ div.header div.hero {
   left: 20%;
   width: 30vw;
 }
+
 div.header div.border {
   content: "";
   position: absolute;
@@ -346,20 +378,24 @@ div.header div.border {
   z-index: 2;
   border-radius: 50%;
 }
+
 div.header div.border li {
   position: absolute;
   flex-direction: column;
   display: inline-block;
   font-size: 20px;
 }
+
 div.header div.border li:nth-child(1) {
   top: 22vh;
   right: -12vw;
 }
+
 div.header div.border li:nth-child(2) {
   top: 25vh;
   right: -8vw;
 }
+
 div.header div.border::after {
   position: absolute;
   left: 50%;
@@ -371,6 +407,7 @@ div.header div.border::after {
   border-radius: 50%;
   content: "";
 }
+
 div.header div.border::before {
   position: absolute;
   left: 50%;
@@ -384,6 +421,7 @@ div.header div.border::before {
   border-radius: 50%;
   content: "";
 }
+
 div.header span.scroll-down {
   position: absolute;
   top: 90vh;
@@ -391,12 +429,14 @@ div.header span.scroll-down {
   transform: translate(-50%, -50%);
   transition: 0.9s ease;
 }
+
 div.header span.scroll-down img#scroll-down-img {
   animation: mouse-icon-jiggle 1s alternate infinite;
   width: 3vw;
   filter: invert(0.7) sepia(60%);
   pointer-events: none;
 }
+
 div.header span.scroll-down::after {
   content: "↓";
   font-size: 20px;
@@ -405,6 +445,7 @@ div.header span.scroll-down::after {
   left: 50%;
   transform: translate(-50%, 70%);
 }
+
 div.header span.scroll-down:hover {
   transform: translate(-50%, -20%);
 }
@@ -438,6 +479,7 @@ div.overlay {
   mix-blend-mode: difference;
   font-size: 10vw;
 }
+
 div.overlay ul {
   border-radius: 50%;
   -webkit-user-select: none;
@@ -454,12 +496,14 @@ div.overlay ul {
   justify-content: center;
   flex-direction: column;
 }
+
 div.overlay ul li {
   line-height: 10vw;
   overflow: hidden;
   transition: letter-spacing 0.5s ease, color 0.5s ease;
   letter-spacing: -1vw;
 }
+
 div.overlay ul li:hover {
   letter-spacing: 0vw;
 }
@@ -467,6 +511,7 @@ div.overlay ul li:hover {
 div.content {
   min-height: 100vh;
 }
+
 div.content h1#content-header {
   margin-top: 20vh;
   text-align: center;
@@ -479,17 +524,21 @@ div.projects h1#content-header {
   margin-top: 5%;
   margin-bottom: 5%;
 }
+
 div.projects div.card-container {
   position: relative;
   z-index: -2;
   height: 40vw;
 }
+
 div.projects div.card-container div.background {
   top: 20vh;
 }
+
 div.projects div.card-container div.background div.background-i {
   font-size: 20vh;
 }
+
 div.projects div.card-container div.card {
   position: absolute;
   left: 10vw;
@@ -499,11 +548,13 @@ div.projects div.card-container div.card {
   z-index: 2;
   width: 20vw;
 }
+
 div.projects div.card-container div.card h1 {
   margin: 30px;
   text-align: center;
   font-weight: normal;
 }
+
 div.projects div.card-container div.card a.card-button {
   margin-top: 3vh;
   display: block;
@@ -515,9 +566,11 @@ div.projects div.card-container div.card a.card-button {
   width: 100%;
   text-align: center;
 }
+
 div.projects div.card-container div.card:hover a.card-button {
   height: 4vh;
 }
+
 div.projects div.card-container div.showcase {
   position: absolute;
   top: 0vh;
@@ -525,11 +578,13 @@ div.projects div.card-container div.showcase {
   z-index: 1;
   transition: clip-path 1s ease;
 }
+
 div.projects div.card-container div.showcase img {
   border-radius: 20px;
   width: 50vw;
   transition: filter 1s ease;
 }
+
 div.projects div.card-container div.showcase::after {
   content: " ";
   position: absolute;
@@ -543,6 +598,7 @@ div.projects div.card-container div.showcase::after {
   pointer-events: none;
   transition: 1s ease;
 }
+
 div.projects div.card-container div.showcase::before {
   content: " ";
   position: absolute;
@@ -556,20 +612,25 @@ div.projects div.card-container div.showcase::before {
   pointer-events: none;
   transition: 1s ease;
 }
+
 div.projects div.card-container div.showcase:hover::after {
   width: 40vw;
 }
+
 div.projects div.card-container div.showcase:hover::before {
   width: calc(40vw + 3vh);
 }
-div.projects div.card-container div.showcase:hover + .card a.card-button {
+
+div.projects div.card-container div.showcase:hover+.card a.card-button {
   height: 4vh;
 }
+
 div.projects div.card-container div.rev-card {
   left: auto;
   right: 10vw;
   z-index: 2;
 }
+
 div.projects div.card-container div.rev-s {
   left: auto;
   right: 40vw;
