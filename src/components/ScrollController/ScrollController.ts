@@ -6,7 +6,7 @@ let currScrollPosY = 0;
 let targetScrollY = 0;
 let isScrolling = false;
 
-const LERP = 3; 
+const LERP = 3;
 
 // Cache DOM measurements
 const SCREENHEIGHT = scrollContainer.offsetHeight;
@@ -48,8 +48,9 @@ function updateCachedDimensions() {
 
 window.addEventListener("load", () => {
     cacheElementData();
+    setupIntersectionObserver();
+    initializeElements();
     initializeScrollBar();
-    updateElements();
 });
 
 // Use passive scroll listener and throttle updates
@@ -68,7 +69,7 @@ window.addEventListener("scroll", () => {
 window.addEventListener("wheel", (event) => {
     event.preventDefault();
     targetScrollY = clampScroll(targetScrollY + event.deltaY);
-    
+
     if (!isScrolling) {
         animateScroll();
     }
@@ -77,9 +78,9 @@ window.addEventListener("wheel", (event) => {
 
 function animateScroll() {
     isScrolling = true;
-    
+
     const distance = targetScrollY - currScrollPosY;
-    
+
     if (Math.abs(distance) < 0.5) {
         currScrollPosY = targetScrollY;
         scrollContainer.scrollTop = currScrollPosY;
@@ -90,7 +91,7 @@ function animateScroll() {
     const localLerp = LERP * 0.01;
     currScrollPosY += distance * localLerp;
     scrollContainer.scrollTop = currScrollPosY;
- 
+
     updateElements();
     updateScrollBar();
     requestAnimationFrame(animateScroll);
@@ -100,17 +101,14 @@ function clampScroll(scrollPos: number): number {
     return Math.max(0, Math.min(scrollPos, FINALTOPPOS));
 }
 
-// Optimized element updates using cached data
-function updateElements() {
-    const screenCenter = currScrollPosY + SCREENHEIGHT / 2;
- 
+function setupElements(screenCenter: number, init?: boolean) {
     elementCache.forEach(({ element, direction, speed, centerY }) => {
-        const isVisible = element.dataset.visible === "true";
-        if (speed === 0 || !isVisible) return;
-
         const scrollDistance = centerY - screenCenter;
+        if (!init) {
+            const isVisible = element.dataset.visible === "true";
+            if (speed === 0 || !isVisible) return;
+        }
         const offset = scrollDistance * 0.1 * speed;
-
         switch (direction) {
             case "bottom":
                 element.style.transform = `translateY(${-offset}px)`;
@@ -128,6 +126,17 @@ function updateElements() {
     });
 }
 
+function initializeElements() {
+    const screenCenter = currScrollPosY + SCREENHEIGHT / 2;
+    setupElements(screenCenter, true);
+}
+
+// Optimized element updates using cached data
+function updateElements() {
+    const screenCenter = currScrollPosY + SCREENHEIGHT / 2;
+    setupElements(screenCenter, false);
+}
+
 function initializeScrollBar() {
     const thumbHeight = (SCREENHEIGHT / TOTALHEIGHT) * 100;
     scrollBarThumb.style.height = `${thumbHeight}%`;
@@ -136,18 +145,17 @@ function initializeScrollBar() {
         const initThumbPos = scrollBarThumb.offsetTop;
         const initMouseY = e.clientY;
         const maxThumbPos = SCREENHEIGHT - scrollBarThumb.offsetHeight;
-        
+
         e.preventDefault();
         scrollBarThumb.classList.add(style.selectedScrollbar);
-        
+
         const onMouseMove = (event: MouseEvent) => {
-            const newThumbPos = Math.max(0, 
+            const newThumbPos = Math.max(0,
                 Math.min(initThumbPos + (event.clientY - initMouseY), maxThumbPos)
             );
-            
             const scrollPercent = newThumbPos / maxThumbPos;
             targetScrollY = scrollPercent * FINALTOPPOS;
-            
+
             if (!isScrolling) {
                 animateScroll();
             }
@@ -165,7 +173,7 @@ function initializeScrollBar() {
 }
 
 function updateScrollBar() {
-    const scrollPercent = (currScrollPosY / FINALTOPPOS) * 100;
+    const scrollPercent = (currScrollPosY / (FINALTOPPOS + SCREENHEIGHT)) * 100;
     scrollBarThumb.style.top = `${Math.max(0, Math.min(scrollPercent, 100))}%`;
 }
 
@@ -200,5 +208,3 @@ function setupIntersectionObserver() {
     animatables.forEach(el => observer.observe(el));
 }
 
-// Enable intersection observer for large lists
-setupIntersectionObserver();

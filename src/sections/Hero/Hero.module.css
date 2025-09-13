@@ -1,15 +1,30 @@
 @import "../../globalStyles/themes/th1.css";
 
-.heroContainer{
+.heroContainer {
     position: relative;
     height: 100vh;
     width: 80vw;
     margin-left: auto;
 }
 
-.heroIntro{
-    font-size: 5rem;
+.heroIntro {
+    font-size: clamp( 1rem, 10vw, 5rem);
     font-family: var(--font-special);
+    font-weight: normal;
+    width: 13ch;
     position: absolute;
     top: 50%;
+}
+
+.heroDecor {
+    width: clamp(50%, 10rem, 80%);
+    aspect-ratio: 1;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    border: 2px solid var(--color3);
+    /* border-radius: 50%; */
+    outline: 2px solid var(--color3);
+    outline-offset: 0.5rem;
 }

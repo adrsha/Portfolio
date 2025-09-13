@@ -1,6 +1,9 @@
 ---
 import favicon from '@public/favicon.png';
 import Mouse from '@components/Mouse/Mouse.astro';
+import Nav from '@components/Nav/Nav.astro';
+import Loader from '@components/Loader/Loader.astro';
+import ScrollController from '@components/ScrollController/ScrollController.astro';
 
 import { isMobile } from '@utils/checks';
 ---
@@ -9,15 +12,18 @@ import { isMobile } from '@utils/checks';
 
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href={favicon.src} />
         <meta name="generator" content={Astro.generator} />
         <title>Adarsha Acharya</title>
     </head>
 
     <body>
-        <slot />
         { isMobile() ? "" : <Mouse />}
+        <Nav />
+        <Loader />
+        <ScrollController />
+        <slot />
     </body>
 
 </html>

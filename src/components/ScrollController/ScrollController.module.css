@@ -12,22 +12,34 @@
 
 .scrollbar:hover .scrollbarThumb{
     opacity: 1;
-    backdrop-filter: blur(10px);
 }
 
 .scrollbarThumb {
-    width: 7px;
-    background-color: var(--color-2);
-    opacity: 0;
+    width: 3px;
+    background: linear-gradient(0deg, var(--color0), var(--color3), var(--color0));
     border-radius: 10px;
     min-height: 50px;
     position: absolute;
     top: 0;
     right: 0;
     transition: width 0.5s ease, opacity 0.5s ease;
+    &::after{
+        height: 100%;
+        width: 0%;
+        overflow: hidden;
+        transform: translate(-200%, 0);
+        position: absolute;
+        content: "";
+        border-left: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
 }
 
 .scrollbarThumb.selectedScrollbar{
     opacity: 1;
-    background-color: var(--color5)
+    width: 0px;
+    &::after{
+        width: 100%;
+        border-color: var(--color4);
+    }
 }

@@ -12,10 +12,12 @@ window.addEventListener("mousemove", (event) => {
 
     const cursorType = (el.getAttribute instanceof Function) ? el.getAttribute("data-cursor-type") : "default";
     const root = document.documentElement;
-    if (cursorType === "pointer") {
-        root.style.setProperty('--mouse-size', '5rem');
-    } else {
-        root.style.setProperty('--mouse-size', '1rem');
+    switch (cursorType) {
+        case "pointer":
+            root.style.setProperty('--mouse-size', '5rem');
+            break;
+        default:
+            root.style.setProperty('--mouse-size', '1rem');
     }
 });
 

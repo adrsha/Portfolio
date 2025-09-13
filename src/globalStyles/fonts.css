@@ -1,17 +1,17 @@
 @font-face {
     font-family: "EB Garamond";
-    font-weight: bold;
-    src: url("/fonts/EBGaramond/EBGaramond-Bold.ttf");
-}
-
-@font-face {
-    font-family: "EB Garamond";
     font-weight: normal;
     src: url("/fonts/EBGaramond/EBGaramond-Regular.ttf");
 }
 
 @font-face {
+    font-family: "EB Garamond";
+    font-weight: bold;
+    src: url("/fonts/EBGaramond/EBGaramond-Bold.ttf");
+}
+
+@font-face {
     font-family: "Prata";
     font-weight: normal;
-    src: url("/fonts/Prata/Prata.ttf");
+    src: url("/fonts/Prata/Prata-Regular.ttf");
 }
