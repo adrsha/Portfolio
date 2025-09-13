@@ -1,0 +1,92 @@
+@import "../../globalStyles/animations.css";
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+.loader .loaderText {
+    font-family: var(--font-special);
+    font-size: min(3vw, 2rem);
+    color: var(--color5);
+    width: max(100vh, 100vw);
+    aspect-ratio: 1;
+    letter-spacing: 0.2em;
+    background-color: var(--color-2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0;
+    transition: all 1s ease;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.loaderText .name {
+    margin: 0.4em;
+    font-size: 2.5em;
+    animation: loaderInitiation 1.5s ease forwards;
+    overflow: hidden;
+}
+
+.loaderText .greeting{
+    text-transform: uppercase;
+    animation: loaderInitiation 1.5s ease forwards;
+    overflow: hidden;
+}
+
+.loaderTextLoaded {
+    animation: loaderEnding 1.5s ease-in forwards;
+}
+
+.loaderExtraUI {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loaderExtraUI2 {
+    background-color: var(--color0);
+    animation: loaderEnding 2s ease-in forwards;
+}
+#loaderExtraUI1 {
+    background-color: var(--color5);
+    mix-blend-mode: difference;
+    animation: loaderEnding 2.25s ease-in forwards;
+}
+
+.loaderBall {
+    width: 1.5rem;
+    aspect-ratio: 1;
+    background-color: var(--color5);
+    border-radius: 50%;
+    position: fixed;
+    left: 50%;
+    top: 62%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+    outline: 2px solid var(--color3);
+    outline-offset: 0.5rem;
+    animation: cursor-jiggle 3s ease infinite;
+}
+
+.loaderBallLoaded {
+    opacity: 0;
+}

@@ -1,0 +1,8 @@
+---
+import styles from './MarkedSection.module.css'
+
+const {mark, ...extraAttrs} = Astro.props;
+---
+<section class={styles.markedSection} {...extraAttrs}>
+    <slot />
+</section>

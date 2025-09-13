@@ -1,0 +1,34 @@
+---
+import Page from '@layouts/Page/Page.astro';
+import Nav from '@components/Nav/Nav.astro';
+import Loader from '@components/Loader/Loader.astro';
+import ScrollController from '@components/ScrollController/ScrollController.astro';
+import MarqueeText from '@layouts/MarqueeText/MarqueeText.astro';
+import MarkedSection from '@layouts/MarkedSection/MarkedSection.astro';
+import Projects from '@sections/Projects/Projects.astro';
+import Hero from '@sections/Hero/Hero.astro';
+---
+
+<Page>
+    <Nav />
+    <Loader />
+    <ScrollController />
+    <MarkedSection mark={1} data-marquee-section={1}>
+        <MarqueeText data-scroll data-scroll-dir="left" data-scroll-speed="5">
+            avantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgarde
+        </MarqueeText>
+        <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">
+            creationcreationcreationcreationcreationcreationcreationcreationcreationcreationcreationcreation
+        </MarqueeText>
+        <MarqueeText data-scroll data-scroll-dir="left" data-scroll-speed="5">
+            designdesigndesigndesigndesigndesigndesigndesigndesigndesigndesigndesigndesigndesigndesigndesign
+        </MarqueeText>
+        <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">
+            avantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgarde
+        </MarqueeText>
+        <Hero/>
+    </MarkedSection>
+    <MarkedSection mark={1}>
+        <Projects/>
+    </MarkedSection>
+</Page>

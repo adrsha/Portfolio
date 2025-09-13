@@ -1,0 +1,12 @@
+.marquee {
+    font-size: 20vh;
+    line-height: 22.5vh;
+    overflow-y: visible;
+    color: var(--color5);
+    opacity: 0.05;
+    font-family: var(--font-header);
+    /* transition: all 0.5s ease; */
+    white-space: nowrap;
+    user-select: none;
+    position: absolute;
+}

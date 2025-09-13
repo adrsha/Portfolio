@@ -1,0 +1,23 @@
+---
+import styles from './MarqueeText.module.css'
+
+const { manualPos = false, ...extraAttrs} = Astro.props;
+---
+<div class={styles.marquee} {...extraAttrs} data-marquee-manual={manualPos}>
+    <slot />
+</div>
+
+<script is:inline define:vars={{marqueeClassName: styles.marquee}}>
+    {
+        const sectionList = Array.from(document.querySelectorAll("[data-marquee-section]"));
+        const currentSectionNo = sectionList.length - 1;
+        const currSectionId = sectionList[currentSectionNo].getAttribute("data-marquee-section");
+
+        const unFilteredMarqueeList = Array.from(sectionList[currentSectionNo].children);
+        const marqueeList = unFilteredMarqueeList.filter(marquee => {
+            return marquee.classList.contains(marqueeClassName)
+        })
+        const currentMarquee = marqueeList.length - 1;
+        marqueeList[currentMarquee].style.top = (currentMarquee) * marqueeList[currentMarquee].offsetHeight + 'px';
+    }
+</script>

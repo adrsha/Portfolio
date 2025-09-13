@@ -1,19 +1,15 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "run": "live-server --port=8080",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-sass": "sass --watch .",
-    "dev": "concurrently --kill-others \"npm run watch-sass\" \"npm run run\""
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "concurrently": "^9.0.1",
-    "live-server": "^1.2.2",
-    "sass": "^1.79.4"
+    "@astrojs/vercel": "^8.2.7",
+    "astro": "^5.13.5"
   }
 }

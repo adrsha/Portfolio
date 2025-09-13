@@ -1,0 +1,24 @@
+---
+import styles from './Nav.module.css'
+---
+
+<header class={styles.header}>
+ 
+    <nav class={styles.nav}>
+        <div class={styles.navLogo} data-cursor-type="pointer">
+            ɅV
+            <div class={styles.navLogoHover} data-cursor-type="pointer">
+                ɅV
+            </div>
+        </div>
+    </nav>
+
+    <menu class:list={[styles.navMenu, styles.navMenuClosed]}>
+        <li data-cursor-type="pointer">Classic</li>
+        <li data-cursor-type="pointer">Synthwave</li>
+        <li data-cursor-type="pointer">Space</li>
+    </menu>
+
+</header>
+
+<script src="./Nav.ts"></script>

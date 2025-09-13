@@ -1,0 +1,98 @@
+@keyframes popOut {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: max(100vh, 100vw);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        display: flex;
+        width: max(100vh, 100vw);
+    }
+
+    100% {
+        display: none;
+        width: 0;
+    }
+}
+
+@keyframes cursor-jiggle {
+    0% {
+        transform: translate(-50%, -50%) scale(1)
+    }
+
+    10% {
+        transform: translate(-50%, -50%) scale(0)
+    }
+
+    20% {
+        transform: translate(-50%, -50%) scale(1.8)
+    }
+
+    30% {
+        transform: translate(-50%, -50%) scale(0.5)
+    }
+
+    40% {
+        transform: translate(-50%, -50%) scale(1.5)
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(0.7)
+    }
+
+    60% {
+        transform: translate(-50%, -50%) scale(1.2)
+    }
+
+    70% {
+        transform: translate(-50%, -50%) scale(0.9)
+    }
+
+    80% {
+        transform: translate(-50%, -50%) scale(1)
+    }
+}
+
+@keyframes rotate {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes loaderInitiation {
+    0% {
+        opacity: 0;
+        letter-spacing: 0.1em;
+    }
+    10% {
+        opacity: 0;
+        letter-spacing: 0.1em;
+    }
+    100% {
+        opacity: 1;
+        letter-spacing: 0em;
+    }
+}
+
+@keyframes loaderEnding {
+    0% {
+        width: max(100vh, 100vw);
+        height: max(100vh, 100vw);
+        border-radius: 0;
+    }
+    50%{
+        border-radius: 50%;
+        color: transparent;
+    }
+    100% {
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        color: transparent;
+    }
+}

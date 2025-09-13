@@ -1,0 +1,33 @@
+* {
+    scrollbar-width: none;
+}
+
+.scrollbar {
+    position: fixed;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    z-index: 2;
+}
+
+.scrollbar:hover .scrollbarThumb{
+    opacity: 1;
+    backdrop-filter: blur(10px);
+}
+
+.scrollbarThumb {
+    width: 7px;
+    background-color: var(--color-2);
+    opacity: 0;
+    border-radius: 10px;
+    min-height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: width 0.5s ease, opacity 0.5s ease;
+}
+
+.scrollbarThumb.selectedScrollbar{
+    opacity: 1;
+    background-color: var(--color5)
+}

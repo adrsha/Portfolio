@@ -1,0 +1,21 @@
+@import "src/globalStyles/fonts.css";
+
+:root {
+    --color-2: #0a0a0a;
+    --color-1: #0f0f0f;
+    --color0: #121212;
+    --color1: #261D17;
+    --color2: #40342A;
+    --color3: #736151;
+    --color4: #A68776;
+    --color5: #F2DCC2;
+ 
+    --foreground: var(--color5);
+    --background: var(--color0);
+
+    --font-header: "EB Garamond", 'Times New Roman', serif;
+    --font-special: "Prata", 'Times New Roman', serif;
+    --font-body: "Quicksand", Verdana, 'Segoe UI', 'San Francisco', sans-serif;
+
+    --mouse-size: 1rem;
+}
