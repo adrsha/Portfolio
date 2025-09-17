@@ -1,7 +1,17 @@
 ---
 import styles from "./Hero.module.css";
+import { Image } from "astro:assets";
+import heroImage from '@public/sc1.png'
 ---
 <main class={styles.heroContainer}>
-    <div class={styles.heroDecor}></div>
+    <div class={styles.heroDecorCircle}>
+        <div class={styles.monocleContainer}>
+            <div class={styles.monocleDecor}></div>
+            <div class={styles.monocleDecor}></div>
+        </div>
+        <Image src={heroImage} alt="Monocle" class={styles.monocle}/>
+    </div>
     <h1 class={styles.heroIntro} data-scroll data-scroll-dir="top" data-scroll-speed="2">I turn websites into magic.</h1>
 </main>
+
+<script src="./Hero.ts"></script>

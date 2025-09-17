@@ -1,4 +1,5 @@
 @import "../../globalStyles/themes/th1.css";
+@import "../../globalStyles/animations.css";
 
 .heroContainer {
     position: relative;
@@ -16,15 +17,59 @@
     top: 50%;
 }
 
-.heroDecor {
-    width: clamp(50%, 10rem, 80%);
+
+.heroDecorCircle {
+    outline: 2px solid var(--color2);
+    outline-offset: 1rem;
+    border: 1rem solid var(--color3);
+    border-radius: 50%;
+
     aspect-ratio: 1;
+    height: 50vh;
     position: absolute;
-    bottom: 50%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, 50%);
-    border: 2px solid var(--color3);
-    /* border-radius: 50%; */
-    outline: 2px solid var(--color3);
-    outline-offset: 0.5rem;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    .monocleContainer{
+        width: 100%;
+        position: absolute;
+        aspect-ratio: 1;
+        animation: rotateLinear 25s linear infinite;
+    }
+
+    .monocleDecor{
+        position: absolute;
+        border: 2px solid var(--color2);
+        border-radius: 50%;
+        outline: 2px dashed var(--color2);
+        outline-offset: -1rem;
+
+        width: 90%;
+        height: 90%;
+ 
+        z-index: -1;
+        content: "";
+        background: radial-gradient(circle, var(--color3) 4px, transparent 6px) repeat;
+        backdrop-filter: blur(2px);
+
+        animation: rotateLinear 50s linear infinite;
+    }
+    .monocleDecor:first-child{
+        top: 0;
+        left: 0;
+    }
+    .monocleDecor:last-child{
+        bottom: 0;
+        right: 0;
+    }
+    .monocle {
+        max-height: 80%;
+        width: auto;
+        position: relative;
+    }
 }

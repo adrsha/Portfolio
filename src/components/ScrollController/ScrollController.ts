@@ -2,7 +2,7 @@ import { getEls, getEl } from "@utils/getData";
 import style from "./ScrollController.module.css"
 
 const scrollContainer = document.scrollingElement as HTMLElement;
-let currScrollPosY = 0;
+export let currScrollPosY = 0;
 let targetScrollY = 0;
 let isScrolling = false;
 
