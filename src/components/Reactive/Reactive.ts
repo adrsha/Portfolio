@@ -22,7 +22,7 @@ class Reactive {
         this.bindEvents();
     }
 
-    state$<T = any>(key: string, value: T): this {
+    set_state<T = any>(key: string, value: T): this {
         this.state[key] = value;
         this.watchers[key] = [];
         this.updateElements(key);
