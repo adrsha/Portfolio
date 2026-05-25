@@ -1,8 +1,9 @@
 ---
 import styles from './MarkedSection.module.css'
 
-const {mark, ...extraAttrs} = Astro.props;
+const {mark, title, ...extraAttrs} = Astro.props;
 ---
 <section class={styles.markedSection} {...extraAttrs}>
+    { title && <h1 class:list={[styles.sectionHeader, styles.header1]}>{title}</h1> }
     <slot />
 </section>

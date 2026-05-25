@@ -21,7 +21,7 @@ import { isMobile } from '@utils/checks';
     <body>
         { isMobile() ? "" : <Mouse />}
         <Nav />
-        <Loader />
+        <!-- <Loader /> -->
         <ScrollController />
         <slot />
     </body>
@@ -30,7 +30,7 @@ import { isMobile } from '@utils/checks';
 
 <style>
 
-@import url(src/globalStyles/themes/th1.css);
+@import url(@globalStyles/themes/th1.css);
 
 html,
 body {

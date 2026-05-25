@@ -1,4 +1,5 @@
-@import "src/globalStyles/fonts.css";
+@import "@globalStyles/fonts.css";
+@import "@globalStyles/defaults.css";
 
 :root {
     --color-2: #0a0a0a;
@@ -19,4 +20,10 @@
     --font-body: "Quicksand", Verdana, 'Segoe UI', 'San Francisco', sans-serif;
 
     --mouse-size: 1rem;
+}
+
+.header1 {
+    font-size: clamp( 1rem, 10vw, 5rem);
+    font-family: var(--font-special);
+    font-weight: normal;
 }

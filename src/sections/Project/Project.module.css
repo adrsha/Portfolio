@@ -1,0 +1,6 @@
+.projectContainer {
+    position: relative;
+    height: fit-content;
+    width: 80vw;
+    margin-left: auto;
+}

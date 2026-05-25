@@ -2,27 +2,34 @@
 import Page from '@layouts/Page/Page.astro';
 import MarqueeText from '@layouts/MarqueeText/MarqueeText.astro';
 import MarkedSection from '@layouts/MarkedSection/MarkedSection.astro';
-import Projects from '@sections/Projects/Projects.astro';
+import Project from '@sections/Project/Project.astro';
 import Hero from '@sections/Hero/Hero.astro';
+import ScrollIndicator from '@components/ScrollIndicator/ScrollIndicator.astro';
+import ScrollClock from '@components/ScrollClock/ScrollClock.astro';
 ---
 
 <Page>
+    <ScrollClock/>
     <MarkedSection mark={1} data-marquee-section={1}>
         <MarqueeText data-scroll data-scroll-dir="left" data-scroll-speed="5">
-            avantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgarde
+            {"avantgarde".repeat(10)}
         </MarqueeText>
         <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">
-            creationcreationcreationcreationcreationcreationcreationcreationcreationcreationcreationcreation
+            {"creation".repeat(10)}
         </MarqueeText>
         <MarqueeText data-scroll data-scroll-dir="left" data-scroll-speed="5">
-            designdesigndesigndesigndesigndesigndesigndesigndesigndesigndesigndesigndesigndesigndesigndesign
+            {"design".repeat(10)}
         </MarqueeText>
         <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">
-            avantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgardeavantgarde
+            {"avantgarde".repeat(10)}
         </MarqueeText>
         <Hero/>
+        <ScrollIndicator/>
     </MarkedSection>
-    <MarkedSection mark={1}>
-        <Projects/>
+    <MarkedSection mark={1} data-marquee-section={2} data-marquee-manual={0.5}  title={"Projects"}>
+        <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">
+            {"avantgarde".repeat(10)}
+        </MarqueeText>
+        <Project/>
     </MarkedSection>
 </Page>

@@ -1,0 +1,13 @@
+---
+import { Image } from "astro:assets";
+import styles from "./Card.module.css";
+
+const {title, link, image, ...extraAttrs} = Astro.props;
+---
+
+<div class={styles.card} {...extraAttrs}>
+    {title && <h1>{title}</h1>}
+    <span> <slot /> </span>
+    {link && <a href={link}> View Project </a>
+</div>
+{image && <Image src={image} alt={title} />}

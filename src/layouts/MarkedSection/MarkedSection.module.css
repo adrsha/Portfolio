@@ -1,4 +1,10 @@
+@import "@globalStyles/themes/th1.css";
+
 .markedSection {
-    min-height: 100vh;
     position: relative;
+}
+
+.sectionHeader {
+    margin: 1em auto;
+    text-align: center;
 }

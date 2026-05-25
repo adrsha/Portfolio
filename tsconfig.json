@@ -10,7 +10,8 @@
       "@utils/*": ["src/utils/*"],
       "@layouts/*": ["src/layouts/*"],
       "@sections/*": ["src/sections/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@globalStyles/*": ["src/globalStyles/*"]
     }
   }
 }

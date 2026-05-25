@@ -20,7 +20,7 @@
     }
 }
 
-@keyframes cursor-jiggle {
+@keyframes cursorJiggle {
     0% {
         transform: translate(-50%, -50%) scale(1)
     }
@@ -104,4 +104,10 @@
     100% {
         rotate: 360deg;
     }
+}
+
+@keyframes verticalSHM {
+    0%   { transform: translateY(30%); }
+    55%  { transform: translateY(0%); }
+    100% { transform: translateY(30%); }
 }
