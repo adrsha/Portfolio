@@ -3,37 +3,37 @@ import styles from './ScrollClock.module.css';
 ---
 
 <div
-    id="scroll-clock"
-    class={styles.wrap}
-    aria-hidden="true"
-    role="presentation"
-    >
-    <div id="sc-face" class={styles.face}>
-        <div class={styles.plate} />
-        <div class={`${styles.ring} ${styles.ring_outer}`} />
+        id="scroll-clock"
+        class={styles.wrap}
+        aria-hidden="true"
+        role="presentation"
+        >
+        <div id="sc-face" class={styles.face}>
+            <div class={styles.plate} />
+            <div class={`${styles.ring} ${styles.ring_outer}`} />
 
-        <div class={styles.numeral} style="--i: 1">I</div>
-        <div class={styles.numeral} style="--i: 2">II</div>
-        <div class={styles.numeral} style="--i: 3">III</div>
-        <div class={styles.numeral} style="--i: 4">IV</div>
-        <div class={styles.numeral} style="--i: 5">V</div>
-        <div class={styles.numeral} style="--i: 6">VI</div>
-        <div class={styles.numeral} style="--i: 7">VII</div>
-        <div class={styles.numeral} style="--i: 8">VIII</div>
-        <div class={styles.numeral} style="--i: 9">IX</div>
-        <div class={styles.numeral} style="--i: 10">X</div>
-        <div class={styles.numeral} style="--i: 11">XI</div>
-        <div class={styles.numeral} style="--i: 12">XII</div>
-        <div class={styles.hands}>
-            <div id="sc-hand-minute" class={`${styles.hand} ${styles.hand_minute}`} />
-            <div id="sc-hand-hour"   class={`${styles.hand} ${styles.hand_hour}`}   />
-            <div class={styles.jewel} />
-            </div>
+            <div class={styles.numeral} style="--i: 1">I</div>
+            <div class={styles.numeral} style="--i: 2">II</div>
+            <div class={styles.numeral} style="--i: 3">III</div>
+            <div class={styles.numeral} style="--i: 4">IV</div>
+            <div class={styles.numeral} style="--i: 5">V</div>
+            <div class={styles.numeral} style="--i: 6">VI</div>
+            <div class={styles.numeral} style="--i: 7">VII</div>
+            <div class={styles.numeral} style="--i: 8">VIII</div>
+            <div class={styles.numeral} style="--i: 9">IX</div>
+            <div class={styles.numeral} style="--i: 10">X</div>
+            <div class={styles.numeral} style="--i: 11">XI</div>
+            <div class={styles.numeral} style="--i: 12">XII</div>
 
-            <div id="sc-markers" class={styles.markers} />
+            <div class={styles.hands}>
+                <div id="sc-hand-minute" class={`${styles.hand} ${styles.hand_minute}`} />
+                <div id="sc-hand-hour"   class={`${styles.hand} ${styles.hand_hour}`}   />
+                <div class={styles.jewel} />
             </div>
+        </div>
 
-            </div>
+        <div id="sc-markers" class={styles.markers} />
+        </div>
 
 <script>
     import { Scroll_Clock, collect_clock_sections } from './ScrollClock';

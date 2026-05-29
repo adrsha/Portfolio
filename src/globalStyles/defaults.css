@@ -6,3 +6,7 @@ a {
 li {
     list-style: none;
 }
+
+.spawnWithFade {
+    animation: fade_up 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

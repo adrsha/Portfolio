@@ -8,10 +8,12 @@
 }
 
 .mouseIndicatorImage {
-    width: 5vh;
+    width: 2vh;
     height: auto;
     margin: 2vh;
     filter: invert(0.7) sepia(60%);
-    animation: verticalSHM 2s ease-in-out infinite;
 }
 
+.mouseIndicator span {
+    animation: verticalSHM 2s ease-in-out infinite;
+}

@@ -1,111 +1,87 @@
 import { getEls, getEl } from "@utils/getData";
-import style from "./ScrollController.module.css"
+import style from "./ScrollController.module.css";
 
-const scrollContainer = document.scrollingElement as HTMLElement;
-export let currScrollPosY = 0;
-let targetScrollY    = 0;
-let isScrolling      = false;
+const scroll_container = document.scrollingElement as HTMLElement;
+export let curr_scroll_y = 0;
+let target_scroll_y      = 0;
+let is_scrolling         = false;
 
-const LERP = 3.5;
+const LERP         = 3.5;
+const SCREEN_H     = scroll_container.offsetHeight;
+let total_h        = scroll_container.scrollHeight;
+let max_scroll     = total_h - SCREEN_H;
 
-const SCREENHEIGHT = scrollContainer.offsetHeight;
-let TOTALHEIGHT    = scrollContainer.scrollHeight;
-let FINALTOPPOS    = TOTALHEIGHT - SCREENHEIGHT;
-
-const animatables    = getEls<HTMLElement>({ prop: '[data-scroll]' });
-const scrollBar      = getEl<HTMLElement>({ className: style.scrollbar });
-const scrollBarThumb = getEl<HTMLElement>({ className: style.scrollbarThumb });
+const animatables     = getEls<HTMLElement>({ prop: '[data-scroll]' });
+const scroll_bar      = getEl<HTMLElement>({ className: style.scrollbar });
+const scroll_bar_thumb = getEl<HTMLElement>({ className: style.scrollbarThumb });
 
 interface ElementData {
-    element:         HTMLElement;
-    direction:       string;
-    speed:           number;
-    centerY:         number;
-    baseline_offset: number;
+    element:   HTMLElement;
+    direction: string;
+    speed:     number;
+    center_y:  number;
 }
 
-let elementCache: ElementData[] = [];
-let scrollUpdateQueued = false;
+let element_cache: ElementData[]  = [];
+let scroll_update_queued          = false;
 
-function compute_offset(centerY: number, speed: number, scrollY: number): number {
-    const screen_center   = scrollY + SCREENHEIGHT / 2;
-    const scroll_distance = centerY - screen_center;
-    return scroll_distance * 0.06 * speed;
+// --- Parallax ---
+
+function compute_offset(center_y: number, speed: number, scroll_y: number): number {
+    const viewport_center = scroll_y + SCREEN_H / 2;
+    return (center_y - viewport_center) * 0.06 * speed;
 }
 
-function cacheElementData(): void {
-    elementCache = animatables.map(el => {
-        const centerY        = el.offsetTop + el.offsetHeight / 2;
-        const speed          = parseFloat(el.getAttribute('data-scroll-speed') || "0");
-        const baseline_offset = compute_offset(centerY, speed, 0);
+function cache_element_data(): void {
+    element_cache = animatables.map(el => ({
+        element:   el,
+        direction: el.getAttribute('data-scroll-dir') || '',
+        speed:     parseFloat(el.getAttribute('data-scroll-speed') || '0'),
+        center_y:  el.getBoundingClientRect().top + curr_scroll_y + el.offsetHeight / 2,
+    }));
+}
 
-        return {
-            element:  el,
-            direction: el.getAttribute('data-scroll-dir') || '',
-            speed,
-            centerY,
-            baseline_offset,
-        };
+function update_elements(init?: boolean): void {
+    element_cache.forEach(({ element, direction, speed, center_y }) => {
+        if (!init) {
+            if (speed === 0 || element.dataset.visible !== 'true') return;
+        }
+
+        const offset = compute_offset(center_y, speed, curr_scroll_y);
+
+        switch (direction) {
+            case 'bottom': element.style.transform = `translateY(${-offset}px)`;                     break;
+            case 'top':    element.style.transform = `translateY(${offset}px)`;                      break;
+            case 'left':   element.style.transform = `translateX(calc(-50% + ${offset}px))`;         break;
+            case 'right':  element.style.transform = `translateX(calc(-50% + ${-offset}px))`;        break;
+        }
     });
 }
 
-function updateCachedDimensions(): void {
-    TOTALHEIGHT = scrollContainer.scrollHeight;
-    FINALTOPPOS = TOTALHEIGHT - SCREENHEIGHT;
-    cacheElementData();
+// --- Scroll animation ---
+
+function clamp_scroll(pos: number): number {
+    return Math.max(0, Math.min(pos, max_scroll));
 }
 
-window.addEventListener("load", () => {
-    cacheElementData();
-    setupIntersectionObserver();
-    initializeElements();
-    initializeScrollBar();
-});
+function animate_scroll(): void {
+    is_scrolling = true;
 
-window.addEventListener("scroll", () => {
-    if (!scrollUpdateQueued) {
-        scrollUpdateQueued = true;
-        requestAnimationFrame(() => {
-            currScrollPosY = scrollContainer.scrollTop;
-            updateElements();
-            updateScrollBar();
-            scrollUpdateQueued = false;
-        });
-    }
-}, { passive: true });
-
-window.addEventListener("wheel", (event) => {
-    event.preventDefault();
-    targetScrollY = clampScroll(targetScrollY + event.deltaY);
-
-    if (!isScrolling) {
-        animateScroll();
-    }
-}, { passive: false });
-
-function animateScroll(): void {
-    isScrolling = true;
-
-    const distance = targetScrollY - currScrollPosY;
+    const distance = target_scroll_y - curr_scroll_y;
 
     if (Math.abs(distance) < 0.5) {
-        currScrollPosY            = targetScrollY;
-        scrollContainer.scrollTop = currScrollPosY;
-        isScrolling               = false;
+        curr_scroll_y                  = target_scroll_y;
+        scroll_container.scrollTop     = curr_scroll_y;
+        is_scrolling                   = false;
         return;
     }
 
-    const localLerp        = LERP * 0.01;
-    currScrollPosY        += distance * localLerp;
-    scrollContainer.scrollTop = currScrollPosY;
+    curr_scroll_y              += distance * (LERP * 0.01);
+    scroll_container.scrollTop  = curr_scroll_y;
 
-    updateElements();
-    updateScrollBar();
-    requestAnimationFrame(animateScroll);
-}
-
-function clampScroll(scrollPos: number): number {
-    return Math.max(0, Math.min(scrollPos, FINALTOPPOS));
+    update_elements();
+    update_scroll_bar();
+    requestAnimationFrame(animate_scroll);
 }
 
 /**
@@ -113,100 +89,100 @@ function clampScroll(scrollPos: number): number {
  * lerp animation — consistent with wheel and scrollbar behaviour.
  */
 export function scrollTo(y: number): void {
-    targetScrollY = clampScroll(y);
-    if (!isScrolling) {
-        animateScroll();
+    target_scroll_y = clamp_scroll(y);
+    if (!is_scrolling) {
+        animate_scroll();
     }
 }
 
-function setupElements(init?: boolean): void {
-    elementCache.forEach(({ element, direction, speed, centerY, baseline_offset }) => {
-        if (!init) {
-            const isVisible = element.dataset.visible === "true";
-            if (speed === 0 || !isVisible) return;
-        }
+// --- Scrollbar ---
 
-        const raw_offset = compute_offset(centerY, speed, currScrollPosY);
-        const offset     = raw_offset - baseline_offset;
+function init_scroll_bar(): void {
+    const thumb_h = (SCREEN_H / total_h) * 100;
+    scroll_bar_thumb.style.height = `${thumb_h}%`;
 
-        switch (direction) {
-            case "bottom":
-                element.style.transform = `translateY(${-offset}px)`;
-                break;
-            case "top":
-                element.style.transform = `translateY(${offset}px)`;
-                break;
-            case "left":
-                element.style.transform = `translateX(calc(-50% + ${offset}px))`;
-                break;
-            case "right":
-                element.style.transform = `translateX(calc(-50% + ${-offset}px))`;
-                break;
-        }
-    });
-}
-
-function initializeElements(): void {
-    setupElements(true);
-}
-
-function updateElements(): void {
-    setupElements(false);
-}
-
-function initializeScrollBar(): void {
-    const thumbHeight = (SCREENHEIGHT / TOTALHEIGHT) * 100;
-    scrollBarThumb.style.height = `${thumbHeight}%`;
-
-    scrollBar.addEventListener("mousedown", (e) => {
-        const initThumbPos = scrollBarThumb.offsetTop;
-        const initMouseY   = e.clientY;
-        const maxThumbPos  = SCREENHEIGHT - scrollBarThumb.offsetHeight;
+    scroll_bar.addEventListener('mousedown', (e) => {
+        const init_thumb_pos = scroll_bar_thumb.offsetTop;
+        const init_mouse_y   = e.clientY;
+        const max_thumb_pos  = SCREEN_H - scroll_bar_thumb.offsetHeight;
 
         e.preventDefault();
-        scrollBarThumb.classList.add(style.selectedScrollbar);
+        scroll_bar_thumb.classList.add(style.selectedScrollbar);
 
-        const onMouseMove = (event: MouseEvent) => {
-            const newThumbPos   = Math.max(0,
-                Math.min(initThumbPos + (event.clientY - initMouseY), maxThumbPos)
-            );
-            const scrollPercent = newThumbPos / maxThumbPos;
-            targetScrollY       = scrollPercent * FINALTOPPOS;
+        const on_mouse_move = (event: MouseEvent) => {
+            const new_thumb_pos  = Math.max(0, Math.min(init_thumb_pos + (event.clientY - init_mouse_y), max_thumb_pos));
+            const scroll_percent = new_thumb_pos / max_thumb_pos;
+            target_scroll_y      = scroll_percent * max_scroll;
 
-            if (!isScrolling) {
-                animateScroll();
-            }
+            if (!is_scrolling) animate_scroll();
         };
 
-        const onMouseUp = () => {
-            scrollBarThumb.classList.remove(style.selectedScrollbar);
-            document.removeEventListener("mousemove", onMouseMove);
-            document.removeEventListener("mouseup", onMouseUp);
+        const on_mouse_up = () => {
+            scroll_bar_thumb.classList.remove(style.selectedScrollbar);
+            document.removeEventListener('mousemove', on_mouse_move);
+            document.removeEventListener('mouseup', on_mouse_up);
         };
 
-        document.addEventListener("mousemove", onMouseMove);
-        document.addEventListener("mouseup", onMouseUp);
+        document.addEventListener('mousemove', on_mouse_move);
+        document.addEventListener('mouseup', on_mouse_up);
     });
 }
 
-function updateScrollBar(): void {
-    const scrollPercent = (currScrollPosY / (FINALTOPPOS + SCREENHEIGHT)) * 100;
-    scrollBarThumb.style.top = `${Math.max(0, Math.min(scrollPercent, 100))}%`;
+function update_scroll_bar(): void {
+    const scroll_percent          = (curr_scroll_y / (max_scroll + SCREEN_H)) * 100;
+    scroll_bar_thumb.style.top    = `${Math.max(0, Math.min(scroll_percent, 100))}%`;
 }
 
-window.addEventListener("resize", updateCachedDimensions);
+// --- Intersection observer ---
 
-function setupIntersectionObserver(): void {
+function setup_intersection_observer(): void {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             (entry.target as HTMLElement).dataset.visible =
-                entry.isIntersecting ? "true" : "false";
+                entry.isIntersecting ? 'true' : 'false';
         });
     }, {
         root:       null,
-        rootMargin: "50px",
+        rootMargin: '50px',
         threshold:  0,
     });
 
     animatables.forEach(el => observer.observe(el));
 }
+
+// --- Resize ---
+
+function on_resize(): void {
+    total_h   = scroll_container.scrollHeight;
+    max_scroll = total_h - SCREEN_H;
+    cache_element_data();
+}
+
+// --- Event listeners ---
+
+window.addEventListener('load', () => {
+    scrollTo(0);
+    cache_element_data();
+    setup_intersection_observer();
+    update_elements(true);
+    init_scroll_bar();
+});
+
+window.addEventListener('scroll', () => {
+    if (scroll_update_queued) return;
+    scroll_update_queued = true;
+    requestAnimationFrame(() => {
+        curr_scroll_y = scroll_container.scrollTop;
+        update_elements();
+        update_scroll_bar();
+        scroll_update_queued = false;
+    });
+}, { passive: true });
+
+window.addEventListener('wheel', (event) => {
+    event.preventDefault();
+    target_scroll_y = clamp_scroll(target_scroll_y + event.deltaY);
+    if (!is_scrolling) animate_scroll();
+}, { passive: false });
+
+window.addEventListener('resize', on_resize);

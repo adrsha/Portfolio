@@ -1,3 +1,5 @@
+import styles from "./Project.module.css";
+
 const EDGE_MARGIN = 8;
 
 const clamp_card = (card: HTMLElement): void => {
@@ -17,8 +19,8 @@ const reset_card = (card: HTMLElement): void => {
     card.style.transform = 'translateX(-50%)';
 };
 
-document.querySelectorAll<HTMLElement>('[data-node-wrap]').forEach(wrap => {
-    const card = wrap.querySelector<HTMLElement>('[data-node-card]');
+Array.from(document.getElementsByClassName(styles.nodeWrap)).forEach(wrap => {
+    const card = wrap.querySelector<HTMLElement>(`.${styles.nodeCard}`);
     if (!card) return;
 
     wrap.addEventListener('mouseenter', () => clamp_card(card));

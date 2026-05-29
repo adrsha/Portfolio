@@ -38,13 +38,13 @@ if (year)              nodes.push({ label: "Year",    items: [String(year)] });
         <h2 class={styles.title}>{title}</h2>
         <p  class={styles.description}>{description}</p>
         {link && (
-            <a href={link} target="_blank" rel="noopener noreferrer" class={styles.visit_btn}>
+            <a href={link} target="_blank" rel="noopener noreferrer" class={styles.visitBtn}>
                 Visit Project ↗
             </a>
         )}
     </div>
 
-    <div class={styles.diagram} aria-hidden="true">
+    <div class={styles.diagram} aria-hidden="true"  data-scroll data-scroll-dir="top" data-scroll-speed="2">
 
         <div class={styles.rail}></div>
 
@@ -53,16 +53,15 @@ if (year)              nodes.push({ label: "Year",    items: [String(year)] });
                 const path_id = `circlePath_${title.replace(/\s+/g, '_')}_${i}`;
                 return (
                     <div
-                        class={styles.node_wrap}
-                        data-node-wrap
+                        class={styles.nodeWrap}
                         style={`--node-index: ${i};`}
                     >
-                        <div class={styles.node_card} data-node-card>
-                            <span class={styles.node_label}>{node.label}</span>
-                            <ul class={styles.node_items}>
+                        <div class={styles.nodeCard}>
+                            <span class={styles.nodeLabel}>{node.label}</span>
+                            <ul class={styles.nodeItems}>
                                 {node.items.map(item =>
                                     node.label === "Preview" ? (
-                                        <FullScreenImage src={item} alt={`${title} preview`} class={styles.preview_img} />
+                                        <FullScreenImage src={item} alt={`${title} preview`} class={styles.previewImg} />
                                     ) : (
                                         <li>{item}</li>
                                     )
@@ -70,7 +69,7 @@ if (year)              nodes.push({ label: "Year",    items: [String(year)] });
                             </ul>
                         </div>
                         <div class={styles.stem}></div>
-                        <div class={styles.node_circle}>
+                        <div class={styles.nodeCircle}>
                             <svg viewBox="0 0 50 50" width="150" height="150">
                                 <path id={path_id} d="M 25,25 m -11,0 a 11,11 0 1,1 22,0 a 11,11 0 1,1 -22,0" fill="none" />
                                 <text font-size="6">

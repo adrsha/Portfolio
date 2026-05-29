@@ -2,9 +2,11 @@
 
 .markedSection {
     position: relative;
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 .sectionHeader {
-    margin: 1em auto;
+    margin-top: 2em;
     text-align: center;
 }

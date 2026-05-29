@@ -11,7 +11,7 @@
 .heroIntro {
     position: absolute;
     top: 50%;
-    max-width: 13ch;
+    translate: -0 -50%;
 }
 
 
@@ -68,4 +68,34 @@
         width: auto;
         position: relative;
     }
+}
+
+.slotWrapper {
+    display: inline-block;
+    vertical-align: bottom;
+    color: var(--color4);
+}
+
+#slot-word span {
+    display: inline-block;
+}
+
+.slotExit {
+    animation: slotExit 0.25s ease-in forwards;
+}
+
+.slotEnter {
+    animation: slotEnter 0.25s ease-out both;
+}
+
+@keyframes slotExit {
+    0%   { transform: translateY(0);     opacity: 1; }
+    50%  { opacity: 0; }
+    100% { transform: translateY(-120%); opacity: 0; }
+}
+
+@keyframes slotEnter {
+    0%   { transform: translateY(120%);  opacity: 0; }
+    50%  { opacity: 0; }
+    100% { transform: translateY(0);     opacity: 1; }
 }

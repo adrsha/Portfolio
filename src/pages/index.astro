@@ -2,7 +2,7 @@
 import Page            from '@layouts/Page/Page.astro';
 import MarqueeText     from '@layouts/MarqueeText/MarqueeText.astro';
 import MarkedSection   from '@layouts/MarkedSection/MarkedSection.astro';
-import Project         from '@sections/Project/Project.astro';
+import Project         from '@layouts/Project/Project.astro';
 import Hero            from '@sections/Hero/Hero.astro';
 import ScrollIndicator from '@components/ScrollIndicator/ScrollIndicator.astro';
 import ScrollClock     from '@components/ScrollClock/ScrollClock.astro';
@@ -20,22 +20,42 @@ import ScrollClock     from '@components/ScrollClock/ScrollClock.astro';
                 <ScrollIndicator/>
     </MarkedSection>
 
-    <MarkedSection mark={1} data-marquee-section={2} data-marquee-manual={0.5} title={"Projects"}>
+    <MarkedSection mark={1} data-marquee-manual={0.5} title={"Current Projects"}>
+            <!-- <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">{"creation".repeat(10)}</MarqueeText> -->
             <Project
-                    title       = "Rumat"
-                    description = "A well integrated collection of mathematical tools with smart abilities such as bracket auto-completion, stepwise solutions, and more. Covers equation solvers, complex calculations, and related utilities."
-                    link        = "https://github.com/adrsha/rumat"
-                    image       = "/rumat.png"
-                    skills      = {["Rust", "Algorithms", "Mathematics"]}
-                    year        = {2024}
-                    />
-
-            <Project
-                    title       = "Riptide"
+                    title       = "Riptide."
                     description = "A composition of innovative architectures capable of replacing any type of workflow targeted at developers."
                     link        = "https://github.com/adrsha/riptide"
                     skills      = {["Systems Programming", "Rust", "Low level engineering", "Memory management"]}
                     year        = {"2025 - 2026"}
                     />
+    </MarkedSection>
+    <MarkedSection mark={1} title={"Notable Work"}>
+            <Project
+                    title       = "Merotuition."
+                    description = "A Learning Management System built purely from ground up and solo."
+                    link        = "https://merotuition.com"
+                    skills      = {["SQL", "Full Stack", "Customer Engagement", "Flow Design"]}
+                    year        = {2025}
+                    />
+
+            <Project
+                    title       = "KEC IT Club Website."
+                    description = "A platform for hosting and managing various events done by KEC IT Club"
+                    link        = "https://itclub.kecktm.edu.np"
+                    skills      = {["Leadership", "Open Source", "Full Stack"]}
+                    year        = {"2025 - 2026"}
+                    />
+                    
+            <Project
+                    title       = "Emergence Ltd."
+                    description = "The entry point to Emergence Ltd."
+                    link        = "https://emergence.ltd"
+                    skills      = {["Leadership", "Open Source", "Front End"]}
+                    year        = {"2025 - 2026"}
+                    />
+    </MarkedSection>
+    <MarkedSection mark={1} data-marquee-section={2} data-marquee-manual={0.5} >
+        
     </MarkedSection>
 </Page>

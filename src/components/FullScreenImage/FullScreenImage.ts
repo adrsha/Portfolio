@@ -1,4 +1,6 @@
-const wrappers = document.querySelectorAll<HTMLElement>(".fullscreenImgWrapper");
+import styles from "./FullScreenImage.module.css"
+
+const wrappers = document.querySelectorAll<HTMLElement>(`.${styles.fullscreenImgWrapper}`);
 
 for (const wrapper_el of wrappers) {
     wrapper_el.addEventListener("click", async () => {

@@ -11,7 +11,9 @@ import heroImage from '@public/sc1.png'
         </div>
         <Image src={heroImage} alt="Monocle" class={styles.monocle}/>
     </div>
-    <h1 class:list={[styles.heroIntro, styles.header1]} data-scroll data-scroll-dir="top" data-scroll-speed="2">I turn websites into magic.</h1>
+    <h1 class:list={[styles.heroIntro, styles.header1]} data-scroll data-scroll-dir="top" data-scroll-speed="2">
+        Your next engineer <br/>runs on <span class={styles.slotWrapper}><span id="slot-word" class={styles.slotWord}>Rust</span></span>.
+    </h1>
 </main>
 
 <script src="./Hero.ts"></script>
