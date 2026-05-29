@@ -1,8 +1,7 @@
 ---
-import { Image } from "astro:assets";
 import styles from "./Card.module.css";
 
-const {title, link, image, ...extraAttrs} = Astro.props;
+const {title, link, ...extraAttrs} = Astro.props;
 ---
 
 <div class={styles.card} {...extraAttrs}>
@@ -10,4 +9,3 @@ const {title, link, image, ...extraAttrs} = Astro.props;
     <span> <slot /> </span>
     {link && <a href={link}> View Project </a>
 </div>
-{image && <Image src={image} alt={title} />}

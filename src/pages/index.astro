@@ -1,35 +1,41 @@
 ---
-import Page from '@layouts/Page/Page.astro';
-import MarqueeText from '@layouts/MarqueeText/MarqueeText.astro';
-import MarkedSection from '@layouts/MarkedSection/MarkedSection.astro';
-import Project from '@sections/Project/Project.astro';
-import Hero from '@sections/Hero/Hero.astro';
+import Page            from '@layouts/Page/Page.astro';
+import MarqueeText     from '@layouts/MarqueeText/MarqueeText.astro';
+import MarkedSection   from '@layouts/MarkedSection/MarkedSection.astro';
+import Project         from '@sections/Project/Project.astro';
+import Hero            from '@sections/Hero/Hero.astro';
 import ScrollIndicator from '@components/ScrollIndicator/ScrollIndicator.astro';
-import ScrollClock from '@components/ScrollClock/ScrollClock.astro';
+import ScrollClock     from '@components/ScrollClock/ScrollClock.astro';
 ---
 
 <Page>
     <ScrollClock/>
+
     <MarkedSection mark={1} data-marquee-section={1}>
-        <MarqueeText data-scroll data-scroll-dir="left" data-scroll-speed="5">
-            {"avantgarde".repeat(10)}
-        </MarqueeText>
-        <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">
-            {"creation".repeat(10)}
-        </MarqueeText>
-        <MarqueeText data-scroll data-scroll-dir="left" data-scroll-speed="5">
-            {"design".repeat(10)}
-        </MarqueeText>
-        <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">
-            {"avantgarde".repeat(10)}
-        </MarqueeText>
-        <Hero/>
-        <ScrollIndicator/>
+        <MarqueeText data-scroll data-scroll-dir="left"  data-scroll-speed="5">{"avantgarde".repeat(10)}</MarqueeText>
+            <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">{"creation".repeat(10)}</MarqueeText>
+            <MarqueeText data-scroll data-scroll-dir="left"  data-scroll-speed="5">{"design".repeat(10)}</MarqueeText>
+                <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">{"avantgarde".repeat(10)}</MarqueeText>
+                <Hero/>
+                <ScrollIndicator/>
     </MarkedSection>
-    <MarkedSection mark={1} data-marquee-section={2} data-marquee-manual={0.5}  title={"Projects"}>
-        <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">
-            {"avantgarde".repeat(10)}
-        </MarqueeText>
-        <Project/>
+
+    <MarkedSection mark={1} data-marquee-section={2} data-marquee-manual={0.5} title={"Projects"}>
+            <Project
+                    title       = "Rumat"
+                    description = "A well integrated collection of mathematical tools with smart abilities such as bracket auto-completion, stepwise solutions, and more. Covers equation solvers, complex calculations, and related utilities."
+                    link        = "https://github.com/adrsha/rumat"
+                    image       = "/rumat.png"
+                    skills      = {["Rust", "Algorithms", "Mathematics"]}
+                    year        = {2024}
+                    />
+
+            <Project
+                    title       = "Riptide"
+                    description = "A composition of innovative architectures capable of replacing any type of workflow targeted at developers."
+                    link        = "https://github.com/adrsha/riptide"
+                    skills      = {["Systems Programming", "Rust", "Low level engineering", "Memory management"]}
+                    year        = {"2025 - 2026"}
+                    />
     </MarkedSection>
 </Page>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  src:    string;
+  alt:    string;
+  class?: string;
+}
+
+import styles from "./FullScreenImage.module.css";
+const { src, alt, class: className } = Astro.props;
+---
+
+<div class:list={[styles.fullscreenImgWrapper, className]}>
+  <img src={src} alt={alt} />
+</div>
+
+<script src="./FullScreenImage.ts"></script>
