@@ -11,14 +11,40 @@
 .heroIntro {
     position: absolute;
     top: 50%;
-    translate: -0 -50%;
-}
+    translate: 0 -50%;
+    max-width: 16ch;
 
+    .slotWrapper {
+        display: inline-block;
+        vertical-align: baseline;
+        perspective: 900px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 2px;
+        transform: translate(0, 25%);
+
+        .slotWord {
+            display: inline-block;
+            transform-style: preserve-3d;
+            font-style: italic;
+            color: var(--color6);
+
+            .slotExit {
+                animation: slotExit 0.45s cubic-bezier(0.4, 0, 0.8, 0.6)
+                    forwards;
+            }
+
+            .slotEnter {
+                animation: slotEnter 0.7s cubic-bezier(0.15, 0, 0.1, 1) both;
+            }
+        }
+    }
+}
 
 .heroDecorCircle {
     outline: 2px solid var(--color2);
-    outline-offset: 1rem;
-    border: 0.5rem solid var(--color3);
+    outline-offset: 2rem;
+    border: 2rem solid var(--color3);
     border-radius: 50%;
 
     aspect-ratio: 1;
@@ -31,15 +57,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
- 
-    .monocleContainer{
+
+    .monocleContainer {
         width: 100%;
         position: absolute;
         aspect-ratio: 1;
         animation: rotateLinear 20s linear infinite;
     }
 
-    .monocleDecor{
+    .monocleDecor {
         position: absolute;
         border: 2px solid var(--color2);
         border-radius: 50%;
@@ -48,18 +74,17 @@
 
         width: 90%;
         height: 90%;
- 
+
         z-index: -1;
         content: "";
-        background: radial-gradient(circle, var(--color3) 4px, transparent 6px) repeat;
-
-        /* animation: rotateLinear 50s linear infinite; */
+        background: radial-gradient(circle, var(--color3) 4px, transparent 6px)
+            repeat;
     }
-    .monocleDecor:first-child{
+    .monocleDecor:first-child {
         top: 0;
         left: 0;
     }
-    .monocleDecor:last-child{
+    .monocleDecor:last-child {
         bottom: 0;
         right: 0;
     }
@@ -67,35 +92,16 @@
         max-height: 80%;
         width: auto;
         position: relative;
+        filter: sepia(100%) brightness(70%);
     }
 }
 
-.slotWrapper {
-    display: inline-block;
-    vertical-align: bottom;
-    color: var(--color4);
-}
+@media (max-width: 768px) {
+    .heroContainer {
+        margin: auto 10vh;
+    }
 
-#slot-word span {
-    display: inline-block;
-}
-
-.slotExit {
-    animation: slotExit 0.25s ease-in forwards;
-}
-
-.slotEnter {
-    animation: slotEnter 0.25s ease-out both;
-}
-
-@keyframes slotExit {
-    0%   { transform: translateY(0);     opacity: 1; }
-    50%  { opacity: 0; }
-    100% { transform: translateY(-120%); opacity: 0; }
-}
-
-@keyframes slotEnter {
-    0%   { transform: translateY(120%);  opacity: 0; }
-    50%  { opacity: 0; }
-    100% { transform: translateY(0);     opacity: 1; }
+    .heroDecorCircle {
+        border: 1rem solid var(--color3);
+    }
 }
