@@ -1,158 +1,86 @@
-import { curr_scroll_y, scrollTo } from '@components/ScrollController/ScrollController';
+import {
+    curr_scroll_y,
+    scrollTo,
+} from "@components/ScrollController/ScrollController";
+import { getEls } from "@utils/getData";
 
-const CONFIG = {
-    DEG_PER_VIEWPORT: 75,
-    SNAP_SCROLL_DIST: 15,
-    FADE_BAND:        18,
-    ACTIVE_BAND:      15,
-};
+const root = document.getElementById("scroll-clock");
 
-export interface Clock_Section {
-    id:       string;
-    title:    string;
-    el:       HTMLElement;
-    scroll_y: number;
-}
+if (!root) {
+    console.warn("[ScrollClock] Root element not found — skipping init.");
+} else {
+    const DEG_PER_VIEWPORT = Number(root.dataset.degPerViewport) || 45;
+    const SNAP_SCROLL_DIST = Number(root.dataset.snapScrollDist) || 15;
+    const FADE_BAND = Number(root.dataset.fadeBand) || 15;
+    const ACTIVE_BAND = Number(root.dataset.activeBand) || 15;
 
-// ── Section Collection ───────────────────────────────────────────────────────
-export function collect_clock_sections(): Clock_Section[] {
-    const els = Array.from(
-        document.querySelectorAll<HTMLElement>('[data-marquee-section]')
-    );
+    const markers_el = document.getElementById("sc-markers")!;
 
-    return els
-        .map((el, i) => {
-            const title =
-                el.dataset.clockTitle                        ||
-                el.querySelector('h1, h2')?.textContent?.trim() ||
-                '';
+    type Marker = { el: HTMLElement; scroll_y: number };
 
-            return {
-                id:       el.id || `clock-section-${i}`,
-                title,
-                el,
-                scroll_y: el.getBoundingClientRect().top + window.scrollY,
-            };
-        })
-        .filter(section => section.title.length > 0);
-}
-
-// ── Scroll_Clock Class ───────────────────────────────────────────────────────
-export class Scroll_Clock {
-    private sections:        Clock_Section[] = [];
-    private marker_elements: HTMLElement[]   = [];
-    private is_running                       = false;
-
-    constructor(
-        private face_el:    HTMLElement,
-        private minute_el:  HTMLElement,
-        private markers_el: HTMLElement,
-    ) {}
-
-    public register_sections(sections: Clock_Section[]): void {
-        this.sections = sections;
-        this.render_markers();
-    }
-
-    public start(): void {
-        if (this.is_running) return;
-        this.is_running = true;
-        this.loop();
-    }
-
-    public stop(): void {
-        this.is_running = false;
-    }
-
-    // ── Main Loop ───────────────────────────────────────────────────────────
-    private loop = (): void => {
-        if (!this.is_running) return;
-
-        const scroll            = curr_scroll_y;
-        const degrees_per_pixel = CONFIG.DEG_PER_VIEWPORT / window.innerHeight;
-
-        const clock_rot     = -(scroll * degrees_per_pixel) % 360;
-        const minute_offset = (scroll * degrees_per_pixel) % CONFIG.SNAP_SCROLL_DIST;
-
-        this.face_el.style.transform =
-            `rotate(${clock_rot}deg)`;
-
-        this.minute_el.style.transform =
-            `translateX(-50%) rotate(${90 - clock_rot - minute_offset}deg)`;
-
-        this.update_markers(scroll, degrees_per_pixel);
-
-        requestAnimationFrame(this.loop);
-    };
-
-    // ── Marker Rendering ───────────────────────────────────────────────────
-    private render_markers(): void {
-        const fragment = document.createDocumentFragment();
-
-        this.marker_elements = this.sections.map(section => {
-            const wrapper = document.createElement('div');
-
-            wrapper.className = 'sc-marker';
-
-            wrapper.innerHTML = `
+    const markers: Marker[] = getEls<HTMLElement>({
+        prop: "[data-marked-section]",
+    })
+        .map((section) => ({
+            section,
+            title:
+                section.dataset.clockTitle ||
+                section.querySelector("h1, h2")?.textContent?.trim() ||
+                "",
+            scroll_y: section.getBoundingClientRect().top + window.scrollY,
+        }))
+        .filter((s) => s.title.length > 0)
+        .map(({ title, scroll_y }) => {
+            const el = document.createElement("div");
+            el.className = "sc-marker";
+            el.innerHTML = `
                 <div class="sc-marker__stick"></div>
-
-                <a class="sc-marker__btn"
-                    aria-label="Navigate to: ${section.title}"
-                >
-                    <span class="sc-marker__label">
-                        ${section.title}
-                    </span>
+                <a class="sc-marker__btn" aria-label="Navigate to: ${title}">
+                    <span class="sc-marker__label">${title}</span>
                 </a>
             `;
 
-            wrapper
-                .querySelector('a')
-                ?.addEventListener('click', () => scrollTo(section.scroll_y));
-
-            fragment.appendChild(wrapper);
-
-            return wrapper;
-        });
-
-        this.markers_el.replaceChildren(fragment);
-    }
-
-    // ── Marker Updates ─────────────────────────────────────────────────────
-    private update_markers(
-        current_scroll: number,
-        deg_per_px:     number,
-    ): void {
-        this.marker_elements.forEach((el, i) => {
-            const section = this.sections[i];
-            if (!section) return;
-
-            const doc_top         = section.el.getBoundingClientRect().top + window.scrollY;
-            const relative_scroll = doc_top - current_scroll;
-            const page_rot        = 90 + relative_scroll * deg_per_px;
-
-            if (page_rot <= 0 || page_rot >= 180) {
-                el.style.opacity       = '0';
-                el.style.pointerEvents = 'none';
-                el.classList.remove('sc-marker--active');
-                return;
-            }
-
-            el.style.transform = `rotate(${page_rot - 90}deg)`;
-
-            const dist_from_edge = Math.min(page_rot, 180 - page_rot);
-            const opacity        =
-                dist_from_edge < CONFIG.FADE_BAND
-                    ? dist_from_edge / CONFIG.FADE_BAND
-                    : 1;
-
-            el.style.opacity       = String(opacity);
-            el.style.pointerEvents = opacity > 0.15 ? 'auto' : 'none';
-
-            el.classList.toggle(
-                'sc-marker--active',
-                Math.abs(page_rot - 90) < CONFIG.ACTIVE_BAND,
+            el.querySelector("a")?.addEventListener("click", () =>
+                scrollTo(scroll_y),
             );
+            markers_el.appendChild(el);
+
+            return { el, scroll_y };
         });
-    }
+
+    document.addEventListener(
+        "scroll",
+        () => {
+            const scroll = curr_scroll_y;
+            const deg_per_px = DEG_PER_VIEWPORT / window.innerHeight;
+            const scroll_deg = scroll * deg_per_px;
+
+            document.documentElement.style.setProperty(
+                "--scroll-deg",
+                `${scroll_deg}deg`,
+            );
+            document.documentElement.style.setProperty(
+                "--snap-offset",
+                `${scroll_deg % SNAP_SCROLL_DIST}deg`,
+            );
+
+            markers.forEach(({ el, scroll_y }) => {
+                const page_rot = 90 + (scroll_y - scroll) * deg_per_px;
+                const hidden = page_rot <= 0 || page_rot >= 180;
+                const dist_from_edge = Math.min(page_rot, 180 - page_rot);
+                const opacity = hidden
+                    ? 0
+                    : Math.min(dist_from_edge / FADE_BAND, 1);
+
+                el.style.setProperty("--ma", `${page_rot}deg`);
+                el.style.setProperty("--ma-opacity", String(opacity));
+                el.classList.toggle("sc-marker--hidden", hidden);
+                el.classList.toggle(
+                    "sc-marker--active",
+                    !hidden && Math.abs(page_rot - 90) < ACTIVE_BAND,
+                );
+            });
+        },
+        { passive: true },
+    );
 }

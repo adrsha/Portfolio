@@ -29,7 +29,7 @@ window.addEventListener("mousemove", (event) => {
     const el = event.target as HTMLElement | null;
     if (!el) return;
 
-    const cursor_attr = el.getAttribute("data-cursor-type");
+    const cursor_attr = (typeof el.getAttribute == "function") ?  el.getAttribute("data-cursor-type") : "default";
     const cursor_type = cursor_attr ?? (el.tagName === "A" ? "pointer" : "default");
 
     if (cursor_type === last_cursor_type) return;

@@ -35,7 +35,7 @@ function compute_offset(center_y: number, speed: number, scroll_y: number): numb
 function cache_element_data(): void {
     element_cache = animatables.map(el => ({
         element:   el,
-        direction: el.getAttribute('data-scroll-dir') || '',
+        direction: (typeof el.getAttribute == "function") ? el.getAttribute('data-scroll-dir') || '' : '',
         speed:     parseFloat(el.getAttribute('data-scroll-speed') || '0'),
         center_y:  el.getBoundingClientRect().top + curr_scroll_y + el.offsetHeight / 2,
     }));

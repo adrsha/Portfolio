@@ -1,6 +1,7 @@
-import styles from "./FullScreenImage.module.css"
+import { getEl } from "@utils/getData.ts";
+import styles from "./FullScreenImage.module.css";
 
-const wrappers = document.querySelectorAll<HTMLElement>(`.${styles.fullscreenImgWrapper}`);
+const wrappers = getEl<HTMLElement>({ className: ${styles.fullscreenImgWrapper} });
 
 for (const wrapper_el of wrappers) {
     wrapper_el.addEventListener("click", async () => {

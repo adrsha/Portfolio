@@ -35,20 +35,12 @@
     }
 }
 
-/* .mouse .mouseOutline { */
-/*     position: absolute; */
-/*     aspect-ratio: 1; */
-/*     width: 2rem; */
-/*     transform: translate(-50%, -50%); */
-/*     border: 2px solid var(--color3); */
-/*     border-radius: 50%; */
-/*     transform-origin: center; */
-/* } */
-/**/
-/* .mouseHover .mouseOutline { */
-/*     animation: cursorJiggle 1.75s ease ; */
-/* } */
-
 .mouseHover .mouseCircle {
     animation: cursorJiggle 1.5s ease;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .mouse {
+        display: none;
+    }
 }
