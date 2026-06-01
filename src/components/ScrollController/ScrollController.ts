@@ -43,17 +43,15 @@ function cache_element_data(): void {
 
 function update_elements(init?: boolean): void {
     element_cache.forEach(({ element, direction, speed, center_y }) => {
-        if (!init) {
-            if (speed === 0 || element.dataset.visible !== 'true') return;
-        }
+        if (!init && speed === 0) return;  // ← removed the visibility gate
 
         const offset = compute_offset(center_y, speed, curr_scroll_y);
 
         switch (direction) {
-            case 'bottom': element.style.transform = `translateY(${-offset}px)`;                     break;
-            case 'top':    element.style.transform = `translateY(${offset}px)`;                      break;
-            case 'left':   element.style.transform = `translateX(calc(-50% + ${offset}px))`;         break;
-            case 'right':  element.style.transform = `translateX(calc(-50% + ${-offset}px))`;        break;
+            case 'bottom': element.style.transform = `translateY(${-offset}px)`;              break;
+            case 'top':    element.style.transform = `translateY(${offset}px)`;               break;
+            case 'left':   element.style.transform = `translateX(calc(-50% + ${offset}px))`;  break;
+            case 'right':  element.style.transform = `translateX(calc(-50% + ${-offset}px))`; break;
         }
     });
 }

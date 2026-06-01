@@ -5,10 +5,10 @@
     position: relative;
     height: 100vh;
     width: 80vw;
-    margin-left: auto;
 }
 
 .heroIntro {
+    margin-left: 20vw;
     position: absolute;
     top: 50%;
     translate: 0 -50%;
@@ -20,7 +20,6 @@
         perspective: 900px;
         overflow: hidden;
         position: relative;
-        border-radius: 2px;
         transform: translate(0, 25%);
 
         .slotWord {
@@ -39,6 +38,10 @@
             }
         }
     }
+
+    &::before {
+        content: "❝"
+    }
 }
 
 .heroDecorCircle {
@@ -46,13 +49,14 @@
     outline-offset: 2rem;
     border: 2rem solid var(--color3);
     border-radius: 50%;
+    opacity: 0.8;
 
     aspect-ratio: 1;
     height: 50vh;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(0%, -50%);
 
     display: flex;
     justify-content: center;
@@ -77,8 +81,6 @@
 
         z-index: -1;
         content: "";
-        background: radial-gradient(circle, var(--color3) 4px, transparent 6px)
-            repeat;
     }
     .monocleDecor:first-child {
         top: 0;
@@ -92,7 +94,7 @@
         max-height: 80%;
         width: auto;
         position: relative;
-        filter: sepia(100%) brightness(70%);
+        filter: sepia(100%) brightness(70%) contrast(70%);
     }
 }
 
@@ -102,9 +104,18 @@
         margin-right: auto;
     }
 
+    .heroIntro{
+        margin: 0;
+        top: 70%;
+    }
+
     .heroDecorCircle {
         border: 1rem solid var(--color3);
-        opacity: 0.8;
+        top: 40%;
         height: 40vh;
+        transform: translate(-50%, -50%);
+        .monocle {
+            /* display: none; */
+        }
     }
 }

@@ -1,0 +1,9 @@
+---
+import styles from "./Contacts.module.css";
+const {github, discord} = Astro.props;
+---
+
+<span class={styles.contacts}>
+    <a href={discord}>Discord</a>
+    <a href={github}>Github</a>
+</span>

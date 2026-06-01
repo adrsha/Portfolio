@@ -6,56 +6,60 @@ import Project         from '@layouts/Project/Project.astro';
 import Hero            from '@sections/Hero/Hero.astro';
 import ScrollIndicator from '@components/ScrollIndicator/ScrollIndicator.astro';
 import ScrollClock     from '@components/ScrollClock/ScrollClock.astro';
+import Contacts        from '@components/Contacts/Contacts.astro';
+import Decors          from '@components/Decors/Decors.astro';
 ---
 
 <Page>
     <ScrollClock/>
+    <Contacts discord="https://discordapp.com/users/892659377146843176", github="https://github.com/adrsha"/>
 
+    <Decors/>
     <MarkedSection mark={1} data-marquee-section={1}>
         <MarqueeText data-scroll data-scroll-dir="left"  data-scroll-speed="5">{"avantgarde".repeat(10)}</MarqueeText>
-            <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">{"creation".repeat(10)}</MarqueeText>
-            <MarqueeText data-scroll data-scroll-dir="left"  data-scroll-speed="5">{"design".repeat(10)}</MarqueeText>
-                <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">{"avantgarde".repeat(10)}</MarqueeText>
-                <Hero/>
-                <ScrollIndicator/>
+        <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">{"creation".repeat(10)}</MarqueeText>
+        <MarqueeText data-scroll data-scroll-dir="left"  data-scroll-speed="5">{"design".repeat(10)}</MarqueeText>
+        <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">{"avantgarde".repeat(10)}</MarqueeText>
+        <Hero/>
+        <ScrollIndicator/>
     </MarkedSection>
 
     <MarkedSection mark={1} data-marquee-manual={0.5} title={"Current Projects"}>
-            <!-- <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">{"creation".repeat(10)}</MarqueeText> -->
-            <Project
-                    title       = "Riptide."
-                    description = "A composition of innovative architectures capable of replacing any type of workflow targeted at developers."
-                    link        = "https://github.com/adrsha/riptide"
-                    skills      = {["Systems Programming", "Rust", "Low level engineering", "Memory management"]}
-                    year        = {"2025 - 2026"}
-                    />
+        <!-- <MarqueeText data-scroll data-scroll-dir="right" data-scroll-speed="5">{"creation".repeat(10)}</MarqueeText> -->
+        <Project
+                title       = "Riptide."
+                description = "A composition of innovative architectures capable of replacing any type of workflow targeted at developers."
+                link        = "https://github.com/adrsha/riptide"
+                skills      = {["Systems Programming", "Rust", "Low level engineering", "Memory management"]}
+                year        = {"2025 - 2026"}
+                                />
     </MarkedSection>
     <MarkedSection mark={1} title={"Notable Work"}>
-            <Project
-                    title       = "Merotuition."
-                    description = "A Learning Management System built purely from ground up and solo."
-                    link        = "https://merotuition.com"
-                    skills      = {["SQL", "Full Stack", "Customer Engagement", "Flow Design"]}
-                    year        = {2025}
-                    />
+        <Project
+                title       = "Merotuition."
+                description = "A Learning Management System built purely from ground up and solo."
+                link        = "https://merotuition.com"
+                skills      = {["SQL", "Full Stack", "Customer Engagement", "Flow Design"]}
+                year        = {2025}
+                />
 
-            <Project
-                    title       = "KEC IT Club Website."
-                    description = "A platform for hosting and managing various events done by KEC IT Club"
-                    link        = "https://itclub.kecktm.edu.np"
-                    skills      = {["Leadership", "Open Source", "Full Stack"]}
-                    year        = {"2025 - 2026"}
-                    />
-                    
-            <Project
-                    title       = "Emergence Ltd."
-                    description = "The entry point to Emergence Ltd."
-                    link        = "https://emergence.ltd"
-                    skills      = {["Leadership", "Open Source", "Front End"]}
-                    year        = {"2025 - 2026"}
-                    />
+                <Project
+                        title       = "KEC IT Club Website."
+                        description = "A platform for hosting and managing various events done by KEC IT Club"
+                        link        = "https://itclub.kecktm.edu.np"
+                        skills      = {["Leadership", "Open Source", "Full Stack"]}
+                        year        = {"2025 - 2026"}
+                        />
+
+                <Project
+                        title       = "Emergence Ltd."
+                        description = "The entry point to Emergence Ltd."
+                        link        = "https://emergence.ltd"
+                        skills      = {["Leadership", "Open Source", "Front End"]}
+                        year        = {"2025 - 2026"}
+                        />
     </MarkedSection>
     <MarkedSection mark={1} data-marquee-section={2} data-marquee-manual={0.5} >
-        
+
     </MarkedSection>
 </Page>

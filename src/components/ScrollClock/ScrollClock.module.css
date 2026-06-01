@@ -1,6 +1,6 @@
 .wrap {
-    --clk-size: 16rem;
-    --clk-r: 8rem;
+    --clk-size: clamp(12rem, 20vw, 16rem);
+    --clk-r: clamp(6rem, 10vw, 8rem);;
     --clk-reach: calc(var(--clk-r) + 52px);
 
     position: fixed;
@@ -37,7 +37,7 @@
     top: 50%;
     left: 50%;
     font-family: var(--font-header);
-    font-size: 1.2em;
+    font-size: clamp(0.7em, 1vw, 1.2em);
     font-weight: 600;
     color: var(--color6);
     opacity: 0.45;

@@ -1,0 +1,18 @@
+@import "@globalStyles/animations.css";
+@import "@globalStyles/themes/th1.css";
+
+.bigMonocle {
+    height: 200vh;
+    aspect-ratio: 1;
+    border: 2em solid var(--color3);
+    border-radius: 50%;
+    position: fixed;
+    outline: 2px solid var(--color2);
+    outline-offset: 1rem;
+
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+    /* animation: rotateLinear 10s linear 0s infinite forwards; */
+}

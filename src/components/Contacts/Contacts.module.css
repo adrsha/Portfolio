@@ -1,0 +1,58 @@
+@import "@globalStyles/animations.css";
+@import "@globalStyles/themes/th1.css";
+
+.contacts {
+    position: fixed;
+    right: 2em;
+    bottom: 2em;
+    z-index: 5;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    padding: 1rem;
+    backdrop-filter: blur(5px);
+    border-radius: 4px;
+    white-space: nowrap;
+
+    a {
+        --side-line-len: 1em;
+        margin-left: 3em;
+        margin-right: 3em;
+        color: var(--color3);
+        letter-spacing: 0.5em;
+        position: relative;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: var(--side-line-len);
+            height: 2px;
+            top: 50%;
+            background-color: var(--color2);
+            transition: width 0.5s ease;
+        }
+        &::before {
+            left: calc(-1 * var(--side-line-len) - 1em);
+        }
+        &::after {
+            right: calc(-1 * var(--side-line-len) - 1em);
+        }
+
+        &:hover {
+            color: var(--color6);
+        }
+
+        &:hover::before,
+        &:hover::after {
+            width: 0;
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    .contacts {
+        right: 50%;
+        bottom: 1em;
+        transform: translateX(50%);
+    }
+}

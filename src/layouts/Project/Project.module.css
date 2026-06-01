@@ -6,13 +6,13 @@
     --rail-bottom: 2rem;
     --stem-height: 5rem;
     --diagram-height: 12rem;
-    --node-start: 10cqw; /* distance from right edge to first node */
-    --node-gap: 10rem; /* spacing between adjacent nodes */
+    --node-start: 20cqw;
+    --node-gap: 10rem;
 
     container-type: inline-size;
     position: relative;
     width: 80vw;
-    margin-left: auto;
+    margin-left: 20vw;
     isolation: isolate;
 }
 
@@ -88,7 +88,7 @@
         to right,
         transparent,
         var(--color3) 16%,
-        var(--color4) 90%,
+        var(--color4) 80%,
         var(--color3) 34%,
         transparent
     );
@@ -274,19 +274,18 @@
     filter: brightness(100%) contrast(110%) saturate(20%) sepia(25%);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
     .project {
         --rail-angle: 0deg;
-        --rail-bottom: 2rem;
-        --stem-height: 5rem;
         --diagram-height: 12rem;
-        --node-start: 10cqw; /* distance from right edge to first node */
-        --node-gap: 10rem; /* spacing between adjacent nodes */
+        --node-start: 30vw; /* distance from right edge to first node */
+        --node-gap: 30vw; /* spacing between adjacent nodes */
 
         container-type: inline-size;
         position: relative;
         width: 80vw;
         margin-left: auto;
+        margin-right: auto;
         isolation: isolate;
     }
     .rail {
