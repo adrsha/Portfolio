@@ -1,6 +1,6 @@
 import styles from "./Hero.module.css";
 
-const words = ["Rust.", "coffee.", "curiosity.", "deadlines."];
+const words = ["curiosity.", "ambition.", "creativity."];
 
 const EXIT_DURATION = 400;
 const ENTER_DURATION = 900;
