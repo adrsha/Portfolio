@@ -1,4 +1,4 @@
-@import "../../globalStyles/animations.css";
+@import "@theme";
 
 .header {
     display: flex;
@@ -89,7 +89,7 @@
     outline-offset: -1rem;
 }
 
-.navMenu li{
+.navMenu a{
     transition: all 0.5s ease;
     opacity: 0.7;
     color:  var(--color-1);
@@ -105,7 +105,7 @@
     transition: color 1s ease, letter-spacing 1s ease, opacity 1s ease, text-shadow 1s ease, font-size 0.5s ease;
 }
 
-.navMenu li:hover{
+.navMenu a:hover{
     color: var(--color3);
     letter-spacing: 0em;
     opacity: 1;
@@ -115,11 +115,6 @@
                  0 0 1px var(--color3),
                  0 0 1px var(--color3);
 }
-
-/* .nav:has(+.navMenuOpen) div.navLogo, */
-/* .nav:has(+.navMenuOpen) div.navLogoHover{ */
-/*     color: var(--color1); */
-/* } */
 
 .navMenuOpen {
     width: max(100vh, 100vw);
@@ -131,12 +126,12 @@
 }
 
 
-.navMenuClosed li{
+.navMenuClosed .navMenuLink{
     opacity: 0;
     font-size: 5vw;
 }
 
-.navMenuOpen li{
+.navMenuOpen .navMenuLink{
     opacity: 0.7;
     font-size: clamp(2rem, 10vw, 10rem);
 }

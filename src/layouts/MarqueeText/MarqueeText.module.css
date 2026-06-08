@@ -1,7 +1,7 @@
 .marquee {
     font-size: 20vh;
     line-height: 22.5vh;
-    overflow-y: visible;
+    /* overflow-y: visible; */
     color: var(--color5);
     opacity: 0.02;
     font-family: var(--font-header);

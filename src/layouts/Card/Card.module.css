@@ -1,6 +1,3 @@
-@import "@globalStyles/themes/th1.css";
-@import "@globalStyles/animations.css";
-
 .card {
     background-color: var(--color-1);
     width:            20vw;

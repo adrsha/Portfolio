@@ -1,6 +1,8 @@
+@import "@theme";
+
 .wrap {
     --clk-size: clamp(12rem, 20vw, 16rem);
-    --clk-r: clamp(6rem, 10vw, 8rem);;
+    --clk-r: clamp(6rem, 10vw, 8rem);
     --clk-reach: calc(var(--clk-r) + 52px);
 
     position: fixed;

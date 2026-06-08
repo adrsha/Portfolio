@@ -1,4 +1,4 @@
-@import "@globalStyles/animations.css";
+@import "@theme";
 
 .loader {
     position: fixed;

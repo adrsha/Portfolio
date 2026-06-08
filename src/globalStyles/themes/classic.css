@@ -1,0 +1,27 @@
+[data-theme="classic"] {
+    --color-2: #0a0a0a;
+    --color-1: #0f0f0f;
+    --color0: #121212;
+    --color1: #261d17;
+    --color2: #40342a;
+    --color3: #736151;
+    --color4: #a68776;
+    --color5: #f2dcc2;
+    --color6: #fffcf2;
+
+    --foreground: var(--color5);
+    --background: var(--color0);
+
+    --font-header: "EB Garamond", "Times New Roman", serif;
+    --font-special: "Prata", "Times New Roman", serif;
+    --font-body: "Quicksand", Verdana, "Segoe UI", "San Francisco", sans-serif;
+
+    --mouse-size: 1rem;
+
+    .heroDecorCircle {
+        .monocle {
+            background-image: url("/sc1.png");
+            opacity: 0.6;
+        }
+    }
+}

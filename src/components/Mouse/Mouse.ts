@@ -2,7 +2,7 @@ import styles from "./Mouse.module.css";
 import { getEl } from "@utils/getData";
 
 const mouse             = getEl<HTMLDivElement>({ className: styles.mouse });
-const root              = document.documentElement;
+const root              = document.body;
 
 let mouse_x             = 0;
 let mouse_y             = 0;

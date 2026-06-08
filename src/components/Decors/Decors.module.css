@@ -1,5 +1,4 @@
-@import "@globalStyles/animations.css";
-@import "@globalStyles/themes/th1.css";
+@import "@theme";
 
 .bigMonocle {
     height: 200vh;

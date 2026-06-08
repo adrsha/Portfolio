@@ -1,5 +1,4 @@
-@import "@globalStyles/themes/th1.css";
-@import "@globalStyles/animations.css";
+@import "@theme";
 
 .project {
     --rail-angle: -9deg;

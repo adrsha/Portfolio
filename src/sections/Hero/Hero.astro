@@ -1,7 +1,5 @@
 ---
 import styles from "./Hero.module.css";
-import { Image } from "astro:assets";
-import heroImage from '@public/sc1.png'
 ---
 <main class={styles.heroContainer}>
     <div class={styles.heroDecorCircle}>
@@ -9,9 +7,9 @@ import heroImage from '@public/sc1.png'
             <div class={styles.monocleDecor}></div>
             <div class={styles.monocleDecor}></div>
         </div>
-        <Image src={heroImage} alt="Monocle" class={styles.monocle}/>
+        <div class={styles.monocle}/>
     </div>
-    <h1 class:list={[styles.heroIntro, styles.header1]} data-scroll data-scroll-dir="top" data-scroll-speed="2">
+    <h1 class:list={[styles.heroIntro]} data-scroll data-scroll-dir="top" data-scroll-speed="2">
         Your next engineer runs on <span class={styles.slotWrapper}><span id="slot-word" class={styles.slotWord}>Rust.</span></span>
     </h1>
 </main>

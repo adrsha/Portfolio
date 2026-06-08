@@ -4,7 +4,6 @@ import Mouse from '@components/Mouse/Mouse.astro';
 import Nav from '@components/Nav/Nav.astro';
 import Loader from '@components/Loader/Loader.astro';
 import ScrollController from '@components/ScrollController/ScrollController.astro';
-
 ---
 <!doctype html>
 <html lang="en">
@@ -17,7 +16,7 @@ import ScrollController from '@components/ScrollController/ScrollController.astr
         <title>Adarsha Acharya</title>
     </head>
 
-    <body>
+    <body data-theme="classic">
         <Mouse />
         <Nav />
         <Loader />
@@ -29,8 +28,6 @@ import ScrollController from '@components/ScrollController/ScrollController.astr
 
 <style>
 
-@import url(@globalStyles/themes/th1.css);
-
 html,
 body {
     margin: 0;
@@ -40,7 +37,7 @@ body {
 }
 
 body {
-    background-color: var(--background);
+    background: var(--background);
     color: var(--foreground);
     font-family: var(--font-body);
     max-width: 100vw;

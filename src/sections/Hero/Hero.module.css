@@ -1,5 +1,4 @@
-@import "@globalStyles/themes/th1.css";
-@import "@globalStyles/animations.css";
+@import "@theme";
 
 .heroContainer {
     position: relative;
@@ -91,10 +90,12 @@
         right: 0;
     }
     .monocle {
-        max-height: 80%;
-        width: auto;
+        height: 80%;
+        width: 80%;
         position: relative;
-        filter: sepia(100%) brightness(70%) contrast(70%);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
 
@@ -114,8 +115,5 @@
         top: 40%;
         height: 40vh;
         transform: translate(-50%, -50%);
-        .monocle {
-            /* display: none; */
-        }
     }
 }

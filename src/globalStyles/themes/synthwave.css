@@ -1,0 +1,236 @@
+[data-theme="synthwave"] {
+    --color-2: #0a0512;
+    --color-1: #120924;
+    --color0: #1a0e33;
+
+    --color1: #9d00ff;
+    --color2: #ff007f;
+    --color3: #00f0ff;
+    --color4: #704fff;
+
+    --color5: #f2ebf3;
+    --color6: #d800b6;
+    --foreground: var(--color5);
+    --background: url("/synthwave-bg.jpg");
+    --font-header: "EB Garamond", "Times New Roman", serif;
+    --font-special: "Prata", "Times New Roman", serif;
+    --font-body: "Quicksand", Verdana, "Segoe UI", "San Francisco", sans-serif;
+
+    background-attachment: fixed;
+    background-color: var(--color1);
+    background-blend-mode: multiply;
+    --mouse-size: 1rem;
+
+    color: var(--color5);
+    text-shadow:
+        0 0 6px var(--color5),
+        0 0 18px color-mix(in srgb, var(--color5) 60%, transparent),
+        0 0 40px color-mix(in srgb, var(--color5) 30%, transparent);
+
+    animation: crt-chroma 6s ease-in-out infinite;
+
+    &::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+
+        background: radial-gradient(
+            ellipse at center,
+            transparent 55%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+
+        animation: crt-phosphor 0.08s steps(1) infinite;
+    }
+
+    &::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9998;
+
+        background: repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.025) 0px,
+            rgba(255, 255, 255, 0.025) 1px,
+            rgba(0, 0, 0, 0.3) 2px,
+            rgba(0, 0, 0, 0.3) 3px,
+            transparent 4px
+        );
+
+        background-size: 100% 4px;
+        animation:
+            crt-scanlines 8s linear infinite,
+            crt-flicker 0.12s steps(1) infinite;
+        mix-blend-mode: overlay;
+    }
+
+    .heroDecorCircle {
+        border: none;
+        outline: none;
+        left: 70%;
+        .monocleContainer {
+            .monocleDecor {
+                border: none;
+                outline: none;
+            }
+        }
+        .monocle {
+            background-image: url("/sc2.png");
+            opacity: 1;
+            height: 100%;
+        }
+    }
+
+    .heroIntro {
+        .slotWrapper {
+            .slotWord {
+                position: relative;
+                display: inline-block;
+                animation: rgb-glitch-drift 2.8s infinite steps(2, end);
+                font-weight: bold;
+                transition: none;
+                color: var(--color5);
+                .slotExit {
+                    animation: glitchExit 0.55s steps(1, end) both;
+                }
+
+                .slotEnter {
+                    animation: glitchEnter 0.65s steps(1, end) both;
+                }
+            }
+        }
+        &::before {
+            content: ">_";
+        }
+    }
+
+    .visitBtn {
+        position: relative;
+        display: inline-block;
+
+        color: var(--color-2);
+        background: var(--color3);
+        padding: 0.55rem 1.4rem;
+        border: none;
+
+        box-shadow:
+            0 0 10px rgba(0, 240, 255, 0.3),
+            0 0 20px rgba(0, 240, 255, 0.2);
+
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+        &::before,
+        &::after {
+            content: "VISIT"; /* Note: Change this text to match your actual button text */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--color3);
+            color: var(--color-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        }
+
+        &::before {
+            text-shadow: -2px 0 var(--color2);
+            clip-path: inset(50% 0 0 0); /* Bottom half */
+        }
+
+        &::after {
+            text-shadow: 2px 0 var(--color1);
+            clip-path: inset(0 0 50% 0); /* Top half */
+        }
+
+        &:hover {
+            background: var(--color2);
+            color: var(--color5);
+            box-shadow:
+                0 0 15px var(--color2),
+                0 0 30px var(--color1),
+                0 0 45px rgba(255, 0, 127, 0.5);
+        }
+
+        &:hover::before {
+            opacity: 1;
+            animation: glitch-twitch 0.4s steps(2) infinite;
+        }
+
+        &:hover::after {
+            opacity: 1;
+            animation: glitch-twitch 0.4s steps(2) infinite reverse;
+        }
+    }
+
+    .bigMonocle {
+        border: none;
+        outline: none;
+        background: url("/synthwave-big-circle.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .wrap {
+        background-image: url("/synthwave-disk.png");
+        background-color: var(--color1);
+        background-position: center;
+        background-size: cover;
+        background-blend-mode: overlay;
+        border-radius: 50%;
+        .face {
+            border: none;
+            outline: none;
+            backdrop-filter: none;
+            .ring_outer {
+                border: none;
+                outline: none;
+            }
+
+            .plate {
+                background: repeating-conic-gradient(
+                    from -0.5deg,
+                    var(--color6) 0deg 1deg,
+                    transparent 1deg 15deg
+                );
+                border: none;
+                outline: none;
+            }
+        }
+
+        .numeral {
+            color: var(--color5);
+            opacity: 1;
+        }
+    }
+    .hand_minute {
+        background: var(--color5);
+        width: 4px;
+    }
+
+    .jewel {
+        border: 4px solid var(--color5);
+        outline: 4px solid var(--color6);
+    }
+
+    :global(.sc-marker__stick) {
+        height: 4px;
+        background: linear-gradient(
+            to right,
+            transparent,
+            var(--color1) 25%,
+            var(--color2) 65%,
+            var(--color1) 88%,
+            transparent
+        );
+    }
+    .rail {
+        height: 4px;
+    }
+}
