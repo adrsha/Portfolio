@@ -17,14 +17,20 @@ let index = 0;
 const container = document.getElementById("slot-word");
 
 const randomStagger = (): number => {
-    return Math.floor(Math.random() * (MAX_STAGGER - MIN_STAGGER)) + MIN_STAGGER;
+    return (
+        Math.floor(Math.random() * (MAX_STAGGER - MIN_STAGGER)) + MIN_STAGGER
+    );
 };
 
 const randomInterval = (): number => {
     return 3200 + Math.floor(Math.random() * 1800);
 };
 
-const renderLetters = (word: string, animClass: string, duration: number): Promise<void> => {
+const renderLetters = (
+    word: string,
+    animClass: string,
+    duration: number,
+): Promise<void> => {
     if (!container) return Promise.resolve();
 
     const delays: number[] = [];
@@ -33,7 +39,7 @@ const renderLetters = (word: string, animClass: string, duration: number): Promi
     for (let i = 0; i < word.length; i++) {
         delays.push(accumulated);
         accumulated += randomStagger();
-    };
+    }
 
     container.innerHTML = word
         .split("")
@@ -43,7 +49,7 @@ const renderLetters = (word: string, animClass: string, duration: number): Promi
         .join("");
 
     const totalTime = delays[delays.length - 1] + duration;
-    return new Promise(resolve => setTimeout(resolve, totalTime));
+    return new Promise((resolve) => setTimeout(resolve, totalTime));
 };
 
 const init = (): void => {
@@ -51,7 +57,7 @@ const init = (): void => {
 
     container.innerHTML = words[0]
         .split("")
-        .map(char => `<span style="${SPAN_BASE_STYLE}">${char}</span>`)
+        .map((char) => `<span style="${SPAN_BASE_STYLE}">${char}</span>`)
         .join("");
 };
 

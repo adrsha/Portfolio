@@ -1,11 +1,13 @@
 @import "@theme";
 
 .header {
-    display: flex;
+    display:         flex;
     justify-content: flex-end;
+
     position: fixed;
-    width: 100%;
     z-index: 50;
+
+    width: 100%;
 }
 
 .nav {
@@ -13,111 +15,126 @@
     z-index: 1;
 }
 
-.nav div.navLogo {
-    font-family: var(--font-header);
-    font-weight: bold;
-    font-size: 2rem;
-    position: relative;
+.nav .navLogo {
+    font-family:    var(--font-header);
+    font-weight:    bold;
+    font-size:      2rem;
     letter-spacing: 0.2em;
-    padding: 1rem;
+
+    position: relative;
+    padding:  1rem;
 }
 
-.nav div.navLogoHover {
+.nav .navLogoHover {
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
+    top:      0;
+    right:    0;
+    left:     0;
+
     transition: letter-spacing 1s ease, transform 1s ease;
+
     letter-spacing: 0.2em;
+
     width: fit-content;
     padding: 1rem;
 }
 
-.nav div.navLogo:hover div.navLogoHover {
+.nav .navLogo:hover .navLogoHover {
     --spacing: -0.4em;
+
     letter-spacing: var(--spacing);
     transform: translateX(calc(-1rem + var(--spacing)));
 }
 
 .navMenu {
-    border-radius: 50%;
-    position: fixed;
-    padding: 0;
-    margin: 0;
-    aspect-ratio: 1;
-    top: 50%;
-    left: 50%;
+    position:  fixed;
+    top:       50%;
+    left:      50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 0em;
     z-index: 2;
+
+    aspect-ratio:  1;
+    padding:       0;
+    margin:        0;
+    border-radius: 50%;
+
+    display:         flex;
+    justify-content: center;
+    align-items:     center;
+    flex-direction:  column;
+    gap:             0em;
+
     list-style-type: none;
-    overflow: hidden;
+    overflow:        hidden;
 }
 
 .navMenu::after {
     content: "";
-    height: 80%;
-    width: 80%;
-    border-radius: 50%;
     position: fixed;
-    padding: 0;
-    margin: 0;
-    aspect-ratio: 1;
     z-index: -1;
+
+    width:        80%;
+    aspect-ratio: 1;
+
+    padding:       0;
+    margin:        0;
+    border-radius: 50%;
+
     background: var(--color-1);
-    border: 2px solid var(--color2);
-    outline: 4px solid var(--color3);
+
+    border:         2px solid var(--color2);
+    outline:        4px solid var(--color3);
     outline-offset: 1rem;
 }
 .navMenu::before{
     content: "";
-    height: 90%;
-    width: 90%;
-    border-radius: 50%;
     position: fixed;
-    padding: 0;
-    margin: 0;
+    z-index:  -1;
+
+    width:        90%;
     aspect-ratio: 1;
-    z-index: -1;
-    border: 2px solid var(--color2);
-    outline: 4px solid var(--color3);
+
+    padding:       0;
+    margin:        0;
+    border-radius: 50%;
+
     backdrop-filter: blur(10px);
+
+    border:         2px solid var(--color2);
+    outline:        4px solid var(--color3);
     outline-offset: -1rem;
 }
 
 .navMenu a{
-    transition: all 0.5s ease;
     opacity: 0.7;
-    color:  var(--color-1);
-    text-shadow: 0 0 3px var(--color4),
-                 0 0 3px var(--color4),
-                 0 0 3px var(--color4),
-                 0 0 3px var(--color4),
-                 0 0 3px var(--color4);
-    ;
-    font-family: var(--font-header);
-    font-weight: normal;
+
     letter-spacing: -0.1em;
+    color:          var(--color-1);
+    text-shadow:    0 0 3px var(--color4),
+                    0 0 3px var(--color4),
+                    0 0 3px var(--color4),
+                    0 0 3px var(--color4),
+                    0 0 3px var(--color4);
+    font-family:    var(--font-header);
+    font-weight:    normal;
+
     transition: color 1s ease, letter-spacing 1s ease, opacity 1s ease, text-shadow 1s ease, font-size 0.5s ease;
 }
 
 .navMenu a:hover{
-    color: var(--color3);
-    letter-spacing: 0em;
     opacity: 1;
-    text-shadow: 0 0 1px var(--color3),
-                 0 0 1px var(--color3),
-                 0 0 1px var(--color3),
-                 0 0 1px var(--color3),
-                 0 0 1px var(--color3);
+
+    letter-spacing: 0em;
+    color:          var(--color3);
+    text-shadow:    0 0 1px var(--color3),
+                    0 0 1px var(--color3),
+                    0 0 1px var(--color3),
+                    0 0 1px var(--color3),
+                    0 0 1px var(--color3);
 }
 
 .navMenuOpen {
-    width: max(100vh, 100vw);
+    width:     max(100vh, 100vw);
     animation: popOut 1s ease;
 }
 
@@ -127,11 +144,11 @@
 
 
 .navMenuClosed .navMenuLink{
-    opacity: 0;
+    opacity:   0;
     font-size: 5vw;
 }
 
 .navMenuOpen .navMenuLink{
-    opacity: 0.7;
+    opacity:   0.7;
     font-size: clamp(2rem, 10vw, 10rem);
 }

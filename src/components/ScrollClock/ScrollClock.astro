@@ -10,7 +10,7 @@ interface Props {
 
 const {
     degPerViewport = 45,
-    snapScrollDist = 15,
+    snapScrollDist = 7.5,
     fadeBand       = 15,
     activeBand     = 15,
 } = Astro.props;
@@ -44,9 +44,9 @@ const {
         <div class={styles.numeral} style="--i: 12">XII</div>
 
         <div class={styles.hands}>
+            <div class={styles.jewel} />
             <div id="sc-hand-minute" class={`${styles.hand} ${styles.hand_minute}`} />
             <div id="sc-hand-hour"   class={`${styles.hand} ${styles.hand_hour}`}   />
-            <div class={styles.jewel} />
         </div>
     </div>
 

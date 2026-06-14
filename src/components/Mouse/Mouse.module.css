@@ -5,41 +5,44 @@
 }
 
 .mouse {
-    position: fixed;
-    top: -50%;
-    z-index: 100;
+    position:         fixed;
+    top:              -50%;
+    z-index:          100;
+    transform:        translate(-50%, -50%);
+    transform-origin: center center;
+
     mix-blend-mode: difference;
     pointer-events: none;
+    transition:     width 0.25s ease, scale 0.5s ease;
 
-    .mouseCircle {
-        aspect-ratio: 1;
+    width:        var(--mouse-size);
+    aspect-ratio: 1;
+
+    background-color: var(--color5);
+    border-radius: 50%;
+
+    &::after {
+        content: "";
+
+        position:  absolute;
+        top:       50%;
+        left:      50%;
         transform: translate(-50%, -50%);
-        width: var(--mouse-size);
-        background-color: var(--color5);
-        border-radius: 50%;
-        transition:
-            width 0.25s ease,
-            scale 0.5s ease;
-        transform-origin: center center;
 
-        &::after {
-            content: "";
-            position: absolute;
-            width: 2px;
-            aspect-ratio: 1;
-            background-color: var(--color-1);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+        width: 2px;
+        aspect-ratio: 1;
+
+        border-radius: 50%;
+
+        background-color: var(--color-1);
     }
 }
 
-.mouseHover .mouseCircle {
+.mouseClick {
     animation: cursorJiggle 1.5s ease;
 }
 
-@media (hover: none), (pointer: coarse) {
+@media (pointer: coarse) {
     .mouse {
         display: none;
     }

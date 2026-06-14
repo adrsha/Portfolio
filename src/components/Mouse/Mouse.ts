@@ -1,41 +1,47 @@
 import styles from "./Mouse.module.css";
 import { getEl } from "@utils/getData";
 
-const mouse             = getEl<HTMLDivElement>({ className: styles.mouse });
-const root              = document.body;
+const mouse = getEl<HTMLDivElement>({ className: styles.mouse });
+const root  = document.body as HTMLBodyElement;
 
-let mouse_x             = 0;
-let mouse_y             = 0;
-let raf_pending         = false;
-let last_cursor_type    = "";
-let is_held             = false;
-let time_out: ReturnType<typeof setTimeout>;
+let mouseX         = 0;
+let mouseY         = 0;
+let reqAnimFramePending     = false;
+let lastCursorType = "default";
+let isHeld         = false;
+let timeOut: ReturnType<typeof setTimeout>;
 
-function update_position() {
-    mouse.style.left = `${mouse_x}px`;
-    mouse.style.top  = `${mouse_y}px`;
-    raf_pending = false;
+function updatePosition() {
+    mouse.style.left = `${mouseX}px`;
+    mouse.style.top  = `${mouseY}px`;
+    reqAnimFramePending = false;
 }
 
 window.addEventListener("mousemove", (event) => {
-    mouse_x = event.clientX;
-    mouse_y = event.clientY;
+    mouseX = event.clientX;
+    mouseY = event.clientY;
 
-    if (!raf_pending) {
-        raf_pending = true;
-        requestAnimationFrame(update_position);
+    if (!reqAnimFramePending) {
+        reqAnimFramePending = true;
+        requestAnimationFrame(updatePosition);
     }
 
     const el = event.target as HTMLElement | null;
     if (!el) return;
 
-    const cursor_attr = (typeof el.getAttribute == "function") ?  el.getAttribute("data-cursor-type") : "default";
-    const cursor_type = cursor_attr ?? (el.tagName === "A" ? "pointer" : "default");
+    const cursorTypeAttr = (typeof el.getAttribute == "function")
+        ? el.getAttribute("data-cursor-type")
+        : "no cursor type";
 
-    if (cursor_type === last_cursor_type) return;
-    last_cursor_type = cursor_type;
+    if (el.tagName !== "A" && cursorTypeAttr == "no cursor type") return;
 
-    switch (cursor_type) {
+    const cursorType: string = cursorTypeAttr ??
+        (el.tagName.toLocaleLowerCase() === "a" ? "pointer" : "default");
+
+    if (cursorType === lastCursorType) return;
+    lastCursorType = cursorType;
+
+    switch (cursorType) {
         case "pointer":
             root.style.setProperty("--mouse-size", "5rem");
             break;
@@ -45,24 +51,24 @@ window.addEventListener("mousemove", (event) => {
 });
 
 window.addEventListener("mousedown", () => {
-    clearTimeout(time_out);
-    mouse.classList.remove(styles.mouseHover);
+    clearTimeout(timeOut);
+    mouse.classList.remove(styles.mouseClick);
     void mouse.offsetWidth;
-    is_held = true;
+    isHeld = true;
     loop();
 });
 
 window.addEventListener("mouseup", () => {
-    is_held = false;
+    isHeld = false;
 });
 
 function loop() {
-    if (is_held) {
-        mouse.classList.add(styles.mouseHover);
+    if (isHeld) {
+        mouse.classList.add(styles.mouseClick);
         requestAnimationFrame(loop);
     } else {
-        time_out = setTimeout(() => {
-            mouse.classList.remove(styles.mouseHover);
+        timeOut = setTimeout(() => {
+            mouse.classList.remove(styles.mouseClick);
         }, 1500);
     }
 }

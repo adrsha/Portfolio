@@ -1,12 +1,13 @@
 ---
+import styles from "./FullScreenImage.module.css";
+
 interface Props {
-  src:    string;
-  alt:    string;
-  class?: string;
+  src:        string;
+  alt:        string;
+  className?: string;
 }
 
-import styles from "./FullScreenImage.module.css";
-const { src, alt, class: className } = Astro.props;
+const { src, alt, className } = Astro.props;
 ---
 
 <div class:list={[styles.fullscreenImgWrapper, className]}>
