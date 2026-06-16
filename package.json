@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^10.0.7",
-    "astro": "^6.3.7"
+    "astro": "^6.3.7",
+    "astro-seo": "^1.1.0"
   }
 }

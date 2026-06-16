@@ -12,6 +12,6 @@ navLogo.addEventListener("click", () => {
 const navMenuLinks = getEls<HTMLDivElement>({ className: styles.navMenuLink });
 navMenuLinks.forEach(link => {
     link.addEventListener("click", () => {
-        document.body.setAttribute("data-theme", link.getAttribute("data-theme-name") ?? "classic")
+        document.body.dataset.theme = link.dataset.themeName ?? "classic";
     })
 });

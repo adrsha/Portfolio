@@ -1,5 +1,5 @@
 import {
-    curr_scroll_y,
+    currScrollY,
     scrollTo,
 } from "@components/ScrollController/ScrollController";
 import { getEls, getEl } from "@utils/getData";
@@ -14,24 +14,18 @@ if (!root) {
     const FADE_BAND = Number(root.dataset.fadeBand) || 15;
     const ACTIVE_BAND = Number(root.dataset.activeBand) || 15;
 
-    const markers_el = getEl({ id: "sc-markers" })!;
+    const markersEl = getEl<HTMLElement>({ id: "sc-markers" })!;
 
     type Marker = { el: HTMLElement; scroll_y: number };
 
     const markers: Marker[] = getEls<HTMLElement>({
         prop: "[data-marked-section]",
     })
-        .map((section) => ({
-            section,
-            title:
-                section.dataset.clockTitle ||
-                section.querySelector("h1, h2")?.textContent?.trim() ||
-                "",
-            scroll_y: section.getBoundingClientRect().top + window.scrollY,
-        }))
-        .filter((s) => s.title.length > 0)
-        .map(({ title, scroll_y }) => {
+        .map((section, index) => {
+            const title = section.querySelector(".header1")?.textContent?.trim() || "Section " + index;
+            const scrollY = section.getBoundingClientRect().top + currScrollY;
             const el = document.createElement("div");
+
             el.className = "sc-marker";
             el.innerHTML = `
                 <div class="sc-marker__stick"></div>
@@ -41,16 +35,15 @@ if (!root) {
             `;
 
             el.querySelector("a")?.addEventListener("click", () =>
-                scrollTo(scroll_y),
+                scrollTo(scrollY),
             );
-            markers_el.appendChild(el);
+            markersEl.appendChild(el);
 
-            return { el, scroll_y };
+            return { el, scroll_y: scrollY };
         });
 
-    // 1. Extract the update calculation into a standalone function
     const updateClockPositions = () => {
-        const scroll = curr_scroll_y;
+        const scroll = currScrollY;
         const deg_per_px = DEG_PER_VIEWPORT / window.innerHeight;
         const scroll_deg = scroll * deg_per_px;
 

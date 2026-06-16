@@ -2,7 +2,7 @@ import { getEls, getEl } from "@utils/getData";
 import style from "./ScrollController.module.css";
 
 const scroll_container = document.scrollingElement as HTMLElement;
-export let curr_scroll_y = 0;
+export let currScrollY = 0;
 let target_scroll_y = 0;
 let is_scrolling = false;
 
@@ -43,12 +43,12 @@ function cache_element_data(): void {
         element: el,
         direction:
             typeof el.getAttribute == "function"
-                ? el.getAttribute("data-scroll-dir") || ""
+                ? el.dataset.scrollDir || ""
                 : "",
-        speed: parseFloat(el.getAttribute("data-scroll-speed") || "0"),
+        speed: parseFloat(el.dataset.scrollSpeed || "0"),
         center_y:
             el.getBoundingClientRect().top +
-            curr_scroll_y +
+            currScrollY +
             el.offsetHeight / 2,
     }));
 }
@@ -57,7 +57,7 @@ function update_elements(init?: boolean): void {
     element_cache.forEach(({ element, direction, speed, center_y }) => {
         if (!init && speed === 0) return; // ← removed the visibility gate
 
-        const offset = compute_offset(center_y, speed, curr_scroll_y);
+        const offset = compute_offset(center_y, speed, currScrollY);
 
         switch (direction) {
             case "bottom":
@@ -85,17 +85,17 @@ function clamp_scroll(pos: number): number {
 function animate_scroll(): void {
     is_scrolling = true;
 
-    const distance = target_scroll_y - curr_scroll_y;
+    const distance = target_scroll_y - currScrollY;
 
     if (Math.abs(distance) < 0.5) {
-        curr_scroll_y = target_scroll_y;
-        scroll_container.scrollTop = curr_scroll_y;
+        currScrollY = target_scroll_y;
+        scroll_container.scrollTop = currScrollY;
         is_scrolling = false;
         return;
     }
 
-    curr_scroll_y += distance * (LERP * 0.01);
-    scroll_container.scrollTop = curr_scroll_y;
+    currScrollY += distance * (LERP * 0.01);
+    scroll_container.scrollTop = currScrollY;
 
     update_elements();
     update_scroll_bar();
@@ -153,7 +153,7 @@ function init_scroll_bar(): void {
 }
 
 function update_scroll_bar(): void {
-    const scroll_percent = (curr_scroll_y / (max_scroll + SCREEN_H)) * 100;
+    const scroll_percent = (currScrollY / (max_scroll + SCREEN_H)) * 100;
     scroll_bar_thumb.style.top = `${Math.max(0, Math.min(scroll_percent, 100))}%`;
 }
 
@@ -202,7 +202,7 @@ window.addEventListener(
         if (scroll_update_queued) return;
         scroll_update_queued = true;
         requestAnimationFrame(() => {
-            curr_scroll_y = scroll_container.scrollTop;
+            currScrollY = scroll_container.scrollTop;
             update_elements();
             update_scroll_bar();
             scroll_update_queued = false;
