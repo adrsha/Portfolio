@@ -28,15 +28,16 @@ window.addEventListener("mousemove", (event) => {
 
     const el = event.target as HTMLElement | null;
     if (!el) return;
+    const isInsideAnchor = !!el.closest('a');
 
     const cursorTypeAttr = (typeof el.getAttribute == "function")
         ? el.getAttribute("data-cursor-type")
         : "no cursor type";
 
-    if (el.tagName !== "A" && cursorTypeAttr == "no cursor type") return;
+    if ((el.tagName !== "A" || isInsideAnchor) && cursorTypeAttr == "no cursor type") return;
 
     const cursorType: string = cursorTypeAttr ??
-        (el.tagName.toLocaleLowerCase() === "a" ? "pointer" : "default");
+        (el.tagName.toLocaleLowerCase() === "a" || isInsideAnchor ? "pointer" : "default");
 
     if (cursorType === lastCursorType) return;
     lastCursorType = cursorType;
@@ -44,6 +45,9 @@ window.addEventListener("mousemove", (event) => {
     switch (cursorType) {
         case "pointer":
             root.style.setProperty("--mouse-size", "5rem");
+            break;
+        case "hover":
+            root.style.setProperty("--mouse-size", "3rem");
             break;
         default:
             root.style.setProperty("--mouse-size", "1rem");

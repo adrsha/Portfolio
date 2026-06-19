@@ -143,17 +143,24 @@
         background 0.25s ease,
         border-color 0.25s ease;
     z-index: 2;
+
+    svg {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        fill: var(--color5);
+
+        transform-origin: center center;
+        animation: rotateCenter 5s linear infinite;
+
+        text {
+            font-family: var(--font-header);
+            /* letter-spacing: 1ch; */
+            text-transform: uppercase;
+        }
+    }
 }
 
-.nodeCircle svg {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    fill: var(--color2);
-
-    transform-origin: center center;
-    animation: rotateCenter 5s linear infinite;
-}
 
 .nodeWrap:hover .node_circle {
     background: var(--color3);

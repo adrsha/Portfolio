@@ -17,3 +17,9 @@
 .mouseIndicator span {
     animation: verticalSHM 2s ease-in-out infinite;
 }
+
+@media (max-width: 768px) {
+    .mouseIndicator {
+        margin-top: -10vh;
+    }
+}

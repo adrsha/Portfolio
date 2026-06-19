@@ -11,7 +11,7 @@ import { SEO } from "astro-seo";
     <head>
       <SEO
           title="Adarsha Acharya | Portfolio"
-          description="Adarsha Acharya, a software engineer from Kathmandu, Nepal."
+          description="I'm a software engineer from Kathmandu, Nepal."
           openGraph={{
             basic: {
               title: "Adarsha Acharya",
@@ -26,6 +26,23 @@ import { SEO } from "astro-seo";
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} />
+        <style>
+            html,
+            body {
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: var(--background);
+                color: var(--foreground);
+                font-family: var(--font-body);
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
+        </style>
         <title>Adarsha Acharya</title>
     </head>
 
@@ -38,23 +55,3 @@ import { SEO } from "astro-seo";
     </body>
 
 </html>
-
-<style>
-
-html,
-body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: var(--font-body);
-    max-width: 100vw;
-    overflow-x: hidden;
-}
-
-</style>

@@ -15,3 +15,10 @@
     opacity: 0.6;
     /* animation: rotateLinear 10s linear 0s infinite forwards; */
 }
+
+
+@media (max-width: 768px) {
+    .bigMonocle {
+        display: none;
+    }
+}

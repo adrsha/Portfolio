@@ -12,8 +12,9 @@
     top: 50%;
     translate: 0 -50%;
     max-width: 16ch;
+    line-height: 1;
 
-    .slotWrapper {
+    .slotWord {
         display: inline-block;
         vertical-align: baseline;
         perspective: 900px;
@@ -21,25 +22,34 @@
         position: relative;
         transform: translate(0, 25%);
 
-        .slotWord {
-            display: inline-block;
-            transform-style: preserve-3d;
-            font-style: italic;
-            color: var(--color6);
+        display: inline-block;
+        transform-style: preserve-3d;
+        font-style: italic;
+        color: var(--color6);
 
-            .slotExit {
-                animation: slotExit 0.45s cubic-bezier(0.4, 0, 0.8, 0.6)
-                    forwards;
-            }
+        .slotExit {
+            animation: slotExit 0.45s cubic-bezier(0.4, 0, 0.8, 0.6)
+                forwards;
+        }
 
-            .slotEnter {
-                animation: slotEnter 0.7s cubic-bezier(0.15, 0, 0.1, 1) both;
-            }
+        .slotEnter {
+            animation: slotEnter 0.7s cubic-bezier(0.15, 0, 0.1, 1) both;
         }
     }
 
     &::before {
         content: "❝"
+    }
+
+    .heroDesc {
+        font-family: var(--font-header);
+        font-size: clamp(1.5rem, 2vw, 4rem);
+        margin-left: auto;
+        margin-bottom: 2rem;
+        width: fit-content;
+        padding: 0rem 1rem;
+        /* background:  linear-gradient(to right, var(--color3) 20%, color-mix( in srgb, var(--color2) 50%, transparent)); */
+        border-left: 1rem solid var(--color2);
     }
 }
 
@@ -115,5 +125,6 @@
         top: 40%;
         height: 40vh;
         transform: translate(-50%, -50%);
+        opacity: 0.3;
     }
 }

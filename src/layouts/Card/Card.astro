@@ -5,7 +5,7 @@ const {title, link, ...extraAttrs} = Astro.props;
 ---
 
 <div class={styles.card} {...extraAttrs}>
-    {title && <h1>{title}</h1>}
+    {title && <h2>{title}</h2>}
     <span> <slot /> </span>
     {link && <a href={link}> View Project </a>
 </div>

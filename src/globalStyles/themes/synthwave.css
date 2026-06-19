@@ -22,10 +22,7 @@
     --mouse-size: 1rem;
 
     color: var(--color5);
-    text-shadow:
-        0 0 6px var(--color5),
-        0 0 18px color-mix(in srgb, var(--color5) 60%, transparent),
-        0 0 40px color-mix(in srgb, var(--color5) 30%, transparent);
+    text-shadow: 0 0 6px var(--color5);
 
     animation: crt-chroma 6s ease-in-out infinite;
 
@@ -35,33 +32,26 @@
         inset: 0;
         pointer-events: none;
         z-index: 9999;
+        will-change: opacity;
 
-        background: radial-gradient(
-            ellipse at center,
-            transparent 55%,
-            rgba(0, 0, 0, 0.8) 100%
-        );
+        background:
+            radial-gradient(
+                ellipse at center,
+                transparent 55%,
+                rgba(0, 0, 0, 0.8) 100%
+            ),
+            repeating-linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.025) 0px,
+                rgba(255, 255, 255, 0.025) 1px,
+                rgba(0, 0, 0, 0.3) 2px,
+                rgba(0, 0, 0, 0.3) 3px,
+                transparent 4px
+            );
+        background-size:
+            100% 100%,
+            100% 4px;
 
-        animation: crt-phosphor 0.08s steps(1) infinite;
-    }
-
-    &::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: 9998;
-
-        background: repeating-linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.025) 0px,
-            rgba(255, 255, 255, 0.025) 1px,
-            rgba(0, 0, 0, 0.3) 2px,
-            rgba(0, 0, 0, 0.3) 3px,
-            transparent 4px
-        );
-
-        background-size: 100% 4px;
         animation:
             crt-scanlines 8s linear infinite,
             crt-flicker 0.12s steps(1) infinite;
@@ -90,10 +80,21 @@
             .slotWord {
                 position: relative;
                 display: inline-block;
-                animation: rgb-glitch-drift 2.8s infinite steps(2, end);
+                /* FIX: was `infinite`, forcing a continuous text-shadow
+                   repaint for as long as this word is on screen. Now
+                   paused by default and only runs on hover/focus, where
+                   the cost is expected and short-lived. */
+                animation: rgb-glitch-drift 2.8s steps(2, end);
+                animation-play-state: paused;
                 font-weight: bold;
                 transition: none;
                 color: var(--color5);
+
+                &:hover,
+                &:focus-visible {
+                    animation-play-state: running;
+                }
+
                 .slotExit {
                     animation: glitchExit 0.55s steps(1, end) both;
                 }

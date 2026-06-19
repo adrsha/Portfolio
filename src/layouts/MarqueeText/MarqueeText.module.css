@@ -10,3 +10,9 @@
     user-select: none;
     position: absolute;
 }
+
+@media (max-width: 768px) {
+    .marquee {
+        display: none;
+    }
+}
