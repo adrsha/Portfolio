@@ -69,8 +69,8 @@ if (year)              nodes.push({ label: "Year",    items: [String(year)] });
                             </ul>
                         </div>
                         <div class={styles.stem}></div>
-                        <div class={styles.nodeCircle}>
-                            <svg viewBox="0 0 50 50" width="150" height="150" data-cursor-type={"hover"}>
+                        <div class={styles.nodeCircle} data-cursor-type={"hover"}>
+                            <svg viewBox="0 0 50 50" width="150" height="150">
                                 <path id={path_id} d="M 25,25 m -11,0 a 11,11 0 1,1 22,0 a 11,11 0 1,1 -22,0" fill="none" />
                                 <text font-size="6">
                                     <textPath href={`#${path_id}`} startOffset="50%" text-anchor="middle">

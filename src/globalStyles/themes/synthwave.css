@@ -1,14 +1,14 @@
 [data-theme="synthwave"] {
     --color-2: #0a0512;
     --color-1: #120924;
-    --color0:  #1a0e33;
+    --color0: #1a0e33;
 
-    --color1:  #2d1454;
-    --color2:  #5b1f9e;
-    --color3:  #9d00ff;
-    --color4:  #c026d9;
-    --color5:  #ff5fc4;
-    --color6:  #f2ebf3;
+    --color1: #2d1454;
+    --color2: #5b1f9e;
+    --color3: #9d00ff;
+    --color4: #c026d9;
+    --color5: #ff5fc4;
+    --color6: #f2ebf3;
     --foreground: var(--color5);
     --background: url("/synthwave-bg.jpg");
     --font-header: "Splatink", "Times New Roman", serif;
@@ -72,10 +72,9 @@
         }
         .monocle {
             background-image: url("/synthwave-sc1.png");
-            background-origin: left center;
-            /* filter: sepia(50%) hue-rotate(180deg); */
-            opacity: 1;
+            filter: sepia(50%) hue-rotate(-90deg);
             height: 100%;
+            width: 100%;
         }
     }
 
@@ -84,11 +83,7 @@
             .slotWord {
                 position: relative;
                 display: inline-block;
-                /* FIX: was `infinite`, forcing a continuous text-shadow
-                   repaint for as long as this word is on screen. Now
-                   paused by default and only runs on hover/focus, where
-                   the cost is expected and short-lived. */
-                animation: rgb-glitch-drift 2.8s steps(2, end);
+                animation: rgb-glitch-drift 2.8s infinite steps(2, end);
                 animation-play-state: paused;
                 font-weight: bold;
                 transition: none;
@@ -203,20 +198,24 @@
                 border-radius: 50%;
                 background:
                     /* center label */
-                    radial-gradient(circle at center, #111 0%, #111 18%, transparent 18.5%),
+                    radial-gradient(
+                        circle at center,
+                        #111 0%,
+                        #111 18%,
+                        transparent 18.5%
+                    ),
                     /* grooves */
                     repeating-radial-gradient(
-                        circle at center,
-                        var(--color4) 0px,
-                        var(--color4) 1px,
-                        transparent 1px,
-                        transparent 4px
-                    ),
-                    /* base disc color */
-                    #1a1a1a;
+                            circle at center,
+                            var(--color4) 0px,
+                            var(--color4) 1px,
+                            transparent 1px,
+                            transparent 4px
+                        ),
+                    /* base disc color */ #1a1a1a;
                 border: none;
                 outline: none;
-                mask-image: none
+                mask-image: none;
             }
         }
 
@@ -249,12 +248,34 @@
         );
     }
     .rail {
+        background: none;
         height: 4px;
     }
 
     .project {
+        --rail-angle: -10deg;
+        --node-start: 60vw; /* distance from right edge to first node */
+        --node-gap: 10vw; /* spacing between adjacent nodes */
+
+        background-image: url("/brush.png");
+        background-position: left;
+        background-size: contain;
+        background-repeat: no-repeat;
         .description {
             color: var(--color6);
         }
+
+        .rail {
+            top: calc( 20% + var(--rail-bottom));
+        }
+        .nodes {
+            top: calc( 20% + var(--rail-bottom));
+        }
+        svg {
+            text {
+                text-shadow: 0 0 5px #000;
+            }
+        }
     }
+
 }

@@ -149,6 +149,7 @@
         left: 50%;
         top: 50%;
         fill: var(--color5);
+        pointer-events: none;
 
         transform-origin: center center;
         animation: rotateCenter 5s linear infinite;
