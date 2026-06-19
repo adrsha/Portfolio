@@ -328,18 +328,18 @@
     0%,
     100% {
         text-shadow:
-            -1px 0 rgba(255, 0, 80, 0.4),
-            1px 0 rgba(0, 220, 255, 0.4);
+            -2px 0 rgba(255, 0, 80, 0.4),
+            2px 0 rgba(0, 220, 255, 0.4);
     }
     33% {
         text-shadow:
-            -2px 0 rgba(255, 0, 80, 0.5),
-            2px 0 rgba(0, 220, 255, 0.5);
+            -4px 0 rgba(255, 0, 80, 0.5),
+            4px 0 rgba(0, 220, 255, 0.5);
     }
     66% {
         text-shadow:
-            -1px 0 rgba(255, 0, 80, 0.25),
-            1px 0 rgba(0, 220, 255, 0.25);
+            -2px 0 rgba(255, 0, 80, 0.25),
+            2px 0 rgba(0, 220, 255, 0.25);
     }
 }
 @keyframes rgb-glitch-drift {
