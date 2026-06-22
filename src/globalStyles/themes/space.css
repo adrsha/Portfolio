@@ -1,29 +1,26 @@
-[data-theme="synthwave"] {
-    --color-2: #0a0512;
-    --color-1: #120924;
-    --color0: #1a0e33;
+[data-theme="space"] {
+    --color-2: #000008;
+    --color-1: #00010f;
+    --color0: #020318;
 
-    --color1: #2d1454;
-    --color2: #5b1f9e;
-    --color3: #9d00ff;
-    --color4: #c026d9;
-    --color5: #ff5fc4;
-    --color6: #f2ebf3;
+    --color1: #050a2e;
+    --color2: #0d1b6e;
+    --color3: #1a4fcc;
+    --color4: #4dc8ff;
+    --color5: #a8d8ff;
+    --color6: #eef4ff;
     --foreground: var(--color5);
-    --background: url("/synthwave-bg.jpg");
-    --font-header: "Splatink", "Times New Roman", serif;
-    --font-special: "BoordensStreet", "Times New Roman", serif;
+    --background: url("/space-bg.jpg");
+    --font-header: "Trench", "Times New Roman", serif;
+    --font-special: "Sterion", "Times New Roman", serif;
     --font-body: "Quicksand", Verdana, "Segoe UI", "San Francisco", sans-serif;
 
     background-attachment: fixed;
     background-color: var(--color1);
-    background-blend-mode: multiply;
+    background-blend-mode: screen;
     --mouse-size: 1rem;
 
     color: var(--color5);
-    text-shadow: 0 0 6px var(--color5);
-
-    animation: crt-chroma 6s ease-in-out infinite;
 
     &::after {
         content: "";
@@ -36,50 +33,49 @@
         background:
             radial-gradient(
                 ellipse at center,
-                transparent 55%,
-                rgba(0, 0, 0, 0.8) 100%
+                transparent 40%,
+                rgba(0, 0, 20, 0.85) 100%
             ),
-            repeating-linear-gradient(
-                to bottom,
-                rgba(255, 255, 255, 0.025) 0px,
-                rgba(255, 255, 255, 0.025) 1px,
-                rgba(0, 0, 0, 0.3) 2px,
-                rgba(0, 0, 0, 0.3) 3px,
-                transparent 4px
+            /* starfield layer */
+            radial-gradient(
+                1px 1px at 20% 30%,
+                rgba(255, 255, 255, 0.8) 0%,
+                transparent 100%
+            ),
+            radial-gradient(
+                1px 1px at 55% 15%,
+                rgba(180, 220, 255, 0.7) 0%,
+                transparent 100%
+            ),
+            radial-gradient(
+                1px 1px at 75% 60%,
+                rgba(255, 255, 255, 0.6) 0%,
+                transparent 100%
+            ),
+            radial-gradient(
+                1px 1px at 40% 80%,
+                rgba(200, 230, 255, 0.5) 0%,
+                transparent 100%
             );
         background-size:
             100% 100%,
-            100% 4px;
+            300px 300px,
+            250px 250px,
+            400px 400px,
+            350px 350px;
 
         animation:
-            crt-scanlines 8s linear infinite,
-            crt-flicker 0.12s steps(1) infinite;
-        mix-blend-mode: overlay;
-    }
-
-    .marquee {
-        font-size: 20vh;
-        line-height: 22.5vh;
-        color: var(--color3);
-        opacity: 0.2;
-        font-family: var(--font-header);
-        transition: none;
-        white-space: nowrap;
-        user-select: none;
-        position: absolute;
+            starfield-drift 60s linear infinite,
+            nebula-pulse 12s ease-in-out infinite;
+        mix-blend-mode: screen;
     }
 
     .heroDecorCircle {
-        opacity: 0.8;
         border: none;
         outline: none;
-        background: url("/synthwave-hero-splatter.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        left: 0;
-        height: 40vw;
-        width: 40vw;
+        aspect-ratio: 1;
+        height: 80vh;
+        left: 70%;
         .monocleContainer {
             animation: none;
             .monocleDecor {
@@ -88,38 +84,40 @@
             }
         }
         .monocle {
-            background-image: url("/synthwave-sc1.png");
-            height: 40vw;
+            background-image: url("/space-sc1.png");
+            filter: hue-rotate(200deg) saturate(1.4) brightness(0.9);
+            height: 100%;
+            width: 100%;
         }
     }
 
     .heroIntro {
-        right: 0vw;
         .slotWrapper {
             .slotWord {
                 position: relative;
                 display: inline-block;
-                animation: rgb-glitch-drift 2.8s infinite steps(2, end);
+                animation: warp-drift 3.2s infinite steps(2, end);
                 animation-play-state: paused;
                 font-weight: bold;
                 transition: none;
                 color: var(--color5);
+
                 &:hover,
                 &:focus-visible {
                     animation-play-state: running;
                 }
 
                 .slotExit {
-                    animation: glitchExit 0.55s steps(1, end) both;
+                    animation: warpExit 0.55s steps(1, end) both;
                 }
 
                 .slotEnter {
-                    animation: glitchEnter 0.65s steps(1, end) both;
+                    animation: warpEnter 0.65s steps(1, end) both;
                 }
             }
         }
         &::before {
-            content: ">_";
+            content: "✦_";
         }
     }
 
@@ -133,14 +131,14 @@
         border: none;
 
         box-shadow:
-            0 0 10px rgba(0, 240, 255, 0.3),
-            0 0 20px rgba(0, 240, 255, 0.2);
+            0 0 10px rgba(77, 200, 255, 0.35),
+            0 0 24px rgba(26, 79, 204, 0.25);
 
         transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
         &::before,
         &::after {
-            content: "Visit Project ↗";
+            content: "VISIT";
             position: absolute;
             top: 0;
             left: 0;
@@ -156,48 +154,48 @@
 
         &::before {
             text-shadow: -2px 0 var(--color2);
-            clip-path: inset(50% 0 0 0); /* Bottom half */
+            clip-path: inset(50% 0 0 0);
         }
 
         &::after {
             text-shadow: 2px 0 var(--color1);
-            clip-path: inset(0 0 50% 0); /* Top half */
+            clip-path: inset(0 0 50% 0);
         }
 
         &:hover {
-            background: var(--color2);
-            color: var(--color5);
+            background: var(--color4);
+            color: var(--color-2);
             box-shadow:
-                0 0 15px var(--color2),
-                0 0 30px var(--color1),
-                0 0 45px rgba(255, 0, 127, 0.5);
+                0 0 18px var(--color4),
+                0 0 36px var(--color3),
+                0 0 54px rgba(77, 200, 255, 0.4);
         }
 
         &:hover::before {
             opacity: 1;
-            animation: glitch-twitch 0.4s steps(2) infinite;
+            animation: warp-twitch 0.4s steps(2) infinite;
         }
 
         &:hover::after {
             opacity: 1;
-            animation: glitch-twitch 0.4s steps(2) infinite reverse;
+            animation: warp-twitch 0.4s steps(2) infinite reverse;
         }
     }
 
     .bigMonocle {
         border: none;
         outline: none;
-        background: url("/synthwave-big-circle.png");
+        background: url("/space-big-circle.png");
         background-repeat: no-repeat;
         background-size: contain;
     }
 
     .wrap {
-        background-image: url("/synthwave-disk.png");
+        background-image: url("/space-disk.png");
         background-color: var(--color1);
         background-position: center;
         background-size: cover;
-        background-blend-mode: overlay;
+        background-blend-mode: screen;
         border-radius: 50%;
         .face {
             border: none;
@@ -212,22 +210,27 @@
                 aspect-ratio: 1 / 1;
                 border-radius: 50%;
                 background:
-                    /* center label */
+                    /* center void */
                     radial-gradient(
                         circle at center,
-                        #111 0%,
-                        #111 18%,
+                        #000 0%,
+                        #000 18%,
                         transparent 18.5%
                     ),
-                    /* grooves */
+                    /* orbital rings */
                     repeating-radial-gradient(
-                            circle at center,
-                            var(--color4) 0px,
-                            var(--color4) 1px,
-                            transparent 1px,
-                            transparent 4px
-                        ),
-                    /* base disc color */ #1a1a1a;
+                        circle at center,
+                        var(--color3) 0px,
+                        var(--color3) 1px,
+                        transparent 1px,
+                        transparent 6px
+                    ),
+                    /* nebula base */
+                    radial-gradient(
+                        ellipse at 40% 40%,
+                        var(--color2) 0%,
+                        var(--color-1) 80%
+                    );
                 border: none;
                 outline: none;
                 mask-image: none;
@@ -238,8 +241,9 @@
             display: none;
         }
     }
+
     .hand_minute {
-        background: url("/synthwave-hand.png");
+        background: url("/space-hand.png");
         background-size: cover;
         width: 3rem;
         background-position: center 2rem;
@@ -257,11 +261,12 @@
             to right,
             transparent,
             var(--color1) 25%,
-            var(--color2) 65%,
+            var(--color4) 65%,
             var(--color1) 88%,
             transparent
         );
     }
+
     .rail {
         background: none;
         height: 4px;
@@ -269,38 +274,28 @@
 
     .project {
         --rail-angle: -10deg;
-        --node-start: 40vw; /* distance from right edge to first node */
-        --node-gap: 30vw; /* spacing between adjacent nodes */
+        --node-start: 60vw;
+        --node-gap: 10vw;
 
         background-image: url("/brush.png");
-        background-position: left 1rem;
-        background-size: 50%;
+        background-position: left;
+        background-size: contain;
         background-repeat: no-repeat;
-
-        .title {
-            font-size: clamp(2.4rem, 4vw, 3.8rem);
-        }
 
         .description {
             color: var(--color6);
-            font-size: clamp(1.0rem, 1vw, 1.8rem);
         }
 
         .rail {
-            top: calc( 20% + var(--rail-bottom));
+            top: calc(20% + var(--rail-bottom));
         }
         .nodes {
-            top: calc( 20% + var(--rail-bottom));
-            .nodeCircle {
-                border: none;
-            }
+            top: calc(20% + var(--rail-bottom));
         }
         svg {
             text {
-                font-size: 1rem;
-                /* text-shadow: 0 0 5px #000; */
+                text-shadow: 0 0 5px #000;
             }
         }
     }
-
 }

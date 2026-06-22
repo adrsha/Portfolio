@@ -395,7 +395,7 @@
     }
 }
 
-@keyframes glitch-twitch {
+@keyframes glitchTwitch {
     0% {
         clip-path: inset(40% 0 61% 0);
         transform: skew(-3deg) translate(-2px, 0);

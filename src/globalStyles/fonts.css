@@ -25,3 +25,15 @@
     font-family: "BoordensStreet";
     src: url("/fonts/Boordens-street/Boordens Street.otf");
 }
+
+@font-face {
+    font-family: "Sterion";
+    font-weight: normal;
+    src: url("/fonts/Sterion/Sterion.ttf");
+}
+
+@font-face {
+    font-family: "Trench";
+    font-weight: normal;
+    src: url("/fonts/Trench/TrenchThinAlt.otf");
+}

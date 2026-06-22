@@ -4,6 +4,7 @@
 
 @import "@globalStyles/themes/classic.css";
 @import "@globalStyles/themes/synthwave.css";
+@import "@globalStyles/themes/space.css";
 
 *::selection {
     background-color: var(--color2);
