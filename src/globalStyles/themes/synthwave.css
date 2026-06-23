@@ -70,15 +70,14 @@
     }
 
     .heroDecorCircle {
-        opacity: 0.8;
         border: none;
         outline: none;
         background: url("/synthwave-hero-splatter.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        left: 0;
-        height: 40vw;
+        left: -5vw;
+        height: 60vw;
         width: 40vw;
         .monocleContainer {
             animation: none;
@@ -89,7 +88,6 @@
         }
         .monocle {
             background-image: url("/synthwave-sc1.png");
-            height: 40vw;
         }
     }
 
@@ -118,6 +116,10 @@
                 }
             }
         }
+        .heroDesc {
+            border-left: 1rem dotted var(--color2);
+        }
+
         &::before {
             content: ">_";
         }
@@ -193,6 +195,7 @@
     }
 
     .wrap {
+        --snap-scroll-dist: 0.5;
         background-image: url("/synthwave-disk.png");
         background-color: var(--color1);
         background-position: center;
@@ -303,4 +306,29 @@
         }
     }
 
+    .mouseIndicatorImage {
+        width: 2vh;
+        height: auto;
+        margin: 2vh;
+        filter: invert(0.7) sepia(60%) hue-rotate(-120deg);
+    }
+
+    @media (max-width: 768px) {
+        .heroDecorCircle {
+            left: 50%;
+            right: auto;
+            transform: translate(-50%, -50%);
+            height: 60vh;
+            width: 60vh;
+        }
+
+        .heroIntro {
+            left: 50%;
+            right: 0;
+            top: 60vh;
+            translate: -50% -50%;
+            font-size: calc(2rem + 5vw);
+        }
+    }
 }
+

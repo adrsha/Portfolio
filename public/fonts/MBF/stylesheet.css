@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'MBF Space';
+    src: url('MBFSpace.eot');
+    src: local('MBF Space'), local('MBFSpace'),
+        url('MBFSpace.eot?#iefix') format('embedded-opentype'),
+        url('MBFSpace.woff2') format('woff2'),
+        url('MBFSpace.woff') format('woff'),
+        url('MBFSpace.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

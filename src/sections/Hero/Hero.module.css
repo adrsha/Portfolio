@@ -118,13 +118,16 @@
     .heroIntro{
         margin: 0;
         top: 70%;
+        left: 10vw;
     }
 
     .heroDecorCircle {
         border: 1rem solid var(--color3);
-        top: 40%;
-        height: 40vh;
+        top: 50%;
+        right: 0;
+        left: 50%;
         transform: translate(-50%, -50%);
+        height: 40vh;
         opacity: 0.3;
     }
 }

@@ -2,7 +2,6 @@
     --color-2: #000008;
     --color-1: #00010f;
     --color0: #020318;
-
     --color1: #050a2e;
     --color2: #0d1b6e;
     --color3: #1a4fcc;
@@ -10,9 +9,8 @@
     --color5: #a8d8ff;
     --color6: #eef4ff;
     --foreground: var(--color5);
-    --background: url("/space-bg.jpg");
-    --font-header: "Trench", "Times New Roman", serif;
-    --font-special: "Sterion", "Times New Roman", serif;
+    --font-header: "Quicksand", Verdana, "Segoe UI", "San Francisco", sans-serif;
+    --font-special: "MBF", "Times New Roman", serif;
     --font-body: "Quicksand", Verdana, "Segoe UI", "San Francisco", sans-serif;
 
     background-attachment: fixed;
@@ -28,213 +26,254 @@
         inset: 0;
         pointer-events: none;
         z-index: 9999;
-        will-change: opacity;
-
-        background:
-            radial-gradient(
-                ellipse at center,
-                transparent 40%,
-                rgba(0, 0, 20, 0.85) 100%
-            ),
-            /* starfield layer */
-            radial-gradient(
-                1px 1px at 20% 30%,
-                rgba(255, 255, 255, 0.8) 0%,
-                transparent 100%
-            ),
-            radial-gradient(
-                1px 1px at 55% 15%,
-                rgba(180, 220, 255, 0.7) 0%,
-                transparent 100%
-            ),
-            radial-gradient(
-                1px 1px at 75% 60%,
-                rgba(255, 255, 255, 0.6) 0%,
-                transparent 100%
-            ),
-            radial-gradient(
-                1px 1px at 40% 80%,
-                rgba(200, 230, 255, 0.5) 0%,
-                transparent 100%
-            );
-        background-size:
-            100% 100%,
-            300px 300px,
-            250px 250px,
-            400px 400px,
-            350px 350px;
-
-        animation:
-            starfield-drift 60s linear infinite,
-            nebula-pulse 12s ease-in-out infinite;
-        mix-blend-mode: screen;
+        background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 20, 0.85) 100%);
+        animation: nebula-pulse 12s ease-in-out infinite;
+        mix-blend-mode: multiply;
     }
 
-    .heroDecorCircle {
-        border: none;
-        outline: none;
-        aspect-ratio: 1;
-        height: 80vh;
-        left: 70%;
-        .monocleContainer {
-            animation: none;
-            .monocleDecor {
-                border: none;
-                outline: none;
-            }
-        }
-        .monocle {
-            background-image: url("/space-sc1.png");
-            filter: hue-rotate(200deg) saturate(1.4) brightness(0.9);
-            height: 100%;
-            width: 100%;
-        }
+    &::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9998;
+        mix-blend-mode: screen;
+        background:
+            radial-gradient(2px 2px   at 18% 22%, white                       0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 74% 17%, rgba(200,225,255,0.95)   0%, transparent 100%),
+            radial-gradient(1px 1px   at 52% 64%, white                       0%, transparent 100%),
+            radial-gradient(2px 2px   at 87% 41%, white                       0%, transparent 100%),
+            radial-gradient(1px 1px   at 33% 78%, rgba(180,215,255,0.90)      0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 62% 88%, white                     0%, transparent 100%),
+            radial-gradient(1px 1px   at  9% 55%, rgba(220,235,255,0.75)      0%, transparent 100%),
+            radial-gradient(1px 1px   at 44%  8%, white                       0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 91% 72%, rgba(200,225,255,0.85)   0%, transparent 100%),
+            radial-gradient(1px 1px   at 27% 38%, rgba(180,215,255,0.70)      0%, transparent 100%),
+            radial-gradient(1px 1px   at 68% 50%, white                       0%, transparent 100%),
+            radial-gradient(2px 2px   at 79%  6%, rgba(220,235,255,0.90)      0%, transparent 100%),
+            radial-gradient(1px 1px   at  5% 82%, white                       0%, transparent 100%),
+            radial-gradient(1px 1px   at 57% 30%, rgba(200,225,255,0.80)      0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 38% 92%, rgba(180,215,255,0.85)   0%, transparent 100%),
+            radial-gradient(1px 1px   at 95% 19%, white                       0%, transparent 100%),
+            radial-gradient(1px 1px   at 13% 67%, rgba(220,235,255,0.70)      0%, transparent 100%),
+            radial-gradient(1px 1px   at 82% 85%, white                       0%, transparent 100%);
+        background-size: 100% 100%;
+        animation: star-glint 7s ease-in-out infinite;
+    }
+
+    /* ── Typography ───────────────────────────────────────────────── */
+
+    h1, h2 {
+        letter-spacing: 0.12em;
+        text-shadow: 0 0 30px color-mix(in srgb, var(--color3) 35%, transparent);
     }
 
     .heroIntro {
-        .slotWrapper {
-            .slotWord {
-                position: relative;
-                display: inline-block;
-                animation: warp-drift 3.2s infinite steps(2, end);
-                animation-play-state: paused;
-                font-weight: bold;
-                transition: none;
-                color: var(--color5);
+        &::before {
+            content: "";
+        }
 
-                &:hover,
-                &:focus-visible {
-                    animation-play-state: running;
-                }
+        .heroDesc {
+            font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+            letter-spacing: 0.35em;
+            line-height: 1.4;
+            text-transform: uppercase;
+            color: color-mix(in srgb, var(--color4) 70%, transparent);
+            border-left: none;
+            box-shadow: none;
+            font-family: var(--font-body);
 
-                .slotExit {
-                    animation: warpExit 0.55s steps(1, end) both;
-                }
-
-                .slotEnter {
-                    animation: warpEnter 0.65s steps(1, end) both;
-                }
+            &::before {
+                content: "SOL-III  ·  28°N 84°E  ·  ";
+                color: color-mix(in srgb, var(--color3) 55%, transparent);
             }
         }
-        &::before {
-            content: "✦_";
+
+        .slotWord {
+            text-shadow: 0 0 20px var(--color4);
         }
     }
 
-    .visitBtn {
-        position: relative;
-        display: inline-block;
+    /* ── Hero planet ──────────────────────────────────────────────── */
 
-        color: var(--color-2);
-        background: var(--color3);
-        padding: 0.55rem 1.4rem;
-        border: none;
+    .heroDecorCircle {
+        border: 1px solid color-mix(in srgb, var(--color4) 30%, transparent);
+        outline: none;
+        opacity: 1;
+
+        background: radial-gradient(
+            circle at 36% 32%,
+            color-mix(in srgb, var(--color3) 35%, var(--color1)) 0%,
+            var(--color1) 50%,
+            var(--color-1) 100%
+        );
 
         box-shadow:
-            0 0 10px rgba(77, 200, 255, 0.35),
-            0 0 24px rgba(26, 79, 204, 0.25);
+            0 0 50px 8px  color-mix(in srgb, var(--color3) 16%, transparent),
+            0 0 100px 24px color-mix(in srgb, var(--color2) 10%, transparent),
+            inset -28px -20px 70px rgba(0, 0, 20, 0.88),
+            inset 0 0 35px color-mix(in srgb, var(--color2) 14%, transparent);
 
-        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        .monocleContainer {
+            width: 150%;
+            left: -25%;
+            top: -25%;
+            animation: rotateLinear 70s linear infinite;
+        }
 
-        &::before,
-        &::after {
-            content: "VISIT";
-            position: absolute;
-            top: 0;
+        .monocleDecor {
+            border-radius: 50%;
+            outline: none;
+            width: 100%;
+            height: 16%;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--color3);
-            color: var(--color-2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
+            bottom: auto;
+            right: auto;
         }
 
-        &::before {
-            text-shadow: -2px 0 var(--color2);
-            clip-path: inset(50% 0 0 0);
+        .monocleDecor:first-child {
+            border: 1px solid color-mix(in srgb, var(--color4) 55%, transparent);
+            box-shadow: 0 0 8px color-mix(in srgb, var(--color4) 18%, transparent);
+            top: 42%;
         }
 
-        &::after {
-            text-shadow: 2px 0 var(--color1);
-            clip-path: inset(0 0 50% 0);
+        .monocleDecor:last-child {
+            border: 1px solid color-mix(in srgb, var(--color3) 32%, transparent);
+            width: 68%;
+            left: 16%;
+            height: 10%;
+            top: 45%;
         }
 
-        &:hover {
-            background: var(--color4);
-            color: var(--color-2);
-            box-shadow:
-                0 0 18px var(--color4),
-                0 0 36px var(--color3),
-                0 0 54px rgba(77, 200, 255, 0.4);
-        }
-
-        &:hover::before {
-            opacity: 1;
-            animation: warp-twitch 0.4s steps(2) infinite;
-        }
-
-        &:hover::after {
-            opacity: 1;
-            animation: warp-twitch 0.4s steps(2) infinite reverse;
+        .monocle {
+            background-image: none;
+            background: transparent;
         }
     }
 
+    /* ── Background decorative planets (bigMonocle) ───────────────── */
+
     .bigMonocle {
-        border: none;
+        border: 1px solid color-mix(in srgb, var(--color3) 12%, transparent);
         outline: none;
-        background: url("/space-big-circle.png");
-        background-repeat: no-repeat;
-        background-size: contain;
+        opacity: 0.45;
+
+        /* Deep cold gas giant */
+        background: radial-gradient(
+            circle at 38% 35%,
+            color-mix(in srgb, var(--color2) 80%, var(--color1)) 0%,
+            color-mix(in srgb, var(--color1) 90%, transparent) 55%,
+            var(--color-1) 100%
+        );
+
+        box-shadow:
+            0 0 120px 40px color-mix(in srgb, var(--color2) 7%, transparent),
+            inset -60px -40px 140px rgba(0, 0, 20, 0.95),
+            inset 0 0 80px color-mix(in srgb, var(--color2) 9%, transparent);
+
+        /*
+         * Orbital ring: absolute so it stays glued to the planet.
+         * Squashed height = elliptical perspective.
+         */
+        &::before {
+            content: "";
+            position: absolute;
+            width: 130%;
+            height: 12%;
+            border-radius: 50%;
+            top: 46%;
+            left: -15%;
+            border: 1px solid color-mix(in srgb, var(--color3) 20%, transparent);
+            box-shadow: 0 0 14px color-mix(in srgb, var(--color3) 8%, transparent);
+            pointer-events: none;
+        }
+
+        /*
+         * Second planet: smaller, fixed to viewport so it doesn't
+         * scroll with the bigMonocle parallax element.
+         */
+        &::after {
+            content: "";
+            position: fixed;
+            width: clamp(3rem, 5vw, 6rem);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            top: 14%;
+            left: 22%;
+            pointer-events: none;
+
+            background: radial-gradient(
+                circle at 42% 36%,
+                color-mix(in srgb, var(--color4) 28%, var(--color1)) 0%,
+                var(--color-1) 100%
+            );
+
+            box-shadow:
+                0 0 18px 4px color-mix(in srgb, var(--color3) 10%, transparent),
+                inset -6px -5px 20px rgba(0, 0, 20, 0.88);
+        }
     }
 
     .wrap {
-        background-image: url("/space-disk.png");
-        background-color: var(--color1);
-        background-position: center;
-        background-size: cover;
-        background-blend-mode: screen;
-        border-radius: 50%;
+        --clk-size: clamp(20rem, 24vw, 22rem);
+        --clk-r: clamp(10rem, 12vw, 11rem);
+        --snap-scroll-dist: 0.01;
+        --clk-reach: calc(var(--clk-r) + 60px);
+
         .face {
-            border: none;
-            outline: none;
-            backdrop-filter: none;
-            .ring_outer {
-                border: none;
-                outline: none;
+            border: 1px solid color-mix(in srgb, var(--color3) 45%, transparent);
+            backdrop-filter: blur(5px);
+            background: conic-gradient(
+                from -90deg at center,
+                color-mix(in srgb, var(--color4) 14%, transparent) 0deg,
+                transparent 60deg,
+                transparent 360deg
+            );
+            .plate {
+                background:
+                    radial-gradient(circle at center, transparent 26%, color-mix(in srgb, var(--color4) 22%, transparent) 26.5%, transparent 27%),
+                    radial-gradient(circle at center, transparent 50%, color-mix(in srgb, var(--color4) 16%, transparent) 50.5%, transparent 51%),
+                    radial-gradient(circle at center, transparent 73%, color-mix(in srgb, var(--color4) 10%, transparent) 73.5%, transparent 74%),
+                    repeating-conic-gradient(
+                        from -0.5deg,
+                        color-mix(in srgb, var(--color4) 38%, transparent) 0deg 1deg,
+                        transparent 1deg 30deg
+                    );
+
+                -webkit-mask-image: radial-gradient(circle at center, transparent 22%, black 27%);
+                mask-image: radial-gradient(circle at center, transparent 22%, black 27%);
+                opacity: 0.75;
             }
 
-            .plate {
-                aspect-ratio: 1 / 1;
-                border-radius: 50%;
-                background:
-                    /* center void */
-                    radial-gradient(
-                        circle at center,
-                        #000 0%,
-                        #000 18%,
-                        transparent 18.5%
-                    ),
-                    /* orbital rings */
-                    repeating-radial-gradient(
-                        circle at center,
-                        var(--color3) 0px,
-                        var(--color3) 1px,
-                        transparent 1px,
-                        transparent 6px
-                    ),
-                    /* nebula base */
-                    radial-gradient(
-                        ellipse at 40% 40%,
-                        var(--color2) 0%,
-                        var(--color-1) 80%
-                    );
-                border: none;
-                outline: none;
-                mask-image: none;
+            .ring_outer {
+                border: 1px solid color-mix(in srgb, var(--color3) 50%, transparent);
+                outline: 1px solid color-mix(in srgb, var(--color2) 30%, transparent);
+                outline-offset: 10px;
+                box-shadow:
+                    0 0 24px color-mix(in srgb, var(--color3) 15%, transparent),
+                    inset 0 0 16px color-mix(in srgb, var(--color2) 10%, transparent);
             }
+        }
+
+        .jewel {
+            border: 1px solid var(--color3);
+            outline: 1px solid color-mix(in srgb, var(--color3) 28%, transparent);
+            outline-offset: 5px;
+            background: color-mix(in srgb, var(--color3) 12%, var(--color-1));
+            animation: pulsar-jewel 3.5s ease-in-out infinite;
+        }
+
+        /* Radar sweep arm */
+        .hand_minute {
+            width: 1px;
+            height: 50%;
+            background: linear-gradient(
+                to bottom,
+                color-mix(in srgb, var(--color4) 92%, transparent) 0%,
+                color-mix(in srgb, var(--color4) 45%, transparent) 55%,
+                transparent 100%
+            ) center / 100% 100% no-repeat;
+            box-shadow: 0 0 4px var(--color4);
         }
 
         .numeral {
@@ -242,60 +281,142 @@
         }
     }
 
-    .hand_minute {
-        background: url("/space-hand.png");
-        background-size: cover;
-        width: 3rem;
-        background-position: center 2rem;
-        background-repeat: no-repeat;
-    }
-
-    .jewel {
-        border: none;
-        outline: none;
+    .markers {
+        z-index: 2;
     }
 
     :global(.sc-marker__stick) {
-        height: 4px;
-        background: linear-gradient(
-            to right,
-            transparent,
-            var(--color1) 25%,
-            var(--color4) 65%,
-            var(--color1) 88%,
-            transparent
-        );
+        width: 0;
     }
 
-    .rail {
-        background: none;
-        height: 4px;
+    :global(.sc-marker__btn) {
+        width: 10px;
+        left: calc(var(--clk-r, 192px) / 1.5);
+        height: 10px;
+        border: none;
+        background: radial-gradient(var(--color2), transparent);
+        outline: 1px solid color-mix(in srgb, var(--color3) 40%, transparent);
+        outline-offset: 0;
+        transition: outline-offset 0.2s ease;
     }
+
+    :global(.sc-marker__btn::before) {
+        background: none;
+    }
+
+    :global(.sc-marker__btn:hover) {
+        box-shadow: 0 0 6px color-mix(in srgb, var(--color3) 40%, transparent);
+    }
+
+    :global(.sc-marker--active .sc-marker__btn) {
+        box-shadow: inset 0 0 10px var(--color3), 0 0 10px var(--color3);
+        outline-offset: 0.5rem;
+    }
+
+    /* ── Project nodes ────────────────────────────────────────────── */
 
     .project {
-        --rail-angle: -10deg;
-        --node-start: 60vw;
-        --node-gap: 10vw;
+        .rail {
+            height: 1px;
+            background-image: linear-gradient(
+                to right,
+                transparent,
+                color-mix(in srgb, var(--color3) 28%, transparent) 12%,
+                color-mix(in srgb, var(--color4) 80%, transparent) 55%,
+                color-mix(in srgb, var(--color3) 40%, transparent) 85%,
+                transparent
+            );
+            box-shadow: 0 0 5px color-mix(in srgb, var(--color4) 22%, transparent);
+        }
 
-        background-image: url("/brush.png");
-        background-position: left;
-        background-size: contain;
-        background-repeat: no-repeat;
+        /* Targeting crosshair on each node */
+        .nodeCircle {
+            border-color: color-mix(in srgb, var(--color4) 65%, transparent);
+            outline-color: color-mix(in srgb, var(--color4) 18%, transparent);
+            outline-offset: 5px;
+            background: var(--color-1);
+            animation: waypoint-pulse 4s ease-in-out infinite;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: -8px;
+                right: -8px;
+                top: 50%;
+                height: 1px;
+                transform: translateY(-50%);
+                pointer-events: none;
+                background: linear-gradient(
+                    to right,
+                    color-mix(in srgb, var(--color3) 65%, transparent),
+                    transparent 32%,
+                    transparent 68%,
+                    color-mix(in srgb, var(--color3) 65%, transparent)
+                );
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: -8px;
+                bottom: -8px;
+                left: 50%;
+                width: 1px;
+                transform: translateX(-50%);
+                pointer-events: none;
+                background: linear-gradient(
+                    to bottom,
+                    color-mix(in srgb, var(--color3) 65%, transparent),
+                    transparent 32%,
+                    transparent 68%,
+                    color-mix(in srgb, var(--color3) 65%, transparent)
+                );
+            }
+        }
+
+        .stem {
+            background: linear-gradient(
+                to top,
+                color-mix(in srgb, var(--color3) 38%, transparent),
+                color-mix(in srgb, var(--color4) 72%, transparent) 60%,
+                transparent
+            );
+        }
+
+        .nodeCard {
+            border-color: color-mix(in srgb, var(--color3) 40%, transparent);
+            background: color-mix(in srgb, var(--color-1) 92%, transparent);
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                z-index: 1;
+                background: repeating-linear-gradient(
+                    to bottom,
+                    transparent 0px,
+                    transparent 3px,
+                    color-mix(in srgb, var(--color2) 5%, transparent) 3px,
+                    color-mix(in srgb, var(--color2) 5%, transparent) 4px
+                );
+            }
+        }
 
         .description {
             color: var(--color6);
         }
 
-        .rail {
-            top: calc(20% + var(--rail-bottom));
+        .visitBtn {
+            letter-spacing: 0.15em;
         }
-        .nodes {
-            top: calc(20% + var(--rail-bottom));
-        }
-        svg {
-            text {
-                text-shadow: 0 0 5px #000;
-            }
+
+        .title {
+            letter-spacing: 0em;
+            font-weight: bolder;
+            font-family: var(--font-special);
+            color: var(--color6);
+            text-shadow: 0 0 5px var(--color3);
         }
     }
 }

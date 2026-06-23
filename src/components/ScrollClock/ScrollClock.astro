@@ -8,23 +8,23 @@ interface Props {
     activeBand?:     number;
 }
 
-const {
-    degPerViewport = 45,
-    snapScrollDist = 7.5,
-    fadeBand       = 15,
-    activeBand     = 15,
-} = Astro.props;
+const { degPerViewport, snapScrollDist, fadeBand, activeBand } = Astro.props;
+
+const overrides = [
+    degPerViewport != null && `--deg-per-viewport: ${degPerViewport}`,
+    snapScrollDist != null && `--snap-scroll-dist: ${snapScrollDist}`,
+    fadeBand       != null && `--fade-band: ${fadeBand}`,
+    activeBand     != null && `--active-band: ${activeBand}`,
+].filter(Boolean).join('; ');
+
 ---
 
 <div
     id="scroll-clock"
     class={styles.wrap}
+    style={overrides || undefined}
     aria-hidden="true"
     role="presentation"
-    data-deg-per-viewport={degPerViewport}
-    data-snap-scroll-dist={snapScrollDist}
-    data-fade-band={fadeBand}
-    data-active-band={activeBand}
 >
     <div id="sc-face" class={styles.face}>
         <div class={styles.plate} />

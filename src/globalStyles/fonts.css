@@ -37,3 +37,14 @@
     font-weight: normal;
     src: url("/fonts/Trench/TrenchThinAlt.otf");
 }
+
+@font-face {
+    font-family: "MBF";
+    src: url("/fonts/MBF/MBFSpace.woff");
+}
+
+@font-face {
+    font-family: "SpaceVoid";
+    font-weight: normal;
+    src: url("/fonts/SpaceVoid/spacevoid-regular.otf");
+}

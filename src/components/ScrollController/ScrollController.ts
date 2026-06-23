@@ -1,6 +1,7 @@
 import { getEls, getEl } from "@utils/getData";
 import style from "./ScrollController.module.css";
 
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
 const scroll_container = document.scrollingElement as HTMLElement;
 export let currScrollY = 0;
 let target_scroll_y = 0;
@@ -182,7 +183,9 @@ function setup_intersection_observer(): void {
 function on_resize(): void {
     total_h = scroll_container.scrollHeight;
     max_scroll = total_h - SCREEN_H;
-    cache_element_data();
+    if (!isMobile){
+        cache_element_data();
+    }
     update_elements();
 }
 
@@ -190,9 +193,13 @@ function on_resize(): void {
 
 window.addEventListener("load", () => {
     scrollTo(0);
-    cache_element_data();
+    if (!isMobile){
+        cache_element_data();
+    }
     setup_intersection_observer();
-    update_elements(true);
+    if (!isMobile) {
+        update_elements(true);
+    }
     init_scroll_bar();
 });
 
@@ -203,7 +210,9 @@ window.addEventListener(
         scroll_update_queued = true;
         requestAnimationFrame(() => {
             currScrollY = scroll_container.scrollTop;
-            update_elements();
+            if (!isMobile) {
+                update_elements();
+            }
             update_scroll_bar();
             scroll_update_queued = false;
         });
@@ -211,14 +220,16 @@ window.addEventListener(
     { passive: true },
 );
 
-window.addEventListener(
-    "wheel",
-    (event) => {
-        event.preventDefault();
-        target_scroll_y = clamp_scroll(target_scroll_y + event.deltaY);
-        if (!is_scrolling) animate_scroll();
-    },
-    { passive: false },
-);
+if (!isMobile) {
+    window.addEventListener(
+        "wheel",
+        (event) => {
+            event.preventDefault();
+            target_scroll_y = clamp_scroll(target_scroll_y + event.deltaY);
+            if (!is_scrolling) animate_scroll();
+        },
+        { passive: false },
+    );
 
+}
 window.addEventListener("resize", on_resize);
